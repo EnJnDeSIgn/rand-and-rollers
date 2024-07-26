@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:890, 0:2) :: groups
+	character(len=32), dimension(0:900, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -168,7 +168,9 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group855, group856, group857, group858, group859, group860, group861, group862, group863, &
 									   &group864, group865, group866, group867, group868, group869, group870, group871, group872, &
 									   &group873, group874, group875, group876, group877, group878, group879, group880, group881, &
-									   &group882, group883, group884, group885, group886, group887, group888, group889, group890
+									   &group882, group883, group884, group885, group886, group887, group888, group889, group890, &
+									   &group891, group892, group893, group894, group895, group896, group897, group898, group899, &
+									   &group900
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -1982,6 +1984,26 @@ program Dt1_roller_EnJnDeSIgn2024
   group889 = (/ "    47.3063735961914062500000000", "    -0.1969414353370666503906250", "   -76.2583999633789062500000000" /)
   !!! Initialize group890
   group890 = (/ "    45.4954261779785156250000000", "   -42.6118316650390625000000000", "   -86.7791748046875000000000000" /)
+  !!! Initialize group891
+  group891 = (/ "   -77.3913879394531250000000000", "    33.2841529846191406250000000", "   -19.3024787902832031250000000" /)
+  !!! Initialize group892
+  group892 = (/ "   -37.9204483032226562500000000", "    43.7957725524902343750000000", "   -72.5664978027343750000000000" /)
+  !!! Initialize group893
+  group893 = (/ "     6.1385889053344726562500000", "    53.4768676757812500000000000", "   -21.5028419494628906250000000" /)
+  !!! Initialize group894
+  group894 = (/ "   -63.2167739868164062500000000", "   -10.7492837905883789062500000", "  -110.1342163085937500000000000" /)
+  !!! Initialize group895
+  group895 = (/ "    30.6377372741699218750000000", "  -205.1422729492187500000000000", "   376.1277465820312500000000000" /)
+  !!! Initialize group896
+  group896 = (/ "    13.7214813232421875000000000", "   -27.0114421844482421875000000", "     0.6983668208122253417968750" /)
+  !!! Initialize group897
+  group897 = (/ "     3.6796364784240722656250000", "  -108.8512954711914062500000000", "    -2.7286145687103271484375000" /)
+  !!! Initialize group898
+  group898 = (/ "    99.5261688232421875000000000", "    -1.1898702383041381835937500", "   185.6011810302734375000000000" /)
+  !!! Initialize group899
+  group899 = (/ "    83.4015884399414062500000000", "     5.8261561393737792968750000", "   107.1491241455078125000000000" /)
+  !!! Initialize group900
+  group900 = (/ "   -23.0774021148681640625000000", "    79.3131179809570312500000000", "   -13.4312801361083984375000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -2875,13 +2897,23 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(888, :) = group888
 	groups(889, :) = group889
 	groups(890, :) = group890
+	groups(891, :) = group891
+	groups(892, :) = group892
+	groups(893, :) = group893
+	groups(894, :) = group894
+	groups(895, :) = group895
+	groups(896, :) = group896
+	groups(897, :) = group897
+	groups(898, :) = group898
+	groups(899, :) = group899
+	groups(900, :) = group900
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *891) ! Warrning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *901) ! Warrning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
