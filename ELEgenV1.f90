@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:496, 0:5) :: groups
+    character(len=180), dimension(0:499, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -60,7 +60,7 @@ program story_element_generator_EnJnDeSIgn2024
 										group468, group469, group470, group471, group472, group473, group474, group475, group476, &
 										group477, group478, group479, group480, group481, group482, group483, group484, group485, &
 										group486, group487, group488, group489, group490, group491, group492, group493, group494, &
-										group495, group496
+										group495, group496, group497, group498, group499
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -1563,13 +1563,22 @@ program story_element_generator_EnJnDeSIgn2024
 				"electricity                   ", "awakened shrub                ", "the painting looked different " /)
 	! Initialize group496
   group496 = (/ "Thoth:scratch/reed pen-papyrus", "ghost at the movie theater    ", "strip                         ", &
-				"pencil                        ", "person learns that in fact,   ", "vector                        "/)
+				"pencil                        ", "person learns that in fact,   ", "vector                        " /)
+	! Initialize group497
+  group497 = (/ "scalar                        ", "proceed                       ", "scientific basis for the      ", &
+				"the doll's eyes aren't        ", "faerie dragon                 ", "striking clock                " /)
+	! Initialize group498
+  group498 = (/ "videogame,things have been off", "invisible stalker             ", "tensor                        ", &
+				"in her hotel room             ", "couple                        ", "art consultant                " /)
+	! Initialize group499
+  group499 = (/ "park                          ", "Hathor: jingle/footfalls/dance", "grisly events happen after the", &
+				"compliance officer            ", "through the walls             ", "angle                         "/)
 	! ... (Initialize all groups similarly)
 
 do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 497)
+    selected_group = int(rand * 500)
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
@@ -2073,6 +2082,9 @@ do while (.true.)
 	groups(494, :) = group494
 	groups(495, :) = group495
 	groups(496, :) = group496
+	groups(497, :) = group497
+	groups(498, :) = group498
+	groups(499, :) = group499
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
