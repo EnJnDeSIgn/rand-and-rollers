@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:944, 0:2) :: groups
+	character(len=32), dimension(0:953, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -174,7 +174,8 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group909, group910, group911, group912, group913, group914, group915, group916, group917, &
 									   &group918, group919, group920, group921, group922, group923, group924, group925, group926, &
 									   &group927, group928, group929, group930, group931, group932, group933, group934, group935, &
-									   &group936, group937, group938, group939, group940, group941, group942, group943, group944
+									   &group936, group937, group938, group939, group940, group941, group942, group943, group944, &
+									   &group945, group946, group947, group948, group949, group950, group951, group952, group953
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -2096,6 +2097,24 @@ program Dt1_roller_EnJnDeSIgn2024
   group943 = (/ "    52.5795822143554687500000000", "   -34.4497642517089843750000000", "    -7.7917571067810058593750000" /)
   !!! Initialize group944
   group944 = (/ "    42.7278900146484375000000000", "    13.9860553741455078125000000", "    86.1195907592773437500000000" /)
+  !!! Initialize group945
+  group945 = (/ "   -79.6959762573242187500000000", "    44.8263435363769531250000000", "    85.5736083984375000000000000" /)
+  !!! Initialize group946
+  group946 = (/ "   -13.6000900268554687500000000", "    13.9575567245483398437500000", "     0.8790987730026245117187500" /)
+  !!! Initialize group947
+  group947 = (/ "    26.5728588104248046875000000", "    62.8686294555664062500000000", "    23.9527378082275390625000000" /)
+  !!! Initialize group948
+  group948 = (/ "   -15.6309595108032226562500000", "   -73.4284515380859375000000000", "    33.9261589050292968750000000" /)
+  !!! Initialize group949
+  group949 = (/ "   -18.2353954315185546875000000", "   -13.1646966934204101562500000", "    14.3827772140502929687500000" /)
+  !!! Initialize group950
+  group950 = (/ "   -55.5954437255859375000000000", "    64.9773559570312500000000000", "   -36.1656036376953125000000000" /)
+  !!! Initialize group951
+  group951 = (/ "    67.0940780639648437500000000", "    16.9731788635253906250000000", "   -37.1994514465332031250000000" /)
+  !!! Initialize group952
+  group952 = (/ "    19.9977245330810546875000000", "   -34.3443069458007812500000000", "   -23.9402084350585937500000000" /)
+  !!! Initialize group953
+  group953 = (/ "    55.3697891235351562500000000", "    66.5263748168945312500000000", "   132.4614562988281250000000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -3043,13 +3062,22 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(942, :) = group942
 	groups(943, :) = group943
 	groups(944, :) = group944
+	groups(945, :) = group945
+	groups(946, :) = group946
+	groups(947, :) = group947
+	groups(948, :) = group948
+	groups(949, :) = group949
+	groups(950, :) = group950
+	groups(951, :) = group951
+	groups(952, :) = group952
+	groups(953, :) = group953
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *945) ! Warrning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *954) ! Warrning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
