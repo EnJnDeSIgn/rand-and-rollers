@@ -3,15 +3,64 @@ program maze_game_EnJnDeSIgn2024
 
     ! Declare variables
     integer :: maze(5, 5)
-    integer :: x, y, next_choice
+    integer :: x, y, next_choice, i, j
+	real :: rand_val
+	integer, allocatable :: open_list(:,:)
+	integer, dimension(:), allocatable :: seed	! Hey copilot should I put the 5's in the dimensions
+	integer :: seed_size
+	
+	
+	allocate(open_list(5, 5))
+	
+	! Get the size of the seed array
+	call random_seed(size=seed_size)
+	allocate(seed(seed_size))
+	
+	! Initialize random number generator with a seed based on the current time
+	call random_seed(get=seed)
+	call random_seed(put=seed)
+	
+	! Initialize the maze with walls (1)
+	maze = 1
 
-    ! Initialize the maze (you can customize this part)
+    ! Initialize the maze with walls (1) and open spaces (0)
     maze = reshape([1, 1, 1, 1, 1, &
                     1, 0, 0, 0, 1, &
                     1, 1, 1, 0, 1, &
                     1, 0, 1, 0, 1, &
                     1, 1, 1, 2, 1], [5, 5])
+					
+	! Randomly choose starting point and mark it as part of the maze
+	call random_number(rand_val)
+	x = 1 + int(rand_val * 5)
+	call random_number(rand_val)
+	y = 1 + int(rand_val * 5)
+	maze(x, y) = 0
 
+	! Carve a guaranteed path from (1,1) to (5,5)
+	do i = 1, 5
+		maze(i, 1) = 0
+	end do
+	do j = 1, 5
+		maze(5, j) = 0
+	end do
+	! Ensure there is an exit
+	maze(5, 5) = 2
+	! Generate the maze using a random algorithm
+	do i = 1, 5
+		do j = 1, 5
+			if (maze(i, j) /= 2 .and. (i /= 5 .or. j /= 1) .and. (i /= 1 .or. j /= 5)) then
+				call random_number(rand_val)
+				if (rand_val > 0.3) then
+				maze(i, j) = 1	! Add a wall
+				else
+				maze(i, j) = 0	! Add a path
+				end if
+			end if
+		end do
+	end do
+	
+	
 	! print the introduction
 	print *, "Welcome to the random maze generator EnJnDeSIgn2024!"
 	print *, "can find your way out of this digital maze?"
