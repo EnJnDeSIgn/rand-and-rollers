@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:971, 0:2) :: groups
+	character(len=32), dimension(0:1016, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -177,7 +177,12 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group936, group937, group938, group939, group940, group941, group942, group943, group944, &
 									   &group945, group946, group947, group948, group949, group950, group951, group952, group953, &
 									   &group954, group955, group956, group957, group958, group959, group960, group961, group962, &
-									   &group963, group964, group965, group966, group967, group968, group969, group970, group971
+									   &group963, group964, group965, group966, group967, group968, group969, group970, group971, &
+									   &group972, group973, group974, group975, group976, group977, group978, group979, group980, &
+									   &group981, group982, group983, group984, group985, group986, group987, group988, group989, &
+									   &group990, group991, group992, group993, group994, group995, group996, group997, group998, &
+									   &group999, group1000, group1001, group1002, group1003, group1004, group1005, group1006, group1007, &
+									   &group1008, group1009, group1010, group1011, group1012, group1013, group1014, group1015, group1016
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -2153,6 +2158,96 @@ program Dt1_roller_EnJnDeSIgn2024
   group970 = (/ "     3.2006280422210693359375000", "   -34.5453300476074218750000000", "    41.2463073730468750000000000" /)
   !!! Initialize group971
   group971 = (/ "  -117.4012069702148437500000000", "    27.4637832641601562500000000", "    75.9476013183593750000000000" /)
+  !!! Initialize group972
+  group972 = (/ "    33.9608306884765625000000000", "    -0.7005319595336914062500000", "   -23.3908882141113281250000000" /)
+  !!! Initialize group973
+  group973 = (/ "   102.4991683959960937500000000", "   -27.8709430694580078125000000", "    56.5403213500976562500000000" /)
+  !!! Initialize group974
+  group974 = (/ "    74.8867568969726562500000000", "  -103.9227981567382812500000000", "    -2.7326827049255371093750000" /)
+  !!! Initialize group975
+  group975 = (/ "    18.3608837127685546875000000", "   -27.7660655975341796875000000", "    21.9269618988037109375000000" /)
+  !!! Initialize group976
+  group976 = (/ "    95.3199310302734375000000000", "    37.1469650268554687500000000", "    62.2071189880371093750000000" /)
+  !!! Initialize group977
+  group977 = (/ "   -35.0403633117675781250000000", "    68.8777313232421875000000000", "    78.3651657104492187500000000" /)
+  !!! Initialize group978
+  group978 = (/ "   -53.1468811035156250000000000", "   -37.3106155395507812500000000", "   100.6370849609375000000000000" /)
+  !!! Initialize group979
+  group979 = (/ "   -14.3802719116210937500000000", "   -41.6666603088378906250000000", "   -13.7212190628051757812500000" /)
+  !!! Initialize group980
+  group980 = (/ "    -7.8953046798706054687500000", "    66.8550109863281250000000000", "    36.3642082214355468750000000" /)
+  !!! Initialize group981
+  group981 = (/ "    45.6990203857421875000000000", "   180.1143951416015625000000000", "    58.4283485412597656250000000" /)
+  !!! Initialize group982
+  group982 = (/ "     9.6777200698852539062500000", "   -48.6849136352539062500000000", "   -33.4536590576171875000000000" /)
+  !!! Initialize group983
+  group983 = (/ "   -50.0408973693847656250000000", "    17.8047618865966796875000000", "  -102.9794692993164062500000000" /)
+  !!! Initialize group984
+  group984 = (/ "   -32.7686805725097656250000000", "    80.4323348999023437500000000", "    14.7473030090332031250000000" /)
+  !!! Initialize group985
+  group985 = (/ "    11.7470779418945312500000000", "    33.1037940979003906250000000", "   -32.2968635559082031250000000" /)
+  !!! Initialize group986
+  group986 = (/ "    -8.2373590469360351562500000", "    50.6986389160156250000000000", "   -49.2492103576660156250000000" /)
+  !!! Initialize group987
+  group987 = (/ "     2.6901323795318603515625000", "    32.2808952331542968750000000", "   -27.6049823760986328125000000" /)
+  !!! Initialize group988
+  group988 = (/ "    38.3909759521484375000000000", "    -9.4019470214843750000000000", "     2.9935154914855957031250000" /)
+  !!! Initialize group989
+  group989 = (/ "    62.6345138549804687500000000", "     0.4248530864715576171875000", "   -41.7035255432128906250000000" /)
+  !!! Initialize group990
+  group990 = (/ "    73.4911880493164062500000000", "  -139.2238311767578125000000000", "   -27.6482257843017578125000000" /)
+  !!! Initialize group991
+  group991 = (/ "   -25.5470867156982421875000000", "    57.0099601745605468750000000", "   -41.4248123168945312500000000" /)
+  !!! Initialize group992
+  group992 = (/ "     0.3076137602329254150390625", "    -6.2849407196044921875000000", "   126.4911727905273437500000000" /)
+  !!! Initialize group993
+  group993 = (/ "    18.9161128997802734375000000", "  -127.8687820434570312500000000", "    35.9587783813476562500000000" /)
+  !!! Initialize group994
+  group994 = (/ "    37.7312698364257812500000000", "   -85.3839645385742187500000000", "    38.6470680236816406250000000" /)
+  !!! Initialize group995
+  group995 = (/ "    20.4358634948730468750000000", "   -40.5485153198242187500000000", "    -1.8288956880569458007812500" /)
+  !!! Initialize group996
+  group996 = (/ "    -4.2885298728942871093750000", "   -36.5676116943359375000000000", "   -27.5670070648193359375000000" /)
+  !!! Initialize group997
+  group997 = (/ "   -34.7435455322265625000000000", "    13.2168455123901367187500000", "   -10.7662143707275390625000000" /)
+  !!! Initialize group998
+  group998 = (/ "     0.2092674374580383300781250", "     2.3484935760498046875000000", "   -12.5976133346557617187500000" /)
+  !!! Initialize group999
+  group999 = (/ "    22.7255744934082031250000000", "     7.2749791145324707031250000", "    27.4877738952636718750000000" /)
+ &!!! Initialize group1000 ! and here is the 3rd shift too the left, on the 4th I will tab it out 4 spaces.
+ group1000 = (/ "    44.8902511596679687500000000", "    23.9097900390625000000000000", "   -80.6100845336914062500000000" /)
+ !!!! Initialize group1001
+ group1001 = (/ "    47.7758636474609375000000000", "    24.5124511718750000000000000", "   -26.6113662719726562500000000" /)
+ !!!! Initialize group1002
+ group1002 = (/ "   -33.8009414672851562500000000", "   159.6150512695312500000000000", "    39.4644355773925781250000000" /)
+ !!!! Initialize group1003
+ group1003 = (/ "    -2.6296877861022949218750000", "  -200.0700836181640625000000000", "    91.1819839477539062500000000" /)
+ !!!! Initialize group1004
+ group1004 = (/ "    27.7640972137451171875000000", "   -18.7279682159423828125000000", "    -3.3075041770935058593750000" /)
+ !!!! Initialize group1005
+ group1005 = (/ "   -18.0667800903320312500000000", "   -20.7060184478759765625000000", "   141.3019256591796875000000000" /)
+ !!!! Initialize group1006
+ group1006 = (/ "   -61.4242095947265625000000000", "     3.9628429412841796875000000", "    26.8872604370117187500000000" /)
+ !!!! Initialize group1007
+ group1007 = (/ "    24.3521842956542968750000000", "    23.0037727355957031250000000", "     2.4930851459503173828125000" /)
+ !!!! Initialize group1008
+ group1008 = (/ "   -73.2267990112304687500000000", "  -131.1900177001953125000000000", "    -9.6860799789428710937500000" /)
+ !!!! Initialize group1009
+ group1009 = (/ "   -24.3897457122802734375000000", "    -6.5541992187500000000000000", "   -56.5532646179199218750000000" /)
+ !!!! Initialize group1010
+ group1010 = (/ "   -37.2053756713867187500000000", "   -31.0387077331542968750000000", "    -3.2529735565185546875000000" /)
+ !!!! Initialize group1011
+ group1011 = (/ "    29.8338375091552734375000000", "   -52.3225822448730468750000000", "    57.5141754150390625000000000" /)
+ !!!! Initialize group1012
+ group1012 = (/ "    21.6504993438720703125000000", "   -43.4955635070800781250000000", "    71.4641418457031250000000000" /)
+ !!!! Initialize group1013
+ group1013 = (/ "    90.7534027099609375000000000", "    -8.0180263519287109375000000", "    17.4278068542480468750000000" /)
+ !!!! Initialize group1014
+ group1014 = (/ "   -50.5581207275390625000000000", "   -26.5917835235595703125000000", "    36.7260551452636718750000000" /)
+ !!!! Initialize group1015
+ group1015 = (/ "   -47.6641769409179687500000000", "   -21.9396247863769531250000000", "    12.1523122787475585937500000" /)
+ !!!! Initialize group1016
+ group1016 = (/ "   -51.5435180664062500000000000", "   -14.0658044815063476562500000", "   -28.8743534088134765625000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -2257,7 +2352,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(99, :) = group99
 	groups(100, :) = group100		! Anyway, as for how far we WILL go... I think 333,333 total groups is a good number...
 	groups(101, :) = group101		! So what, thats like group333332 or something, right?
-	groups(102, :) = group102
+	groups(102, :) = group102		! And group100 was two
 	groups(103, :) = group103
 	groups(104, :) = group104
 	groups(105, :) = group105
@@ -3127,13 +3222,58 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(969, :) = group969
 	groups(970, :) = group970
 	groups(971, :) = group971
+	groups(972, :) = group972
+	groups(973, :) = group973
+	groups(974, :) = group974
+	groups(975, :) = group975
+	groups(976, :) = group976
+	groups(977, :) = group977
+	groups(978, :) = group978
+	groups(979, :) = group979
+	groups(980, :) = group980
+	groups(981, :) = group981
+	groups(982, :) = group982
+	groups(983, :) = group983
+	groups(984, :) = group984
+	groups(985, :) = group985
+	groups(986, :) = group986
+	groups(987, :) = group987
+	groups(988, :) = group988
+	groups(989, :) = group989
+	groups(990, :) = group990
+	groups(991, :) = group991
+	groups(992, :) = group992
+	groups(993, :) = group993
+	groups(994, :) = group994
+	groups(995, :) = group995
+	groups(996, :) = group996
+	groups(997, :) = group997
+	groups(998, :) = group998
+	groups(999, :) = group999
+	groups(1000, :) = group1000		! And just too note the same number shifts to the right here, and the number is 3 times now.
+	groups(1001, :) = group1001
+	groups(1002, :) = group1002
+	groups(1003, :) = group1003
+	groups(1004, :) = group1004
+	groups(1005, :) = group1005
+	groups(1006, :) = group1006
+	groups(1007, :) = group1007
+	groups(1008, :) = group1008
+	groups(1009, :) = group1009
+	groups(1010, :) = group1010
+	groups(1011, :) = group1011
+	groups(1012, :) = group1012
+	groups(1013, :) = group1013
+	groups(1014, :) = group1014
+	groups(1015, :) = group1015
+	groups(1016, :) = group1016
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *972) ! Warrning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *1017) ! Warrning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
