@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:499, 0:5) :: groups
+    character(len=180), dimension(0:504, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -60,7 +60,8 @@ program story_element_generator_EnJnDeSIgn2024
 										group468, group469, group470, group471, group472, group473, group474, group475, group476, &
 										group477, group478, group479, group480, group481, group482, group483, group484, group485, &
 										group486, group487, group488, group489, group490, group491, group492, group493, group494, &
-										group495, group496, group497, group498, group499
+										group495, group496, group497, group498, group499, group500, group501, group502, group503, &
+										group504
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -449,8 +450,8 @@ program story_element_generator_EnJnDeSIgn2024
   group124 = (/ "king's valet                  ", "aunt                          ", "a conjuring                   ", &
                 "no one can do magic until now ", "prevent war, betraying friend ", "looking for                   " /)
     ! Initialize group125
-  group125 = (/ "taf: The sound of a drumbeat  ", "Mau: The meow of a cat        ", "Sesh: hiss of a snake         ", &
-                "nay sayer                     ", "whipping boy                  ", "vintner                       " /)
+  group125 = (/ "lace                          ", "a society in which the binary ", "Sesh: hiss of a snake         ", &
+                "nay sayer                     ", "serve                         ", "vintner                       " /)
 	! Initialize group126
   group126 = (/ "Hut: stone block set in place ", "Nef: flutter of a bird's wings", "Khep: rustle of papyrus leaves", &
 				"royal accountant              ", "royal chef                    ", "royal doctor                  " /)
@@ -863,7 +864,7 @@ program story_element_generator_EnJnDeSIgn2024
   group262 = (/ "marina                        ", "luminous beings are we, not   ", "a lock                        ", &
 				"planet,even though a religious", "baggage handler               ", "spare                         " /)
 	! Initialize group263
-  group263 = (/ "very core                     ", "map or sea chart              ", "a full recovery               ", &
+  group263 = (/ "very core                     ", "map                           ", "a full recovery               ", &
 				"surgeon                       ", "this crude matter             ", "summer camp                   " /)
 	! Initialize group264
   group264 = (/ "[f(x)=\text{'wonder unaware'}]", "this muse inspires            ", "engineer                      ", &
@@ -1572,13 +1573,28 @@ program story_element_generator_EnJnDeSIgn2024
 				"in her hotel room             ", "couple                        ", "art consultant                " /)
 	! Initialize group499
   group499 = (/ "park                          ", "Hathor: jingle/footfalls/dance", "grisly events happen after the", &
-				"compliance officer            ", "through the walls             ", "angle                         "/)
+				"compliance officer            ", "through the walls             ", "angle                         " /)
+	! Initialize group500
+  group500 = (/ "kick at the darkness untill   ", "beg                           ", "added to the public water     ", &
+				"the person she's exchanging   ", "economist                     ", "drow mage                     " /)
+	! Initialize group501
+  group501 = (/ "sea chart                     ", "the last time she viewed it   ", "human biological processes,   ", &
+				"perimeter                     ", "wagon                         ", "Nephthys: rustling/wings-dark " /)
+	! Initialize group502
+  group502 = (/ "wyvern                        ", "try                           ", "rewrite traumatic memories    ", &
+				"shawl                         ", "individual develops a terror  ", "area                          " /)
+	! Initialize group503
+  group503 = (/ "Mau: The meow of a cat        ", "childcare worker              ", "dance                         ", &
+				"his loved one died, but is    ", "sandal                        ", "entered, but now there is no  " /)
+	! Initialize group504
+  group504 = (/ "whipping boy                  ", "taf: The sound of a drumbeat  ", "human subjects getting        ", &
+				"exhaust                       ", "it doesn't have any eyes      ", "salamander                    "/)
 	! ... (Initialize all groups similarly)
 
 do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 500)
+    selected_group = int(rand * 505)
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
@@ -2085,6 +2101,11 @@ do while (.true.)
 	groups(497, :) = group497
 	groups(498, :) = group498
 	groups(499, :) = group499
+	groups(500, :) = group500
+	groups(501, :) = group501
+	groups(502, :) = group502
+	groups(503, :) = group503
+	groups(504, :) = group504
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
