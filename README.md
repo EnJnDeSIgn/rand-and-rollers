@@ -1,3 +1,5 @@
+Hi... I'm Turing's Art consultant on brainstorming and concepts, Metaphoric statistical math poems... 
+And lover of everything random!     
 Dt1.exe is still growing as is ELEgen.  
 Dt1.exe can be subjective as to it's positive or negative exponent
 at the end, but for varince I see 33 as a base line 00 +or-.  
