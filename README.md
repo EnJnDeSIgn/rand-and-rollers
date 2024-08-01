@@ -1,3 +1,4 @@
+Programs edited in notepad + +  
 Hi... I'm Turing's Art consultant on brainstorming and concepts, Metaphoric statistical math poems... 
 And lover of everything random!     
 Dt1.exe is still growing as is ELEgen.  
