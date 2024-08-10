@@ -32,7 +32,7 @@ program tarot_card_generator_EnJnDeSIgn2024
                 "Knight of Swords              ", "The Fool                      ", "The Devil                     " /)
     ! Initialize group4
     group4 = (/ "Four of Swords                ", "Knave of Pentacles            ", "The Star                      ", &
-                "Six of Wands                  ", "Six of Chalices               ", "Four of Chalices              " /)
+                "Six of Wands                  ", "Six of Chalices               ", "Four of Pentacles             " /)
     ! Initialize group5
     group5 = (/ "Eight of Swords               ", "Temperance                    ", "Eight of Pentacles            ", &
                 "Five of Chalices              ", "Two of Wands                  ", "Ten of Wands                  " /)
