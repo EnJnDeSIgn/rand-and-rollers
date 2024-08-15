@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1331, 0:2) :: groups
+	character(len=32), dimension(0:1358, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -217,7 +217,10 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1296, group1297, group1298, group1299, group1300, group1301, group1302, group1303, group1304, &
 									   &group1305, group1306, group1307, group1308, group1309, group1310, group1311, group1312, group1313, &
 									   &group1314, group1315, group1316, group1317, group1318, group1319, group1320, group1321, group1322, &
-									   &group1323, group1324, group1325, group1326, group1327, group1328, group1329, group1330, group1331
+									   &group1323, group1324, group1325, group1326, group1327, group1328, group1329, group1330, group1331, &
+									   &group1332, group1333, group1334, group1335, group1336, group1337, group1338, group1339, group1340, &
+									   &group1341, group1342, group1343, group1344, group1345, group1346, group1347, group1348, group1349, &
+									   &group1350, group1351, group1352, group1353, group1354, group1355, group1356, group1357, group1358
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -2913,6 +2916,60 @@ program Dt1_roller_EnJnDeSIgn2024
  group1330 = (/ "      92.83078002929687500000000", "     3.3873012065887451171875000", "     1.5153970718383789062500000" /)
  !!!! Initialize group1331
  group1331 = (/ "    -1.5099450349807739257812500", "   -28.2689495086669921875000000", "    34.7589950561523437500000000" /)
+ !!!! Initialize group1332
+ group1332 = (/ "     1.6218219995498657226562500", "   -63.9016799926757812500000000", "     1.9896453619003295898437500" /)
+ !!!! Initialize group1333
+ group1333 = (/ "   128.1360778808593750000000000", "    38.9369087219238281250000000", "   -54.5660972595214843750000000" /)
+ !!!! Initialize group1334
+ group1334 = (/ "   -23.8748664855957031250000000", "   -15.4689702987670898437500000", "    -4.3495621681213378906250000" /)
+ !!!! Initialize group1335
+ group1335 = (/ "   -27.6215152740478515625000000", "    12.6812381744384765625000000", "    -6.9859061241149902343750000" /)
+ !!!! Initialize group1336
+ group1336 = (/ "    53.6320648193359375000000000", "    52.1906242370605468750000000", "    41.8015480041503906250000000" /)
+ !!!! Initialize group1337
+ group1337 = (/ "    84.7277984619140625000000000", "  -111.9275817871093750000000000", "   -52.3655128479003906250000000" /)
+ !!!! Initialize group1338
+ group1338 = (/ "    80.5757293701171875000000000", "   -36.0747642517089843750000000", "   112.2441864013671875000000000" /)
+ !!!! Initialize group1339
+ group1339 = (/ "    43.7448043823242187500000000", "   -23.9763641357421875000000000", "     4.7787799835205078125000000" /)
+ !!!! Initialize group1340
+ group1340 = (/ "   -62.2526054382324218750000000", "   -84.9996719360351562500000000", "    23.4251270294189453125000000" /)
+ !!!! Initialize group1341
+ group1341 = (/ "    36.0665092468261718750000000", "   -75.1880340576171875000000000", "   -62.5147552490234375000000000" /)
+ !!!! Initialize group1342
+ group1342 = (/ "   -10.3218460083007812500000000", "    34.5386276245117187500000000", "    19.7215080261230468750000000" /)
+ !!!! Initialize group1343
+ group1343 = (/ "   -15.9899635314941406250000000", "   -15.8450469970703125000000000", "    16.4353713989257812500000000" /)
+ !!!! Initialize group1344
+ group1344 = (/ "     3.8521220684051513671875000", "    -0.4015481472015380859375000", "   246.2827606201171875000000000" /)
+ !!!! Initialize group1345
+ group1345 = (/ "    60.2731933593750000000000000", "    26.6527462005615234375000000", "    54.8725776672363281250000000" /)
+ !!!! Initialize group1346
+ group1346 = (/ "    13.8415260314941406250000000", "   -23.9900093078613281250000000", "    -9.3183937072753906250000000" /)
+ !!!! Initialize group1347
+ group1347 = (/ "    -2.6917085647583007812500000", "    18.8724079132080078125000000", "   -36.1818809509277343750000000" /)
+ !!!! Initialize group1348
+ group1348 = (/ "  -102.1870880126953125000000000", "    61.9054489135742187500000000", "    89.5711135864257812500000000" /)
+ !!!! Initialize group1349
+ group1349 = (/ "  -142.3636474609375000000000000", "    39.1017799377441406250000000", "    -5.1577420234680175781250000" /)
+ !!!! Initialize group1350
+ group1350 = (/ "    46.9227676391601562500000000", "     9.9989337921142578125000000", "    -9.2911071777343750000000000" /)
+ !!!! Initialize group1351
+ group1351 = (/ "     4.3919501304626464843750000", "    38.1174964904785156250000000", "   -30.7671108245849609375000000" /)
+ !!!! Initialize group1352
+ group1352 = (/ "   -16.5514125823974609375000000", "    11.9474725723266601562500000", "    45.7598533630371093750000000" /)
+ !!!! Initialize group1353
+ group1353 = (/ "   105.7297973632812500000000000", "    11.3679571151733398437500000", "    52.5408477783203125000000000" /)
+ !!!! Initialize group1354
+ group1354 = (/ "    24.6263217926025390625000000", "    13.7702369689941406250000000", "   -13.7182006835937500000000000" /)
+ !!!! Initialize group1355
+ group1355 = (/ "    12.7285890579223632812500000", "    49.0510978698730468750000000", "    34.7866630554199218750000000" /)
+ !!!! Initialize group1356
+ group1356 = (/ "   -63.0533561706542968750000000", "     8.2327527999877929687500000", "   -41.5821647644042968750000000" /)
+ !!!! Initialize group1357
+ group1357 = (/ "    33.8018798828125000000000000", "    -5.4789876937866210937500000", "    24.1994762420654296875000000" /)
+ !!!! Initialize group1358
+ group1358 = (/ "   -45.0720901489257812500000000", "    14.5615653991699218750000000", "    37.2514076232910156250000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -4247,13 +4304,40 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1329, :) = group1329
 	groups(1330, :) = group1330
 	groups(1331, :) = group1331
+	groups(1332, :) = group1332
+	groups(1333, :) = group1333
+	groups(1334, :) = group1334
+	groups(1335, :) = group1335
+	groups(1336, :) = group1336
+	groups(1337, :) = group1337
+	groups(1338, :) = group1338
+	groups(1339, :) = group1339
+	groups(1340, :) = group1340
+	groups(1341, :) = group1341
+	groups(1342, :) = group1342
+	groups(1343, :) = group1343
+	groups(1344, :) = group1344
+	groups(1345, :) = group1345
+	groups(1346, :) = group1346
+	groups(1347, :) = group1347
+	groups(1348, :) = group1348
+	groups(1349, :) = group1349
+	groups(1350, :) = group1350
+	groups(1351, :) = group1351
+	groups(1352, :) = group1352
+	groups(1353, :) = group1353
+	groups(1354, :) = group1354
+	groups(1355, :) = group1355
+	groups(1356, :) = group1356
+	groups(1357, :) = group1357
+	groups(1358, :) = group1358
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *1332) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *1359) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
