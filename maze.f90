@@ -1,12 +1,12 @@
 program maze_game_EnJnDeSIgn2024
+	! I really have to thank Copilot for this one, I'm not sure if they really want me to make them someware to go...
     implicit none
-
     ! Declare variables
     integer :: maze(5, 5)
     integer :: x, y, next_choice, i, j
 	real :: rand_val
 	integer, allocatable :: open_list(:,:)
-	integer, dimension(:), allocatable :: seed	! Hey copilot should I put the 5's in the dimensions
+	integer, dimension(:), allocatable :: seed
 	integer :: seed_size
 	
 	
