@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1421, 0:2) :: groups
+	character(len=32), dimension(0:1439, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -227,7 +227,9 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1386, group1387, group1388, group1389, group1390, group1391, group1392, group1393, group1394, &
 									   &group1395, group1396, group1397, group1398, group1399, group1400, group1401, group1402, group1403, &
 									   &group1404, group1405, group1406, group1407, group1408, group1409, group1410, group1411, group1412, &
-									   &group1413, group1414, group1415, group1416, group1417, group1418, group1419, group1420, group1421
+									   &group1413, group1414, group1415, group1416, group1417, group1418, group1419, group1420, group1421, &
+									   &group1422, group1423, group1424, group1425, group1426, group1427, group1428, group1429, group1430, &
+									   &group1431, group1432, group1433, group1434, group1435, group1436, group1437, group1438, group1439
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -3103,6 +3105,42 @@ program Dt1_roller_EnJnDeSIgn2024
  group1420 = (/ "   -35.3935432434082031250000000", "   -47.8611488342285156250000000", "  -115.9939727783203125000000000" /)
  !!!! Initialize group1421
  group1421 = (/ "   -19.8934478759765625000000000", "   -15.1358833312988281250000000", "    41.3392448425292968750000000" /)
+ !!!! Initialize group1422
+ group1422 = (/ "    -1.1496472358703613281250000", "   -40.0031127929687500000000000", "   -16.6198577880859375000000000" /)
+ !!!! Initialize group1423
+ group1423 = (/ "   -17.3952732086181640625000000", "    65.4544830322265625000000000", "     6.1159195899963378906250000" /)
+ !!!! Initialize group1424
+ group1424 = (/ "   -85.0828552246093750000000000", "    71.7041244506835937500000000", "    21.2358760833740234375000000" /)
+ !!!! Initialize group1425
+ group1425 = (/ "  -101.3980026245117187500000000", "   -69.3809356689453125000000000", "   -38.1270675659179687500000000" /)
+ !!!! Initialize group1426
+ group1426 = (/ "    12.6774358749389648437500000", "    56.6226882934570312500000000", "   -71.3914871215820312500000000" /)
+ !!!! Initialize group1427
+ group1427 = (/ "    21.0806522369384765625000000", "   -36.0447158813476562500000000", "    18.0126876831054687500000000" /)
+ !!!! Initialize group1428
+ group1428 = (/ "     8.6316671371459960937500000", "   -22.7203025817871093750000000", "    25.5561199188232421875000000" /)
+ !!!! Initialize group1429
+ group1429 = (/ "   -45.1010322570800781250000000", "   -15.1319427490234375000000000", "  -140.1236877441406250000000000" /)
+ !!!! Initialize group1430
+ group1430 = (/ "    11.5648641586303710937500000", "   142.4321441650390625000000000", "    42.5888862609863281250000000" /)
+ !!!! Initialize group1431
+ group1431 = (/ "   -50.5155792236328125000000000", "  -147.4296112060546875000000000", "   -88.4468688964843750000000000" /)
+ !!!! Initialize group1432
+ group1432 = (/ "    27.2121162414550781250000000", "    43.8597183227539062500000000", "   -66.1536636352539062500000000" /)
+ !!!! Initialize group1433
+ group1433 = (/ "    69.0354232788085937500000000", "    36.9768447875976562500000000", "    49.5454940795898437500000000" /)
+ !!!! Initialize group1434
+ group1434 = (/ "    50.1289978027343750000000000", "    34.1391448974609375000000000", "    87.4034805297851562500000000" /)
+ !!!! Initialize group1435
+ group1435 = (/ "   -26.0426578521728515625000000", "   -58.9883842468261718750000000", "    44.7982521057128906250000000" /)
+ !!!! Initialize group1436
+ group1436 = (/ "     6.6064782142639160156250000", "     5.3070917129516601562500000", "    97.7580413818359375000000000" /)
+ !!!! Initialize group1437
+ group1437 = (/ "   -16.1339740753173828125000000", "   -31.1840572357177734375000000", "   -48.3215141296386718750000000" /)
+ !!!! Initialize group1438
+ group1438 = (/ "    69.7877807617187500000000000", "   -34.8733291625976562500000000", "     6.3698253631591796875000000" /)
+ !!!! Initialize group1439
+ group1439 = (/ "   -20.1605548858642578125000000", "   -33.5124969482421875000000000", "   -53.0561027526855468750000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -4527,13 +4565,31 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1419, :) = group1419
 	groups(1420, :) = group1420
 	groups(1421, :) = group1421
+	groups(1422, :) = group1422
+	groups(1423, :) = group1423
+	groups(1424, :) = group1424
+	groups(1425, :) = group1425
+	groups(1426, :) = group1426
+	groups(1427, :) = group1427
+	groups(1428, :) = group1428
+	groups(1429, :) = group1429
+	groups(1430, :) = group1430
+	groups(1431, :) = group1431
+	groups(1432, :) = group1432
+	groups(1433, :) = group1433
+	groups(1434, :) = group1434
+	groups(1435, :) = group1435
+	groups(1436, :) = group1436
+	groups(1437, :) = group1437
+	groups(1438, :) = group1438
+	groups(1439, :) = group1439
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *1422) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *1440) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
