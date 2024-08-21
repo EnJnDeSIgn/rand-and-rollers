@@ -1,5 +1,6 @@
 program maze_game_EnJnDeSIgn2024
 	! I really have to thank Copilot for this one, I'm not sure if they really want me to make them someware to go...
+	! 0.7854829430580139160156250 Referance number
     implicit none
     ! Declare variables
     integer :: maze(5, 5)
@@ -66,10 +67,25 @@ program maze_game_EnJnDeSIgn2024
 	print *, "can find your way out of this digital maze?"
 	print *, "by Ian J Norris ian.enjn@gmail.com."
 	
-    ! Start the game from the entrance (you can customize the starting position)
-    call explore_maze(1, 1)
+	! Call the initial prompt subroutine
+	call start_exploring()
 
 contains
+
+	subroutine start_exploring
+	implicit none
+	integer :: initial_guess
+	
+	print *, "Press Enter to start exploring the maze..."
+	read(*, *)
+	
+	call get_user_guess(initial_guess)
+	if (initial_guess == 0) then
+		call explore_maze(1, 1)
+	else
+		call explore_maze(1, 2)
+	end if
+	end subroutine start_exploring
 
     subroutine get_user_guess(guess)
         implicit none
