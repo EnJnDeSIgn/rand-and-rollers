@@ -11,12 +11,7 @@ program Db4_roller_EnJnDeSIgn2024
 	Call random_seed()
 	roll_count = 30
 	
-	! Display the progarm name and introduction
-	print *, "Db4_roller_EnJnDeSIgn2024_B"
-	print *, "randomness fit for the gods"
-	print *, "random binary number finder"
-	print *, "     by Ian J Norris       "
-	print *, "   Ian.enjn@gmail.com      "
+	! Display the progarm name and introduction(taken out for better fuction)
 	
 	! Initialize group0
 	group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
@@ -85,7 +80,5 @@ program Db4_roller_EnJnDeSIgn2024
 	end do
 	
 	! Print the selected numbers in a line
-	print *, "Selected Numbers: ", selected_numbers
-	
-	print *, "thank you for using the Db4 roller."
+	print *, selected_numbers
 end program Db4_roller_EnJnDeSIgn2024
