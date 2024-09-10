@@ -7,4 +7,5 @@ at the end, but for varince I see 33 as a base line 00 +or-.
 I said 33 was E00 but maybe e01 would be better as E33 is always 1 making a range of 4 secounds  
 please note all exe work togther to randomize, I sujest starting with D4.exe to randomize seed.   
 maze now random, but can be made a littal easyer if needed  
-maze was written to make fun of people back in time for thinking I set copilot free
+maze was written to make fun of people back in time for thinking I set copilot free   
+Db4.exe and B1.exe are working togther to compare binary
