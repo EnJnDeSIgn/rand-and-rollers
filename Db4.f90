@@ -5,7 +5,7 @@ program Db4_roller_EnJnDeSIgn2024
 	character(len=4), dimension(0:9, 0:9) :: groups
 	character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										&group9
-	
+	character(len=1), dimension(32) :: selected_numbers
 	real :: rand
 	
 	Call random_seed()
@@ -65,15 +65,27 @@ program Db4_roller_EnJnDeSIgn2024
 	! Randomly select a group
 	call random_number(rand)
 	selected_group = int(rand * 10)
+	if (selected_group < 0 .or. selected_group > 9) then
+		print *, "Error: selected_group out of range"
+		stop
+	end if
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand * 10)
+	if (selected_number < 0 .or. selected_number > 9) then
+		print *, "Error: selected_number out of range"
+		stop
+	end if
 	
+	! Store selected number
+	selected_numbers(i) = trim(adjustl(groups(selected_group, selected_number)))
 	
-	! display the selected number
-print *, "from group ", selected_group, ": ", &
-	trim(groups(selected_group, selected_number))
+	! display the selected number (commented out for testing)
+	!print *, "from group ", selected_group, ": ", selected_numbers(i)
 	end do
+	
+	! Print the selected numbers in a line
+	print *, "Selected Numbers: ", selected_numbers
 	
 	print *, "thank you for using the Db4 roller."
 end program Db4_roller_EnJnDeSIgn2024
