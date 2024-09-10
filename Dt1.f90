@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1583, 0:2) :: groups
+	character(len=32), dimension(0:1586, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -245,7 +245,8 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1548, group1549, group1550, group1551, group1552, group1553, group1554, group1555, group1556, &
 									   &group1557, group1558, group1559, group1560, group1561, group1562, group1563, group1564, group1565, &
 									   &group1566, group1567, group1568, group1569, group1570, group1571, group1572, group1573, group1574, &
-									   &group1575, group1576, group1577, group1578, group1579, group1580, group1581, group1582, group1583
+									   &group1575, group1576, group1577, group1578, group1579, group1580, group1581, group1582, group1583, &
+									   &group1584, group1585, group1586
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -269,13 +270,13 @@ program Dt1_roller_EnJnDeSIgn2024
 
 	call random_seed()
 	
-	! Display the progarm name and introduction ! Adding a line to identify purpose
-	print *, "Dt1_roller_EnJnDeSIgn2024_?-?."
-	print *, " randomness fit for the gods  "
-	print *, "  Random Quantum Exponents    "
-	print *, "    The Dancing Decimal       "
-	print *, "      by Ian J Norris         "
-	print *, "    Ian.enjn@gmail.com        "
+	! Display the progarm name and introduction ! Adding a line to identify purpose(taking out for better functon)
+	!print *, "Dt1_roller_EnJnDeSIgn2024_?-?."
+	!print *, " randomness fit for the gods  "
+	!print *, "  Random Quantum Exponents    "
+	!print *, "    The Dancing Decimal       "
+	!print *, "      by Ian J Norris         "
+	!print *, "    Ian.enjn@gmail.com        "
 	
     ! Initialize group0
     group0 = (/ "   181.5497131347656250000000000", "   -50.3439788818359375000000000", "    40.9526519775390625000000000" /)
@@ -3445,6 +3446,12 @@ program Dt1_roller_EnJnDeSIgn2024
  group1582 = (/ "   -70.8375091552734375000000000", "    46.8782005310058593750000000", "     7.3023295402526855468750000" /)
  !!!! Initialize group1583
  group1583 = (/ "   -50.0681457519531250000000000", "   -20.1332607269287109375000000", "   -47.0618934631347656250000000" /)
+ !!!! Initialize group1584
+ group1584 = (/ "    57.7771530151367187500000000", "   -32.7585105895996093750000000", "   -38.4342002868652343750000000" /)
+ !!!! Initialize group1585
+ group1585 = (/ "   -12.4821395874023437500000000", "    -5.1787490844726562500000000", "   -41.9138526916503906250000000" /)
+ !!!! Initialize group1586
+ group1586 = (/ "   -33.9473495483398437500000000", "   -64.5840759277343750000000000", "    18.2066802978515625000000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -5031,13 +5038,16 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1581, :) = group1581
 	groups(1582, :) = group1582
 	groups(1583, :) = group1583
+	groups(1584, :) = group1584
+	groups(1585, :) = group1585
+	groups(1586, :) = group1586
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *1584) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *1587) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
