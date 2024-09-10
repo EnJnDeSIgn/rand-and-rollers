@@ -12,6 +12,11 @@ program Db4_roller_EnJnDeSIgn2024
 	roll_count = 30
 	
 	! Display the progarm name and introduction(taken out for better fuction)
+	! Db4_roller_EnJnDeSIgn2024_B
+	! randomness fit for the gods
+	! random binary number finder
+	!      by Ian J Norris
+	!    Ian.enjn@gmail.com
 	
 	! Initialize group0
 	group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
