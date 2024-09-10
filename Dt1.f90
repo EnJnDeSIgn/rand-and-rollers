@@ -250,7 +250,7 @@ program Dt1_roller_EnJnDeSIgn2024
 									   
 	character(len=35) :: formatted_roll_value
 									   
-	real, dimension(8) :: run_total, normalized_run_total
+	real, dimension(20) :: run_total, normalized_run_total
 	
 	real :: rand, random_sum, roll_value, c, y, t, carry_over, decimal_shift, random_sum_total, c1, y1, t1, mean, sum_squares, &
 	std_dev, carry_over_two, selected_number_real, max_value
@@ -263,7 +263,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	random_sum_total = 0.0
 	carry_over = 0.0
 	carry_over_two = 0.0
-	roll_count = 8
+	roll_count = 20
 	decimal_shift = 0.1
 	roll_value = 0.0 ! I moved the roll_value call down into the loop in hopes it will be random all 8 times
 	selected_number_real = 0.0
@@ -5106,10 +5106,11 @@ program Dt1_roller_EnJnDeSIgn2024
 		!	random_sum = -abs(random_sum)	! Ensure negative
 		!end if
 	! display the selected number
-print *, "Rolled from group ", selected_group, ": ", &
-	trim(groups(selected_group, selected_number))
+!print *, "Rolled from group ", selected_group, ": ", &
+	!trim(groups(selected_group, selected_number))
 	random_sum = random_sum + carry_over
-	print '("Randomized Sum: ", E35.25)', random_sum	! Every random call for roll_value needs to be different from each other
+	!print '("Randomized Sum: ", E35.25)', random_sum	! Every random call for roll_value needs to be different from each other
+	print '(E35.25)', random_sum
 		! reset the carry_over
 		carry_over = 0.0
 		! Reset the roll_value
@@ -5148,12 +5149,12 @@ print *, "Rolled from group ", selected_group, ": ", &
 			
 
 	print *
-	print '("Not Rolled Sum: ", E35.25)', random_sum_total + carry_over_two
+	print '("Sum: ", E35.25)', random_sum_total + carry_over_two
 	carry_over_two = 0.0
 			! Check for large values in std_dev
 			if (std_dev > 1.0e30) then
 				print *, "Standard Dev A: Value Too Large To Display"
 	else
-	print '("Standard Dev A: ", E35.25)', std_dev
+	print '("STD: ", E35.25)', std_dev
 	end if
 end program Dt1_roller_EnJnDeSIgn2024
