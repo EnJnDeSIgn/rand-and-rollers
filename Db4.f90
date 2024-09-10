@@ -5,7 +5,7 @@ program Db4_roller_EnJnDeSIgn2024
 	character(len=4), dimension(0:9, 0:9) :: groups
 	character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										&group9
-	character(len=1), dimension(32) :: selected_numbers
+	character(len=1), dimension(30) :: selected_numbers
 	real :: rand
 	
 	Call random_seed()
