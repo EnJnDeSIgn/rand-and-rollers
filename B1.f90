@@ -1,4 +1,4 @@
-program CompareBinary
+program CompareBinary_EnJnDeSIgn2024
     implicit none
     character(len=30) :: binary1, binary2
     integer :: int1, int2
@@ -57,4 +57,4 @@ integer function bin2dec(binary)
     end do
 end function bin2dec
 
-end program compareBinary
+end program compareBinary_EnJnDeSIgn2024
