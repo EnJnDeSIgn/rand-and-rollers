@@ -5147,7 +5147,7 @@ print *, "Rolled from group ", selected_group, ": ", &
 			end if
 			
 
-	print *, "_______________"
+	print *
 	print '("Not Rolled Sum: ", E35.25)', random_sum_total + carry_over_two
 	carry_over_two = 0.0
 			! Check for large values in std_dev
@@ -5156,6 +5156,4 @@ print *, "Rolled from group ", selected_group, ": ", &
 	else
 	print '("Standard Dev A: ", E35.25)', std_dev
 	end if
-	print *, "_______________"
-	print *, "By Ian J Norris"
 end program Dt1_roller_EnJnDeSIgn2024
