@@ -40,11 +40,16 @@ program D2b4_EnJnDeSIgn2024
     ! Compare the integers
     if (int1 == int2) then
         print *, "The binary numbers are equal."
+		! Check if the sum will be too large
+		if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
+			print *, "Error: Sum of binary numbers will be to large."
+		else
 		! Add the integers
 		sum = int1 + int2
 		! Convert the sum back to binary
 		result = dec2bin(sum)
 		print *, "Sum of binary numbers: ", result
+		end if
     else if (int1 > int2) then
         print *, "Binary1 is greater than Binary2."
 		! Subtract the integers
