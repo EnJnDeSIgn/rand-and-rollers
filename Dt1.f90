@@ -265,7 +265,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	carry_over = 0.0
 	carry_over_two = 0.0
 	roll_count = 20
-	decimal_shift = 0.1
+	decimal_shift = 0.001
 	roll_value = 0.0 ! I moved the roll_value call down into the loop in hopes it will be random all 8 times
 	selected_number_real = 0.0
 
@@ -5121,6 +5121,10 @@ program Dt1_roller_EnJnDeSIgn2024
 	
 	
 	read(groups(selected_group, selected_number), *) selected_number_real
+	
+			if (selected_number_real > 1.0) then
+			selected_number_real = selected_number_real * decimal_shift
+			end if
 	
 			! Check if selected_number_real is negative
 			if (selected_number_real < 0.0) then
