@@ -42,6 +42,11 @@ program D2b4_EnJnDeSIgn2024
         print *, "The binary numbers are equal."
     else if (int1 > int2) then
         print *, "Binary1 is greater than Binary2."
+		! Subtract the integers
+		difference = int1 - int2
+		! Convert the difference back to binary
+		result = dec2bin(difference)
+		print *, "Difference of binary numbers: ", result
     else
         print *, "Binary1 is less than Binary2."
         ! Subtract the integers
