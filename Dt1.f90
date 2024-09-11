@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1592, 0:2) :: groups
+	character(len=32), dimension(0:1601, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -246,7 +246,8 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1557, group1558, group1559, group1560, group1561, group1562, group1563, group1564, group1565, &
 									   &group1566, group1567, group1568, group1569, group1570, group1571, group1572, group1573, group1574, &
 									   &group1575, group1576, group1577, group1578, group1579, group1580, group1581, group1582, group1583, &
-									   &group1584, group1585, group1586, group1587, group1588, group1589, group1590, group1591, group1592
+									   &group1584, group1585, group1586, group1587, group1588, group1589, group1590, group1591, group1592, &
+									   &group1593, group1594, group1595, group1596, group1597, group1598, group1599, group1600, group1601
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -3464,6 +3465,24 @@ program Dt1_roller_EnJnDeSIgn2024
  group1591 = (/ "    30.9901905059814453125000000", "    27.6170158386230468750000000", "   -23.8943576812744140625000000" /)
  !!!! Initialize group1592
  group1592 = (/ "   -46.5608596801757812500000000", "    56.8215255737304687500000000", "     2.3167896270751953125000000" /)
+ !!!! Initialize group1593
+ group1593 = (/ "   -23.4674758911132812500000000", "    29.0362873077392578125000000", "    96.8839111328125000000000000" /)
+ !!!! Initialize group1594
+ group1594 = (/ "    29.4801044464111328125000000", "     2.5189845561981201171875000", "    20.2059040069580078125000000" /)
+ !!!! Initialize group1595
+ group1595 = (/ "   -33.0815162658691406250000000", "   -27.7216777801513671875000000", "     3.5499653816223144531250000" /)
+ !!!! Initialize group1596
+ group1596 = (/ "   -54.1265068054199218750000000", "    20.0974140167236328125000000", "    -2.1096348762512207031250000" /)
+ !!!! Initialize group1597
+ group1597 = (/ "    -2.0693733692169189453125000", "   -83.9395828247070312500000000", "   -11.8500185012817382812500000" /)
+ !!!! Initialize group1598
+ group1598 = (/ "    44.3711700439453125000000000", "   -28.2345237731933593750000000", "   -18.8333282470703125000000000" /)
+ !!!! Initialize group1599
+ group1599 = (/ "   -75.9348220825195312500000000", "    21.5659923553466796875000000", "    -2.0890278816223144531250000" /)
+ !!!! Initialize group1600
+ group1600 = (/ "   -71.1123809814453125000000000", "   -10.0112085342407226562500000", "   -60.9344329833984375000000000" /)
+ !!!! Initialize group1601
+ group1601 = (/ "   -72.6657714843750000000000000", "   -10.3839073181152343750000000", "   -20.8289318084716796875000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -5059,13 +5078,22 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1590, :) = group1590
 	groups(1591, :) = group1591
 	groups(1592, :) = group1592
+	groups(1593, :) = group1593
+	groups(1594, :) = group1594
+	groups(1595, :) = group1595
+	groups(1596, :) = group1596
+	groups(1597, :) = group1597
+	groups(1598, :) = group1598
+	groups(1599, :) = group1599
+	groups(1600, :) = group1600
+	groups(1601, :) = group1601
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *1593) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *1602) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
@@ -5077,7 +5105,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	!roll_value = roll_value * 10**(-int(rand * 32))
 	
 		if (rand > 0.0) then
-		first_non_zero_digit = int(rand * 10.0)
+		first_non_zero_digit = int(rand * 1.0)
 		roll_value = roll_value + first_non_zero_digit * 1.0e20
 		end if		! I Don't seam to need this and the number is still starting with 1 when when the exponate is 33, will need to fix.
 
