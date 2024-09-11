@@ -9,3 +9,4 @@ please note all exe work togther to randomize, I sujest starting with D4.exe to 
 maze now random, but can be made a littal easyer if needed  
 maze was written to make fun of people back in time for thinking I set copilot free   
 Db4.exe and B1.exe are working togther to compare binary
+Warning B1.exe makes two files, output1.txt & output2.txt, do not delete them...
