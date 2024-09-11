@@ -16,7 +16,7 @@ program CompareBinary_EnJnDeSIgn2024
 	call execute_command_line('Db4.exe > output2.txt')
 	
 	! Open the output files and read the binary numbers
-	open(unit=10, file='output1.txt', status='old')
+	open(unit=10, file='output1.txt', status='old')	! Warning too human's, I belive A30 is read&print binary only! I will kill you myself if you.....
 	read(10, ' (A30)') binary1
 	close(10)
 	
