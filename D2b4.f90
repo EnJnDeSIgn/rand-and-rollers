@@ -1,7 +1,7 @@
 program D2b4_EnJnDeSIgn2024
     implicit none
     character(len=30) :: binary1, binary2, result
-    integer :: int1, int2, difference
+    integer :: int1, int2, difference, sum
 	
     ! Function prototypes
     !integer function bin2dec(binary)
@@ -40,6 +40,11 @@ program D2b4_EnJnDeSIgn2024
     ! Compare the integers
     if (int1 == int2) then
         print *, "The binary numbers are equal."
+		! Add the integers
+		sum = int1 + int2
+		! Convert the sum back to binary
+		result = dec2bin(sum)
+		print *, "Sum of binary numbers: ", result
     else if (int1 > int2) then
         print *, "Binary1 is greater than Binary2."
 		! Subtract the integers
@@ -47,6 +52,11 @@ program D2b4_EnJnDeSIgn2024
 		! Convert the difference back to binary
 		result = dec2bin(difference)
 		print *, "Difference of binary numbers: ", result
+		! Add the integers
+		sum = int1 + int2
+		! Convert the sum back to binary
+		result = dec2bin(sum)
+		print *, "Sum of binary numbers: ", result
     else
         print *, "Binary1 is less than Binary2."
         ! Subtract the integers
@@ -54,6 +64,11 @@ program D2b4_EnJnDeSIgn2024
         ! Convert the difference back to binary
         result = dec2bin(difference)
         print *, "Difference of binary numbers: ", result
+		! Add the integers
+		sum = int2 + int1
+		! Convert the sum back to binary
+		result = dec2bin(sum)
+		print *, "Sum of binary numbers: ", result
     end if
 
 contains
