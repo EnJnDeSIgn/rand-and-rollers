@@ -57,11 +57,16 @@ program D2b4_EnJnDeSIgn2024
 		! Convert the difference back to binary
 		result = dec2bin(difference)
 		print *, "Difference of binary numbers: ", result
+		! Check if the sum is too large
+		if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
+			print *, "Error: Sum of binary numbers will be to large."
+		else
 		! Add the integers
 		sum = int1 + int2
 		! Convert the sum back to binary
 		result = dec2bin(sum)
 		print *, "Sum of binary numbers: ", result
+		end if
     else
         print *, "Binary1 is less than Binary2."
         ! Subtract the integers
@@ -69,11 +74,16 @@ program D2b4_EnJnDeSIgn2024
         ! Convert the difference back to binary
         result = dec2bin(difference)
         print *, "Difference of binary numbers: ", result
+		! Check if the sum is too large
+		if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
+			print *, "Error: Sum of binary numbers will be to large."
+		else
 		! Add the integers
 		sum = int2 + int1
 		! Convert the sum back to binary
 		result = dec2bin(sum)
 		print *, "Sum of binary numbers: ", result
+		end if
     end if
 
 contains
