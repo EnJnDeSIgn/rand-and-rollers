@@ -5104,10 +5104,10 @@ program Dt1_roller_EnJnDeSIgn2024
 	! Manually adjust the exponate to be Negative using a logarithmic scale
 	!roll_value = roll_value * 10**(-int(rand * 32))
 	
-		if (rand > 0.0) then
-		first_non_zero_digit = int(rand * 1.0)
-		roll_value = roll_value + first_non_zero_digit * 1.0e20
-		end if		! I Don't seam to need this and the number is still starting with 1 when when the exponate is 33, will need to fix.
+		!if (rand > 0.0) then
+		!first_non_zero_digit = int(rand * 1.0)
+		!roll_value = roll_value + first_non_zero_digit * 1.0e20
+		!end if		! I Don't seam to need this and the number is still starting with 1 when when the exponate is 33, will need to fix.
 
 		! Assign a random sign to roll_value
 		call random_number(rand)
