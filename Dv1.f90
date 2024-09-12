@@ -1,7 +1,7 @@
 program Dv1_roller_EnJnDeSIgn2024
 	implicit none
 	character(len=1) :: user_input
-	integer :: selected_group, selected_number, i, roll_count
+	integer :: selected_group, selected_number, i, roll_count, j
 	character(len=180), dimension(0:9, 0:3) :: groups
 	character(len=180), dimension(4) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
 	real :: rand, roll_value, total_sum, carry_over, c, y, t, d_carry_over, decimal_shift
@@ -23,6 +23,12 @@ program Dv1_roller_EnJnDeSIgn2024
 	!print *, "      Ian.enjn@gmail.com         "
 	!print *, "   Quantum values +0.5 or -0.5   "
 	! New Dv1 roller growing here!
+do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasary.
+	total_sum = 0.0
+	decimal_shift = 0.1
+	carry_over = 0.0
+	d_carry_over = 0.0
+	c = 0.0
 	
 	! Initialize group0
 	group0 = (/ "-4  ", "+1  ", "-9  ", "-0.5"/)
@@ -100,4 +106,5 @@ program Dv1_roller_EnJnDeSIgn2024
 	end do
 	print '(" ", E35.25)', total_sum
 	carry_over = 0.0
+end do
 end program Dv1_roller_EnJnDeSIgn2024
