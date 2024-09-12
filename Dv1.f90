@@ -10,10 +10,10 @@ program Dv1_roller_EnJnDeSIgn2024
 	
 	Call random_seed()
 	roll_count = 1000
-	decimal_shift = 1.0
+	decimal_shift = 0.1
 	total_sum = 0.0
 	carry_over = 0.0
-	d_carry_over = 1.0
+	d_carry_over = 0.0
 	
 	
 	! Display the progarm name and introduction
@@ -91,6 +91,7 @@ program Dv1_roller_EnJnDeSIgn2024
 			decimal_shift = decimal_shift * 0.1
 		endif
 		total_sum = total_sum + carry_over
+		total_sum = total_sum / 2
 	
 	! display the selected number
 !print *, "from group ", selected_group, ": ", &
