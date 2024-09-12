@@ -1,12 +1,17 @@
 program Dv1_roller_EnJnDeSIgn2024
 	implicit none
 	character(len=1) :: user_input
-	integer :: selected_group, selected_number, i, roll_count, j
+	integer :: selected_group, selected_number, i, roll_count, j, count
 	character(len=180), dimension(0:9, 0:3) :: groups
 	character(len=180), dimension(4) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
-	real :: rand, roll_value, total_sum, carry_over, c, y, t, d_carry_over, decimal_shift
+	real, dimension(25) :: run_totals
+	real :: rand, roll_value, total_sum, carry_over, c, y, t, d_carry_over, decimal_shift, mean, sum_squares, std_dev, &
+	grand_total, carry_over2, c1, y1, t1
+	
+	count = 25
 	
 	c = 0.0
+	C1 = 0.0
 	
 	Call random_seed()
 	roll_count = 1000
@@ -14,6 +19,7 @@ program Dv1_roller_EnJnDeSIgn2024
 	total_sum = 0.0
 	carry_over = 0.0
 	d_carry_over = 0.0
+	grand_total = 0.0
 	
 	
 	! Display the progarm name and introduction
@@ -29,6 +35,9 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	carry_over = 0.0
 	d_carry_over = 0.0
 	c = 0.0
+	c1 = 0.0
+	run_totals(j) = total_sum
+	count = count +1
 	
 	! Initialize group0
 	group0 = (/ "-4  ", "+1  ", "-9  ", "-0.5"/)
@@ -104,7 +113,23 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	!trim(groups(selected_group, selected_number))
 	!print '("Sum: ", E35.25)', total_sum ! Test print.
 	end do
-	print '(" ", E35.25)', total_sum
+		carry_over2 = carry_over2 + total_sum
+					y1 = total_sum - c1
+					t1 = grand_total + y1
+					c1 = (t1 - grand_total) - y1
+					grand_total = t1
+			grand_total = grand_total + carry_over2
+	!grand_total = grand_total + total_sum
+	print '("    ", E35.25)', total_sum
 	carry_over = 0.0
+						mean = sum(run_totals) / count
+						sum_squares = 0.0
+							do i = 1, count
+							sum_squares = sum_squares + (run_totals(i) - mean)**2
+							end do
+						std_dev = sqrt(sum_squares / count)
 end do
+	print *
+	print '("Sum ", E35.25)', grand_total
+	print '("Std ", E35.25)', std_dev
 end program Dv1_roller_EnJnDeSIgn2024
