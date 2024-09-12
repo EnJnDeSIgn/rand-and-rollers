@@ -97,6 +97,6 @@ program Dv1_roller_EnJnDeSIgn2024
 	!trim(groups(selected_group, selected_number))
 	!print '("Sum: ", E35.25)', total_sum ! Test print.
 	end do
-	print '("Sum: ", E35.25)', total_sum
+	print '(" ", E35.25)', total_sum
 	carry_over = 0.0
 end program Dv1_roller_EnJnDeSIgn2024
