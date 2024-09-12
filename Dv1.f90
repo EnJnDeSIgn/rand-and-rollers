@@ -85,12 +85,12 @@ program Dv1_roller_EnJnDeSIgn2024
 				t = total_sum + y
 				C = (t - total_sum) - y
 				total_sum = t
-				total_sum = total_sum + carry_over
 			d_carry_over = 0.0
 		end if
 			if (d_carry_over /= 0.0) then
 			decimal_shift = decimal_shift * 0.1
 		endif
+		total_sum = total_sum + carry_over
 	
 	! display the selected number
 !print *, "from group ", selected_group, ": ", &
