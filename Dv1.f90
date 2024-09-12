@@ -11,7 +11,7 @@ program Dv1_roller_EnJnDeSIgn2024
 	count = 25
 	
 	c = 0.0
-	C1 = 0.0
+	c1 = 0.0
 	
 	Call random_seed()
 	roll_count = 1000
