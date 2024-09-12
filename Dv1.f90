@@ -9,7 +9,7 @@ program Dv1_roller_EnJnDeSIgn2024
 	c = 0.0
 	
 	Call random_seed()
-	roll_count = 10
+	roll_count = 1000
 	decimal_shift = 1.0
 	total_sum = 0.0
 	carry_over = 0.0
@@ -77,7 +77,7 @@ program Dv1_roller_EnJnDeSIgn2024
 	read(groups(selected_group, selected_number), *) roll_value
 	
 		if (roll_value == 0.5 .or. roll_value == -0.5) then
-			d_carry_over = d_carry_over + (roll_value * 1)
+			d_carry_over = d_carry_over + roll_value
 		else
 			roll_value = (roll_value * decimal_shift)
 			carry_over = carry_over + roll_value
@@ -85,6 +85,7 @@ program Dv1_roller_EnJnDeSIgn2024
 				t = total_sum + y
 				C = (t - total_sum) - y
 				total_sum = t
+				total_sum = total_sum + carry_over
 			d_carry_over = 0.0
 		end if
 			if (d_carry_over /= 0.0) then
@@ -92,10 +93,10 @@ program Dv1_roller_EnJnDeSIgn2024
 		endif
 	
 	! display the selected number
-print *, "from group ", selected_group, ": ", &
-	trim(groups(selected_group, selected_number))
+!print *, "from group ", selected_group, ": ", &
+	!trim(groups(selected_group, selected_number))
+	!print '("Sum: ", E35.25)', total_sum ! Test print.
 	end do
-	
-	print ' ("Sum: ", F30.25)', total_sum + carry_over
+	print '("Sum: ", E35.25)', total_sum
 	carry_over = 0.0
 end program Dv1_roller_EnJnDeSIgn2024
