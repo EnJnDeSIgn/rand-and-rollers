@@ -6,8 +6,10 @@ program D2v1_roller_EnJnDeSIgn2024
 	character(len=180), dimension(0:9, 0:3) :: groups
 	character(len=180), dimension(4) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
 	real, dimension(25) :: run_totals
+	real, dimension(25) :: exponate_values
 	real :: rand, roll_value, total_sum, carry_over, c, y, t, d_carry_over, decimal_shift, mean, sum_squares, std_dev, &
-	grand_total, carry_over2, c1, y1, t1, call_number0, exponate, carry_over3, c2, y2, t2, exponate_sum
+	grand_total, carry_over2, c1, y1, t1, call_number0, carry_over3, c2, y2, t2, exponate_sum, mean1, sum_squares1, &
+	std_dev1, exponate
 	
 	count = 25
 	
@@ -142,6 +144,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 			exponate = exponate * 10**(int(rand * 32))
 			exponate = exponate * 10**(int(rand * 32))
 			exponate = exponate * 10**(int(rand * 32))
+				exponate_values(j) = exponate
 	print '(" ", E35.25)', exponate
 						carry_over3 = carry_over3 + exponate
 							y2 = exponate - c2
@@ -156,9 +159,17 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 							sum_squares = sum_squares + (run_totals(i) - mean)**2
 							end do
 						std_dev = sqrt(sum_squares / count)
+						! New std_dev1
+							mean1 = sum(exponate_values) / count
+							sum_squares1 = 0.0
+								do i =1, count
+								sum_squares1 = sum_squares + (exponate_values(i) - mean1)**2
+								end do
+							std_dev1 = sqrt(sum_squares1 / count)
 end do
 	print *
 	print '("Sum ", E35.25)', exponate_sum
-	!print '("Sum ", E35.25)', grand_total
-	print '("Std ", E35.25)', std_dev
+	!print '("Sum0", E35.25)', grand_total
+	print '("Std ", E35.25)', std_dev1
+	!print '("Std0", E35.25)', std_dev
 end program D2v1_roller_EnJnDeSIgn2024
