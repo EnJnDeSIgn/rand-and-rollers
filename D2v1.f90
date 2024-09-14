@@ -128,7 +128,6 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 					c1 = (t1 - grand_total) - y1
 					grand_total = t1
 			grand_total = grand_total + carry_over2
-	!grand_total = grand_total + total_sum
 	!print '("    ", E35.25)', total_sum
 	carry_over = 0.0
 	call random_number(rand)
