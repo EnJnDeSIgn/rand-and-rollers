@@ -9,7 +9,8 @@ program D2v1_roller_EnJnDeSIgn2024
 	real, dimension(25) :: exponate_values
 	real :: rand, roll_value, total_sum, carry_over, c, y, t, d_carry_over, decimal_shift, mean, sum_squares, std_dev, &
 	grand_total, carry_over2, c1, y1, t1, call_number0, carry_over3, c2, y2, t2, exponate_sum, mean1, sum_squares1, &
-	std_dev1, exponate
+	std_dev1, exponate, mean_run_totals, covariance, variance_run_totals, variance_exponate_values, combined_variance, &
+	combined_std_dev, mean_exponate_values, difference, adjusted_std_dev1
 	
 	count = 25
 	
@@ -128,7 +129,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 					c1 = (t1 - grand_total) - y1
 					grand_total = t1
 			grand_total = grand_total + carry_over2
-	!print '("    ", E35.25)', total_sum
+	print '("    ", E35.25)', total_sum
 	carry_over = 0.0
 	call random_number(rand)
 	call_number0 = rand / 1.0e32
@@ -152,6 +153,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 							exponate_sum = t2
 						exponate_sum = exponate_sum + carry_over3
 			exponate = 0.0
+end do
 						mean = sum(run_totals) / count
 						sum_squares = 0.0
 							do i = 1, count
@@ -165,10 +167,48 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 								sum_squares1 = sum_squares + (exponate_values(i) - mean1)**2
 								end do
 							std_dev1 = sqrt(sum_squares1 / count)
-end do
+							!print '("New Std", E35.25)', std_dev1
+!end do ! Testing new location
+								
+							! Calculate mean for run_totals
+							mean_run_totals = sum(run_totals) / count
+
+							! Calculate mean for exponate_values
+							mean_exponate_values = sum(exponate_values) / count
+
+							! Calculate covariance
+							covariance = 0.0
+								do i = 1, count
+								covariance = covariance + (run_totals(i) - mean_run_totals) * (exponate_values(i) - mean_exponate_values)
+								end do
+							covariance = covariance / count
+
+							! Calculate variance for run_totals
+							variance_run_totals = std_dev**2
+
+							! Calculate variance for exponate_values
+							variance_exponate_values = std_dev1**2
+
+							! Combine the variances
+							combined_variance = variance_run_totals + variance_exponate_values + 2 * covariance
+
+							! Calculate the combined standard deviation
+							!if (combined_variance >= 0.0) then
+							combined_std_dev = sqrt(combined_variance)
+							!else
+							!combined_std_dev = 0.0
+							!end if
+							
+							! Calculate the difference between std_dev and std_dev1
+							difference = std_dev - std_dev1
+
+							! Adjust std_dev1 by adding the difference
+							adjusted_std_dev1 = std_dev1 + difference	
 	print *
 	print '("Sum ", E35.25)', exponate_sum
-	!print '("Sum0", E35.25)', grand_total
+	print '("Sum0", E35.25)', grand_total
 	print '("Std ", E35.25)', std_dev1
 	!print '("Std0", E35.25)', std_dev
+	print '("Combined Std", E35.25)', combined_std_dev
+	!print '("Adjusted Std0", E35.25)', adjusted_std_dev1
 end program D2v1_roller_EnJnDeSIgn2024
