@@ -171,18 +171,6 @@ end do
 								sum_squares1 = sum_squares1 + (exponate_values(i) - mean1)**2
 								end do
 							std_dev1 = sqrt(sum_squares1 / count)
-							
-								!do i = 1, count
-									!call random_number(rand)
-									!exponate_values(i) = exponate_values(i) + (rand / 1.0e5)
-								!end do
-									! Recalculate std_dev1 after adding combined_std_dev
-									!mean1 = sum(exponate_values) / count
-									!sum_squares1 = 0.0
-										!do i = 1, count
-										!sum_squares1 = sum_squares1 + (exponate_values(i) - mean1)**2
-										!end do
-									!std_dev1 = sqrt(sum_squares1 / count)
 									
 							!print '("New Std", E35.25)', std_dev1
 !end do ! Testing new location
@@ -223,16 +211,10 @@ end do
 										end do
 									std_dev1 = sqrt(sum_squares1 / count)
 							
-							! Calculate the difference between std_dev and std_dev1 ! don't add back...
-							!difference = std_dev - std_dev1
-
-							! Adjust std_dev1 by adding the difference
-							!adjusted_std_dev1 = std_dev1 + difference	
 	print *
 	print '("Sum ", E35.25)', exponate_sum
 	print '("Sum0", E35.25)', grand_total
 	print '("Std ", E35.25)', std_dev1
 	print '("Std0", E35.25)', std_dev
 	print '("Covariance", E35.25)', combined_std_dev
-	!print '("Adjusted Std0", E35.25)', adjusted_std_dev1
 end program D2v1_roller_EnJnDeSIgn2024
