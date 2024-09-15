@@ -1,5 +1,6 @@
 program D2v1_roller_EnJnDeSIgn2024
 	! Look at this Copilot, all on my own... But I still could not have done it with out my co-author... You!
+	! Okay so now I'v had lot's of help getting the 2ed std_dev1 up as well as the variance.
 	implicit none
 	character(len=1) :: user_input
 	integer :: selected_group, selected_number, i, roll_count, j, count
@@ -123,6 +124,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	!trim(groups(selected_group, selected_number))
 	!print '("Sum: ", E35.25)', total_sum ! Test print.
 	end do
+				!exponate_values(j) = exponate
 		carry_over2 = carry_over2 + total_sum
 					y1 = total_sum - c1
 					t1 = grand_total + y1
@@ -140,11 +142,12 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	!print '("Call", E35.25)', call_number0
 			exponate = exponate + total_sum
 			exponate = exponate * call_number0
+			!exponate = exponate * total_sum
 			total_sum = 0.0
 			exponate = exponate * 10**(int(rand * 32))
 			exponate = exponate * 10**(int(rand * 32))
 			exponate = exponate * 10**(int(rand * 32))
-				exponate_values(j) = exponate
+				exponate_values(j) = exponate ! Moved up a bit.
 	print '(" ", E35.25)', exponate
 						carry_over3 = carry_over3 + exponate
 							y2 = exponate - c2
@@ -164,16 +167,22 @@ end do
 						! New std_dev1
 							mean1 = sum(exponate_values) / count
 							sum_squares1 = 0.0
-								do i =1, count
+								do i = 1, count
 								sum_squares1 = sum_squares1 + (exponate_values(i) - mean1)**2
 								end do
 							std_dev1 = sqrt(sum_squares1 / count)
 							
 								!do i = 1, count
 									!call random_number(rand)
-									!exponate_values(i) = exponate_values(i) + combined_std_dev
+									!exponate_values(i) = exponate_values(i) + (rand / 1.0e5)
 								!end do
 									! Recalculate std_dev1 after adding combined_std_dev
+									!mean1 = sum(exponate_values) / count
+									!sum_squares1 = 0.0
+										!do i = 1, count
+										!sum_squares1 = sum_squares1 + (exponate_values(i) - mean1)**2
+										!end do
+									!std_dev1 = sqrt(sum_squares1 / count)
 									
 							!print '("New Std", E35.25)', std_dev1
 !end do ! Testing new location
@@ -206,12 +215,19 @@ end do
 							else
 							combined_std_dev = 0.0
 							end if
+									! Recalculate std_dev1 after adding combined_std_dev
+									mean1 = sum(exponate_values) / count
+									sum_squares1 = 0.0
+										do i = 1, count
+										sum_squares1 = sum_squares1 + (exponate_values(i) - mean1)**2
+										end do
+									std_dev1 = sqrt(sum_squares1 / count)
 							
-							! Calculate the difference between std_dev and std_dev1
-							difference = std_dev - std_dev1
+							! Calculate the difference between std_dev and std_dev1 ! don't add back...
+							!difference = std_dev - std_dev1
 
 							! Adjust std_dev1 by adding the difference
-							adjusted_std_dev1 = std_dev1 + difference	
+							!adjusted_std_dev1 = std_dev1 + difference	
 	print *
 	print '("Sum ", E35.25)', exponate_sum
 	print '("Sum0", E35.25)', grand_total
