@@ -214,7 +214,22 @@ end do
 	print *
 	print '("Sum ", E35.25)', exponate_sum
 	print '("Sum0", E35.25)', grand_total
+			! Check for large values in std_dev1
+			if (std_dev1 > 1.0e30) then
+				print *, "Standard Dev1 : Value Too Large To Display"
+	else
 	print '("Std ", E35.25)', std_dev1
+			end if
+			! Check for large values in std_dev
+			if (std_dev > 1.0e30) then
+				print *, "Standard Dev0 : Value Too Large To Display"
+	else
 	print '("Std0", E35.25)', std_dev
+			end if
+			! Check for large values in std_dev
+			if (combined_std_dev > 1.0e30) then
+				print *, "Covariance : Value Too Large To Display"
+	else
 	print '("Covariance", E35.25)', combined_std_dev
+			end if
 end program D2v1_roller_EnJnDeSIgn2024
