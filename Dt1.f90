@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1606, 0:2) :: groups
+	character(len=32), dimension(0:1619, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -248,7 +248,8 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1575, group1576, group1577, group1578, group1579, group1580, group1581, group1582, group1583, &
 									   &group1584, group1585, group1586, group1587, group1588, group1589, group1590, group1591, group1592, &
 									   &group1593, group1594, group1595, group1596, group1597, group1598, group1599, group1600, group1601, &
-									   &group1602, group1603, group1604, group1605, group1606
+									   &group1602, group1603, group1604, group1605, group1606, group1607, group1608, group1609, group1610, &
+									   &group1611, group1612, group1613, group1614, group1615, group1616, group1617, group1618, group1619
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -3494,6 +3495,32 @@ program Dt1_roller_EnJnDeSIgn2024
  group1605 = (/ "    15.9933862686157226562500000", "    71.5119781494140625000000000", "   136.3336181640625000000000000" /)
  !!!! Initialize group1606
  group1606 = (/ "    57.2190208435058593750000000", "    74.0163726806640625000000000", "  -117.9187011718750000000000000" /)
+ !!!! Initialize group1607
+ group1607 = (/ "   -16.2856502532958984375000000", "     9.0592269897460937500000000", "     2.8654510974884033203125000" /)
+ !!!! Initialize group1608
+ group1608 = (/ "    34.2334403991699218750000000", "    55.4514350891113281250000000", "     7.0166378021240234375000000" /)
+ !!!! Initialize group1609
+ group1609 = (/ "    -3.2220742702484130859375000", "   -10.4899015426635742187500000", "   -21.1598415374755859375000000" /)
+ !!!! Initialize group1610
+ group1610 = (/ "     7.6353359222412109375000000", "     3.7673223018646240234375000", "   -64.1417999267578125000000000" /)
+ !!!! Initialize group1611
+ group1611 = (/ "     1.2561647891998291015625000", "   -73.1116104125976562500000000", "    68.3651657104492187500000000" /)
+ !!!! Initialize group1612
+ group1612 = (/ "    15.8706741333007812500000000", "     2.4478995800018310546875000", "   101.1337738037109375000000000" /)
+ !!!! Initialize group1613
+ group1613 = (/ "    -1.6445873975753784179687500", "    44.2466926574707031250000000", "   -70.8002014160156250000000000" /)
+ !!!! Initialize group1614
+ group1614 = (/ "     2.6411297321319580078125000", "     3.1853532791137695312500000", "    -2.5982768535614013671875000" /)
+ !!!! Initialize group1615
+ group1615 = (/ "    17.7562294006347656250000000", "   -21.0562248229980468750000000", "    -2.3583819866180419921875000" /)
+ !!!! Initialize group1616
+ group1616 = (/ "    62.6785545349121093750000000", "     5.0002617835998535156250000", "    23.8101806640625000000000000" /)
+ !!!! Initialize group1617
+ group1617 = (/ "     4.0903444290161132812500000", "   -18.1170997619628906250000000", "     4.5846571922302246093750000" /)
+ !!!! Initialize group1618
+ group1618 = (/ "    23.4305038452148437500000000", "    85.6547012329101562500000000", "     2.0508439540863037109375000" /)
+ !!!! Initialize group1619
+ group1619 = (/ "    26.2195396423339843750000000", "     3.8463599681854248046875000", "    21.9908866882324218750000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -5103,13 +5130,26 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1604, :) = group1604
 	groups(1605, :) = group1605
 	groups(1606, :) = group1606
+	groups(1607, :) = group1607
+	groups(1608, :) = group1608
+	groups(1609, :) = group1609
+	groups(1610, :) = group1610
+	groups(1611, :) = group1611
+	groups(1612, :) = group1612
+	groups(1613, :) = group1613
+	groups(1614, :) = group1614
+	groups(1615, :) = group1615
+	groups(1616, :) = group1616
+	groups(1617, :) = group1617
+	groups(1618, :) = group1618
+	groups(1619, :) = group1619
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand *1607) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand *1620) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand *3)
