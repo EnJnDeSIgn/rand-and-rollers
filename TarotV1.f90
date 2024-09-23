@@ -63,10 +63,18 @@ do while (.true.)
     ! Randomly select a group
     call random_number(rand)
     selected_group = int(rand * 13)
+		if (selected_group < 0 .or. selected_group > 12) then
+			print *, "Error: selected_group out of range"	! Start your count from 0
+			stop
+		end if
 
     ! Randomly select an card from the chosen group
     call random_number(rand)
     selected_card = int(rand * 6)
+		if (selected_card < 0 .or. selected_card > 5) then
+			print *, "Error: selected_card out of range"	! Start your count from 0
+			stop
+		end if
 
     ! Assign groups to the groups array
     groups(0, :) = group0
