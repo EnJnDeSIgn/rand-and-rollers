@@ -3,8 +3,8 @@ program tarot_card_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     character(len=1) :: user_input
     integer :: selected_group, selected_card
-    character(len=180), dimension(0:12, 0:5) :: groups
-    character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
+    character(len=30), dimension(0:12, 0:5) :: groups
+    character(len=30), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12
 	! ... (initialize all group arrays up to group12)
     real :: rand
@@ -13,10 +13,10 @@ program tarot_card_generator_EnJnDeSIgn2024
     call random_seed()
 
     ! Display the program name and introduction
-    print *, "      tarot_card_generator_EnJnDeSIgn2024      "
-	print *, "         A Oracle Of Divine Randomness         "
-	print *, "                By Ian J Norris                "
-	print *, "              Ian.enjn@gmail.com               "
+    !print *, "      tarot_card_generator_EnJnDeSIgn2024      "
+	!print *, "         A Oracle Of Divine Randomness         "
+	!print *, "                By Ian J Norris                "
+	!print *, "              Ian.enjn@gmail.com               "
 	
     ! Initialize group0
     group0 = (/ "The Magician                  ", "Two of Swords                 ", "Three of Pentacles            ", &
@@ -93,8 +93,9 @@ do while (.true.)
 	! ... (assign all other groups similarly)
 
     ! Display the selected card
-print *, "From Group ", selected_group, ": ", &
-    trim(groups(selected_group, selected_card))
+!print *, "From Group ", selected_group, ": ", &
+    !trim(groups(selected_group, selected_card))
+	print *, trim(groups(selected_group, selected_card))
         print *, "Draw another card? (Y/N)"
         read(*,*) user_input
         if (user_input == 'N' .or. user_input == 'n') exit
