@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1637, 0:2) :: groups
+	character(len=32), dimension(0:1655, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -251,7 +251,9 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1602, group1603, group1604, group1605, group1606, group1607, group1608, group1609, group1610, &
 									   &group1611, group1612, group1613, group1614, group1615, group1616, group1617, group1618, group1619, &
 									   &group1620, group1621, group1622, group1623, group1624, group1625, group1626, group1627, group1628, &
-									   &group1629, group1630, group1631, group1632, group1633, group1634, group1635, group1636, group1637
+									   &group1629, group1630, group1631, group1632, group1633, group1634, group1635, group1636, group1637, &
+									   &group1638, group1639, group1640, group1641, group1642, group1643, group1644, group1645, group1646, &
+									   &group1647, group1648, group1649, group1650, group1651, group1652, group1653, group1654, group1655
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -3559,6 +3561,42 @@ program Dt1_roller_EnJnDeSIgn2024
  group1636 = (/ "     0.0784889459609985351562500", "    20.9266223907470703125000000", "    33.5235519409179687500000000" /)
  !!!! Initialize group1637
  group1637 = (/ "  -154.5786437988281250000000000", "   -22.1326427459716796875000000", "     3.1036283969879150390625000" /)
+ !!!! Initialize group1638
+ group1638 = (/ "    99.1401214599609375000000000", "    -0.8094909787178039550781250", "    35.2585716247558593750000000" /)
+ !!!! Initialize group1639
+ group1639 = (/ "    -0.3424182832241058349609375", "    74.8715362548828125000000000", "   -39.9187965393066406250000000" /)
+ !!!! Initialize group1640
+ group1640 = (/ "     0.1215514689683914184570312", "   -92.3988876342773437500000000", "    -6.5317950248718261718750000" /)
+ !!!! Initialize group1641
+ group1641 = (/ "   105.5229339599609375000000000", "     9.9768257141113281250000000", "   -22.7198390960693359375000000" /)
+ !!!! Initialize group1642
+ group1642 = (/ "   130.6935424804687500000000000", "     3.6024549007415771484375000", "   -23.4676876068115234375000000" /)
+ !!!! Initialize group1643
+ group1643 = (/ "    -1.4645489454269409179687500", "    39.2729034423828125000000000", "     0.8539593815803527832031250" /)
+ !!!! Initialize group1644
+ group1644 = (/ "   -19.5329418182373046875000000", "   -52.3573913574218750000000000", "     9.9560642242431640625000000" /)
+ !!!! Initialize group1645
+ group1645 = (/ "    27.1908416748046875000000000", "    -3.5987873077392578125000000", "     8.4236164093017578125000000" /)
+ !!!! Initialize group1646
+ group1646 = (/ "     2.3849351406097412109375000", "    33.1190414428710937500000000", "    37.1356353759765625000000000" /)
+ !!!! Initialize group1647
+ group1647 = (/ "   -68.0520172119140625000000000", "    46.1991577148437500000000000", "    -5.4303073883056640625000000" /)
+ !!!! Initialize group1648
+ group1648 = (/ "  -159.5190277099609375000000000", "    -2.0028326511383056640625000", "  -151.5586242675781250000000000" /)
+ !!!! Initialize group1649
+ group1649 = (/ "     2.3733768463134765625000000", "     3.4430932998657226562500000", "   -56.1926727294921875000000000" /)
+ !!!! Initialize group1650
+ group1650 = (/ "     2.4866054058074951171875000", "    16.3257484436035156250000000", "     1.4770779609680175781250000" /)
+ !!!! Initialize group1651
+ group1651 = (/ "     2.2682185173034667968750000", "    -9.3273687362670898437500000", "     1.6403949260711669921875000" /)
+ !!!! Initialize group1652
+ group1652 = (/ "    21.8050975799560546875000000", "    -8.2615242004394531250000000", "   -44.4143486022949218750000000" /)
+ !!!! Initialize group1653
+ group1653 = (/ "   -74.9856567382812500000000000", "     3.4170188903808593750000000", "    59.2891235351562500000000000" /)
+ !!!! Initialize group1654
+ group1654 = (/ "    -0.2438468933105468750000000", "   -73.2901306152343750000000000", "   121.8336868286132812500000000" /)
+ !!!! Initialize group1655
+ group1655 = (/ "   -49.1468009948730468750000000", "   -26.6212368011474609375000000", "    27.5286293029785156250000000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -5199,17 +5237,43 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1635, :) = group1635
 	groups(1636, :) = group1636
 	groups(1637, :) = group1637
+	groups(1638, :) = group1638
+	groups(1639, :) = group1639
+	groups(1640, :) = group1640
+	groups(1641, :) = group1641
+	groups(1642, :) = group1642
+	groups(1643, :) = group1643
+	groups(1644, :) = group1644
+	groups(1645, :) = group1645
+	groups(1646, :) = group1646
+	groups(1647, :) = group1647
+	groups(1648, :) = group1648
+	groups(1649, :) = group1649
+	groups(1650, :) = group1650
+	groups(1651, :) = group1651
+	groups(1652, :) = group1652
+	groups(1653, :) = group1653
+	groups(1654, :) = group1654
+	groups(1655, :) = group1655
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand * 1638) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+	selected_group = int(rand * 1656) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+		if (selected_group < 0 .or. selected_group > 1655) then
+			print *, "Error: selected_group out of range"
+			stop
+		end if
 	
 	! Randomly select a number from the chosen group
 	call random_number(rand)
 	selected_number = int(rand * 3)
+		if (selected_number < 0 .or. selected_number > 2) then
+			print *, "Error: selected_number out of range"
+			stop
+		end if
 	
 	call random_number(rand)
 	roll_value = rand * 1.0e32 ! Small value to ensure the exponate is negative. Minus symbol taken out temp.
