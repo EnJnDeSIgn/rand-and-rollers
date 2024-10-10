@@ -95,16 +95,16 @@ program Dt2_roller_EnJnDeSIgn2024
         ! Convert string to integer
         read(random_number_str, '(E30.0)') current_number
         ! Add to total sum
-        !total_sum = total_sum + current_number		! Changed too persision data
 		carry_over = carry_over + current_number
 		
-	y = current_number - c			! So far, so good: c is 0
-	t = total_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
-	c = (t - total_sum) - y		! (t- total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
-	total_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
+		y = current_number - c		! So far, so good: c is 0
+		t = total_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
+		c = (t - total_sum) - y		! (t- total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
+		total_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
 								! Next time around, the lost low part will be added to y in a fresh attempt.
 								! Print the current roll value and the total sum with more decimal places	
 		total_sum = total_sum + carry_over
+		carry_over = 0.0
 
         ! Print the generated number
         print *, random_number_str
