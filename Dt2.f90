@@ -162,5 +162,9 @@ program Dt2_roller_EnJnDeSIgn2024
 	print *, "Standard Deviation: ", std_dev
 			end if
     ! Print the most frequent digit
-    print *, "Most Frequent Digit: ", max_digit - 1
+	max_digit = max_digit - 1
+		if (max_digit < 0) then
+			max_digit = 0
+		end if
+    print *, "Most Frequent Digit: ", max_digit
 end program Dt2_roller_EnJnDeSIgn2024
