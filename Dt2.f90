@@ -165,7 +165,8 @@ program Dt2_roller_EnJnDeSIgn2024
 	print *, "Standard Deviation: ", std_dev
 			end if
     ! Print the most frequent digit(not sure if needed still but here in case)
-	!print *, "Most Frequent Digit: ", max_digit - 1
+	max_digit = max_digit - 1
+	!print *, "Most Frequent Digit: ", max_digit
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
 	do k = 0, 9
