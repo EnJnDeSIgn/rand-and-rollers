@@ -1,6 +1,6 @@
 program Dt2_roller_EnJnDeSIgn2024
     implicit none
-    integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit
+    integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
                                         &group9
@@ -128,7 +128,7 @@ program Dt2_roller_EnJnDeSIgn2024
         normalized_run_totals = run_totals / max_value
     else
         normalized_run_totals = run_totals
-    end if	
+    end if
     ! Calculate mean
     mean = sum(normalized_run_totals) / count
 
@@ -144,27 +144,35 @@ program Dt2_roller_EnJnDeSIgn2024
         std_dev = 0.0
     end if
 	
-    ! Find the mode (most frequent digit)
+    ! Find the mode(s) (most frequent digit)
     max_digit = 0
-    do k = 1, 10
-        if (digit_count(k) > digit_count(max_digit)) then
-            max_digit = k
-        end if
-    end do	
-	
+	! Count digits
+	do j = 1, num_iterations
+		do k = 1, roll_count
+			digit_count(final_numbers(k) + 1) = digit_count(final_numbers(k) + 1) + 1
+		end do
+	end do
     ! Print the total sum in scientific notation
     print *, "Total sum (in scientific notation): ", total_sum
     ! Print the mean
     print *, "Mean: ", mean	
 			if (std_dev > 1.0e30) then
 				print *, "Standard Dev A: Value Too Large To Display"
-	else	
+	else
 	print *, "Standard Deviation: ", std_dev
 			end if
     ! Print the most frequent digit
-	max_digit = max_digit - 1
-		if (max_digit < 0) then
-			max_digit = 0
+	!max_digit = max_digit - 1
+		!if (max_digit < 0) then
+			!max_digit = 0
+		!end if
+    !print *, "Most Frequent Digit: ", max_digit
+	! Find the mode(s)
+	max_digit_count = maxval(digit_count)
+	print *, "Most Frequent Digit(s):"
+	do k = 0, 9
+		if (digit_count(k + 1) == max_digit_count) then
+			print *, k
 		end if
-    print *, "Most Frequent Digit: ", max_digit
+	end do
 end program Dt2_roller_EnJnDeSIgn2024
