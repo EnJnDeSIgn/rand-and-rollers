@@ -6,14 +6,17 @@ program Dt2_roller_EnJnDeSIgn2024
                                         &group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers
-    real :: rand
+    real :: rand, c, y, t, carry_over
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
+	
+	c = 0.0
 
     call random_seed()
     roll_count = 30
-    num_iterations = 10  ! Number of times to repeat the process
+    num_iterations = 25  ! Number of times to repeat the process
     total_sum = 0
+	carry_over = 0.0
 
     ! Initialize group0
     group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
@@ -92,7 +95,16 @@ program Dt2_roller_EnJnDeSIgn2024
         ! Convert string to integer
         read(random_number_str, '(E30.0)') current_number
         ! Add to total sum
-        total_sum = total_sum + current_number
+        !total_sum = total_sum + current_number		! Changed too persision data
+		carry_over = carry_over + current_number
+		
+	y = current_number - c			! So far, so good: c is 0
+	t = total_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
+	c = (t - total_sum) - y		! (t- total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
+	total_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
+								! Next time around, the lost low part will be added to y in a fresh attempt.
+								! Print the current roll value and the total sum with more decimal places	
+		total_sum = total_sum + carry_over
 
         ! Print the generated number
         print *, random_number_str
