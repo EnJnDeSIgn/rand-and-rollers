@@ -7,10 +7,13 @@ program Dt2_roller_EnJnDeSIgn2024
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers
     real :: rand
+    character(len=30) :: random_number_str
+    real(kind=8) :: total_sum, current_number
 
     call random_seed()
     roll_count = 30
-	num_iterations = 10
+    num_iterations = 10  ! Number of times to repeat the process
+    total_sum = 0
 
     ! Initialize group0
     group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
@@ -55,36 +58,49 @@ program Dt2_roller_EnJnDeSIgn2024
     groups(8, :) = group8
     groups(9, :) = group9
 
-		do j = 1, num_iterations
-	do i = 1, roll_count
-        ! Randomly select a group
-        call random_number(rand)
-        selected_group = int(rand * 10)
-			if (selected_group < 0 .or. selected_group > 9) then
-				print *, "Error: selected_group out of range"
-				stop
-			end if
-        ! Randomly select a number from the chosen group
-        call random_number(rand)
-        selected_number = int(rand * 10)
-			if (selected_number < 0 .or. selected_number > 9) then
-				print *, "Error: selected_number out of range"
-				stop
-			end if
-        ! Store selected number
-        selected_numbers(i) = trim(adjustl(groups(selected_group, selected_number)))
-        ! Convert binary values to their respective ranges
-        if (selected_numbers(i) == '0') then
+    do j = 1, num_iterations
+        random_number_str = ""
+        do i = 1, roll_count
+            ! Randomly select a group
             call random_number(rand)
-            final_numbers(i) = int(rand * 5)  ! Values 0-4
-        else if (selected_numbers(i) == '1') then
+            selected_group = int(rand * 10)
+            if (selected_group < 0 .or. selected_group > 9) then
+                print *, "Error: selected_group out of range"
+                stop
+            end if
+            ! Randomly select a number from the chosen group
             call random_number(rand)
-            final_numbers(i) = int(rand * 5) + 5  ! Values 5-9
-        end if
+            selected_number = int(rand * 10)
+            if (selected_number < 0 .or. selected_number > 9) then
+                print *, "Error: selected_number out of range"
+                stop
+            end if
+            ! Store selected number
+            selected_numbers(i) = trim(adjustl(groups(selected_group, selected_number)))
+            ! Convert binary values to their respective ranges
+            if (selected_numbers(i) == '0') then
+                call random_number(rand)
+                final_numbers(i) = int(rand * 5)  ! Values 0-4
+            else if (selected_numbers(i) == '1') then
+                call random_number(rand)
+                final_numbers(i) = int(rand * 5) + 5  ! Values 5-9
+            end if
+            ! Append number to string
+            write(random_number_str(i:i), '(I1)') final_numbers(i)
+        end do
+
+        ! Convert string to integer
+        read(random_number_str, '(E30.0)') current_number
+        ! Add to total sum
+        total_sum = total_sum + current_number
+
+        ! Print the generated number
+        print *, random_number_str
     end do
 
-    ! Print only the final numbers in a line
-    write(*, "(30I1)") (final_numbers(i), i = 1, roll_count)
-    print *
-		end do
+    ! Print the total sum
+    !print *, "Total sum: ", total_sum
+    ! Print the total sum in scientific notation
+    print *, "Total sum (in scientific notation): ", total_sum
+
 end program Dt2_roller_EnJnDeSIgn2024
