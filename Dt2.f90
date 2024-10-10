@@ -122,36 +122,36 @@ program Dt2_roller_EnJnDeSIgn2024
         ! Print the generated number
         print *, random_number_str
     end do
-    ! Normalize the values in run_total
-    max_value = maxval(run_totals)
-    if (max_value > 0.0) then
-        normalized_run_totals = run_totals / max_value
-    else
-        normalized_run_totals = run_totals
-    end if
-    ! Calculate mean
-    mean = sum(normalized_run_totals) / count
+		! Normalize the values in run_total
+		max_value = maxval(run_totals)
+		if (max_value > 0.0) then
+			normalized_run_totals = run_totals / max_value
+		else
+			normalized_run_totals = run_totals
+		end if
+		! Calculate mean
+		mean = sum(normalized_run_totals) / count
 
-    ! Calculate sum of squares for standard deviation
-    sum_squares = 0.0
-    do j = 1, count
-        sum_squares = sum_squares + (normalized_run_totals(j) - mean)**2
-    end do
-
-    if (count > 1) then
-        std_dev = sqrt(sum_squares / (count - 1))
-    else
-        std_dev = 0.0
-    end if
-	
-    ! Find the mode(s) (most frequent digit)
-    max_digit = 0
-	! Count digits
-	do j = 1, num_iterations
-		do k = 1, roll_count
-			digit_count(final_numbers(k) + 1) = digit_count(final_numbers(k) + 1) + 1
+		! Calculate sum of squares for standard deviation
+		sum_squares = 0.0
+		do j = 1, count
+			sum_squares = sum_squares + (normalized_run_totals(j) - mean)**2
 		end do
-	end do
+
+		if (count > 1) then
+			std_dev = sqrt(sum_squares / (count - 1))
+		else
+			std_dev = 0.0
+		end if
+	
+		! Find the mode(s) (most frequent digit)
+		max_digit = 0
+		! Count digits
+		do j = 1, num_iterations
+			do k = 1, roll_count
+				digit_count(final_numbers(k) + 1) = digit_count(final_numbers(k) + 1) + 1
+			end do
+		end do
     ! Print the total sum in scientific notation
     print *, "Total sum (in scientific notation): ", total_sum
     ! Print the mean
@@ -161,18 +161,14 @@ program Dt2_roller_EnJnDeSIgn2024
 	else
 	print *, "Standard Deviation: ", std_dev
 			end if
-    ! Print the most frequent digit
-	!max_digit = max_digit - 1
-		!if (max_digit < 0) then
-			!max_digit = 0
-		!end if
-    !print *, "Most Frequent Digit: ", max_digit
+    ! Print the most frequent digit(not sure if needed still but here in case)
+	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
 	print *, "Most Frequent Digit(s):"
-	do k = 0, 9
-		if (digit_count(k + 1) == max_digit_count) then
-			print *, k
-		end if
-	end do
+		do k = 0, 9
+			if (digit_count(k + 1) == max_digit_count) then
+				print *, k
+			end if
+		end do
 end program Dt2_roller_EnJnDeSIgn2024
