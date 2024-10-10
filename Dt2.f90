@@ -1,11 +1,11 @@
 program Dt2_roller_EnJnDeSIgn2024
     implicit none
-    integer :: selected_group, selected_number, i, j, roll_count, num_iterations, count
+    integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
                                         &group9
     character(len=1), dimension(30) :: selected_numbers
-    integer, dimension(30) :: final_numbers
+    integer, dimension(30) :: final_numbers, digit_count
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
@@ -19,6 +19,7 @@ program Dt2_roller_EnJnDeSIgn2024
     num_iterations = 25  ! Number of times to repeat the process
     total_sum = 0
 	carry_over = 0.0
+	digit_count = 0
 
     ! Initialize group0
     group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
@@ -112,6 +113,11 @@ program Dt2_roller_EnJnDeSIgn2024
 		
 		! Store current total to array
         run_totals(j) = total_sum
+		
+        ! Count digits
+        do k = 1, roll_count
+            digit_count(final_numbers(k) + 1) = digit_count(final_numbers(k) + 1) + 1
+        end do		
 
         ! Print the generated number
         print *, random_number_str
@@ -138,6 +144,14 @@ program Dt2_roller_EnJnDeSIgn2024
         std_dev = 0.0
     end if
 	
+    ! Find the mode (most frequent digit)
+    max_digit = 0
+    do k = 1, 10
+        if (digit_count(k) > digit_count(max_digit)) then
+            max_digit = k
+        end if
+    end do	
+	
     ! Print the total sum in scientific notation
     print *, "Total sum (in scientific notation): ", total_sum
     ! Print the mean
@@ -147,4 +161,6 @@ program Dt2_roller_EnJnDeSIgn2024
 	else	
 	print *, "Standard Deviation: ", std_dev
 			end if
+    ! Print the most frequent digit
+    print *, "Most Frequent Digit: ", max_digit
 end program Dt2_roller_EnJnDeSIgn2024
