@@ -1,16 +1,18 @@
 program Dt2_roller_EnJnDeSIgn2024
     implicit none
-    integer :: selected_group, selected_number, i, j, roll_count, num_iterations
+    integer :: selected_group, selected_number, i, j, roll_count, num_iterations, count
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
                                         &group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers
-    real :: rand, c, y, t, carry_over
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
+	real, dimension(25) :: run_totals, normalized_run_totals
 	
 	c = 0.0
+	count = 0
 
     call random_seed()
     roll_count = 30
@@ -63,6 +65,8 @@ program Dt2_roller_EnJnDeSIgn2024
 
     do j = 1, num_iterations
         random_number_str = ""
+		!run_totals(j) = total_sum
+		count = count +1
         do i = 1, roll_count
             ! Randomly select a group
             call random_number(rand)
@@ -101,18 +105,46 @@ program Dt2_roller_EnJnDeSIgn2024
 		t = total_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
 		c = (t - total_sum) - y		! (t- total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
 		total_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
-								! Next time around, the lost low part will be added to y in a fresh attempt.
-								! Print the current roll value and the total sum with more decimal places	
+									! Next time around, the lost low part will be added to y in a fresh attempt.
+									! Print the current roll value and the total sum with more decimal places	
 		total_sum = total_sum + carry_over
 		carry_over = 0.0
+		
+		! Store current total to array
+        run_totals(j) = total_sum
 
         ! Print the generated number
         print *, random_number_str
     end do
+    ! Normalize the values in run_total
+    max_value = maxval(run_totals)
+    if (max_value > 0.0) then
+        normalized_run_totals = run_totals / max_value
+    else
+        normalized_run_totals = run_totals
+    end if	
+    ! Calculate mean
+    mean = sum(normalized_run_totals) / count
 
-    ! Print the total sum
-    !print *, "Total sum: ", total_sum
+    ! Calculate sum of squares for standard deviation
+    sum_squares = 0.0
+    do j = 1, count
+        sum_squares = sum_squares + (normalized_run_totals(j) - mean)**2
+    end do
+
+    if (count > 1) then
+        std_dev = sqrt(sum_squares / (count - 1))
+    else
+        std_dev = 0.0
+    end if
+	
     ! Print the total sum in scientific notation
     print *, "Total sum (in scientific notation): ", total_sum
-
+    ! Print the mean
+    print *, "Mean: ", mean	
+			if (std_dev > 1.0e30) then
+				print *, "Standard Dev A: Value Too Large To Display"
+	else	
+	print *, "Standard Deviation: ", std_dev
+			end if
 end program Dt2_roller_EnJnDeSIgn2024
