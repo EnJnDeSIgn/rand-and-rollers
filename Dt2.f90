@@ -6,6 +6,8 @@ program Dt2_roller_EnJnDeSIgn2024
                                         &group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
+	character(len=50) :: most_frequent_digits
+	!integer, dimension(10) :: digit_count	! I Think it behaves better on 30
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
@@ -69,6 +71,7 @@ program Dt2_roller_EnJnDeSIgn2024
 		!run_totals(j) = total_sum
 		count = count +1
         do i = 1, roll_count
+			most_frequent_digits = ""
             ! Randomly select a group
             call random_number(rand)
             selected_group = int(rand * 10)
@@ -165,10 +168,15 @@ program Dt2_roller_EnJnDeSIgn2024
 	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	print *, "Most Frequent Digit(s):"
-		do k = 0, 9
-			if (digit_count(k + 1) == max_digit_count) then
-				print *, k
-			end if
-		end do
+	do k = 0, 9
+		if (digit_count(k + 1) == max_digit_count) then
+			write(most_frequent_digits(len_trim(most_frequent_digits)+1:len_trim(most_frequent_digits)+1), '(I1)') k
+		end if
+	end do
+	! Print all most frequent digits
+	if (len_trim(most_frequent_digits) > 1) then
+		print *, "Most Frequent Digit(s): ", most_frequent_digits
+	else
+		print *, "Most Frequent Digit: ", most_frequent_digits
+	end if	
 end program Dt2_roller_EnJnDeSIgn2024
