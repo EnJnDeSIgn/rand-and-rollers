@@ -1,13 +1,14 @@
 program Die20_roller_EnJnDeSIgn2024
     implicit none
     integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
+	integer :: selected_place, line_index, position_index, d20_value, d20
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
                                         &group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, d20, rand_val0, rand_val1
-    character(len=30) :: random_number_str
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
+    character(len=90) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals
 	
@@ -20,7 +21,6 @@ program Die20_roller_EnJnDeSIgn2024
     total_sum = 0
 	carry_over = 0.0
 	digit_count = 0
-	d20 = 0
 
     ! Initialize group0
     group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
@@ -89,17 +89,19 @@ program Die20_roller_EnJnDeSIgn2024
             ! Convert binary values to their respective ranges
             if (selected_numbers(i) == '0') then
                 call random_number(rand)
-                final_numbers(i) = int(rand * 5)	! Values 0-2
+                final_numbers(i) = int(rand * 10)  ! Values 0-9
             else if (selected_numbers(i) == '1') then
                 call random_number(rand)
-                final_numbers(i) = int(rand * 5)+5	! Values 3-5
+                final_numbers(i) = int(rand * 10) + 10  ! Values 10-19
             end if
             ! Append number to string
-            write(random_number_str(i:i), '(I1)') final_numbers(i)
+            !write(random_number_str(i:i), '(I1)') final_numbers(i)
+			write(random_number_str(3*i-2:3*i-1), '(I2)') final_numbers(i)
+			write(random_number_str(3*i:3*i), '(A1)') ' '
         end do
 
         ! Convert string to integer
-        read(random_number_str, '(E30.0)') current_number
+        read(random_number_str, '(A90)') current_number
         ! Add to total sum
 		carry_over = carry_over + current_number
 		
@@ -166,25 +168,26 @@ program Die20_roller_EnJnDeSIgn2024
 	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	!print *, "D20:"
+	!print *, "D12:"
 		do k = 0, 9
 			if (digit_count(k + 1) == max_digit_count) then
 				!print *, k
-				d20 = k
 			end if
 		end do
+		! Randomly select a place in the 25 lines of 30 numbers
 		call random_number(rand)
-		rand_val0 = int(rand * 3)
-			if (rand_val0 > 0) then
-			d20 = d20 + 1
-			end if
-		call random_number(rand)
-		rand_val1 = int(rand * 3)
-			if (rand_val1 > 0) then
-			d20 = d20 * 2
-			end if
-			if (d20 < 1) then
-			d20 = d20 + 1
-			end if
+		selected_place = int(rand * 750) + 1  ! Ensures the value is between 1 and 750
+
+		! Calculate the index for the line and position
+		line_index = (selected_place - 1) / 30 + 1
+		position_index = mod((selected_place - 1), 30) + 1
+
+		! Get the value from the selected position
+		d20_value = final_numbers(position_index)
+		d20 = d20_value
+
+		! Adjust d20 to be in the range 1-20
+		d20 = mod(d20, 20) + 1
+
 		print *, "D20: ", d20
 end program Die20_roller_EnJnDeSIgn2024
