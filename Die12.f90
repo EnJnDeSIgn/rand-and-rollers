@@ -6,9 +6,7 @@ program Die12_roller_EnJnDeSIgn2024
                                         &group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
-	character(len=50) :: most_frequent_digits
-	!integer, dimension(10) :: digit_count	! I Think it behaves better on 30
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, d12, rand_val0, rand_val1
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals
@@ -22,6 +20,7 @@ program Die12_roller_EnJnDeSIgn2024
     total_sum = 0
 	carry_over = 0.0
 	digit_count = 0
+	d12 = 0
 
     ! Initialize group0
     group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
@@ -68,7 +67,7 @@ program Die12_roller_EnJnDeSIgn2024
 
     do j = 1, num_iterations
         random_number_str = ""
-		most_frequent_digits = ""
+		!run_totals(j) = total_sum
 		count = count +1
         do i = 1, roll_count
             ! Randomly select a group
@@ -90,17 +89,17 @@ program Die12_roller_EnJnDeSIgn2024
             ! Convert binary values to their respective ranges
             if (selected_numbers(i) == '0') then
                 call random_number(rand)
-                final_numbers(i) = int(rand * 6)  ! Values 0-5
+                final_numbers(i) = int(rand * 3)	! Values 0-2
             else if (selected_numbers(i) == '1') then
                 call random_number(rand)
-                final_numbers(i) = int(rand * 6) + 6  ! Values 6-11
+                final_numbers(i) = int(rand * 3)+3	! Values 3-5
             end if
-			! Append number to string
-			write(random_number_str(2*i-1:2*i), '(I2)') final_numbers(i)
+            ! Append number to string
+            write(random_number_str(i:i), '(I1)') final_numbers(i)
         end do
 
         ! Convert string to integer
-        read(random_number_str, '(F60.0)') current_number
+        read(random_number_str, '(E30.0)') current_number
         ! Add to total sum
 		carry_over = carry_over + current_number
 		
@@ -121,7 +120,7 @@ program Die12_roller_EnJnDeSIgn2024
             digit_count(final_numbers(k) + 1) = digit_count(final_numbers(k) + 1) + 1
         end do		
 
-        ! Print the generated number	!Test Spot For D12 & D20
+        ! Print the generated number	!Die Test
         !print *, random_number_str
     end do
 		! Normalize the values in run_total
@@ -154,31 +153,38 @@ program Die12_roller_EnJnDeSIgn2024
 				digit_count(final_numbers(k) + 1) = digit_count(final_numbers(k) + 1) + 1
 			end do
 		end do
-    ! Print the total sum in scientific notation
+    ! Print the total sum in scientific notation	!Die Test
     !print *, "Total sum (in scientific notation): ", total_sum
-    ! Print the mean
+    ! Print the mean	!Die Test
     !print *, "Mean: ", mean	
-			if (std_dev > 1.0e30) then
-				print *, "Standard Dev A: Value Too Large To Display"
-	else
+			!if (std_dev > 1.0e30) then
+				!print *, "Standard Dev A: Value Too Large To Display"
+	!else
 	!print *, "Standard Deviation: ", std_dev
-			end if
+			!end if		!End 2 Die Tests
     ! Print the most frequent digit(not sure if needed still but here in case)
-	max_digit = max_digit - 1
-	!print *, "Most Frequent Digit: ", max_digit
+	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	do k = 0, 9
-		if (digit_count(k + 1) == max_digit_count) then
-			write(most_frequent_digits(len_trim(most_frequent_digits) + 1:len_trim(most_frequent_digits)+1), '(I1)') k + 1
-			write(most_frequent_digits(len_trim(most_frequent_digits) + 1:len_trim(most_frequent_digits) + 1), '(A)') ' '  ! Add space
-		end if
-	end do
-	most_frequent_digits = trim(adjustl(most_frequent_digits))
-	! Print all most frequent digits
-	if (len_trim(most_frequent_digits) > 1) then
-		print *, "D12 x2: ", most_frequent_digits
-	else
-		print *, "D12: ", most_frequent_digits
-	end if	
+	!print *, "D12:"
+		do k = 0, 9
+			if (digit_count(k + 1) == max_digit_count) then
+				!print *, k
+				d12 = k
+			end if
+		end do
+		call random_number(rand)
+		rand_val0 = int(rand * 2)
+			if (rand_val0 > 0) then
+			d12 = d12 + 1
+			end if
+		call random_number(rand)
+		rand_val1 = int(rand * 2)
+			if (rand_val1 > 0) then
+			d12 = d12 * 2
+			end if
+			if (d12 < 1) then
+			d12 = d12 + 1
+			end if
+		print *, "D12: ", d12
 end program Die12_roller_EnJnDeSIgn2024
