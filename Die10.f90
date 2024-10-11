@@ -168,7 +168,7 @@ program Die10_roller_EnJnDeSIgn2024
 	print *, "D10:"
 		do k = 0, 9
 			if (digit_count(k + 1) == max_digit_count) then
-				print *, k
+				print *, k +1
 			end if
 		end do
 end program Die10_roller_EnJnDeSIgn2024
