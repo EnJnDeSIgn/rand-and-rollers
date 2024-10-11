@@ -179,7 +179,7 @@ program Die20_roller_EnJnDeSIgn2024
 			d20 = d20 + 1
 			end if
 		call random_number(rand)
-		rand_val1 = int(rand * 2)
+		rand_val1 = int(rand * 3)
 			if (rand_val1 > 0) then
 			d20 = d20 * 2
 			end if
