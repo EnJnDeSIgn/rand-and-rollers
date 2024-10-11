@@ -10,14 +10,14 @@ program Die20_roller_EnJnDeSIgn2024
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
     character(len=90) :: random_number_str
     real(kind=8) :: total_sum, current_number
-	real, dimension(25) :: run_totals, normalized_run_totals
+	real, dimension(100) :: run_totals, normalized_run_totals
 	
 	c = 0.0
 	count = 0
 
     call random_seed()
     roll_count = 30
-    num_iterations = 25  ! Number of times to repeat the process
+    num_iterations = 100  ! Number of times to repeat the process
     total_sum = 0
 	carry_over = 0.0
 	digit_count = 0
@@ -176,7 +176,7 @@ program Die20_roller_EnJnDeSIgn2024
 		end do
 		! Randomly select a place in the 25 lines of 30 numbers
 		call random_number(rand)
-		selected_place = int(rand * 750) + 1  ! Ensures the value is between 1 and 750
+		selected_place = int(rand * 3000) + 1  ! Ensures the value is between 1 and 750
 
 		! Calculate the index for the line and position
 		line_index = (selected_place - 1) / 30 + 1
