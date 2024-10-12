@@ -68,23 +68,38 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	do i = 1, roll_count
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand * 5)	!0-4
-	Call random_number(rand)
-	selected_group = int(rand * 6)	!0-5
+	selected_group = int(rand * 10)	!0-4
+	!Call random_number(rand)was5up
+	!selected_group = int(rand * 6)	!0-5
 		if (selected_group < 0 .or. selected_group > 9) then
 			print *, "Error: selected_group out of range"
 			stop
 		end if
+		!if (selected_group == 9) then
+			!print *, "Working Group9!"
+			!stop
+		!end if
+		!if (selected_group == 0) then
+			!print *, "Working Group0!"
+			!stop
+		!end if
 	! Randomly select a number from the chosen group
 	call random_number(rand)
-	selected_number = int(rand * 2)	!0-1
-	call random_number(rand)
-	selected_number = int(rand * 3)	!0-2
+	selected_number = int(rand * 4)	!0-1
+	!call random_number(rand)was2up
+	!selected_number = int(rand * 3)	!0-2
 		if (selected_number < 0 .or. selected_number > 3) then
 			print *, "Error: selected_number out of range"
 			stop
 		end if
-		
+		!if (selected_number == 3) then
+			!print *, "Working Number3!"
+			!stop
+		!end if
+		!if (selected_number == 0) then
+			!print *, "Working Number0!"
+			!stop
+		!end if
 	read(groups(selected_group, selected_number), *) roll_value
 	
 		if (roll_value == 0.5 .or. roll_value == -0.5) then
