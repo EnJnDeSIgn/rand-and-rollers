@@ -46,23 +46,23 @@ program DvVv8_roller_EnJnDeSIgn2024
 			most_frequent_digits = ""
             ! Randomly select a group
 			call random_number(rand)
-			selected_group = int(rand * 5)	!0-4
-			Call random_number(rand)
-			selected_group = int(rand * 6)	!0-5
+			selected_group = int(rand * 10)	!0-4
+			!Call random_number(rand)
+			!selected_group = int(rand * 6)	!0-5
 				if (selected_group < 0 .or. selected_group > 9) then
 					print *, "Error: selected_group out of range"
 					stop
 				end if
 				!if (selected_group < 9) then
-					!print *, "Working!"
+					!print *, "Working Group!"
 					!stop
 				!end if
             ! Randomly select a number from the chosen group
             	! Randomly select a group
 			call random_number(rand)
-			selected_number = int(rand * 5)	!0-4
-			Call random_number(rand)
-			selected_number = int(rand * 6)	!0-5
+			selected_number = int(rand * 10)	!0-4
+			!Call random_number(rand)was5up
+			!selected_number = int(rand * 6)	!0-5
 				if (selected_number < 0 .or. selected_number > 9) then
 					print *, "Error: selected_number out of range"
 					stop
@@ -81,6 +81,17 @@ program DvVv8_roller_EnJnDeSIgn2024
                 call random_number(rand)
                 final_numbers(i) = int(rand * 5)  + 5	! Values 0-4
             end if
+			!if (selected_numbers(i) == '0') then
+                !call random_number(rand)
+                !final_numbers(i) = int(rand * 3)	! Values 0-2
+				!call random_number(rand)
+				!final_numbers(i) = int(rand * 4)	! Values 0-3
+            !else if (selected_numbers(i) == '1') then
+				!call random_number(rand)
+				!final_numbers(i) = int(rand * 3)	!0-2 +
+                !call random_number(rand)
+                !final_numbers(i) = int(rand * 5)  + 5	! Values 0-4
+            !end if
             ! Append number to string
             write(random_number_str(i:i), '(I1)') final_numbers(i)
         end do
