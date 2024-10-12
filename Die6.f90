@@ -1,6 +1,7 @@
 program Die6_roller_EnJnDeSIgn2024
     implicit none
     integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
+	integer :: selected_place, line_index, position_index, d6_value, d6
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
@@ -135,10 +136,26 @@ program Die6_roller_EnJnDeSIgn2024
 	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	print *, "D6:"
-		do k = 0, 9
+	print *, "Mode 0-5:"
+		do k = 0, 5
 			if (digit_count(k + 1) == max_digit_count) then
-				print *, k + 1
+				print *, k
 			end if
 		end do
+		! Randomly select a place in the 25 lines of 30 numbers
+		call random_number(rand)
+		selected_place = int(rand * 750) + 1  ! Ensures the value is between 1 and 750
+
+		! Calculate the index for the line and position
+		line_index = (selected_place - 1) / 30 + 1
+		position_index = mod((selected_place - 1), 30) + 1
+
+		! Get the value from the selected position
+		d6_value = final_numbers(position_index)
+		d6 = d6_value
+
+		! Adjust d6 to be in the range 1-6
+		d6 = mod(d6, 6) + 1
+
+		print *, "Random D6: ", d6
 end program Die6_roller_EnJnDeSIgn2024
