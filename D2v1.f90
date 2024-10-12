@@ -50,51 +50,36 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	run_totals(j) = total_sum
 	count = count +1
 	
-	! Initialize group0
+	! Initialize group0-group9
 	group0 = (/ "-4  ", "+1  ", "-9  ", "-0.5"/)
-	! Initialize group1
 	group1 = (/ "+3  ", "-3  ", "-3  ", "-4  "/)
-	! Initialize group2
 	group2 = (/ "-9  ", "+7  ", "-1  ", "+7  "/)
-	! Initialize group3
 	group3 = (/ "-1  ", "-2  ", "+6  ", "-8  "/)
-	! Initialize group4
 	group4 = (/ "+0.5", "+2  ", "+3  ", "+4  "/)
-	! Initialize group5
 	group5 = (/ "-7  ", "-6  ", "0   ", "+1  "/)
-	! Initialize group6
 	group6 = (/ "-6  ", "+5  ", "-2  ", "0   "/)
-	! Initialize group7
 	group7 = (/ "+2  ", "+4  ", "-5  ", "+9  "/)
-	! Initialize group8
 	group8 = (/ "+5  ", "+6  ", "-5  ", "+8  "/)
-	! Initialize group9
 	group9 = (/ "+9  ", "-7  ", "-8  ", "+8  "/)
-	
 	! Assian groups to the groups array
-	groups(0, :) = group0
-	groups(1, :) = group1
-	groups(2, :) = group2
-	groups(3, :) = group3
-	groups(4, :) = group4
-	groups(5, :) = group5
-	groups(6, :) = group6
-	groups(7, :) = group7
-	groups(8, :) = group8
-	groups(9, :) = group9
+	groups(0, :) = group0; groups(1, :) = group1; groups(2, :) = group2; groups(3, :) = group3; groups(4, :) = group4
+	groups(5, :) = group5; groups(6, :) = group6; groups(7, :) = group7; groups(8, :) = group8; groups(9, :) = group9
 	
 	do i = 1, roll_count
-	
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand * 10)
+	selected_group = int(rand * 5)	!0-4
+	Call random_number(rand)
+	selected_group = int(rand * 6)	!0-5
 		if (selected_group < 0 .or. selected_group > 9) then
 			print *, "Error: selected_group out of range"
 			stop
 		end if
 	! Randomly select a number from the chosen group
 	call random_number(rand)
-	selected_number = int(rand * 4)
+	selected_number = int(rand * 2)	!0-1
+	call random_number(rand)
+	selected_number = int(rand * 3)	!0-2
 		if (selected_number < 0 .or. selected_number > 3) then
 			print *, "Error: selected_number out of range"
 			stop
