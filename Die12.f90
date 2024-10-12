@@ -3,8 +3,7 @@ program Die12_roller_EnJnDeSIgn2024
     integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
 	integer :: selected_place, line_index, position_index, d12_value, d12
     character(len=4), dimension(0:9, 0:9) :: groups
-    character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
-                                        &group9
+    character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
@@ -22,48 +21,19 @@ program Die12_roller_EnJnDeSIgn2024
 	carry_over = 0.0
 	digit_count = 0
 
-    ! Initialize group0
-    group0 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", &
-                "1  ", "0  ", "0  ", "0  ", "0  " /)
-    ! Initialize group1
-    group1 = (/ "1  ", "0  ", "1  ", "0  ", "0  ", &
-                "1  ", "1  ", "1  ", "1  ", "0  " /)
-    ! Initialize group2
-    group2 = (/ "1  ", "1  ", "0  ", "0  ", "1  ", &
-                "0  ", "1  ", "0  ", "0  ", "0  " /)
-    ! Initialize group3
-    group3 = (/ "1  ", "0  ", "0  ", "1  ", "0  ", &
-                "1  ", "0  ", "0  ", "1  ", "1  " /)
-    ! Initialize group4
-    group4 = (/ "0  ", "1  ", "1  ", "0  ", "0  ", &
-                "0  ", "1  ", "1  ", "0  ", "0  " /)
-    ! Initialize group5
-    group5 = (/ "1  ", "1  ", "1  ", "0  ", "1  ", &
-                "1  ", "1  ", "0  ", "0  ", "1  " /)
-    ! Initialize group6
-    group6 = (/ "0  ", "1  ", "0  ", "1  ", "1  ", &
-                "1  ", "0  ", "1  ", "1  ", "0  " /)
-    ! Initialize group7
-    group7 = (/ "1  ", "1  ", "0  ", "0  ", "0  ", &
-                "1  ", "1  ", "1  ", "0  ", "0  " /)
-    ! Initialize group8
-    group8 = (/ "1  ", "0  ", "0  ", "0  ", "0  ", &
-                "0  ", "0  ", "1  ", "0  ", "0  " /)
-    ! Initialize group9
-    group9 = (/ "0  ", "1  ", "1  ", "1  ", "0  ", &
-                "0  ", "1  ", "0  ", "0  ", "1  "/)
-
-    ! Assign groups to the groups array
-    groups(0, :) = group0
-    groups(1, :) = group1
-    groups(2, :) = group2
-    groups(3, :) = group3
-    groups(4, :) = group4
-    groups(5, :) = group5
-    groups(6, :) = group6
-    groups(7, :) = group7
-    groups(8, :) = group8
-    groups(9, :) = group9
+    ! Initialize group arrays (same as before)
+    group0 = (/ "0  ", "0  ", "0  ", "0  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  " /)
+    group1 = (/ "0  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "0  ", "1  ", "0  " /)
+    group2 = (/ "0  ", "1  ", "0  ", "0  ", "0  ", "1  ", "0  ", "1  ", "1  ", "1  " /)
+    group3 = (/ "0  ", "1  ", "1  ", "1  ", "0  ", "0  ", "1  ", "1  ", "1  ", "1  " /)
+    group4 = (/ "0  ", "0  ", "0  ", "1  ", "0  ", "1  ", "0  ", "1  ", "0  ", "0  " /)
+    group5 = (/ "0  ", "0  ", "1  ", "1  ", "0  ", "0  ", "0  ", "1  ", "1  ", "1  " /)
+    group6 = (/ "1  ", "1  ", "0  ", "0  ", "1  ", "0  ", "1  ", "0  ", "0  ", "1  " /)
+    group7 = (/ "1  ", "0  ", "1  ", "0  ", "1  ", "1  ", "0  ", "1  ", "1  ", "0  " /)
+    group8 = (/ "1  ", "1  ", "0  ", "1  ", "0  ", "0  ", "1  ", "1  ", "1  ", "0  " /)
+    group9 = (/ "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  "/)
+    groups(0,:) = group0; groups(1,:) = group1; groups(2,:) = group2; groups(3,:) = group3; groups(4,:) = group4
+    groups(5,:) = group5; groups(6,:) = group6; groups(7,:) = group7; groups(8,:) = group8; groups(9,:) = group9
 
     do j = 1, num_iterations
         random_number_str = ""
@@ -168,10 +138,10 @@ program Die12_roller_EnJnDeSIgn2024
 	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	!print *, "D12:"
-		do k = 0, 9
+	print *, "Mode 0-11:"
+		do k = 0, 11
 			if (digit_count(k + 1) == max_digit_count) then
-				!print *, k
+				print *, k
 			end if
 		end do
 		! Randomly select a place in the 25 lines of 30 numbers
@@ -189,5 +159,5 @@ program Die12_roller_EnJnDeSIgn2024
 		! Adjust d12 to be in the range 1-12
 		d12 = mod(d12, 12) + 1
 
-		print *, "D12: ", d12
+		print *, "Random D12: ", d12
 end program Die12_roller_EnJnDeSIgn2024

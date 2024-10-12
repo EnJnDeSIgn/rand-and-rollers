@@ -168,10 +168,10 @@ program Die100_roller_EnJnDeSIgn2024
 	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	!print *, "D12:"
-		do k = 0, 9
+	print *, "Mode 0-99:"
+		do k = 0, 99
 			if (digit_count(k + 1) == max_digit_count) then
-				!print *, k
+				print *, k
 			end if
 		end do
 		! Randomly select a place in the 500 lines of 30 numbers
@@ -189,5 +189,5 @@ program Die100_roller_EnJnDeSIgn2024
 		! Adjust d20 to be in the range 1-100
 		d100 = mod(d100, 100) + 1
 
-		print *, "D100: ", d100
+		print *, "Random D100: ", d100
 end program Die100_roller_EnJnDeSIgn2024
