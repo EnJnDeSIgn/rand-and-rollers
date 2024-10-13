@@ -3,8 +3,7 @@ program Die20_roller_EnJnDeSIgn2024
     integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
 	integer :: selected_place, line_index, position_index, d20_value, d20
     character(len=4), dimension(0:9, 0:9) :: groups
-    character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
-                                        &group9
+    character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
