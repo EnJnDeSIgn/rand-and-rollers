@@ -42,42 +42,56 @@ program Die100_roller_EnJnDeSIgn2024
         do i = 1, roll_count
             ! Randomly select a group
             ! Quantum Version 1.0
-			call random_number(rand)
-			random_val0 = int(rand * 2)
-			if (random_val0 == 0) then
+			!call random_number(rand)
+			!random_val0 = int(rand * 2)
+			!if (random_val0 == 0) then
 			! Randomly select a group
-			call random_number(rand)
-			selected_group = int(rand * 5)	!0-4
-			else if (random_val0 == 1) then
-			Call random_number(rand)
-			selected_group = int(rand * 5) + 5	!5-9
-			end if
-			if (selected_group < 0 .or. selected_group > 9) then
-					print *, "Error: selected_group out of range"
-					stop
-			end if
+			!call random_number(rand)
+			!selected_group = int(rand * 5)	!0-4
+			!else if (random_val0 == 1) then
+			!Call random_number(rand)
+			!selected_group = int(rand * 5) + 5	!5-9
+			!end if
+			!if (selected_group < 0 .or. selected_group > 9) then
+					!print *, "Error: selected_group out of range"
+					!stop
+			!end if
 				!if (selected_group < 9) then
 					!print *, "Working Group!"
 					!stop
 				!end if
-			call random_number(rand)
-			random_val1 = int(rand * 2)
-			if (random_val1 == 0) then
+			!call random_number(rand)
+			!random_val1 = int(rand * 2)
+			!if (random_val1 == 0) then
             ! Randomly select a number from the chosen group
-			call random_number(rand)
-			selected_number = int(rand * 5)			!0-4
-			else if (random_val1 == 1) then
-			Call random_number(rand)
-			selected_number = int(rand * 5) + 5		!5-9
-			end if
-				if (selected_number < 0 .or. selected_number > 9) then
-					print *, "Error: selected_number out of range"
-					stop
-				end if
+			!call random_number(rand)
+			!selected_number = int(rand * 5)			!0-4
+			!else if (random_val1 == 1) then
+			!Call random_number(rand)
+			!selected_number = int(rand * 5) + 5		!5-9
+			!end if
+				!if (selected_number < 0 .or. selected_number > 9) then
+					!print *, "Error: selected_number out of range"
+					!stop
+				!end if
 				!if (selected_number < 9) then
 					!print *, "Working Number!"
 					!stop
 				!end if
+			! Randomly select a group(testing Quantum randomizing this so!!!!)
+            call random_number(rand)
+            selected_group = int(rand * 10)
+            if (selected_group < 0 .or. selected_group > 9) then
+                print *, "Error: selected_group out of range"
+                stop
+            end if
+            ! Randomly select a number from the chosen group
+            call random_number(rand)
+            selected_number = int(rand * 10)
+            if (selected_number < 0 .or. selected_number > 9) then
+                print *, "Error: selected_number out of range"
+                stop
+            end if
             ! Store selected number
             selected_numbers(i) = trim(adjustl(groups(selected_group, selected_number)))
             ! Convert binary values to their respective ranges
@@ -162,17 +176,10 @@ program Die100_roller_EnJnDeSIgn2024
 	!print *, "Most Frequent Digit: ", max_digit - 1
 	! Find the mode(s)
 	max_digit_count = maxval(digit_count)
-	print *, "Mode 0-98:"
-		!do k = 0, 99
-			!if (digit_count(k + 1) == max_digit_count) then
-				!print *, k
-			!end if
-		!end do
-		do k = 0, 98
+	print *, "Mode 0-99:"
+		do k = 0, 99
 			if (digit_count(k + 1) == max_digit_count) then
-				if (k /= 99) then  ! Ensure 99 is not printed as mode
-					print *, k
-				end if
+				print *, k
 			end if
 		end do
 		! Randomly select a place in the 500 lines of 30 numbers
