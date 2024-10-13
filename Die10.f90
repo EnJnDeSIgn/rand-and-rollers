@@ -6,7 +6,7 @@ program Die10_roller_EnJnDeSIgn2024
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, random_val1
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals
@@ -22,14 +22,14 @@ program Die10_roller_EnJnDeSIgn2024
 	digit_count = 0
 
     ! Initialize group arrays (same as before)
-    group0 = (/ "1  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "1  " /)	! I like this one copliot it'd like the samllest largest number....
+    group0 = (/ "1  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  ", "1  " /)		! I like this one copliot it's like the samllest largest number....
     group1 = (/ "1  ", "1  ", "0  ", "0  ", "1  ", "0  ", "0  ", "0  ", "1  ", "0  " /)
-    group2 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  " /)!
-    group3 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", "0  ", "1  ", "0  ", "0  ", "0  " /)	! This one is beutiful artisticly, next is cool too, group4
+    group2 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  " /)		! this one is just the largest so watch out if adding...
+    group3 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", "0  ", "1  ", "0  ", "0  ", "0  " /)
     group4 = (/ "0  ", "1  ", "0  ", "0  ", "1  ", "0  ", "1  ", "1  ", "1  ", "0  " /)
     group5 = (/ "0  ", "0  ", "1  ", "1  ", "0  ", "0  ", "0  ", "0  ", "0  ", "0  " /)
-    group6 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", "0  ", "1  ", "1  ", "1  ", "0  " /)	! Last one is cool and chill, Where this one is really full even thought it could be...
-    group7 = (/ "0  ", "0  ", "0  ", "1  ", "0  ", "0  ", "1  ", "0  ", "1  ", "1  " /)	! ...Bigger!
+    group6 = (/ "1  ", "1  ", "1  ", "1  ", "1  ", "0  ", "1  ", "1  ", "1  ", "0  " /)
+    group7 = (/ "0  ", "0  ", "0  ", "1  ", "0  ", "0  ", "1  ", "0  ", "1  ", "1  " /)
     group8 = (/ "0  ", "1  ", "0  ", "0  ", "1  ", "0  ", "1  ", "1  ", "0  ", "0  " /)
     group9 = (/ "1  ", "0  ", "1  ", "1  ", "0  ", "0  ", "1  ", "0  ", "0  ", "1  "/)
     groups(0,:) = group0; groups(1,:) = group1; groups(2,:) = group2; groups(3,:) = group3; groups(4,:) = group4
@@ -41,19 +41,43 @@ program Die10_roller_EnJnDeSIgn2024
 		count = count +1
         do i = 1, roll_count
             ! Randomly select a group
-            call random_number(rand)
-            selected_group = int(rand * 10)
-            if (selected_group < 0 .or. selected_group > 9) then
-                print *, "Error: selected_group out of range"
-                stop
-            end if
+            ! Quantum Version 1.0
+			call random_number(rand)
+			random_val0 = int(rand * 2)
+			if (random_val0 == 0) then
+			! Randomly select a group
+			call random_number(rand)
+			selected_group = int(rand * 5)	!0-4
+			else if (random_val0 == 1) then
+			Call random_number(rand)
+			selected_group = int(rand * 5) + 5	!5-9
+			end if
+			if (selected_group < 0 .or. selected_group > 9) then
+					print *, "Error: selected_group out of range"
+					stop
+			end if
+				!if (selected_group < 9) then
+					!print *, "Working Group!"
+					!stop
+				!end if
+			call random_number(rand)
+			random_val1 = int(rand * 2)
+			if (random_val1 == 0) then
             ! Randomly select a number from the chosen group
-            call random_number(rand)
-            selected_number = int(rand * 10)
-            if (selected_number < 0 .or. selected_number > 9) then
-                print *, "Error: selected_number out of range"
-                stop
-            end if
+			call random_number(rand)
+			selected_number = int(rand * 5)			!0-4
+			else if (random_val1 == 1) then
+			Call random_number(rand)
+			selected_number = int(rand * 5) + 5		!5-9
+			end if
+				if (selected_number < 0 .or. selected_number > 9) then
+					print *, "Error: selected_number out of range"
+					stop
+				end if
+				!if (selected_number < 9) then
+					!print *, "Working Number!"
+					!stop
+				!end if
             ! Store selected number
             selected_numbers(i) = trim(adjustl(groups(selected_group, selected_number)))
             ! Convert binary values to their respective ranges
