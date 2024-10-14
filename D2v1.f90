@@ -34,7 +34,7 @@ program D2v1_roller_EnJnDeSIgn2024
 	!print *, "        by Ian J Norris          "
 	!print *, "      Ian.enjn@gmail.com         "
 	!print *, "   Quantum values +0.5 or -0.5   "
-	! New Dv1 roller growing here!
+	! New Dv1 roller growing, here! MG Exponate's
 	! Expanding and changing So name chage time...
 do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasary.
 	total_sum = 0.0
@@ -75,8 +75,41 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 			print *, "Error: selected_group out of range"
 			stop
 		end if
+		! Quantum Testing Syntax
 		!if (selected_group == 9) then
 			!print *, "Working Group9!"
+			!stop
+		!end if
+		!if (selected_group == 8) then
+			!print *, "Working Group8!"
+			!stop
+		!end if
+		!if (selected_group == 7) then
+			!print *, "Working Group7!"
+			!stop
+		!end if
+		!if (selected_group == 6) then
+			!print *, "Working Group6!"
+			!stop
+		!end if
+		!if (selected_group == 5) then
+			!print *, "Working Group5!"
+			!stop
+		!end if
+		!if (selected_group == 4) then
+			!print *, "Working Group4!"
+			!stop
+		!end if
+		!if (selected_group == 3) then
+			!print *, "Working Group3!"
+			!stop
+		!end if
+		!if (selected_group == 2) then
+			!print *, "Working Group2!"
+			!stop
+		!end if
+		!if (selected_group == 1) then
+			!print *, "Working Group1!"
 			!stop
 		!end if
 		!if (selected_group == 0) then
@@ -92,8 +125,17 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 			print *, "Error: selected_number out of range"
 			stop
 		end if
+		! Quantum Testing Syntax
 		!if (selected_number == 3) then
 			!print *, "Working Number3!"
+			!stop
+		!end if
+		!if (selected_number == 2) then
+			!print *, "Working Number2!"
+			!stop
+		!end if
+		!if (selected_number == 1) then
+			!print *, "Working Number1!"
 			!stop
 		!end if
 		!if (selected_number == 0) then
