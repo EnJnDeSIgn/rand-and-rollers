@@ -137,6 +137,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 			Call random_number(rand)
 			selected_number = int(rand * 2) + 2		!2-3
 			end if
+	!!!!
 	!call random_number(rand)
 	!selected_number = int(rand * 4)		!0-3
 		if (selected_number < 0 .or. selected_number > 3) then
@@ -191,7 +192,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 					c1 = (t1 - grand_total) - y1
 					grand_total = t1
 			grand_total = grand_total + carry_over2
-	print '("    ", E35.25)', total_sum
+	print '("Sum0:", E35.25)', total_sum
 	carry_over = 0.0
 	call random_number(rand)
 	call_number0 = rand / 1.0e32
@@ -208,7 +209,7 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 			exponate = exponate * 10**(int(rand * 32))
 			exponate = exponate * 10**(int(rand * 32))
 				exponate_values(j) = exponate ! Moved up a bit.
-	print '(" ", E35.25)', exponate
+	print '("Added Exponate:", E35.25)', exponate
 						carry_over3 = carry_over3 + exponate
 							y2 = exponate - c2
 							t2 = exponate_sum + y2
@@ -280,12 +281,12 @@ end do
 	print '("Std0", E35.25)', std_dev
 			end if
 	print *
-	print '("Sum ", E35.25)', exponate_sum
+	print '("Exponate Sum:", E35.25)', exponate_sum
 			! Check for large values in std_dev1
 			if (std_dev1 > 1.0e30) then
-				print *, "Standard Dev1 : Value Too Large To Display"
+				print *, "Exponate Standard Dev: Value Too Large To Display"
 	else
-	print '("Std ", E35.25)', std_dev1
+	print '("Exponate Std ", E35.25)', std_dev1
 			end if
 	print *
 			! Check for large values in std_dev
