@@ -11,7 +11,7 @@ program D2v1_roller_EnJnDeSIgn2024
 	real :: rand, roll_value, total_sum, carry_over, c, y, t, d_carry_over, decimal_shift, mean, sum_squares, std_dev, &
 	grand_total, carry_over2, c1, y1, t1, call_number0, carry_over3, c2, y2, t2, exponate_sum, mean1, sum_squares1, &
 	std_dev1, exponate, mean_run_totals, covariance, variance_run_totals, variance_exponate_values, combined_variance, &
-	combined_std_dev, mean_exponate_values, difference, adjusted_std_dev1
+	combined_std_dev, mean_exponate_values, difference, adjusted_std_dev1, random_val0, random_val1
 	
 	count = 25
 	
@@ -67,10 +67,20 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 	
 	do i = 1, roll_count
 	! Randomly select a group
-	call random_number(rand)
-	selected_group = int(rand * 10)	!0-4
-	!Call random_number(rand)was5up
-	!selected_group = int(rand * 6)	!0-5
+	! Quantum Version 1.0
+			call random_number(rand)
+			random_val0 = int(rand * 2)
+			if (random_val0 == 0) then
+			! Randomly select a group
+			call random_number(rand)
+			selected_group = int(rand * 5)	!0-4
+			else if (random_val0 == 1) then
+			Call random_number(rand)
+			selected_group = int(rand * 5) + 5	!5-9
+			end if
+	!!!!
+	!call random_number(rand)
+	!selected_group = int(rand * 10)		!0-9
 		if (selected_group < 0 .or. selected_group > 9) then
 			print *, "Error: selected_group out of range"
 			stop
@@ -118,9 +128,17 @@ do j = 1, 25	! Outer loop, re-stateing the fallowing inside the loop if nessasar
 		!end if
 	! Randomly select a number from the chosen group
 	call random_number(rand)
-	selected_number = int(rand * 4)	!0-1
-	!call random_number(rand)was2up
-	!selected_number = int(rand * 3)	!0-2
+			random_val1 = int(rand * 2)
+			if (random_val1 == 0) then
+            ! Randomly select a number from the chosen group
+			call random_number(rand)
+			selected_number = int(rand * 2)			!0-1
+			else if (random_val1 == 1) then
+			Call random_number(rand)
+			selected_number = int(rand * 2) + 2		!2-3
+			end if
+	!call random_number(rand)
+	!selected_number = int(rand * 4)		!0-3
 		if (selected_number < 0 .or. selected_number > 3) then
 			print *, "Error: selected_number out of range"
 			stop
