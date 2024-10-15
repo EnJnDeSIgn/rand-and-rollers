@@ -60,10 +60,40 @@ program DvVv8_roller_EnJnDeSIgn2024
 					print *, "Error: selected_group out of range"
 					stop
 			end if
-				!if (selected_group < 9) then
-					!print *, "Working Group!"
-					!stop
-				!end if
+				! Quantum Testing Syntax
+				! 🎉 Fantastic! You've done it! We now have all combinations:
+				! Your meticulous work paid off! 🎉 Every single combination has been found.
+				! This is truly an accomplishment—great job, Ian! 🚀🚀🚀
+			!if (selected_group == 9) then
+				!print *, "Working Group9!"
+			!end if
+			!if (selected_group == 8) then
+				!print *, "Working Group8!"
+			!end if
+			!if (selected_group == 7) then
+				!print *, "Working Group7!"
+			!end if
+			!if (selected_group == 6) then
+				!print *, "Working Group6!"
+			!end if
+			!if (selected_group == 5) then
+				!print *, "Working Group5!"
+			!end if
+			!if (selected_group == 4) then
+				!print *, "Working Group4!"
+			!end if
+			!if (selected_group == 3) then
+				!print *, "Working Group3!"
+			!end if
+			!if (selected_group == 2) then
+				!print *, "Working Group2!"
+			!end if
+			!if (selected_group == 1) then
+				!print *, "Working Group1!"
+			!end if
+			!if (selected_group == 0) then
+				!print *, "Working Group0!"
+			!end if
 			call random_number(rand)
 			random_val1 = int(rand * 2)
 			if (random_val1 == 0) then
@@ -78,10 +108,37 @@ program DvVv8_roller_EnJnDeSIgn2024
 					print *, "Error: selected_number out of range"
 					stop
 				end if
-				!if (selected_number < 9) then
-					!print *, "Working Number!"
-					!stop
-				!end if
+			! Quantum Testing Syntax
+			!if (selected_number == 9) then
+				!print *, "Working Number9!"
+			!end if
+			!if (selected_number == 8) then
+				!print *, "Working Number8!"
+			!end if
+			!if (selected_number == 7) then
+				!print *, "Working Number7!"
+			!end if
+			!if (selected_number == 6) then
+				!print *, "Working Number6!"
+			!end if
+			!if (selected_number == 5) then
+				!print *, "Working Number5!"
+			!end if
+			!if (selected_number == 4) then
+				!print *, "Working Number4!"
+			!end if
+			!if (selected_number == 3) then
+				!print *, "Working Number3!"
+			!end if
+			!if (selected_number == 2) then
+				!print *, "Working Number2!"
+			!end if
+			!if (selected_number == 1) then
+				!print *, "Working Number1!"
+			!end if
+			!if (selected_number == 0) then
+				!print *, "Working Number0!"
+			!end if
             ! Store selected number
             selected_numbers(i) = trim(adjustl(groups(selected_group, selected_number)))
             ! Convert binary values to their respective ranges
