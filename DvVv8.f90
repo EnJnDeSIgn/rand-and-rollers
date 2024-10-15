@@ -9,7 +9,7 @@ program DvVv8_roller_EnJnDeSIgn2024
     integer, dimension(30) :: final_numbers, digit_count
 	character(len=50) :: most_frequent_digits
 	!integer, dimension(10) :: digit_count	! I Think it behaves better on 30
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, random_val1, exponent
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, random_val1, exponent, random_val2, random_val3
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponate
@@ -165,10 +165,16 @@ program DvVv8_roller_EnJnDeSIgn2024
     ! Print the total sum in scientific notation
     print *, "Total sum (in scientific notation): ", total_sum
 		call random_number(rand)
-		rand_exponate = rand * 1.0e30
+		rand_exponate = (rand * 1.0e30)
 		rand_exponate = exponent
 		exponent = exponent * 10**(int(rand * 32))
-		exponent = exponent / total_sum
+			call random_number(rand)
+			random_val2 = (rand * 2)
+			if (random_val2 == 0) then
+		exponent = total_sum / exponent		! If You Want + Exponent's use this one. 0
+		else if(random_val2 == 1) then
+		exponent = exponent / total_sum		! This one's for - Exponent's. 1
+		end if
 		!print *, exponate	! Step to get call exponate working
 		!print '("Call", E35.25)', exponate	!moved down
     ! Print the mean
