@@ -161,17 +161,17 @@ program DvVv8_roller_EnJnDeSIgn2024
 			random_val2 = (rand * 2)
 			if (random_val2 == 0) then
 				exponent = total_sum / exponent		! If You Want + Exponent's use this one. 0
-					if (exponent < 1.0e30) then
-					random_val2 = 1
-					end if
+					!if (exponent < 1.0e30) then
+					!random_val2 = 1
+					!end if
 			else if (random_val2 == 1) then
 				exponent = exponent / total_sum		! This one's for - Exponent's. 1
-					if (exponent > 1.0e30) then
-					random_val2 = 0
-					end if
+					!if (exponent > 1.0e30) then
+					!random_val2 = 0
+					!end if
 			end if
 		!print *, exponate	! Step to get call exponate working
-		!print '("Call", E35.25)', exponate	!moved down
+		!print '("Call", E35.25)', exponent	!moved down
     ! Print the mean
     print *, "Mean: ", mean	
 			if (std_dev > 1.0e30) then
