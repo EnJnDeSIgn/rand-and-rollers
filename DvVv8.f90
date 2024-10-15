@@ -92,17 +92,6 @@ program DvVv8_roller_EnJnDeSIgn2024
                 call random_number(rand)
                 final_numbers(i) = int(rand * 5)  + 5	! Values 0-4
             end if
-			!if (selected_numbers(i) == '0') then
-                !call random_number(rand)
-                !final_numbers(i) = int(rand * 3)	! Values 0-2
-				!call random_number(rand)
-				!final_numbers(i) = int(rand * 4)	! Values 0-3
-            !else if (selected_numbers(i) == '1') then
-				!call random_number(rand)
-				!final_numbers(i) = int(rand * 3)	!0-2 +
-                !call random_number(rand)
-                !final_numbers(i) = int(rand * 5)  + 5	! Values 0-4
-            !end if
             ! Append number to string
             write(random_number_str(i:i), '(I1)') final_numbers(i)
         end do
@@ -171,10 +160,16 @@ program DvVv8_roller_EnJnDeSIgn2024
 			call random_number(rand)
 			random_val2 = (rand * 2)
 			if (random_val2 == 0) then
-		exponent = total_sum / exponent		! If You Want + Exponent's use this one. 0
-		else if(random_val2 == 1) then
-		exponent = exponent / total_sum		! This one's for - Exponent's. 1
-		end if
+				exponent = total_sum / exponent		! If You Want + Exponent's use this one. 0
+					if (exponent < 1.0e30) then
+					random_val2 = 1
+					end if
+			else if (random_val2 == 1) then
+				exponent = exponent / total_sum		! This one's for - Exponent's. 1
+					if (exponent > 1.0e30) then
+					random_val2 = 0
+					end if
+			end if
 		!print *, exponate	! Step to get call exponate working
 		!print '("Call", E35.25)', exponate	!moved down
     ! Print the mean
