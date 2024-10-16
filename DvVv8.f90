@@ -224,7 +224,7 @@ program DvVv8_roller_EnJnDeSIgn2024
 					else if (random_val2 == 1) then
 					exponent = exponent / total_sum		! This one's for - Exponent's. 1
 					end if
-				else if (random_val3 == 0) then
+				else if (random_val3 == 1) then
 					if (random_val2 == 0) then
 					exponent = exponent / total_sum
 					else if (random_val2 == 1) then
