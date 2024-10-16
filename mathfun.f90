@@ -2,19 +2,51 @@ program MathFun_EnJnDeSIgn2024
     implicit none
     integer :: num1, num2, user_answer, correct_answer, score, i
     character(len=1) :: operator
-    real :: rand, random_val0
+    real :: rand, random_val0, random_val1, random_val2
 
     call random_seed()
     score = 0
 
     do i = 1, 10  ! 10 problems for the game
-        call random_number(rand)
-        num1 = int(rand * 10) + 1  ! Random number between 1 and 10
-        call random_number(rand)
-        num2 = int(rand * 10) + 1  ! Random number between 1 and 10
-        call random_number(rand)
-
-        !if (rand < 0.5) then
+		! Old call
+        !call random_number(rand)
+        !num1 = int(rand * 10) + 1  ! Random number between 1 and 10
+        !call random_number(rand)
+        !num2 = int(rand * 10) + 1  ! Random number between 1 and 10
+		!!!!
+		! Quantum Version 1.0
+			call random_number(rand)
+			random_val1 = int(rand * 2)
+			! Randomly select a num1
+			if (random_val1 == 0) then
+			call random_number(rand)
+			num1 = int(rand * 5) + 1	!1-5
+			else if (random_val1 == 1) then
+			Call random_number(rand)
+			num1 = int(rand * 5) + 6	!6-10
+			end if
+			if (num1 < 1 .or. num1 > 10) then
+					print *, "Error: num1 out of range"
+					stop
+			end if
+			! Quantum Version 1.0
+			call random_number(rand)
+			random_val2 = int(rand * 2)
+			! Randomly select a num1
+			if (random_val2 == 0) then
+			call random_number(rand)
+			num2 = int(rand * 5) + 1	!1-5
+			else if (random_val2 == 1) then
+			Call random_number(rand)
+			num2 = int(rand * 5) + 6	!6-10
+			end if
+			if (num2 < 1 .or. num2 > 10) then
+					print *, "Error: num2 out of range"
+					stop
+			end if
+		! Just + and - game syntax
+        !call random_number(rand)
+		!if (rand < 0.5) then
             !operator = '+'
             !correct_answer = num1 + num2
         !else
