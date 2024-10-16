@@ -3,11 +3,15 @@ program MathFun_EnJnDeSIgn2024
     integer :: num1, num2, user_answer, correct_answer, score, i
     character(len=1) :: operator
     real :: rand, random_val0, random_val1, random_val2
+	real :: start_time, end_time, elapsed_time, total_time
 
     call random_seed()
     score = 0
+	total_time = 0.0
 
     do i = 1, 10  ! 10 problems for the game
+		! Start timer
+        !call cpu_time(start_time)
 		! Old call
         !call random_number(rand)
         !num1 = int(rand * 10) + 1  ! Random number between 1 and 10
@@ -86,19 +90,25 @@ program MathFun_EnJnDeSIgn2024
 				end if
             end if
         end if
+		! Start timer
+        call cpu_time(start_time)
 
         print *, "What is ", num1, " ", operator, " ", num2, "?"
 		print *
         read *, user_answer
-
+		
         if (user_answer == correct_answer) then
             print *, "Correct!"
             score = score + 1
         else
             print *, "Incorrect. The correct answer is ", correct_answer
         end if
-    end do
-
+		! End timer
+        call cpu_time(end_time)
+        elapsed_time = end_time - start_time
+        total_time = total_time + elapsed_time
+	end do
     print *, "Game over! Your score is: ", score, " out of 10"
+	print *, "Total time taken: ", total_time, " seconds"
 
 end program MathFun_EnJnDeSIgn2024
