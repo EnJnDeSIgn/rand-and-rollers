@@ -159,8 +159,8 @@ program Db8_roller_EnJnDeSIgn2024
 	do i = 1, roll_count
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand * 70)
-	if (selected_group < 0 .or. selected_group > 69) then
+	selected_group = int(rand * 100)
+	if (selected_group < 0 .or. selected_group > 99) then
 		print *, "Error: selected_group out of range"
 		stop
 	end if
