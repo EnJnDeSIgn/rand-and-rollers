@@ -14,15 +14,35 @@ program MathFun_EnJnDeSIgn2024
         num2 = int(rand * 10) + 1  ! Random number between 1 and 10
         call random_number(rand)
 
-        if (rand < 0.5) then
+        !if (rand < 0.5) then
+            !operator = '+'
+            !correct_answer = num1 + num2
+        !else
+            !operator = '-'
+            !correct_answer = num1 - num2
+        !end if
+		if (rand < 0.25) then
             operator = '+'
             correct_answer = num1 + num2
-        else
+        else if (rand < 0.5) then
             operator = '-'
             correct_answer = num1 - num2
+        else if (rand < 0.75) then
+            operator = '*'
+            correct_answer = num1 * num2
+        else
+            operator = '/'
+            ! Ensure num2 is a factor of num1
+            if (mod(num1, num2) == 0) then
+                correct_answer = num1 / num2
+            else
+                num2 = 1  ! If not, set num2 to 1 to avoid errors
+                correct_answer = num1 / num2
+            end if
         end if
 
         print *, "What is ", num1, " ", operator, " ", num2, "?"
+		print *
         read *, user_answer
 
         if (user_answer == correct_answer) then
