@@ -14,7 +14,7 @@ program Db8_roller_EnJnDeSIgn2024
 										  &group80, group81, group82, group83, group84, group85, group86, group87, group88, group89, &
 										  &group90, group91, group92, group93, group94, group95, group96, group97, group98, group99
 	character(len=1), dimension(30) :: selected_numbers
-	real :: rand
+	real :: rand, random_val0, random_val1, random_val2
 	
 	Call random_seed()
 	roll_count = 30
@@ -157,16 +157,44 @@ program Db8_roller_EnJnDeSIgn2024
 	groups(90,:) = group90; groups(91,:) = group91; groups(92,:) = group92; groups(93,:) = group93; groups(94,:) = group94
     groups(95,:) = group95; groups(96,:) = group96; groups(97,:) = group97; groups(98,:) = group98; groups(99,:) = group99
 	do i = 1, roll_count
-	! Randomly select a group
-	call random_number(rand)
-	selected_group = int(rand * 100)
-	if (selected_group < 0 .or. selected_group > 99) then
-		print *, "Error: selected_group out of range"
-		stop
-	end if
+		! Randomly select a group
+		call random_number(rand)
+		random_val0 = int(rand * 2)
+		
+		if (random_val0 == 0) then
+		call random_number(rand)
+		selected_group = int(rand * 25)
+			call random_number(rand)
+			random_val1 = int(rand * 2)
+			if (random_val1 == 1) then
+				call random_number(rand)
+				selected_group = int(rand * 25) + 25
+			end if
+		else if (random_val0 == 1) then
+		call random_number(rand)
+		selected_group = int(rand * 25) + 50
+			call random_number(rand)
+			random_val1 = int(rand * 2)
+			if (random_val1 == 1) then
+		call random_number(rand)
+		selected_group = int(rand * 25) + 75
+			end if
+		end if
+		if (selected_group < 0 .or. selected_group > 99) then
+			print *, "Error: selected_group out of range"
+			stop
+		end if
 	! Randomly select a number from the chosen group
-	call random_number(rand)
-	selected_number = int(rand * 10)
+		call random_number(rand)
+		random_val2 = int(rand * 2)
+			if (random_val2 == 0) then
+            ! Randomly select a number from the chosen group
+			call random_number(rand)
+			selected_number = int(rand * 5)			!0-4
+			else if (random_val2 == 1) then
+			Call random_number(rand)
+			selected_number = int(rand * 5) + 5		!5-9
+			end if
 	if (selected_number < 0 .or. selected_number > 9) then
 		print *, "Error: selected_number out of range"
 		stop
