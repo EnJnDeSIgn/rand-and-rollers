@@ -53,6 +53,7 @@ program MathFun_EnJnDeSIgn2024
             !operator = '-'
             !correct_answer = num1 - num2
         !end if
+        call random_number(rand)
 		if (rand < 0.25) then
             operator = '+'
             correct_answer = num1 + num2
