@@ -2,7 +2,7 @@ program MathFun_EnJnDeSIgn2024
     implicit none
     integer :: num1, num2, user_answer, correct_answer, score, i
     character(len=1) :: operator
-    real :: rand
+    real :: rand, random_val0
 
     call random_seed()
     score = 0
@@ -36,8 +36,21 @@ program MathFun_EnJnDeSIgn2024
             if (mod(num1, num2) == 0) then
                 correct_answer = num1 / num2
             else
-                num2 = 1  ! If not, set num2 to 1 to avoid errors
+				call random_number(rand)
+				random_val0 = int(rand * 4)
+				if (random_val0 == 0) then
+                num1 = num2 * 2  ! If not, set num2 to 1 to avoid errors
                 correct_answer = num1 / num2
+				else if (random_val0 == 1) then
+				num1 = num2 * 3
+				correct_answer = num1 / num2
+				else if (random_val0 == 2) then
+				num1 = num2 * 4
+				correct_answer = num1 / num2
+				else if (random_val0 == 3) then
+				num1 = num2 * 5
+				correct_answer = num1 / num2
+				end if
             end if
         end if
 
