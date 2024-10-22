@@ -28,6 +28,26 @@ program bell_curve
 ! often use z-scores, which measure the distance of a score
 ! from the mean in units of standard deviation. This allows
 ! for comparison between different normal distributions
+    implicit none
+    real :: mu, sigma, x, pdf
+
+    ! Constants
+    real, parameter :: pi = 3.14159
+    real, parameter :: e = 2.71828
+
+    ! Inputs
+    print *, "Enter the mean (mu): "
+    read *, mu
+    print *, "Enter the standard deviation (sigma): "
+    read *, sigma
+    print *, "Enter the variable (x): "
+    read *, x
+
+    ! Calculate the pdf
+    pdf = (1.0 / (sigma * sqrt(2.0 * pi))) * e**(-0.5 * ((x - mu) / sigma)**2)
+    
+    ! Output the result
+    print *, "Probability density function (pdf) value: ", pdf
 end program bell_curve
 
        
