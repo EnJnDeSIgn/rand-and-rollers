@@ -40,23 +40,23 @@ program bell_curve
     ! Inputs
     print *, "Enter the number of data points: "
     read *, n
-    allocate(data(n))
+    allocate(data(n+1))
 
     print *, "Enter the data points: "
-    do i = 1, n
+    do i = 0, n
         read *, data(i)
     end do
 
     ! Calculate mean (mu)
     sum = 0.0
-    do i = 1, n
+    do i = 0, n
         sum = sum + data(i)
     end do
     mu = sum / n
 
     ! Calculate standard deviation (sigma)
     sum_sq = 0.0
-    do i = 1, n
+    do i = 0, n
         sum_sq = sum_sq + (data(i) - mu)**2
     end do
     sigma = sqrt(sum_sq / (n - 1))
@@ -66,7 +66,7 @@ program bell_curve
     print *, "Standard Deviation (sigma): ", sigma
 
     ! Calculate and output pdf for each data point
-    do i = 1, n
+    do i = 0, n
         x = data(i)
         pdf = (1.0 / (sigma * sqrt(2.0 * pi))) * e**(-0.5 * ((x - mu) / sigma)**2)
         print *, "x =", x, ", pdf value =", pdf
