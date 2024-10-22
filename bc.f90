@@ -29,25 +29,50 @@ program bell_curve
 ! from the mean in units of standard deviation. This allows
 ! for comparison between different normal distributions
     implicit none
-    real :: mu, sigma, x, pdf
+    real, allocatable :: data(:)
+    real :: mu, sigma, x, pdf, sum, sum_sq
+    integer :: n, i
 
     ! Constants
     real, parameter :: pi = 3.14159
     real, parameter :: e = 2.71828
 
     ! Inputs
-    print *, "Enter the mean (mu): "
-    read *, mu
-    print *, "Enter the standard deviation (sigma): "
-    read *, sigma
-    print *, "Enter the variable (x): "
-    read *, x
+    print *, "Enter the number of data points: "
+    read *, n
+    allocate(data(n))
 
-    ! Calculate the pdf
-    pdf = (1.0 / (sigma * sqrt(2.0 * pi))) * e**(-0.5 * ((x - mu) / sigma)**2)
-    
-    ! Output the result
-    print *, "Probability density function (pdf) value: ", pdf
+    print *, "Enter the data points: "
+    do i = 1, n
+        read *, data(i)
+    end do
+
+    ! Calculate mean (mu)
+    sum = 0.0
+    do i = 1, n
+        sum = sum + data(i)
+    end do
+    mu = sum / n
+
+    ! Calculate standard deviation (sigma)
+    sum_sq = 0.0
+    do i = 1, n
+        sum_sq = sum_sq + (data(i) - mu)**2
+    end do
+    sigma = sqrt(sum_sq / (n - 1))
+
+    ! Output mean and standard deviation
+    print *, "Mean (mu): ", mu
+    print *, "Standard Deviation (sigma): ", sigma
+
+    ! Calculate and output pdf for each data point
+    do i = 1, n
+        x = data(i)
+        pdf = (1.0 / (sigma * sqrt(2.0 * pi))) * e**(-0.5 * ((x - mu) / sigma)**2)
+        print *, "x =", x, ", pdf value =", pdf
+    end do
+
+    deallocate(data)
 end program bell_curve
 
        
