@@ -1,5 +1,34 @@
+module PowerSetModule_EnJnDeSIgn2024_DvVv8
+    implicit none
+contains
+    subroutine PowerSET_EnJnDeSIgn2024(set, n)
+        integer, intent(in) :: set(:)
+        integer, intent(in) :: n
+        integer :: i, subset, total_subsets
+        character(len=100) :: subset_str
+        character(len=5) :: elem_str
+
+        ! Calculate total number of subsets (2^n)
+        total_subsets = 2**n
+        !print *, "The power set has ", total_subsets, " subsets."
+
+        ! Generate and print each subset
+        !print *, "Subsets are:"
+        do subset = 0, total_subsets - 1
+            subset_str = ""
+            do i = 1, n
+                if (btest(subset, i-1)) then
+                    write(elem_str, '(I0)') set(i)
+                    subset_str = trim(subset_str) // " " // trim(adjustl(elem_str))
+                end if
+            end do
+           ! print *, "Subset ", subset, ": {", trim(subset_str), "}"
+        end do
+    end subroutine PowerSET_EnJnDeSIgn2024
+end module PowerSetModule_EnJnDeSIgn2024_DvVv8
 program DvVv8_roller_EnJnDeSIgn2024
 	! Turning this into a real program to adding rand selected and make more Quantum, Thank you Copilot!
+	use PowerSetModule_EnJnDeSIgn2024_DvVv8
     implicit none
     integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
 	integer :: selected_place, line_index, position_index, d12_value, d12
@@ -13,6 +42,8 @@ program DvVv8_roller_EnJnDeSIgn2024
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponate
+	integer, dimension(100) :: base_set
+    integer :: n
 	
 	
 	c = 0.0
@@ -24,6 +55,12 @@ program DvVv8_roller_EnJnDeSIgn2024
     total_sum = 0
 	carry_over = 0.0
 	digit_count = 0
+	! Define the base set for the power set generation
+    n = 10
+    base_set = [(i, i=1, n)]
+
+    ! Call the subroutine to generate and print the power set
+    call PowerSET_EnJnDeSIgn2024(base_set, n)
 
     ! Initialize group arrays (same as before)
     group0 = (/ "0  ", "0  ", "0  ", "0  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  " /)
