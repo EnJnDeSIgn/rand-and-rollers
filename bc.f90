@@ -1,4 +1,4 @@
-program bell_curve
+program bell_curve_EnJnDeSIgn2024
 	! In statistics, the bell curve is often associated with the
 	! normal distribution, which is a probability distribution
 	! that is symmetric about the mean, showing that data near
@@ -74,7 +74,7 @@ program bell_curve
     end do
 
     deallocate(data)
-end program bell_curve
+end program bell_curve_EnJnDeSIgn2024
 
        
       
