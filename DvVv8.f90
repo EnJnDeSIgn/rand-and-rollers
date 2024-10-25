@@ -1,12 +1,13 @@
 module PowerSetModule_EnJnDeSIgn2024_DvVv8
     implicit none
 contains
-    subroutine PowerSET_EnJnDeSIgn2024(set, n)
+    subroutine PowerSET_EnJnDeSIgn2024(set, n, subsets)
         integer, intent(in) :: set(:)
         integer, intent(in) :: n
+		integer, allocatable, intent(out) :: subsets(:, :)
         integer :: i, subset, total_subsets
-        character(len=100) :: subset_str
-        character(len=5) :: elem_str
+        !character(len=100) :: subset_str
+        !character(len=5) :: elem_str
 
         ! Calculate total number of subsets (2^n)
         total_subsets = 2**n
@@ -14,15 +15,27 @@ contains
 
         ! Generate and print each subset
         !print *, "Subsets are:"
+        !do subset = 0, total_subsets - 1
+            !subset_str = ""
+            !do i = 1, n
+                !if (btest(subset, i-1)) then
+                    !write(elem_str, '(I0)') set(i)
+                    !subset_str = trim(subset_str) // " " // trim(adjustl(elem_str))
+                !end if
+            !end do
+           ! print *, "Subset ", subset, ": {", trim(subset_str), "}"
+        !end do
+		! Allocate array to store subsets
+        allocate(subsets(total_subsets, n))
+		! Generate each subset
         do subset = 0, total_subsets - 1
-            subset_str = ""
             do i = 1, n
                 if (btest(subset, i-1)) then
-                    write(elem_str, '(I0)') set(i)
-                    subset_str = trim(subset_str) // " " // trim(adjustl(elem_str))
+                    subsets(subset + 1, i) = set(i)
+                else
+                    subsets(subset + 1, i) = 0
                 end if
             end do
-           ! print *, "Subset ", subset, ": {", trim(subset_str), "}"
         end do
     end subroutine PowerSET_EnJnDeSIgn2024
 end module PowerSetModule_EnJnDeSIgn2024_DvVv8
@@ -43,8 +56,9 @@ program DvVv8_roller_EnJnDeSIgn2024
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
 	integer, dimension(100) :: base_set
-    integer :: n
-	
+    integer :: n, total_subsets
+	integer, allocatable :: subsets(:, :)
+    integer, dimension(:), allocatable :: seed
 	
 	c = 0.0
 	count = 0
@@ -60,7 +74,17 @@ program DvVv8_roller_EnJnDeSIgn2024
     base_set = [(i, i=1, n)]
 
     ! Call the subroutine to generate and print the power set
-    call PowerSET_EnJnDeSIgn2024(base_set, n)
+    call PowerSET_EnJnDeSIgn2024(base_set, n, subsets)
+	
+	! Create a seed array from some elements of the power set
+    total_subsets = size(subsets, 1)
+    allocate(seed(1:n))
+    do i = 1, n
+        seed(i) = subsets(i, 1)  ! Simplified, you can add more complex logic
+    end do
+	
+	! Set the random seed with the generated seed array
+    call random_seed(put=seed)
 
     ! Initialize group arrays (same as before)
     group0 = (/ "0  ", "0  ", "0  ", "0  ", "1  ", "1  ", "1  ", "1  ", "1  ", "1  " /)
@@ -82,25 +106,39 @@ program DvVv8_roller_EnJnDeSIgn2024
 		count = count +1
         do i = 1, roll_count
 			most_frequent_digits = ""
-            ! Quantum Version 1.0
+			! Quantum Version 1.1
 			call random_number(rand)
 			random_val0 = int(rand * 2)
+
 			if (random_val0 == 0) then
-			! Randomly select a group
-			call random_number(rand)
-			selected_group = int(rand * 5)	!0-4
+				! Randomly select a group using power set
+				call random_number(rand)
+				selected_group = int(rand * total_subsets) + 1
+
+				! Ensure selected group is within range 0-9
+				! Adjusting to fit within 0-4 or 5-9
+				if (selected_group <= total_subsets / 2) then
+				selected_group = mod(selected_group, 5)
+				else
+				selected_group = mod(selected_group, 5) + 5
+				end if
 			else if (random_val0 == 1) then
-			Call random_number(rand)
-			selected_group = int(rand * 5) + 5	!5-9
+				call random_number(rand)
+				selected_group = int(rand * total_subsets) + 1
+
+				! Ensure selected group is within range 0-9
+				! Adjusting to fit within 0-4 or 5-9
+				if (selected_group <= total_subsets / 2) then
+				selected_group = mod(selected_group, 5) + 5
+				else
+				selected_group = mod(selected_group, 5)
+				end if
 			end if
+
 			if (selected_group < 0 .or. selected_group > 9) then
-					print *, "Error: selected_group out of range"
-					stop
+				print *, "Error: selected_group out of range"
+				stop
 			end if
-				! Quantum Testing Syntax
-				! 🎉 Fantastic! You've done it! We now have all combinations:
-				! Your meticulous work paid off! 🎉 Every single combination has been found.
-				! This is truly an accomplishment—great job, Ian! 🚀🚀🚀
 			!if (selected_group == 9) then
 				!print *, "Working Group9!"
 			!end if
@@ -131,20 +169,39 @@ program DvVv8_roller_EnJnDeSIgn2024
 			!if (selected_group == 0) then
 				!print *, "Working Group0!"
 			!end if
+
 			call random_number(rand)
 			random_val1 = int(rand * 2)
+
 			if (random_val1 == 0) then
-            ! Randomly select a number from the chosen group
-			call random_number(rand)
-			selected_number = int(rand * 5)			!0-4
-			else if (random_val1 == 1) then
-			Call random_number(rand)
-			selected_number = int(rand * 5) + 5		!0-5
-			end if
-				if (selected_number < 0 .or. selected_number > 9) then
-					print *, "Error: selected_number out of range"
-					stop
+				! Randomly select a number from the chosen group using power set
+				call random_number(rand)
+				selected_number = int(rand * total_subsets) + 1
+
+				! Ensure selected number is within range 0-9
+				! Adjusting to fit within 0-4 or 5-9
+				if (selected_number <= total_subsets / 2) then
+				selected_number = mod(selected_number, 5)
+				else
+				selected_number = mod(selected_number, 5) + 5
 				end if
+			else if (random_val1 == 1) then
+				call random_number(rand)
+				selected_number = int(rand * total_subsets) + 1
+
+				! Ensure selected number is within range 0-9
+				! Adjusting to fit within 0-4 or 5-9
+				if (selected_number <= total_subsets / 2) then
+				selected_number = mod(selected_number, 5) + 5
+				else
+				selected_number = mod(selected_number, 5)
+				end if
+			end if
+
+			if (selected_number < 0 .or. selected_number > 9) then
+				print *, "Error: selected_number out of range"
+				stop
+			end if
 			! Quantum Testing Syntax
 			!if (selected_number == 9) then
 				!print *, "Working Number9!"
