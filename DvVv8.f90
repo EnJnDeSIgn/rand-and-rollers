@@ -6,25 +6,11 @@ contains
         integer, intent(in) :: n
 		integer, allocatable, intent(out) :: subsets(:, :)
         integer :: i, subset, total_subsets
-        !character(len=100) :: subset_str
-        !character(len=5) :: elem_str
 
         ! Calculate total number of subsets (2^n)
         total_subsets = 2**n
         !print *, "The power set has ", total_subsets, " subsets."
 
-        ! Generate and print each subset
-        !print *, "Subsets are:"
-        !do subset = 0, total_subsets - 1
-            !subset_str = ""
-            !do i = 1, n
-                !if (btest(subset, i-1)) then
-                    !write(elem_str, '(I0)') set(i)
-                    !subset_str = trim(subset_str) // " " // trim(adjustl(elem_str))
-                !end if
-            !end do
-           ! print *, "Subset ", subset, ": {", trim(subset_str), "}"
-        !end do
 		! Allocate array to store subsets
         allocate(subsets(total_subsets, n))
 		! Generate each subset
@@ -44,13 +30,12 @@ program DvVv8_roller_EnJnDeSIgn2024
 	use PowerSetModule_EnJnDeSIgn2024_DvVv8
     implicit none
     integer :: selected_group, selected_number, i, j, k, roll_count, num_iterations, count, max_digit, max_digit_count
-	integer :: selected_place, line_index, position_index, d12_value, d12
+	integer :: selected_place, line_index, position_index, random_select_value, random_select
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
     integer, dimension(30) :: final_numbers, digit_count
 	character(len=50) :: most_frequent_digits
-	!integer, dimension(10) :: digit_count	! I Think it behaves better on 30
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, random_val1, exponent, random_val2, random_val3
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
@@ -323,12 +308,12 @@ program DvVv8_roller_EnJnDeSIgn2024
 		position_index = mod((selected_place - 1), 30) + 1
 
 		! Get the value from the selected position
-		d12_value = final_numbers(position_index)
-		d12 = d12_value
+		random_select_value = final_numbers(position_index)
+		random_select = random_select_value
 
-		! Adjust d12 to be in the range 1-12 NOT!!!!
-		d12 = mod(d12, 10)	! Note It is not a 12 sided D&D Die
+		! Adjust random_select to be in the range 0-9
+		random_select = mod(random_select, 10)	! Note It is not a 12 sided D&D Die
 
-		print *, "Random Select: ", d12
+		print *, "Random Select: ", random_select
 		print '("Random Exponent:", E35.25)', exponent
 end program DvVv8_roller_EnJnDeSIgn2024
