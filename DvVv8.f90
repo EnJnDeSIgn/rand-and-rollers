@@ -111,22 +111,6 @@ program DvVv8_roller_EnJnDeSIgn2024
         do i = 1, roll_count
 			most_frequent_digits = ""
 			! Quantum Version 1.1
-			!call random_number(rand)
-			!random_val0 = int(rand * 2)
-			!if (random_val0 == 0) then
-				! Randomly select a group using power set
-				!call random_number(rand)
-				!selected_group = int(rand * total_subsets) + 1
-
-				! Ensure selected group is within range 0-9
-				!selected_group = mod(selected_group, 10)
-			!else if (random_val0 == 1) then
-				!call random_number(rand)
-				!selected_group = int(rand * total_subsets) + 1
-
-				! Ensure selected group is within range 0-9
-				!selected_group = mod(selected_group, 10)
-			!end if
 			call random_number(rand)
 			if (random_val0 == 0) then
 			! Randomly select a group using power set
@@ -185,23 +169,7 @@ program DvVv8_roller_EnJnDeSIgn2024
 				!print *, "Working Group0!"
 			!end if
 
-			!call random_number(rand)
-			!random_val1 = int(rand * 2)
-
-			!if (random_val1 == 0) then
-				! Randomly select a number from the chosen group using power set
-				!call random_number(rand)
-				!selected_number = int(rand * total_subsets) + 1
-
-				! Ensure selected number is within range 0-9
-				!selected_number = mod(selected_number, 10)
-			!else if (random_val1 == 1) then
-				!call random_number(rand)
-				!selected_number = int(rand * total_subsets) + 1
-
-				! Ensure selected number is within range 0-9
-				!selected_number = mod(selected_number, 10)
-			!end if
+			call random_number(rand)
 			if (random_val1 == 0) then
 			! Randomly select a number using power set
 			call random_number(rand)
