@@ -79,9 +79,13 @@ program DvVv8_roller_EnJnDeSIgn2024
 	! Create a seed array from some elements of the power set
     total_subsets = size(subsets, 1)
     allocate(seed(1:n))
-    do i = 1, n
-        seed(i) = subsets(i, 1)  ! Simplified, you can add more complex logic
-    end do
+    !do i = 1, n
+        !seed(i) = subsets(i, 1)  ! Simplified, you can add more complex logic
+    !end do
+	do i = 1, n
+    call random_number(rand)
+    seed(i) = mod(int(rand * total_subsets) + 1, 2147483647)  ! Use varied elements, ensure fit within seed range
+	end do
 	
 	! Set the random seed with the generated seed array
     call random_seed(put=seed)
@@ -107,31 +111,42 @@ program DvVv8_roller_EnJnDeSIgn2024
         do i = 1, roll_count
 			most_frequent_digits = ""
 			! Quantum Version 1.1
-			call random_number(rand)
-			random_val0 = int(rand * 2)
-
-			if (random_val0 == 0) then
+			!call random_number(rand)
+			!random_val0 = int(rand * 2)
+			!if (random_val0 == 0) then
 				! Randomly select a group using power set
-				call random_number(rand)
-				selected_group = int(rand * total_subsets) + 1
+				!call random_number(rand)
+				!selected_group = int(rand * total_subsets) + 1
 
 				! Ensure selected group is within range 0-9
-				! Adjusting to fit within 0-4 or 5-9
-				if (selected_group <= total_subsets / 2) then
-				selected_group = mod(selected_group, 5)
-				else
-				selected_group = mod(selected_group, 5) + 5
-				end if
+				!selected_group = mod(selected_group, 10)
+			!else if (random_val0 == 1) then
+				!call random_number(rand)
+				!selected_group = int(rand * total_subsets) + 1
+
+				! Ensure selected group is within range 0-9
+				!selected_group = mod(selected_group, 10)
+			!end if
+			call random_number(rand)
+			if (random_val0 == 0) then
+			! Randomly select a group using power set
+			call random_number(rand)
+			selected_group = int(rand * total_subsets) + 1
+
+			! Assuming groups are distributed among subsets
+			if (selected_group < total_subsets / 2) then
+				selected_group = int(selected_group * 5 / (total_subsets / 2))
+			else
+				selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets / 2))
+			end if
 			else if (random_val0 == 1) then
 				call random_number(rand)
 				selected_group = int(rand * total_subsets) + 1
 
-				! Ensure selected group is within range 0-9
-				! Adjusting to fit within 0-4 or 5-9
-				if (selected_group <= total_subsets / 2) then
-				selected_group = mod(selected_group, 5) + 5
+				if (selected_group < total_subsets / 2) then
+					selected_group = int(selected_group * 5 / (total_subsets / 2))
 				else
-				selected_group = mod(selected_group, 5)
+					selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets / 2))
 				end if
 			end if
 
@@ -170,31 +185,42 @@ program DvVv8_roller_EnJnDeSIgn2024
 				!print *, "Working Group0!"
 			!end if
 
-			call random_number(rand)
-			random_val1 = int(rand * 2)
+			!call random_number(rand)
+			!random_val1 = int(rand * 2)
 
-			if (random_val1 == 0) then
+			!if (random_val1 == 0) then
 				! Randomly select a number from the chosen group using power set
-				call random_number(rand)
-				selected_number = int(rand * total_subsets) + 1
+				!call random_number(rand)
+				!selected_number = int(rand * total_subsets) + 1
 
 				! Ensure selected number is within range 0-9
-				! Adjusting to fit within 0-4 or 5-9
-				if (selected_number <= total_subsets / 2) then
-				selected_number = mod(selected_number, 5)
-				else
-				selected_number = mod(selected_number, 5) + 5
-				end if
+				!selected_number = mod(selected_number, 10)
+			!else if (random_val1 == 1) then
+				!call random_number(rand)
+				!selected_number = int(rand * total_subsets) + 1
+
+				! Ensure selected number is within range 0-9
+				!selected_number = mod(selected_number, 10)
+			!end if
+			if (random_val1 == 0) then
+			! Randomly select a number using power set
+			call random_number(rand)
+			selected_number = int(rand * total_subsets) + 1
+
+			! Assuming groups are distributed among subsets
+			if (selected_number < total_subsets / 2) then
+				selected_number = int(selected_number * 5 / (total_subsets / 2))
+			else
+				selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets / 2))
+			end if
 			else if (random_val1 == 1) then
 				call random_number(rand)
 				selected_number = int(rand * total_subsets) + 1
 
-				! Ensure selected number is within range 0-9
-				! Adjusting to fit within 0-4 or 5-9
-				if (selected_number <= total_subsets / 2) then
-				selected_number = mod(selected_number, 5) + 5
+				if (selected_number < total_subsets / 2) then
+					selected_number = int(selected_number * 5 / (total_subsets / 2))
 				else
-				selected_number = mod(selected_number, 5)
+					selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets / 2))
 				end if
 			end if
 
