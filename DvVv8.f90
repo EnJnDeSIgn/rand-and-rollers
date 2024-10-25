@@ -41,7 +41,7 @@ program DvVv8_roller_EnJnDeSIgn2024
     real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, random_val1, exponent, random_val2, random_val3
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
-	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponate
+	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
 	integer, dimension(100) :: base_set
     integer :: n
 	
@@ -247,10 +247,15 @@ program DvVv8_roller_EnJnDeSIgn2024
 		end do
     ! Print the total sum in scientific notation
     print *, "Total sum (in scientific notation): ", total_sum
+	
 		call random_number(rand)
-		rand_exponate = (rand * 1.0e30)
-		rand_exponate = exponent
-		exponent = exponent * 10**(int(rand * 32))
+		rand_exponent = rand * 1.0e30
+		
+		call random_number(rand)
+		exponent = 10.0**(int(rand * 32.0))
+		
+		rand_exponent = rand_exponent * exponent
+		
 			call random_number(rand)
 			random_val2 = (rand * 2)
 			call random_number(rand)
@@ -268,7 +273,7 @@ program DvVv8_roller_EnJnDeSIgn2024
 					exponent = total_sum / exponent
 					end if
 				end if
-		!print *, exponate	! Step to get call exponate working
+		!print *, exponent	! Step to get call exponent working
 		!print '("Call", E35.25)', exponent	!moved down
     ! Print the mean
     print *, "Mean: ", mean	
