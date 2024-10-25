@@ -275,10 +275,10 @@ program DvVv8_roller_EnJnDeSIgn2024
     print *, "Total sum (in scientific notation): ", total_sum
 	
 		call random_number(rand)
-		rand_exponent = rand * 1.0e30
+		rand_exponent = rand * 1e30
 		
 		call random_number(rand)
-		exponent = 10.0**(int(rand * 32.0))
+		exponent = 10**(int(rand * 32))
 		
 		rand_exponent = rand_exponent * exponent
 		
