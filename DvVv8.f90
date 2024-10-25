@@ -121,14 +121,14 @@ program DvVv8_roller_EnJnDeSIgn2024
 			if (selected_group < total_subsets / 2) then
 				selected_group = int(selected_group * 5 / (total_subsets / 2))
 			else
-				selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets / 2))
+				selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets + 4)) / 2
 			end if
 			else if (random_val0 == 1) then
 				call random_number(rand)
 				selected_group = int(rand * total_subsets) + 1
 
 				if (selected_group < total_subsets / 2) then
-					selected_group = int(selected_group * 5 / (total_subsets / 2))
+					selected_group = int(selected_group * 5 / (total_subsets + 4)) / 2
 				else
 					selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets / 2))
 				end if
@@ -177,9 +177,9 @@ program DvVv8_roller_EnJnDeSIgn2024
 
 			! Assuming groups are distributed among subsets
 			if (selected_number < total_subsets / 2) then
-				selected_number = int(selected_number * 5 / (total_subsets / 2))
+				selected_number = int(selected_number * 5 / (total_subsets + 4)) / 2
 			else
-				selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets / 2))
+				selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets / 2)) 
 			end if
 			else if (random_val1 == 1) then
 				call random_number(rand)
@@ -188,7 +188,7 @@ program DvVv8_roller_EnJnDeSIgn2024
 				if (selected_number < total_subsets / 2) then
 					selected_number = int(selected_number * 5 / (total_subsets / 2))
 				else
-					selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets / 2))
+					selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets + 4)) / 2
 				end if
 			end if
 
