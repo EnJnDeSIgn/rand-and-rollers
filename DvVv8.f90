@@ -111,27 +111,15 @@ program DvVv8_roller_EnJnDeSIgn2024
         do i = 1, roll_count
 			most_frequent_digits = ""
 			! Quantum Version 1.1
-			call random_number(rand)
-			if (random_val0 == 0) then
 			! Randomly select a group using power set
 			call random_number(rand)
 			selected_group = int(rand * total_subsets) + 1
 
-			! Assuming groups are distributed among subsets
-			if (selected_group < total_subsets / 2) then
-				selected_group = int(selected_group * 5 / (total_subsets / 2))
+			! Adjusting to fit within 0-4 or 5-9
+			if (selected_group <= total_subsets / 2) then
+				selected_group = mod(selected_group, 5)  ! 0-4
 			else
-				selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets + 4)) / 2
-			end if
-			else if (random_val0 == 1) then
-				call random_number(rand)
-				selected_group = int(rand * total_subsets) + 1
-
-				if (selected_group < total_subsets / 2) then
-					selected_group = int(selected_group * 5 / (total_subsets + 4)) / 2
-				else
-					selected_group = int((selected_group - total_subsets / 2) * 5 / (total_subsets / 2))
-				end if
+				selected_group = mod(selected_group, 5) + 5  ! 5-9
 			end if
 
 			if (selected_group < 0 .or. selected_group > 9) then
@@ -168,28 +156,15 @@ program DvVv8_roller_EnJnDeSIgn2024
 			!if (selected_group == 0) then
 				!print *, "Working Group0!"
 			!end if
-
-			call random_number(rand)
-			if (random_val1 == 0) then
 			! Randomly select a number using power set
 			call random_number(rand)
 			selected_number = int(rand * total_subsets) + 1
 
-			! Assuming groups are distributed among subsets
-			if (selected_number < total_subsets / 2) then
-				selected_number = int(selected_number * 5 / (total_subsets + 4)) / 2
+			! Adjusting to fit within 0-4 or 5-9
+			if (selected_number <= total_subsets / 2) then
+				selected_number = mod(selected_number, 5)  ! 0-4
 			else
-				selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets / 2)) 
-			end if
-			else if (random_val1 == 1) then
-				call random_number(rand)
-				selected_number = int(rand * total_subsets) + 1
-
-				if (selected_number < total_subsets / 2) then
-					selected_number = int(selected_number * 5 / (total_subsets / 2))
-				else
-					selected_number = int((selected_number - total_subsets / 2) * 5 / (total_subsets + 4)) / 2
-				end if
+				selected_number = mod(selected_number, 5) + 5  ! 5-9
 			end if
 
 			if (selected_number < 0 .or. selected_number > 9) then
