@@ -67,10 +67,17 @@ program DvVv8_roller_EnJnDeSIgn2024
     !do i = 1, n
         !seed(i) = subsets(i, 1)  ! Simplified, you can add more complex logic
     !end do
-	do i = 1, n
-    call random_number(rand)
-    seed(i) = mod(int(rand * total_subsets) + 1, 2147483647)  ! Use varied elements, ensure fit within seed range
+	!!!!
+	!do i = 1, n
+    !call random_number(rand)
+    !seed(i) = mod(int(rand * total_subsets) + 1, 2147483647)  ! Use varied elements, ensure fit within seed range, working v0
+	!end do
+	! Generate a random number and use multiple modulo bases, working v1, probably harder numbers
+	do j = 1, 3
+	call random_number(rand)
+	seed(i) = seed(i) + mod(int(rand * 10), 10)
 	end do
+	seed(i) = mod(seed(i), 10)
 	
 	! Set the random seed with the generated seed array
     call random_seed(put=seed)
@@ -111,6 +118,7 @@ program DvVv8_roller_EnJnDeSIgn2024
 				print *, "Error: selected_group out of range"
 				stop
 			end if
+			! Quantum Testing Syntax
 			!if (selected_group == 9) then
 				!print *, "Working Group9!"
 			!end if
