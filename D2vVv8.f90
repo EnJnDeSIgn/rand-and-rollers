@@ -9,7 +9,7 @@ contains
 
         ! Calculate total number of subsets (2^n)
         total_subsets = 2**n
-        print *, "The power set has ", total_subsets, " subsets."
+        !print *, "The power set has ", total_subsets, " subsets."
 
 		! Allocate array to store subsets
         allocate(subsets(total_subsets, n))
