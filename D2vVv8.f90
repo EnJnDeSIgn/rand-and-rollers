@@ -71,9 +71,9 @@ program D2vVv8_roller_EnJnDeSIgn2024
 		call random_number(rand)
 		seed(i) = mod(int(rand * 5), 5)
 		! Ensure within 0-4 range
-		if (seed(i) > 4 .or. seed(i) < 0) then
-			seed(i) = 0
-		end if
+		!if (seed(i) > 4 .or. seed(i) < 0) then
+			!seed(i) = 0
+		!end if
 	end do
 
 	! More variation for the seed !!!!
@@ -112,13 +112,17 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			! Quantum Version 1.1
 			! Randomly select a group using power set
 			call random_number(rand)
-			selected_group = int(rand * total_subsets) + 1
+			selected_group = seed(int(rand * 5) + 1)
+			if (selected_group > 4 .or. selected_group < 0) then
+				print *, "Error: selected_group Call!!!! out of range"
+				stop
+			end if
 
 			! Adjusting to fit within 0-4 or 5-9
 			if (selected_group <= total_subsets / 2) then
-				selected_group = mod(selected_group, 5)  ! 0-4
+				selected_group = mod(seed(i) + int(rand * 5), 5)			! 0-4
 			else
-				selected_group = mod(selected_group, 5) + 5  ! 5-9
+				selected_group = mod(seed(i) + int(rand * 5), 5) + 5		! 5-9
 			end if
 
 			if (selected_group < 0 .or. selected_group > 9) then
@@ -158,13 +162,17 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			!end if
 			! Randomly select a number using power set
 			call random_number(rand)
-			selected_number = int(rand * total_subsets) + 1
+			selected_number = seed(int(rand * 5) + 1)
+			if (selected_number > 4 .or. selected_number < 0) then
+				print *, "Error: selected_number Call!!!! out of range"
+				stop
+			end if
 
 			! Adjusting to fit within 0-4 or 5-9
 			if (selected_number <= total_subsets / 2) then
-				selected_number = mod(selected_number, 5)  ! 0-4
+				selected_number = mod(seed(i) + int(rand * 5), 5)			! 0-4
 			else
-				selected_number = mod(selected_number, 5) + 5  ! 5-9
+				selected_number = mod(seed(i) + int(rand * 5), 5) + 5		! 5-9
 			end if
 
 			if (selected_number < 0 .or. selected_number > 9) then
