@@ -73,7 +73,7 @@ program DvVv8_roller_EnJnDeSIgn2024
     !seed(i) = mod(int(rand * total_subsets) + 1, 2147483647)  ! Use varied elements, ensure fit within seed range, working v0
 	!end do
 	! Generate a random number and use multiple modulo bases, working v1, probably harder numbers
-	do j = 1, 3
+	do j = 1, 9
 	call random_number(rand)
 	seed(i) = seed(i) + mod(int(rand * 10), 10)
 	end do
