@@ -54,9 +54,6 @@ program D2vVv8_roller_EnJnDeSIgn2024
     total_sum = 0
 	carry_over = 0.0
 	digit_count = 0
-	! Define the base set for the power set generation, 00!!!!
-    !n = 10
-    !base_set = [(i, i=1, n)]
 	! Define the base set for the power set generation
 	n = 5  ! Number of values (0-4)
 	base_set = [0, 1, 2, 3, 4]
@@ -221,7 +218,6 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			end do
 			! Ensure the string is trimmed and adjusted
 			! After processing each roll !!!!
-			!random_number_str = trim(adjustl(replace_with_random(random_number_str, '*')))
 			random_number_str = trim(adjustl(random_number_str))
 			!print *, 'Random Number String:', trim(random_number_str)  ! Debug print
 			! Convert string to integer safely
@@ -346,20 +342,4 @@ program D2vVv8_roller_EnJnDeSIgn2024
 
 		print *, "Random Select: ", random_select
 		print '("Random Exponent:", E35.25)', exponent
-	!contains
-		!function replace_with_random(str, from_char) result(cleaned_str)
-			!character(len=*), intent(in) :: str
-			!character(len=1), intent(in) :: from_char
-			!integer :: i
-			!character(len=len(str)) :: cleaned_str
-			!real :: rand
-
-			!cleaned_str = str
-			!do i = 1, len(str)
-				!if (str(i:i) == from_char) then
-					!call random_number(rand)
-					!cleaned_str(i:i) = char(int(rand * 10) + ichar('0'))  ! Random digit 0-9
-				!end if
-			!end do
-		!end function replace_with_random
 end program D2vVv8_roller_EnJnDeSIgn2024
