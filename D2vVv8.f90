@@ -9,7 +9,7 @@ contains
 
         ! Calculate total number of subsets (2^n)
         total_subsets = 2**n
-        !print *, "The power set has ", total_subsets, " subsets."
+        print *, "The power set has ", total_subsets, " subsets."
 
 		! Allocate array to store subsets
         allocate(subsets(total_subsets, n))
@@ -40,7 +40,7 @@ program D2vVv8_roller_EnJnDeSIgn2024
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
-	integer, dimension(100) :: base_set
+	integer, dimension(5) :: base_set
     integer :: n, total_subsets
 	integer, allocatable :: subsets(:, :)
     integer, dimension(:), allocatable :: seed
@@ -54,33 +54,32 @@ program D2vVv8_roller_EnJnDeSIgn2024
     total_sum = 0
 	carry_over = 0.0
 	digit_count = 0
+	! Define the base set for the power set generation, 00!!!!
+    !n = 10
+    !base_set = [(i, i=1, n)]
 	! Define the base set for the power set generation
-    n = 10
-    base_set = [(i, i=1, n)]
+	n = 5  ! Number of values (0-4)
+	base_set = [0, 1, 2, 3, 4]
 
     ! Call the subroutine to generate and print the power set
     call PowerSET_EnJnDeSIgn2024(base_set, n, subsets)
 	
 	! Create a seed array from some elements of the power set
     total_subsets = size(subsets, 1)
-    allocate(seed(1:n))
-    !do i = 1, n
-        !seed(i) = subsets(i, 1)  ! Simplified, you can add more complex logic
-    !end do
-	!!!!
-	!do i = 1, n
-    !call random_number(rand)
-    !seed(i) = mod(int(rand * total_subsets) + 1, 2147483647)  ! Use varied elements, ensure fit within seed range, working v0
-	!end do
+    allocate(seed(1:total_subsets))
 	! Generate a random number and use multiple modulo bases, working v1, probably harder numbers
 	! Generate seed values within 0-4
 	do i = 1, n
+		seed(i) = 0
 		call random_number(rand)
 		seed(i) = mod(int(rand * 5), 5)
-		!print *, 'Seed:', i, seed(i)  ! Debug print
+		! Ensure within 0-4 range
+		if (seed(i) > 4 .or. seed(i) < 0) then
+			seed(i) = 0
+		end if
 	end do
 
-	! More variation for the seed
+	! More variation for the seed !!!!
 	!do j = 1, 9
 		!call random_number(rand)
 		!seed(i) = seed(i) + mod(int(rand * 5), 5)
@@ -109,7 +108,6 @@ program D2vVv8_roller_EnJnDeSIgn2024
     do j = 1, num_iterations
 		!print *, 'Iteration:', j  ! Debug print
         random_number_str = ""
-		!run_totals(j) = total_sum
 		count = count +1
         do i = 1, roll_count
 			!print *, 'Roll count:', i  ! Debug print
@@ -222,14 +220,15 @@ program D2vVv8_roller_EnJnDeSIgn2024
 				write(random_number_str(k:k), '(I1)') final_numbers(k)
 			end do
 			! Ensure the string is trimmed and adjusted
-			! After processing each roll
-			random_number_str = trim(adjustl(replace_with_random(random_number_str, '*')))
+			! After processing each roll !!!!
+			!random_number_str = trim(adjustl(replace_with_random(random_number_str, '*')))
+			random_number_str = trim(adjustl(random_number_str))
 			!print *, 'Random Number String:', trim(random_number_str)  ! Debug print
 			! Convert string to integer safely
 			read(random_number_str, '(A90)') current_number
 			!print *, 'Current Number:', current_number  ! Debug print
 		end do
-		! Check length and contents
+		! Check length and contents !!!!
 		!print *, 'Length:', len_trim(random_number_str)
 		!do i = 1, len_trim(random_number_str)
 			!print *, i, random_number_str(i:i)
@@ -347,20 +346,20 @@ program D2vVv8_roller_EnJnDeSIgn2024
 
 		print *, "Random Select: ", random_select
 		print '("Random Exponent:", E35.25)', exponent
-	contains
-		function replace_with_random(str, from_char) result(cleaned_str)
-			character(len=*), intent(in) :: str
-			character(len=1), intent(in) :: from_char
-			integer :: i
-			character(len=len(str)) :: cleaned_str
-			real :: rand
+	!contains
+		!function replace_with_random(str, from_char) result(cleaned_str)
+			!character(len=*), intent(in) :: str
+			!character(len=1), intent(in) :: from_char
+			!integer :: i
+			!character(len=len(str)) :: cleaned_str
+			!real :: rand
 
-			cleaned_str = str
-			do i = 1, len(str)
-				if (str(i:i) == from_char) then
-					call random_number(rand)
-					cleaned_str(i:i) = char(int(rand * 10) + ichar('0'))  ! Random digit 0-9
-				end if
-			end do
-		end function replace_with_random
+			!cleaned_str = str
+			!do i = 1, len(str)
+				!if (str(i:i) == from_char) then
+					!call random_number(rand)
+					!cleaned_str(i:i) = char(int(rand * 10) + ichar('0'))  ! Random digit 0-9
+				!end if
+			!end do
+		!end function replace_with_random
 end program D2vVv8_roller_EnJnDeSIgn2024
