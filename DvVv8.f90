@@ -40,7 +40,7 @@ program DvVv8_roller_EnJnDeSIgn2024
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
-	integer, dimension(100) :: base_set
+	integer, dimension(10) :: base_set		! I think this should be 10, I was thinking total groups*numbers at the time, but 100 is good dignosic.
     integer :: n, total_subsets
 	integer, allocatable :: subsets(:, :)
     integer, dimension(:), allocatable :: seed
