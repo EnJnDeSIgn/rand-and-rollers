@@ -34,16 +34,20 @@ program D2vVv8_roller_EnJnDeSIgn2024
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
-    integer, dimension(30) :: final_numbers, digit_count
+    integer, dimension(30) :: final_numbers, digit_count, digit_sum
 	character(len=50) :: most_frequent_digits
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, exponent
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, exponent, mu, sigma, x, pdf, sum, sum_sq
     character(len=30) :: random_number_str
     real(kind=8) :: total_sum, current_number
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
 	integer, dimension(5) :: base_set
-    integer :: n, total_subsets
+    integer :: n, total_subsets, total_digit_sum
 	integer, allocatable :: subsets(:, :)
     integer, dimension(:), allocatable :: seed
+	
+	! Constants
+    real, parameter :: pi = 3.14159
+    real, parameter :: e = 2.71828
 	
 	c = 0.0
 	count = 0
@@ -254,8 +258,8 @@ program D2vVv8_roller_EnJnDeSIgn2024
 		
         ! Count digits
         do m = 1, roll_count
-            digit_count(final_numbers(m) + 1) = digit_count(final_numbers(m) + 1) + 1
-        end do		
+            digit_sum(final_numbers(m) + 1) = digit_sum(final_numbers(m) + 1) + 1
+        end do
 
         ! Print the generated number
         print *, random_number_str
@@ -350,4 +354,36 @@ program D2vVv8_roller_EnJnDeSIgn2024
 
 		print *, "Random Select: ", random_select
 		print '("Random Exponent:", E35.25)', exponent
+		! Calculate total digit sum
+		total_digit_sum = 0
+		do m = 1, 10 ! Count digits from 0-9
+			total_digit_sum = total_digit_sum + digit_sum(m)
+		end do
+		! Calculate mean (mu)
+		total_digit_sum = 0.0
+		do m = 1, 10
+			total_digit_sum = total_digit_sum + digit_sum(m)
+		end do
+		mu = total_digit_sum / 10
+
+		! Calculate standard deviation (sigma)
+		sum_sq = 0.0
+		do m = 1, 10
+			sum_sq = sum_sq + (digit_sum(m) - mu)**2
+		end do
+		sigma = sqrt(sum_sq / (10 - 1))
+
+		! Output mean and standard deviation
+		print *, "Mean (mu): ", mu
+		print *, "Standard Deviation (sigma): ", sigma
+		! Assuming mean (mu) and standard deviation (sigma) are already calculated
+		do m = 0, 9
+			x = digit_sum(m + 1)		! Get count for digit (m + 1 to match 1-based index)
+			if (sigma > 0.0) then
+				pdf = (1.0 / (sigma * sqrt(2.0 * pi))) * exp(-0.5 * ((x - mean) / sigma)**2)
+				print *, "Digit =", m, ", Count =", x, ", PDF Value =", pdf
+			else
+				print *, "Digit =", m, ", Count =", x, ", PDF Value = Undefined (Sigma is zero)"
+			end if
+		end do
 end program D2vVv8_roller_EnJnDeSIgn2024
