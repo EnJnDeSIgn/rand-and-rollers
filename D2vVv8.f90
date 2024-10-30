@@ -34,14 +34,14 @@ program D2vVv8_roller_EnJnDeSIgn2024
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
-    integer, dimension(30) :: final_numbers, digit_count, digit_sum
+    integer, dimension(30) :: final_numbers, digit_count, digit_sum, total_digit_sum
 	character(len=50) :: most_frequent_digits
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, exponent, mu, sigma, x, pdf, sum, sum_sq
+    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, exponent, mu, sigma, x, pdf, sum_sq
     character(len=30) :: random_number_str
-    real(kind=8) :: total_sum, current_number
+    real(kind=8) :: current_number, total_sum
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
 	integer, dimension(5) :: base_set
-    integer :: n, total_subsets, total_digit_sum
+    integer :: n, total_subsets
 	integer, allocatable :: subsets(:, :)
     integer, dimension(:), allocatable :: seed
 	
@@ -242,6 +242,7 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			!print *, i, random_number_str(i:i)
 		!end do
         ! Add to total sum
+		!total_digit_sum = total_digit_sum + final_numbers(i)
 		carry_over = carry_over + current_number
 		
 		y = current_number - c		! So far, so good: c is 0
@@ -255,7 +256,10 @@ program D2vVv8_roller_EnJnDeSIgn2024
 		
 		! Store current total to array
         run_totals(j) = total_sum
-		
+		! Initialize digit_count to zero
+		do m = 0, 9
+			digit_count(i) = 0
+		end do
         ! Count digits
         do m = 1, roll_count
             digit_sum(final_numbers(m) + 1) = digit_sum(final_numbers(m) + 1) + 1
@@ -355,20 +359,20 @@ program D2vVv8_roller_EnJnDeSIgn2024
 		print *, "Random Select: ", random_select
 		print '("Random Exponent:", E35.25)', exponent
 		! Calculate total digit sum
-		total_digit_sum = 0
-		do m = 1, 10 ! Count digits from 0-9
-			total_digit_sum = total_digit_sum + digit_sum(m)
+		digit_sum = 0
+		do m = 0, 9 ! Count digits from 0-9
+			digit_sum = digit_sum + digit_count(m + 1)
 		end do
 		! Calculate mean (mu)
-		total_digit_sum = 0.0
+		total_digit_sum(i) = 0.0
 		do m = 1, 10
-			total_digit_sum = total_digit_sum + digit_sum(m)
+			total_digit_sum(i) = total_digit_sum(i) + digit_count(m)
 		end do
-		mu = total_digit_sum / 10
-
+		mu = total_digit_sum(i) / 10
 		! Calculate standard deviation (sigma)
 		sum_sq = 0.0
 		do m = 1, 10
+			!normalized_count = digit_count(m) / total_sum		! Correct normalization
 			sum_sq = sum_sq + (digit_sum(m) - mu)**2
 		end do
 		sigma = sqrt(sum_sq / (10 - 1))
@@ -378,7 +382,7 @@ program D2vVv8_roller_EnJnDeSIgn2024
 		print *, "Standard Deviation (sigma): ", sigma
 		! Assuming mean (mu) and standard deviation (sigma) are already calculated
 		do m = 0, 9
-			x = digit_sum(m + 1)		! Get count for digit (m + 1 to match 1-based index)
+			x = digit_count(m + 1)		! Get count for digit (m + 1 to match 1-based index)
 			if (sigma > 0.0) then
 				pdf = (1.0 / (sigma * sqrt(2.0 * pi))) * exp(-0.5 * ((x - mean) / sigma)**2)
 				print *, "Digit =", m, ", Count =", x, ", PDF Value =", pdf
