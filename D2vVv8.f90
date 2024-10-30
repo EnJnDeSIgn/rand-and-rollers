@@ -34,11 +34,13 @@ program D2vVv8_roller_EnJnDeSIgn2024
     character(len=4), dimension(0:9, 0:9) :: groups
     character(len=4), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9
     character(len=1), dimension(30) :: selected_numbers
-    integer, dimension(30) :: final_numbers, digit_count, digit_sum, total_digit_sum
+    integer, dimension(30) :: final_numbers
 	character(len=50) :: most_frequent_digits
-    real :: rand, c, y, t, carry_over, mean, sum_squares, std_dev, max_value, random_val0, exponent, mu, sigma, x, pdf, sum_sq
+    real :: rand, mean, sum_squares, std_dev, max_value, random_val0, exponent, x, pdf
+	real(8) :: total_digit_sum, carry_over, c, t, y, sigma, sum_sq, mu
     character(len=30) :: random_number_str
     real(kind=8) :: current_number, total_sum
+	real(8), dimension(10) :: digit_count, digit_sum
 	real, dimension(25) :: run_totals, normalized_run_totals, rand_exponent
 	integer, dimension(5) :: base_set
     integer :: n, total_subsets
@@ -235,6 +237,8 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			! Convert string to integer safely
 			read(random_number_str, '(A90)') current_number
 			!print *, 'Current Number:', current_number  ! Debug print
+			! Check length and contents
+			!print *, 'Length:', len_trim(random_number_str)
 		end do
 		! Check length and contents !!!!
 		!print *, 'Length:', len_trim(random_number_str)
@@ -242,14 +246,13 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			!print *, i, random_number_str(i:i)
 		!end do
         ! Add to total sum
-		!total_digit_sum = total_digit_sum + final_numbers(i)
 		carry_over = carry_over + current_number
-		
-		y = current_number - c		! So far, so good: c is 0
-		t = total_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
-		c = (t - total_sum) - y		! (t- total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
-		total_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
-									! Next time around, the lost low part will be added to y in a fresh attempt.
+		do i = 1, len_trim(random_number_str)
+			y = current_number - c		! So far, so good: c is 0
+			t = total_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
+			c = (t - total_sum) - y		! (t- total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
+			total_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
+		end do							! Next time around, the lost low part will be added to y in a fresh attempt.
 									! Print the current roll value and the total sum with more decimal places	
 		total_sum = total_sum + carry_over
 		carry_over = 0.0
@@ -364,11 +367,11 @@ program D2vVv8_roller_EnJnDeSIgn2024
 			digit_sum = digit_sum + digit_count(m + 1)
 		end do
 		! Calculate mean (mu)
-		total_digit_sum(i) = 0.0
+		total_digit_sum = 0.0
 		do m = 1, 10
-			total_digit_sum(i) = total_digit_sum(i) + digit_count(m)
+			total_digit_sum = total_digit_sum + digit_count(m)
 		end do
-		mu = total_digit_sum(i) / 10
+		mu = digit_sum(m) / 10
 		! Calculate standard deviation (sigma)
 		sum_sq = 0.0
 		do m = 1, 10
@@ -378,6 +381,7 @@ program D2vVv8_roller_EnJnDeSIgn2024
 		sigma = sqrt(sum_sq / (10 - 1))
 
 		! Output mean and standard deviation
+		print *, "Digit Part"
 		print *, "Mean (mu): ", mu
 		print *, "Standard Deviation (sigma): ", sigma
 		! Assuming mean (mu) and standard deviation (sigma) are already calculated
