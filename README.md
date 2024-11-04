@@ -17,4 +17,5 @@ next I plan to leave Canada as a refugee for China so I can write there MG softw
 New Die*.exe's out, All Have mode that is alway + 1 if you are playing D&D and the random seleted has it added already      
 bc.exe current 0-1000, use first commite if you want it to fuction without adding x's value's(add your own std)     
 To note if you input something other then number's it serves you right that you have to re start your work   
-DvVv8.exe is working but now I have split the seed it self for D2vVv8.exe and have got it working too
+DvVv8.exe is working but now I have split the seed it self for D2vVv8.exe and have got it working too    
+No need to pay me as Canada won't let me make money, waiting too see how many of them I will get to kill
