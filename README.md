@@ -19,4 +19,5 @@ bc.exe current 0-1000, use first commite if you want it to fuction without addin
 To note if you input something other then number's it serves you right that you have to re start your work   
 DvVv8.exe is working but now I have split the seed it self for D2vVv8.exe and have got it working too    
 No need to pay me as Canada won't let me make money, waiting too see how many of them I will get to kill    
-She says she has police family, I'm wondering if they are SIU? I could finally get some justus for Mr. Walker...
+She says she has police family, I'm wondering if they are SIU? I could finally get some justus for Mr. Walker...    
+Don't drink cofee from coffee way in kingston or you will be drugged
