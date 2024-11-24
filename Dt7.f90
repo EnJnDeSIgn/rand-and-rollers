@@ -28,12 +28,12 @@ end module PowerSetModule_EnJnDeSIgn2024_Dt7
 program Dt7
 	use PowerSetModule_EnJnDeSIgn2024_Dt7
 	implicit none
-	integer :: num0, num1, num2, n, total_subsets, i
+	integer :: num0, num1, num2, n, total_subsets, i, num3, num4, num5
 	integer, allocatable :: base_set(:), seed(:)
 	integer, allocatable :: subsets(:, :)
 	real :: rand
-	character(len=10) :: num0_str, num1_str, num2_str
-	character(len=30) :: combined_str
+	character(len=10) :: num0_str, num1_str, num2_str, num3_str, num4_str, num5_str
+	character(len=30) :: combined_str0, combined_str1
 	integer :: clock_seed(8)
 	
 	call date_and_time(values=clock_seed)
@@ -73,8 +73,21 @@ program Dt7
 	write(num1_str, '(I10)') num1 
 	write(num2_str, '(I10)') num2
 	
+	call random_number(rand)
+	num3 = int(rand * 1000000000)
+	call random_number(rand)
+	num4 = int(rand * 1000000000)
+	call random_number(rand)
+	num5 = int(rand * 1000000000)
+	
+	write(num3_str, '(I10)') num3
+	write(num4_str, '(I10)') num4
+	write(num5_str, '(I10)') num5
+	
 	! Combine strings to form a 30-digit number 
-	combined_str = trim(adjustl(num0_str)) // trim(adjustl(num1_str)) // trim(adjustl(num2_str))
+	combined_str0 = trim(adjustl(num0_str)) // trim(adjustl(num1_str)) // trim(adjustl(num2_str))
 	!print *, num0, num1, num2
-	print *, combined_str
+	combined_str1 = trim(adjustl(num3_str)) // trim(adjustl(num4_str)) // trim(adjustl(num5_str))
+	print *, combined_str0
+	print *, combined_str1
 end program Dt7
