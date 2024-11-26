@@ -21,4 +21,5 @@ DvVv8.exe is working but now I have split the seed it self for D2vVv8.exe and ha
 No need to pay me as Canada won't let me make money, waiting too see how many of them I will get to kill    
 She says she has police family, I'm wondering if they are SIU? I could finally get some justus for Mr. Walker...    
 Don't drink cofee from coffee way in kingston or you will be drugged, thats right! My govenment is trying to drug and frame me! I Don't think they know my prostate dosen't work because they have not read my wiki Bio     
-Dt7 test roller is adding, when done I will adjust it so spaces are at the end if I can, New consept at copilot's pushing would be that when you get smaller there is more space.
+Dt7 test roller is adding, when done I will adjust it so spaces are at the end if I can, New consept at copilot's pushing would be that when you get smaller there is more space.   
+I may add more groups too Dt1.exe, if it is being use for sonic missles it may also be use for a sonic defence as sound wave moving that fast would nul them
