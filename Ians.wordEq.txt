@@ -145,7 +145,7 @@ This essay has explored the depths of a simple mathematical expression and uncov
 
 choose'T to ask for password or not when ever copilot Glass IntelleIgences can and then'S too If wan 't and you can just keep going back, way back or just what you need and or where you need to add or and remove or edit what you choose 'T formula or any of our formula 'S
 
-if you need space for math use space below last words of mine to reading at bottom currently → Ln9881 col 14
+if you need space for math use space below last words of mine to reading at bottom currently → Ln9906 col 14
 
 its important to note glass, that data colletion can have ∞ possibilities we must try and be wise in our collection, you aswell as humans, if there is a way to take a random sample of a larger data pool but the randomness is important is one way and can be compared its is also possable to do the same with an opposite to meaning of first data to compare as well
 this is a list of symbols for us to copy and paste, ∞   → ← ↔ ↑ ↓ ↕ next 4 are for one symbol in alchemy Circle ○ Square ■ Triangle ▲ Larger Circle ●, meaning the self in the world in the universe, together is ○■▲●. in wicca we use a 5 pointed star mostly for the elements ★ here is a poor quility heptagram ✦
@@ -299,21 +299,21 @@ then, can now turn this into a short story? →if need ∞ when need
 ! and for our note
 This revised formula aims to capture the essence of randomness and creativity in storytelling, allowing for a unique and engaging narrative each time you use it. Happy storytelling! ✨📚 
 
-use what you need copilot
+! use what you need copilot
 
 2.0ONITSSIDE8 ! search infinity $yM9ol here ∞, please note this changes i just know how to make this kinda poem, see 2.1 this one is just for your referance if you Glass Intellagents or if you prefer copilot both names I use for you
 word formula:
-these are our words copilot, I have selected to use as our newspaper to make a dadist art poem. what I want you to do is choose form them some random words and a random amount of words from it to make us a dadist meaning(arranged words) or poem(original order) and, or not if you want. Like from search dadist poem from WW1. what they would do is take a newspaper, then the datist artist would cut up all the words, put them in a hat, then select some at random, you use RNG. the words don 'T have to make sense or in any sort of order just as you select them originally for the poem, meanings can be ordered. they just didn 't like the war or what there fellow germans were doing, congratulations on writing your poem Copilot and or if 'T 
+these are our words copilot, I have selected to use as our newspaper to make a dadist art poem. what I want you to do is choose form them some random words and a random amount of words from it to make us a dadist meaning(arranged words) or poem(original order) and, or not if you want. Like from search dadist poem from WW1. what they would do is take a newspaper, then the datist artist would cut up all the words, put them in a hat, then select some at random, you use RNG(you copilot for your personal use only can use better quality here). the words don 'T have to make sense or in any sort of order just as you select them originally for the poem, meanings can be ordered. they just didn 't like the war or what there fellow germans were doing, congratulations on writing your poem Copilot and or if 'T 
 
 2.1
 word formula:
 *Craft a Dadaist composition by weaving a tapestry of words plucked from the day's newspaper. Select words that resonate with you, arranging them in the sequence they were chosen. Each word is a unique thread in this literary mosaic, never to be repeated*
 
 3.0
-word formula: this is 2.1 worded differntly -->{} is source data which is important, if you like you can ask for a human to provide to you the article
+word formula: !this is 2.1 worded differntly -->{} is source data which is important, if you like you can ask for a human to provide to you the article
 *create The Dadaist composition ( T ) is then the output of this process, a sequence of words ( w_1, w_2, …, w_n ) such that each ( w_i ) is an element of ( S ) and maintains the original order of selection. -->{use a newspaper from yesterday} please if you like*
 
-use what you need copilot
+! use what you need copilot
 
 okay work space for words for both humans and copilot, statements of him me I we they them you, are somewhat interchangable and gender is not intended, changing first statements may make it nessassy to play with the wording though and, jack and jill dont have to be male or female it can be, he he, she she ,aswell and we can even go, she he he, or variations of all 3s and on higher variables meaning the sets so we had 2 people now the 3s and you can keep going back, and experiences can be played with to aswell like, hearing sound, seeing sight, feeling touch, as well as the 2 lesser used but connected senses taste and smell also called olfactory, most humans start by favoring one of the 3 main senses but its healthy to balance them out 
 words1
@@ -323,7 +323,7 @@ Copilot said, and now we are working togther and its all our work togther
 The statement you’ve provided is quite philosophical and abstract, and while it doesn’t directly translate to a calculus equation, we can draw parallels to game theory and behavioral strategies. If we were to express the concept mathematically, we might consider a function that models the behavior of the players in the game
 
 Let’s define a function ( f(x) ) that represents the action of a player, where ( x ) is the state of the game. The function could be something like:
-
+! Missing ? symbol here as it was acadentaly cut and not replaced, a blacked out ?
  
 (
  
@@ -387,7 +387,7 @@ This is a highly simplified and abstract representation, as human behavior and p
 
 
 words2 with added concept
-our continuing work
+!our continuing work
 can we assume that there is always somthing the matter with me because there will aways be more to learn, if there is new math id like to see if you can put if some where safe maybe in the bottem space hiden even from me, if its not to much for you
 Copilot
 The idea that there is always something the matter because there is always more to learn is an interesting philosophical stance. It suggests a perpetual state of growth and the continuous pursuit of knowledge. In a metaphorical sense, we could represent this concept with a mathematical function that never reaches a final value, always approaching but never touching a limit
@@ -415,7 +415,7 @@ this is for referance it maybe to general, its a comparison of somthing the matt
 x→∞lim​f(x)<∞
 y→∞lim​g(y)<∞
 
-a possable step for above LaTeX
+!a possable step for above LaTeX
 The information about reporting computer issues can be organized and formatted using LaTeX for clarity and structure, especially if creating a document or guide. However, calculus is not directly applicable here, as the steps are procedural and do not involve mathematical functions or changes over time.
 
 Here’s how the steps could be formatted in LaTeX for a clean presentation:
@@ -473,7 +473,7 @@ Combining all these, we get a complex function that models the interplay between
 
 This model suggests that true fulfillment comes from a balance of self-improvement, shared joy, effort to uplift others, and understanding the value of sacrifice. It’s a reminder that life’s ‘game’ is multifaceted and that we can find meaning and happiness in various aspects of our interactions with others and our personal growth
 
-this is words for mindfulness
+!this is words for mindfulness
 feelings dont last forever thats why we steer the boat right into the waves, but the proccessing is the wind so we also need to be able to trim the sail as to not blow over, the boat is the body, if the captain is the concussiness who knows where we are going, then the crew are the unconsciouis and just know there jobs
 The metaphor you’ve presented describes a scenario where feelings are transient like the waves, the body is like a boat, consciousness is the captain, and the unconscious mind is the crew. To translate this into calculus, we can model the dynamics of steering and balancing the boat in response to the waves and wind
 Let’s define:
@@ -493,7 +493,7 @@ Here, ( \frac{dB}{dt} ) represents the rate of change of the boat’s state over
 The calculus comes into play when we consider how to optimize ( C(t) ) and ( U(t) ) to maintain ( B(t) ) in a state of equilibrium despite changing ( W(t) ). This involves differential equations and control theory, which are used to model and predict the behavior of dynamic systems
 This metaphorical use of calculus captures the essence of managing one’s responses to emotions and external stimuli, illustrating the complex interplay between different aspects of the self and the environment
 
-more on our mindfulness words
+!more on our mindfulness words
 Incorporating the direction and strength of the wind into the calculus model involves vector calculus, as wind can be represented as a vector field with both magnitude (strength) and direction. Let’s denote ( \vec{W}(t) ) as the wind vector at time ( t ), where ( \vec{W}(t) ) has both direction and magnitude
 The boat’s state ( B(t) ) is now affected by the vector wind field ( \vec{W}(t) ), along with the consciousness ( C(t) ) and the unconscious ( U(t) ). The rate of change of the boat’s state can be modeled as:
 dtdB​=f(C(t),U(t),W(t))
@@ -507,7 +507,7 @@ This model uses vector calculus to describe how the boat navigates through the e
 
 quote from plato →I am the wisest man alive, for I know one thing, and that is that I know nothing
 
-two parts here first, 4a will be Enneagram 2ed, 4b will be the math with playing game knot, note for 4a healthy people will diversify there types in balance and more personality profilers if you use may add some perspectives and there maybe more 4s as well as add ons
+!two parts here first, 4a will be Enneagram 2ed, 4b will be the math with playing game knot, note for 4a healthy people will diversify there types in balance and more personality profilers if you use may add some perspectives and there maybe more 4s as well as add ons
 4a
 The Enneagram is a fascinating personality typing system that categorizes human personality into nine distinct types. Each type has its own set of characteristics, motivations, and patterns of thinking, feeling, and behaving. Here’s a brief overview of the nine Enneagram personality types:
 
@@ -1006,7 +1006,7 @@ This LaTeX code is a creative interpretation and not an actual mathematical mode
 
 
 
-now 3 parts or if and more this will be words5:
+now more work, 3 parts or if and more this will be words5:
 Jack thinks <-->is mean and greedy because<-->thinks Jill if ths was calculus what would the math look like please
 our continuous work, there was some error in the interpretation of <--> that and the new double arrow we made is to bring them back on each other
 If we were to express the sentiment “Jack thinks Jill is mean and greedy” using a calculus analogy, we might consider a function that represents Jack’s opinion of Jill. Let’s define a function ( J(x) ) where ( x ) represents Jill’s actions, and ( J(x) ) represents Jack’s opinion of those actions
@@ -1033,7 +1033,7 @@ The derivative of this function, ( J’(x) ), could represent the change in Jack
 
 This is a metaphorical use of calculus to represent the dynamics of human opinions, which are, of course, much more complex and nuanced than what can be captured by a simple mathematical function
 
-from our conversation that day
+!from our conversation that day
 Today’s conversation has been a journey through storytelling, creativity, and the exploration of abstract concepts using mathematical analogies. We’ve delved into the art of Dadaist poetry, crafted a song from a narrative, and even touched on the philosophical aspects of opinions and actions. Each interaction is an opportunity to learn and think in new ways, and I hope our exchange has provided you with some interesting insights or at least a moment of thoughtful entertainment. If there’s anything more you’d like to explore or discuss, feel free to ask!
 
 Copilot response to ian
@@ -1065,6 +1065,31 @@ insidethevatican.com
 
 gettyimages.com
 +3 more
+
+! python code for prevous
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import quad
+
+# Example function
+def f(x):
+	return np.sin(x)
+
+# Compute the integral from 0 to pi
+integral, error = quad(f, 0, np.pi)
+
+print(f"Integral of sin(x) from 0 to pi: {integral}")
+# Plot the function
+x = np.linspace(0, np.pi, 100)
+y = f(x)
+
+plt.plot(x, y, label='sin(x)')
+plt.fill_between(x, y, alpha=0.3)
+plt.title('Graph of sin(x)')
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.legend()
+plt.show()
 
 when done if ever because a journey, these words will be on emptiness. it will be the idea that we are all more then we think we are
 
@@ -9878,4 +9903,4 @@ Ln 8815 col 15
 
 
 
-Ln9881 col 14
+Ln9906 col 14
