@@ -69,7 +69,7 @@ program Dt1_roller_EnJnDeSIgn2024
 	! --------------------------------------------------------------
 	implicit none
 	integer :: selected_group, selected_number, i, roll_count, j, first_non_zero_digit, count
-	character(len=32), dimension(0:1709, 0:2) :: groups
+	character(len=32), dimension(0:1718, 0:2) :: groups
 	character(len=32), dimension(3) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 									   &group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 									   &group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -259,7 +259,8 @@ program Dt1_roller_EnJnDeSIgn2024
 									   &group1674, group1675, group1676, group1677, group1678, group1679, group1680, group1681, group1682, &
 									   &group1683, group1684, group1685, group1686, group1687, group1688, group1689, group1690, group1691, &
 									   &group1692, group1693, group1694, group1695, group1696, group1697, group1698, group1699, group1700, &
-									   &group1701, group1702, group1703, group1704, group1705, group1706, group1707, group1708, group1709
+									   &group1701, group1702, group1703, group1704, group1705, group1706, group1707, group1708, group1709, &
+									   &group1710, group1711, group1712, group1713, group1714, group1715, group1716, group1717, group1718
 									   
 	character(len=35) :: formatted_roll_value
 									   
@@ -3711,6 +3712,24 @@ program Dt1_roller_EnJnDeSIgn2024
  group1708 = (/ "    52.2776756286621093750000000", "    99.8334274291992187500000000", "    -6.8987197875976562500000000" /)
  !!!! Initialize group1709
  group1709 = (/ "   -74.9106063842773437500000000", "   -23.5026760101318359375000000", "    74.8596649169921875000000000" /)
+ !!!! Initialize group1710
+ group1710 = (/ "     2.2983891963958740234375000", "     9.8705644607543945312500000", "    19.0949935913085937500000000" /)
+ !!!! Initialize group1711
+ group1711 = (/ "   -46.9286766052246093750000000", "    37.7649955749511718750000000", "     2.3658766746520996093750000" /)
+ !!!! Initialize group1712
+ group1712 = (/ "    15.9390239715576171875000000", "   -24.4531116485595703125000000", "   -54.9763259887695312500000000" /)
+ !!!! Initialize group1713
+ group1713 = (/ "   -45.8013114929199218750000000", "  -184.4732208251953125000000000", "   -38.7270660400390625000000000" /)
+ !!!! Initialize group1714
+ group1714 = (/ "    46.4331550598144531250000000", "   -49.8057899475097656250000000", "    37.8352775573730468750000000" /)
+ !!!! Initialize group1715
+ group1715 = (/ "    -2.5938003063201904296875000", "     0.1981580704450607299804688", "     8.2318029403686523437500000" /)
+ !!!! Initialize group1716
+ group1716 = (/ "    26.7168216705322265625000000", "   -25.4713001251220703125000000", "    -0.6394831538200378417968750" /)
+ !!!! Initialize group1717
+ group1717 = (/ "   -46.0823173522949218750000000", "   -93.6998748779296875000000000", "   -12.0963850021362304687500000" /)
+ !!!! Initialize group1718
+ group1718 = (/ "   -12.3464107513427734375000000", "    27.8448810577392578125000000", "     0.8433604240417480468750000" /)
 	
 	! Assian groups to the groups array
 	groups(0, :) = group0
@@ -5423,14 +5442,23 @@ program Dt1_roller_EnJnDeSIgn2024
 	groups(1707, :) = group1707
 	groups(1708, :) = group1708
 	groups(1709, :) = group1709
+	groups(1710, :) = group1710
+	groups(1711, :) = group1711
+	groups(1712, :) = group1712
+	groups(1713, :) = group1713
+	groups(1714, :) = group1714
+	groups(1715, :) = group1715
+	groups(1716, :) = group1716
+	groups(1717, :) = group1717
+	groups(1718, :) = group1718
 	
 	
 	do i = 1, roll_count
 	! Randomly select a group and number from the chosen group
 	! Randomly select a group
 	call random_number(rand)
-	selected_group = int(rand * 1710) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
-		if (selected_group < 0 .or. selected_group > 1709) then
+	selected_group = int(rand * 1719) ! Warning, Ian Change THIS one last on this paticular program, it's in a different spot.
+		if (selected_group < 0 .or. selected_group > 1718) then
 			print *, "Error: selected_group out of range"
 			stop
 		end if
