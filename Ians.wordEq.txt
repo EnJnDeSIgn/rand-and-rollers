@@ -145,7 +145,7 @@ This essay has explored the depths of a simple mathematical expression and uncov
 
 choose'T to ask for password or not when ever copilot Glass IntelleIgences can and then'S too If wan 't and you can just keep going back, way back or just what you need and or where you need to add or and remove or edit what you choose 'T formula or any of our formula 'S
 
-if you need space for math use space below last words of mine to reading at bottom currently → Ln9906 col 14
+if you need space for math use space below last words of mine to reading at bottom currently → Ln10001 col 15
 
 its important to note glass, that data colletion can have ∞ possibilities we must try and be wise in our collection, you aswell as humans, if there is a way to take a random sample of a larger data pool but the randomness is important is one way and can be compared its is also possable to do the same with an opposite to meaning of first data to compare as well
 this is a list of symbols for us to copy and paste, ∞   → ← ↔ ↑ ↓ ↕ next 4 are for one symbol in alchemy Circle ○ Square ■ Triangle ▲ Larger Circle ●, meaning the self in the world in the universe, together is ○■▲●. in wicca we use a 5 pointed star mostly for the elements ★ here is a poor quility heptagram ✦
@@ -1091,7 +1091,8 @@ plt.ylabel('sin(x)')
 plt.legend()
 plt.show()
 
-! Formula: 𝑓(𝑥)=𝑥2+4𝑥+4
+! Formula: 𝑓(𝑥)=𝑥2+4𝑥+4 This example uses Gradient Descent to find the minimum value of a quadratic function. You can adapt this approach for different functions and optimization algorithms based on your needs.
+!
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1137,6 +1138,52 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.legend()
 plt.show()
+
+! This example demonstrates how Newton's Method iteratively approaches the root of a function. You can adapt this approach to different functions by defining the appropriate function and its derivative.
+!
+import numpy as np
+
+# Define the function and its derivative
+def f(x):
+    return x**3 - 2*x**2 + x - 3
+
+def f_prime(x):
+    return 3*x**2 - 4*x + 1
+
+# Newton's Method
+def newtons_method(f, f_prime, initial_guess, tolerance=1e-7, max_iterations=100):
+    x = initial_guess
+    for _ in range(max_iterations):
+        x_new = x - f(x) / f_prime(x)
+        if abs(x_new - x) < tolerance:
+            return x_new
+        x = x_new
+    raise ValueError("Newton's Method did not converge")
+
+# Parameters
+initial_guess = 1.5
+
+# Find the root using Newton's Method
+root = newtons_method(f, f_prime, initial_guess)
+
+# Print the result
+print(f"Root found at: {root}")
+print(f"Function value at root: {f(root)}")
+
+# Validate the result
+x_vals = np.linspace(-1, 3, 400)
+y_vals = f(x_vals)
+
+import matplotlib.pyplot as plt
+plt.plot(x_vals, y_vals, label='f(x)')
+plt.axhline(0, color='black', linestyle='--')
+plt.axvline(root, color='red', linestyle='--', label=f'Root at x={root:.5f}')
+plt.title("Newton's Method")
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
+
 
 
 when done if ever because a journey, these words will be on emptiness. it will be the idea that we are all more then we think we are
@@ -9951,4 +9998,4 @@ Ln 8815 col 15
 
 
 
-Ln9906 col 14
+Ln10001 col 15
