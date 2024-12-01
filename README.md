@@ -34,9 +34,11 @@ Random Initialization: It starts with a random population of solutions.
 Selection: It evaluates these solutions and selects the best ones based on a fitness function.
 
 Crossover: It combines pairs of solutions to produce new offspring, mixing their "genes" (solution components).
-
+ 
 Mutation: It introduces random variations to some solutions to maintain diversity and explore new potential solutions.
 
 Iteration: Over many generations, this process continues, refining and improving the solutions.
 
 Just like how the Diamond Sutra emphasizes the illusory nature of form, the genetic algorithm acknowledges the randomness and variability of solutions. Yet, through structured processes, it gradually converges towards an optimal solution, just as enlightenment is found through understanding the nature of emptiness.
+
+About to be proacuted my the canadain medacal sytem without a lawer yet again
