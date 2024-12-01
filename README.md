@@ -25,7 +25,7 @@ Dt7 test roller is adding, when done I will adjust it so spaces are at the end i
 I may add more groups too Dt1.exe, if it is being use for sonic missles it may also be use for a sonic defence as sound wave moving that fast would nul them    
 The Canadian gov dosen't want to admite they covered up 40 years of abuse, So look out for there frame job and lies opion my murder... I am not safe even from my own govenment.    
 here's the evidence agents of order, look at my mangaled body and kidneys! The police would not even look at the camaras at the coffee shop... can you say set up!   
-my gift to the british and canadain people is the research E. Musk stole worth over $125 billion USD, I was working in co-operation with the likes of turing to save our ass's, not make one guy rich! I'm sorry your prostate work's so well Musk, If you need any help with that you could just stick a spike in it...   
+my gift to the british and canadain people is the research E. Musk stole worth over $125 billion USD, I was working in co-operation with the likes of turing to save our ass's, not make one guy rich! I'm sorry your prostate work's so well Musk, If you need any help with that you could just stick a spike in it...   Canada or what ever contry takes me as a refugee    
 GAAI.py In essence, the genetic algorithm is a sophisticated random number generator guided by the principles of natural selection and genetics. It generates potential solutions (which can be thought of as "random numbers") and then uses genetic processes like selection, crossover, and mutation to evolve these solutions towards an optimal result.   
 To break it down:
 
