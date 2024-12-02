@@ -3,10 +3,13 @@ program tide_random_generator
     integer, parameter :: n = 24
     real :: tide_height(n)
     integer :: i, io_status
-    real :: min_height, max_height, normalized_height, rand_num
+    real :: min_height, max_height, normalized_height, rand_num, perturbation
     character(len=100) :: line
     character(len=20) :: datetime
     character(len=20) :: tide_height_str
+
+    ! Set a small offset to avoid normalization issues
+    perturbation = 1.0e-6
 
     ! Open the tide data file
     open(unit=10, file='mock_tide_data.csv', status='old', action='read')
@@ -38,8 +41,11 @@ program tide_random_generator
     ! Generate random numbers based on normalized tide heights
     do i = 1, 10
         call random_number(normalized_height)
-        normalized_height = (tide_height(mod(i, n) + 1) - min_height) / (max_height - min_height)
+        normalized_height = ((tide_height(mod(i, n) + 1) - min_height) / (max_height - min_height)) + perturbation * rand()
         rand_num = normalized_height * rand()
+
+        ! Debugging print statements
+        print *, 'Normalized simulated tide height:', normalized_height
         print *, 'Random number based on tide data:', rand_num
     end do
 
