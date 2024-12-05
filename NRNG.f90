@@ -14,13 +14,13 @@ program nrng
     perturbation = 1.0e-6
 
     ! Open the tide data file
-    open(unit=10, file='mock_tide_data.csv', status='old', action='read')
+    open(unit=20, file='mock_tide_data.csv', status='old', action='read')
     ! Skip the header line
-    read(10, '(A)')
+    read(20, '(A)')
 
     ! Read the tide heights
     do i = 1, n0
-        read(10, '(A)', iostat=io_status0) line
+        read(20, '(A)', iostat=io_status0) line
         if (io_status0 == 0) then
             read(line, '(A20, 1X, A)', iostat=io_status0) datetime, tide_height_str
             if (io_status0 == 0) then
@@ -34,20 +34,20 @@ program nrng
             exit
         end if
     end do
-    close(10)
+    close(20)
 
     ! Find the min and max tide heights
     min_height = minval(tide_height)
     max_height = maxval(tide_height)
 	
 	! Open the glacier data file
-    open(unit=10, file='simulated_glacier_data.csv', status='old', action='read')
+    open(unit=20, file='simulated_glacier_data.csv', status='old', action='read')
     ! Skip the header line
-    read(10, '(A)')
+    read(20, '(A)')
 
     ! Read the glacier sizes
     do i = 1, n1
-        read(10, '(A)', iostat=io_status1) line
+        read(20, '(A)', iostat=io_status1) line
         if (io_status1 == 0) then
             read(line, '(A20, 1X, A)', iostat=io_status1) year, glacier_size_str
             if (io_status1 == 0) then
@@ -61,7 +61,7 @@ program nrng
             exit
         end if
     end do
-    close(10)
+    close(20)
 
     ! Find the min and max glacier sizes
     min_size = minval(glacier_size)
