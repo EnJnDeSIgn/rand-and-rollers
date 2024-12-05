@@ -1,17 +1,13 @@
 program nrng
     implicit none
-    integer, parameter :: n0 = 24
-    real :: tide_height(n0)
-    integer :: i, io_status0
-    real :: min_height, max_height, normalized_height, rand_num0, perturbation
+    integer, parameter :: n0 = 24, n1 = 50
+    real(8) :: tide_height(n0), glacier_size(n1)
+    integer :: i, io_status0, io_status1
+    real(8) :: min_height, max_height, normalized_height, rand_num0, perturbation
+    real(8) :: min_size, max_size, normalized_size, rand_num1
     character(len=100) :: line
-    character(len=20) :: datetime
+    character(len=20) :: datetime, year
     character(len=20) :: tide_height_str
-	integer, parameter :: n1 = 50
-    real :: glacier_size(n1)
-    integer :: io_status1
-    real :: min_size, max_size, normalized_size, rand_num1
-    character(len=20) :: year
     character(len=20) :: glacier_size_str
 
     ! Set a small offset to avoid normalization issues
@@ -79,7 +75,9 @@ program nrng
 
         ! Debugging print statements
         !print *, 'Normalized simulated tide height:', normalized_height
-        print *, 'TRNG: ', rand_num0
+        !print *, 'TRNG: ', rand_num0
+		! Print statements with higher precision
+		!print '(A, F18.15)', 'TRNG: ', rand_num0
 		! Generate random numbers based on normalized glacier sizes
         call random_number(normalized_size)
         normalized_size = ((glacier_size(mod(i, n1) + 1) - min_size) / (max_size - min_size)) + perturbation * rand()
@@ -87,12 +85,15 @@ program nrng
 
         ! Debugging print statements
         !print *, 'Simulate Glacier Decay:', normalized_size
-        print *, 'GRNG: ', rand_num1
+        !print *, 'GRNG: ', rand_num1
+		!
+		print '(A, F24.18)', 'TRNG: ', rand_num0
+		print '(A, F24.18)', 'GRNG: ', rand_num1
     end do
 
 contains
     function rand() result(r)
-        real :: r
+        real(8) :: r
         call random_number(r)
     end function rand
 
