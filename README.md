@@ -59,6 +59,8 @@ Random Perturbation
 Introduced slight variations to the normalized values to enhance the randomness and variability of the generated numbers.
 
 Random Number Influence
-The generated random number (rand_num) is a product of the perturbed normalized value and an additional random number. This approach ensures that the resulting random number reflects both the variability inherent in the glacier data and the added randomness.
+The generated random number (rand_num) is a product of the perturbed normalized value and an additional random number. This approach ensures that the resulting random number reflects both the variability inherent in the glacier data and the added randomness.   
+
+There is the missconception that you can just ask copilot and he will spit out somthing good, really it's a conversation and a process you work through with them too get it right!
 
 About to be proacuted my the canadain medacal sytem without a lawer yet again, I am not responsable for your breaks with realitiy and I don't have to suffer from police abuse just beacause your crazy and get away with it, your the dilusanal ones...
