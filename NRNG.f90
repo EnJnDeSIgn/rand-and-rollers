@@ -90,6 +90,7 @@ program nrng
 									! Next time around, the lost low part will be added to y in a fresh attempt.
 									! Print the current total_tide and the total sum with more decimal places
 		total_tide = total_tide + carry_over0
+		carry_over0 = 0.0
 
         ! Debugging print statements
         !print *, 'Normalized simulated tide height:', normalized_height
@@ -109,6 +110,7 @@ program nrng
 										! Next time around, the lost low part will be added to y in a fresh attempt.
 										! Print the current total_tide and the total sum with more decimal places
 		total_glacier = total_glacier + carry_over1
+		carry_over1 = 0.0
 
         ! Debugging print statements
         !print *, 'Simulate Glacier Decay:', normalized_size
@@ -126,6 +128,7 @@ program nrng
 									! Next time around, the lost low part will be added to y in a fresh attempt.
 									! Print the current total_tide and the total sum with more decimal places
 		total_sum = total_sum + carry_over2
+		carry_over2 = 0.0
     end do
 	!print '(A, F24.18)', 'Total TRNG: ', total_tide
 	!print '(A, F24.18)', 'Total GRNG: ', total_glacier
