@@ -129,7 +129,7 @@ program nrng
     end do
 	!print '(A, F24.18)', 'Total TRNG: ', total_tide
 	!print '(A, F24.18)', 'Total GRNG: ', total_glacier
-	print '(A, F24.18)', 'Total Sum : ', total_sum
+	print '(A, F30.20)', 'Sum: ', total_sum
 
 contains
     function rand() result(r)
