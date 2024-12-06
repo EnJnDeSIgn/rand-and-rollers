@@ -122,7 +122,7 @@ program nrng
 		print '(A, F24.18)', 'GRNG: ', rand_num1
 		!total_sum = total_tide + total_glacier
 		!total_sum = total_sum + total_tide
-		carry_over3 = carry_over3 + total_glacier
+		carry_over3 = carry_over3 + total_tide
 		y3 = total_tide - c3		! So far, so good: c2 is 0
 		t3 = total_sum + y3			! Alas, sum is big, y small, so low-order digits of y are lost.
 		c3 = (t3 - total_sum) - y3	! (t3-total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
