@@ -1,7 +1,7 @@
 program nrng
     implicit none
     integer, parameter :: n0 = 24, n1 = 50
-    real(8) :: tide_height(n0), glacier_size(n1), perturbation, total_sum, c2, y2, t2, carry_over2
+    real(8) :: tide_height(n0), glacier_size(n1), perturbation, total_sum, c2, y2, t2, carry_over2, c3, y3, t3, carry_over3
     integer :: i, io_status0, io_status1
     real(8) :: min_height, max_height, normalized_height, rand_num0, total_tide, c0, y0, t0, carry_over0
     real(8) :: min_size, max_size, normalized_size, rand_num1, total_glacier, c1, y1, t1, carry_over1
@@ -18,9 +18,11 @@ program nrng
 	carry_over0 = 0.0
 	carry_over1 = 0.0
 	carry_over2 = 0.0
+	carry_over3 = 0.0
 	c0 = 0.0
 	c1 = 0.0
 	c2 = 0.0
+	c3 = 0.0
 
     ! Open the tide data file
     open(unit=20, file='mock_tide_data.csv', status='old', action='read')
@@ -119,8 +121,17 @@ program nrng
 		print '(A, F24.18)', 'TRNG: ', rand_num0
 		print '(A, F24.18)', 'GRNG: ', rand_num1
 		!total_sum = total_tide + total_glacier
-		total_sum = total_sum + total_tide
-		carry_over2 = total_tide + total_glacier
+		!total_sum = total_sum + total_tide
+		carry_over3 = carry_over3 + total_glacier
+		y3 = total_tide - c3		! So far, so good: c2 is 0
+		t3 = total_sum + y3			! Alas, sum is big, y small, so low-order digits of y are lost.
+		c3 = (t3 - total_sum) - y3	! (t3-total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
+		total_sum = t3				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
+									! Next time around, the lost low part will be added to y in a fresh attempt.
+									! Print the current total_tide and the total sum with more decimal places
+		total_sum = total_sum + carry_over3
+		carry_over3 = 0.0
+		carry_over2 = carry_over2 + total_glacier
 		y2 = total_glacier - c2		! So far, so good: c2 is 0
 		t2 = total_sum + y2			! Alas, sum is big, y small, so low-order digits of y are lost.
 		c2 = (t2 - total_sum) - y2	! (t2-total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
