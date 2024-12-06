@@ -14,6 +14,13 @@ program nrng
     perturbation = 1.0e-6
 	total_tide = 0.0
 	total_glacier = 0.0
+	total_sum = 0.0
+	carry_over0 = 0.0
+	carry_over1 = 0.0
+	carry_over2 = 0.0
+	c0 = 0.0
+	c1 = 0.0
+	c2 = 0.0
 
     ! Open the tide data file
     open(unit=20, file='mock_tide_data.csv', status='old', action='read')
@@ -120,8 +127,8 @@ program nrng
 									! Print the current total_tide and the total sum with more decimal places
 		total_sum = total_sum + carry_over2
     end do
-	print '(A, F24.18)', 'Total TRNG: ', total_tide
-	print '(A, F24.18)', 'Total GRNG: ', total_glacier
+	!print '(A, F24.18)', 'Total TRNG: ', total_tide
+	!print '(A, F24.18)', 'Total GRNG: ', total_glacier
 	print '(A, F24.18)', 'Total Sum : ', total_sum
 
 contains
