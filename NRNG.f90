@@ -122,7 +122,7 @@ program nrng
 		y2 = total_glacier - c2		! So far, so good: c2 is 0
 		t2 = total_sum + y2			! Alas, sum is big, y small, so low-order digits of y are lost.
 		c2 = (t2 - total_sum) - y2	! (t2-total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
-		total_sum = t0				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
+		total_sum = t2				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
 									! Next time around, the lost low part will be added to y in a fresh attempt.
 									! Print the current total_tide and the total sum with more decimal places
 		total_sum = total_sum + carry_over2
