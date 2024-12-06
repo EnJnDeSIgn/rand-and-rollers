@@ -1,10 +1,11 @@
 program nrng
     implicit none
     integer, parameter :: n0 = 24, n1 = 50
-    real(8) :: tide_height(n0), glacier_size(n1), perturbation, total_sum, c2, y2, t2, carry_over2, c3, y3, t3, carry_over3
-    integer :: i, io_status0, io_status1
-    real(8) :: min_height, max_height, normalized_height, rand_num0, total_tide, c0, y0, t0, carry_over0
-    real(8) :: min_size, max_size, normalized_size, rand_num1, total_glacier, c1, y1, t1, carry_over1
+    real(8) :: tide_height(n0), glacier_size(n1), perturbation, total_sum, c2, y2, t2, carry_over2
+	real(8) :: mean, sum_sq, std_dev
+    integer :: i, io_status0, io_status1, count
+    real(8) :: min_height, max_height, normalized_height, rand_num0, total_tide, c0, y0, t0, carry_over0, c3, y3, t3
+    real(8) :: min_size, max_size, normalized_size, rand_num1, total_glacier, c1, y1, t1, carry_over1, carry_over3
     character(len=100) :: line
     character(len=20) :: datetime, year
     character(len=20) :: tide_height_str
@@ -23,6 +24,7 @@ program nrng
 	c1 = 0.0
 	c2 = 0.0
 	c3 = 0.0
+	count = 0
 
     ! Open the tide data file
     open(unit=20, file='mock_tide_data.csv', status='old', action='read')
@@ -86,7 +88,7 @@ program nrng
 		!total_tide = total_tide + rand_num0
 		carry_over0 = carry_over0 + total_tide
 		y0 = rand_num0 - c0			! So far, so good: c0 is 0
-		t0 = total_tide + y0		! Alas, sum is big, y small, so low-order digits of y are lost.
+		t0 = total_tide + y0		! Alas, sum is big, y0 small, so low-order digits of y are lost.
 		c0 = (t0 - total_tide) - y0	! (t0-total_tide) recovers the high part of y; subtracting y recovers -(low part of y)
 		total_tide = t0				! Algebraically, c0 should always be zero. Beware overly-aggressive optimizing compilers!
 									! Next time around, the lost low part will be added to y in a fresh attempt.
@@ -106,7 +108,7 @@ program nrng
 		!total_glacier = total_glacier + rand_num1
 		carry_over1 = carry_over1 + total_glacier
 		y1 = rand_num1 - c1				! So far, so good: c1 is 0
-		t1 = total_glacier + y1			! Alas, sum is big, y small, so low-order digits of y are lost.
+		t1 = total_glacier + y1			! Alas, sum is big, y1 small, so low-order digits of y are lost.
 		c1 = (t1 - total_glacier) - y1	! (t1-total_glacier) recovers the high part of y; subtracting y recovers -(low part of y)
 		total_glacier = t1				! Algebraically, c1 should always be zero. Beware overly-aggressive optimizing compilers!
 										! Next time around, the lost low part will be added to y in a fresh attempt.
@@ -123,8 +125,8 @@ program nrng
 		!total_sum = total_tide + total_glacier
 		!total_sum = total_sum + total_tide
 		carry_over3 = carry_over3 + total_tide
-		y3 = total_tide - c3		! So far, so good: c2 is 0
-		t3 = total_sum + y3			! Alas, sum is big, y small, so low-order digits of y are lost.
+		y3 = total_tide - c3		! So far, so good: c3 is 0
+		t3 = total_sum + y3			! Alas, sum is big, y3 small, so low-order digits of y are lost.
 		c3 = (t3 - total_sum) - y3	! (t3-total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
 		total_sum = t3				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
 									! Next time around, the lost low part will be added to y in a fresh attempt.
@@ -133,17 +135,28 @@ program nrng
 		carry_over3 = 0.0
 		carry_over2 = carry_over2 + total_glacier
 		y2 = total_glacier - c2		! So far, so good: c2 is 0
-		t2 = total_sum + y2			! Alas, sum is big, y small, so low-order digits of y are lost.
+		t2 = total_sum + y2			! Alas, sum is big, y2 small, so low-order digits of y are lost.
 		c2 = (t2 - total_sum) - y2	! (t2-total_sum) recovers the high part of y; subtracting y recovers -(low part of y)
 		total_sum = t2				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
 									! Next time around, the lost low part will be added to y in a fresh attempt.
 									! Print the current total_tide and the total sum with more decimal places
 		total_sum = total_sum + carry_over2
 		carry_over2 = 0.0
+		count = count + 1
     end do
 	!print '(A, F24.18)', 'Total TRNG: ', total_tide
 	!print '(A, F24.18)', 'Total GRNG: ', total_glacier
 	print '(A, F30.20)', 'Sum: ', total_sum
+	mean = total_sum / count
+	print '(A, F30.20)', 'Mean:', mean
+	! Calculate standard deviation (sigma)
+    sum_sq = 0.0
+    do i = 1, count
+        sum_sq = sum_sq + (total_sum - mean)**2
+    end do
+    std_dev = sqrt(sum_sq / (count - 1))
+	print '(A, F30.20)', 'Std :', std_dev
+
 
 contains
     function rand() result(r)
