@@ -86,7 +86,7 @@ program nrng
         normalized_height = ((tide_height(mod(i, n0) + 1) - min_height) / (max_height - min_height)) + perturbation * rand()
         rand_num0 = normalized_height * rand()
 		!total_tide = total_tide + rand_num0
-		carry_over0 = carry_over0 + total_tide
+		carry_over0 = carry_over0 + rand_num0
 		y0 = rand_num0 - c0			! So far, so good: c0 is 0
 		t0 = total_tide + y0		! Alas, sum is big, y0 small, so low-order digits of y are lost.
 		c0 = (t0 - total_tide) - y0	! (t0-total_tide) recovers the high part of y; subtracting y recovers -(low part of y)
@@ -106,7 +106,7 @@ program nrng
         normalized_size = ((glacier_size(mod(i, n1) + 1) - min_size) / (max_size - min_size)) + perturbation * rand()
         rand_num1 = normalized_size * rand()
 		!total_glacier = total_glacier + rand_num1
-		carry_over1 = carry_over1 + total_glacier
+		carry_over1 = carry_over1 + rand_num1
 		y1 = rand_num1 - c1				! So far, so good: c1 is 0
 		t1 = total_glacier + y1			! Alas, sum is big, y1 small, so low-order digits of y are lost.
 		c1 = (t1 - total_glacier) - y1	! (t1-total_glacier) recovers the high part of y; subtracting y recovers -(low part of y)
