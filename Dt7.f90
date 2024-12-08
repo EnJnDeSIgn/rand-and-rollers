@@ -6,7 +6,9 @@ program Dt7
     integer, allocatable :: subsets(:, :)
     real :: rand
     character(len=30) :: combined_str0, combined_str1, combined_str2, combined_str3, combined_str4, combined_str5, combined_str6
-	character(len=30) :: combined_str7, combined_str8, combined_str9, combined_str10
+	character(len=30) :: combined_str7, combined_str8, combined_str9, combined_str10, combined_str11, combined_str12, combined_str13
+	character(len=30) :: combined_str14, combined_str15, combined_str16, combined_str17, combined_str18, combined_str19, combined_str20
+	character(len=30) :: combined_str21, combined_str22, combined_str23, combined_str24
     character(len=10) :: seed_str
     character(len=100) :: file_name
     integer :: unit, io_status, num_parts
@@ -168,7 +170,122 @@ program Dt7
         write(seed_str, '(I10)') seed(i)
         combined_str10 = trim(adjustl(combined_str10)) // trim(adjustl(seed_str))
     end do
+	
+	call random_number(rand)
+    combined_str11 = ""
+    do i = 34, 36
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str11 = trim(adjustl(combined_str11)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str12 = ""
+    do i = 37, 39
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str12 = trim(adjustl(combined_str12)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str13 = ""
+    do i = 40, 42
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str13 = trim(adjustl(combined_str13)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str14 = ""
+    do i = 43, 45
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str14 = trim(adjustl(combined_str14)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str15 = ""
+    do i = 46, 48
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str15 = trim(adjustl(combined_str15)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str16 = ""
+    do i = 49, 51
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str16 = trim(adjustl(combined_str16)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str17 = ""
+    do i = 52, 54
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str17 = trim(adjustl(combined_str17)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str18 = ""
+    do i = 55, 57
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str18 = trim(adjustl(combined_str18)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str19 = ""
+    do i = 58, 60
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str19 = trim(adjustl(combined_str19)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str20 = ""
+    do i = 61, 63
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str20 = trim(adjustl(combined_str20)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str21 = ""
+    do i = 64, 66
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str21 = trim(adjustl(combined_str21)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str22 = ""
+    do i = 67, 69
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str22 = trim(adjustl(combined_str22)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str23 = ""
+    do i = 70, 72
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str23 = trim(adjustl(combined_str23)) // trim(adjustl(seed_str))
+    end do
+	
+	call random_number(rand)
+    combined_str24 = ""
+    do i = 73, 75
+        call random_number(rand)  ! Add this to change the random number sequence
+        write(seed_str, '(I10)') seed(i)
+        combined_str24 = trim(adjustl(combined_str24)) // trim(adjustl(seed_str))
+    end do
 
+	print *
+	print *
+	print *
     ! Print combined string
     print *, combined_str0
     print *, combined_str1
@@ -181,5 +298,19 @@ program Dt7
 	print *, combined_str8
 	print *, combined_str9
 	print *, combined_str10
+	print *, combined_str11
+	print *, combined_str12
+	print *, combined_str13
+	print *, combined_str14
+	print *, combined_str15
+	print *, combined_str16
+	print *, combined_str17
+	print *, combined_str18
+	print *, combined_str19
+	print *, combined_str20
+	print *, combined_str21
+	print *, combined_str22
+	print *, combined_str23
+	print *, combined_str24
 
 end program Dt7
