@@ -83,203 +83,178 @@ program Dt7
         seed(i) = mod(int(rand * 1000000000), 1000000000)
     end do
 
-    call random_number(rand)
     combined_str0 = ""
     do i = 1, 3
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str0 = trim(adjustl(combined_str0)) // trim(adjustl(seed_str))
     end do
 
-    call random_number(rand)
     combined_str1 = ""
     do i = 4, 6  ! Change the range to use different values from the seed array
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str1 = trim(adjustl(combined_str1)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str2 = ""
     do i = 7, 9
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str2 = trim(adjustl(combined_str2)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str3 = ""
     do i = 10, 12
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str3 = trim(adjustl(combined_str3)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str4 = ""
     do i = 13, 15
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str4 = trim(adjustl(combined_str4)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str5 = ""
     do i = 16, 18
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str5 = trim(adjustl(combined_str5)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str6 = ""
     do i = 19, 21
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str6 = trim(adjustl(combined_str6)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str7 = ""
     do i = 22, 24
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str7 = trim(adjustl(combined_str7)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str8 = ""
     do i = 25, 27
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str8 = trim(adjustl(combined_str8)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str9 = ""
     do i = 28, 30
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str9 = trim(adjustl(combined_str9)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str10 = ""
     do i = 31, 33
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str10 = trim(adjustl(combined_str10)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str11 = ""
     do i = 34, 36
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str11 = trim(adjustl(combined_str11)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str12 = ""
     do i = 37, 39
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str12 = trim(adjustl(combined_str12)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str13 = ""
     do i = 40, 42
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str13 = trim(adjustl(combined_str13)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str14 = ""
     do i = 43, 45
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str14 = trim(adjustl(combined_str14)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str15 = ""
     do i = 46, 48
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str15 = trim(adjustl(combined_str15)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str16 = ""
     do i = 49, 51
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str16 = trim(adjustl(combined_str16)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str17 = ""
     do i = 52, 54
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str17 = trim(adjustl(combined_str17)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str18 = ""
     do i = 55, 57
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str18 = trim(adjustl(combined_str18)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str19 = ""
     do i = 58, 60
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str19 = trim(adjustl(combined_str19)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str20 = ""
     do i = 61, 63
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str20 = trim(adjustl(combined_str20)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str21 = ""
     do i = 64, 66
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str21 = trim(adjustl(combined_str21)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str22 = ""
     do i = 67, 69
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str22 = trim(adjustl(combined_str22)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str23 = ""
     do i = 70, 72
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str23 = trim(adjustl(combined_str23)) // trim(adjustl(seed_str))
     end do
 	
-	call random_number(rand)
     combined_str24 = ""
     do i = 73, 75
         call random_number(rand)  ! Add this to change the random number sequence
-        write(seed_str, '(I10)') seed(i)
+        write(seed_str, '(I10)') mod(seed(i), 1000000000)
         combined_str24 = trim(adjustl(combined_str24)) // trim(adjustl(seed_str))
     end do
 
