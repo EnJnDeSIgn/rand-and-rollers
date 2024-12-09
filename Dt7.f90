@@ -15,7 +15,7 @@ program Dt7
     logical :: file_exists
 
     ! Initialize n (adjust to match sheet size)
-    n = 10485760  ! Adjust the number of rows to match the total size
+    n = 1048576  ! Adjust the number of rows to match the total size
 
     ! Allocate base_set (assume total number of rows from all parts)
     allocate(base_set(n))
@@ -62,6 +62,8 @@ program Dt7
         
         total_rows = j - 1  ! Update total_rows based on data read
     end do
+	! Print total number of rows read
+	print *, "Total number of rows read:", total_rows
 	
 	! Debugging: Print the first and last 10 values from base_set
 	!print *, "First 10 values from base_set:"
