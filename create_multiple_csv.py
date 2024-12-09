@@ -17,7 +17,7 @@ def split_data_to_csv(data, file_name_prefix, sheet_size=1048576):
         df.to_csv(file_name, index=False, header=False)
 
 # Generate dataset
-n = 10485760  # Adjust the size to create enough parts
+n = 1000000000  # Adjust the size to create enough parts
 base_set = generate_data(n)
 
 # Save to multiple CSV files

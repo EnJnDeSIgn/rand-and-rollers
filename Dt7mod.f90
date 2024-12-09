@@ -34,7 +34,7 @@ contains
         allocate(data(n))
 
         ! Open the file
-        open(unit=10, file=file_name, status='old', action='read', iostat=io_status)
+        open(unit=954, file=file_name, status='old', action='read', iostat=io_status)
         if (io_status /= 0) then
             print *, "Error opening file:", file_name
             stop

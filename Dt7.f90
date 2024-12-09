@@ -24,7 +24,7 @@ program Dt7
     total_rows = 0
 
     ! Number of parts to read (adjust to the actual number of parts created)
-    num_parts = 10
+    num_parts = 954
 
     ! Loop to read from multiple parts
     do i = 1, num_parts
@@ -40,7 +40,7 @@ program Dt7
         end if
 
         ! Use a unique unit number for each file
-        unit = 10 + i
+        unit = 954 + i
         open(unit=unit, file=file_name, status='old', action='read')  ! Open for reading
         
         ! Read data from file
