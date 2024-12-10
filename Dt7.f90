@@ -1,14 +1,15 @@
 program Dt7
     use PowerSetModule_EnJnDeSIgn2024_Dt7
+    use omp_lib
     implicit none
-    integer :: i, j, n, total_rows, total_subsets
-    integer, allocatable :: base_set(:), seed(:)
+    integer :: i, j, n, rows_read, total_rows, total_subsets, rows_in_last_part
+    integer, allocatable :: base_set0(:), base_set1(:), seed(:)
     integer, allocatable :: subsets(:, :)
     real :: rand
     character(len=30) :: combined_str0, combined_str1, combined_str2, combined_str3, combined_str4, combined_str5, combined_str6
-	character(len=30) :: combined_str7, combined_str8, combined_str9, combined_str10, combined_str11, combined_str12, combined_str13
-	character(len=30) :: combined_str14, combined_str15, combined_str16, combined_str17, combined_str18, combined_str19, combined_str20
-	character(len=30) :: combined_str21, combined_str22, combined_str23, combined_str24
+    character(len=30) :: combined_str7, combined_str8, combined_str9, combined_str10, combined_str11, combined_str12, combined_str13
+    character(len=30) :: combined_str14, combined_str15, combined_str16, combined_str17, combined_str18, combined_str19, combined_str20
+    character(len=30) :: combined_str21, combined_str22, combined_str23, combined_str24
     character(len=10) :: seed_str
     character(len=100) :: file_name
     integer :: unit, io_status, num_parts
@@ -17,67 +18,67 @@ program Dt7
     ! Initialize n (adjust to match sheet size)
     n = 1048576  ! Adjust the number of rows to match the total size
 
-    ! Allocate base_set (assume total number of rows from all parts)
-    allocate(base_set(n))
-
     ! Initialize total_rows to keep track of data read
     total_rows = 0
 
     ! Number of parts to read (adjust to the actual number of parts created)
     num_parts = 954
+    rows_in_last_part = 1000000000 - (num_parts - 1) * n  ! Rows in the last part
+
+    ! Allocate base_set (assume total number of rows from all parts)
+    allocate(base_set0(n))
+    allocate(base_set1(rows_in_last_part))
 
     ! Loop to read from multiple parts
     do i = 1, num_parts
         write(file_name, '(A,I0,A)') 'base_set_part', i, '.csv'
+		
+		! Check if file exists
+		inquire(file=file_name, exist=file_exists)
+		if (.not. file_exists) then
+			print *, "File does not exist:", file_name
+			exit
+		else
+			print *, "File exists:", file_name
+		end if
         
-        ! Check if file exists
-        inquire(file=file_name, exist=file_exists)
-        if (.not. file_exists) then
-            print *, "File does not exist:", file_name
-            exit
-        else
-            print *, "File exists:", file_name
-        end if
-
         ! Use a unique unit number for each file
-        unit = 954 + i
+        unit = 10 + i
         open(unit=unit, file=file_name, status='old', action='read')  ! Open for reading
         
         ! Read data from file
-        j = total_rows + 1
-        do while (j <= n)
-            read(unit, *, iostat=io_status) base_set(j)
-            if (io_status /= 0) then
+        if (i == num_parts) then
+            ! Last part, read only remaining rows
+            do j = 1, rows_in_last_part
+                read(unit, *, iostat=io_status) base_set1(j)
                 if (io_status == -1) then
-                    ! End of file
                     exit
-                else
+                elseif (io_status /= 0) then
                     print *, "Error reading file:", file_name, "at row", j, " IOSTAT:", io_status
                     exit
                 end if
-            end if
-            j = j + 1
-        end do
+            end do
+            total_rows = total_rows + rows_in_last_part
+        else
+            do j = 1, n
+                read(unit, *, iostat=io_status) base_set0(j)
+                if (io_status == -1) then
+                    exit
+                elseif (io_status /= 0) then
+                    print *, "Error reading file:", file_name, "at row", j, " IOSTAT:", io_status
+                    exit
+                end if
+            end do
+            total_rows = total_rows + n
+        end if
         close(unit)
-        
-        total_rows = j - 1  ! Update total_rows based on data read
     end do
-	! Print total number of rows read
-	print *, "Total number of rows read:", total_rows
-	
-	! Debugging: Print the first and last 10 values from base_set
-	!print *, "First 10 values from base_set:"
-	!	do i = 1, min(10, total_rows)
-	!		print *, base_set(i)
-	!	end do
-	!print *, "Last 10 values from base_set:"
-	!	do i = max(1, total_rows-9), total_rows
-	!		print *, base_set(i)
-	!	end do
+    
+    ! Print total number of rows read
+    print *, "Total number of rows read:", total_rows
 
     ! Call PowerSET_EnJnDeSIgn2024 subroutine
-    call PowerSET_EnJnDeSIgn2024(base_set, total_rows, subsets)
-
+    call PowerSET_EnJnDeSIgn2024(base_set0, total_rows, subsets)
     total_subsets = size(subsets, 1)
     allocate(seed(1:total_rows))
     do i = 1, total_rows
