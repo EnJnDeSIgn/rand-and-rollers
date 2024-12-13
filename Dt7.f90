@@ -30,6 +30,7 @@ program Dt7
 	! Understanding subsets helps in various fields like computer science, particularly in data structure design, algorithm optimization,
 	! and problem-solving techniques like dynamic programming and combinatorial optimization.
 	! 2^1000000000 in scientific notation is approximately: 10^301029995.66
+	! 2^10^9 in scientific notation is approximately: 10^.3010299956639811992645264E+09
 
     ! Initialize total_rows to keep track of data read
     total_rows = 0

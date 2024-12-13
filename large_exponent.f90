@@ -10,6 +10,6 @@ program large_exponent
     log_result = exponent * log10(base)
 
     ! Convert to scientific notation
-    write(scientific_notation, '(E30.2)') log_result
+    write(scientific_notation, '(E30.25)') log_result
     print *, "2^10^9 in scientific notation is approximately: 10^", scientific_notation
 end program large_exponent
