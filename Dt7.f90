@@ -22,12 +22,14 @@ program Dt7
 	! The concept of subsets comes from combinatorics in mathematics.
 	! Each element in the set can either be included or excluded from a subset, leading to 2 choices (include or exclude) per element.
 	! Therefore, for n elements, the total number of subsets is 2^n.
-	! Practical Insight ! For a set of 1 billion elements:
+	! Practical Insight
+	! For a set of 1 billion elements:
 	! The theoretical number of subsets is 2^(10^9).
 	! This number is astronomically large, far beyond the scope of practical computation or storage.
 	! Why It Matters
 	! Understanding subsets helps in various fields like computer science, particularly in data structure design, algorithm optimization,
 	! and problem-solving techniques like dynamic programming and combinatorial optimization.
+	! 2^1000000000 in scientific notation is approximately: 10^301029995.66
 
     ! Initialize total_rows to keep track of data read
     total_rows = 0
