@@ -19,6 +19,12 @@ understanding_levels = understanding(time_periods)
 # Calculate the rate of change in understanding (derivative)
 rate_of_change = derivative(understanding_levels)
 
+# Print understanding levels and rate of change
+print("Time Periods | Understanding Level | Rate of Change")
+print("-------------------------------------------------")
+for t, ul, rc in zip(time_periods, understanding_levels, rate_of_change):
+    print(f"{t:12.2f} | {ul:18.5f} | {rc:16.5f}")
+
 # Plot the results
 plt.figure(figsize=(12, 6))
 
