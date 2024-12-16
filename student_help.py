@@ -25,7 +25,7 @@ understanding_levels = understanding(time_periods)
 rate_of_change = derivative(understanding_levels)
 
 # Create an array of x values for the limit function
-x = np.linspace(0.1, 100, 100)
+x = np.linspace(0.1, 100, 400)
 y = f(x)
 
 # Fit a normal distribution to the rate of change data
