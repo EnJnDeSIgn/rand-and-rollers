@@ -1,4 +1,7 @@
+import random
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
 
 # Define the Rastrigin function
 def rastrigin(X):
@@ -47,7 +50,7 @@ def genetic_algorithm(objective_function, bounds, pop_size, dimensions, num_gene
         print(f"Generation {generation}: Best Fitness = {np.max(fitness)}")
     best_solution = population[np.argmax(fitness)]
     best_fitness = np.max(fitness)
-    return best_solution, best_fitness
+    return best_solution, best_fitness, fitness
 
 # Parameters
 bounds = [-5.12, 5.12]
@@ -58,14 +61,19 @@ num_parents = 10
 mutation_rate = 0.1
 
 # Execute the Genetic Algorithm
-best_solution, best_fitness = genetic_algorithm(rastrigin, bounds, pop_size, dimensions, num_generations, num_parents, mutation_rate)
+best_solution, best_fitness, final_fitness = genetic_algorithm(rastrigin, bounds, pop_size, dimensions, num_generations, num_parents, mutation_rate)
 
 # Print the results
 print(f"Best solution found: {best_solution}")
 print(f"Best fitness value: {best_fitness}")
 
+# Calculate and print mean and standard deviation of fitness values in the final population
+mean_fitness = np.mean(final_fitness)
+std_dev_fitness = np.std(final_fitness)
+print(f"Mean fitness value: {mean_fitness:.25f}")
+print(f"Standard deviation of fitness values: {std_dev_fitness:.25f}")
+
 # Optional: Plotting the final population (for 2D problems)
-import matplotlib.pyplot as plt
 final_population = initialize_population(pop_size, dimensions, bounds)
 fitness = evaluate_population(final_population, rastrigin)
 plt.scatter(final_population[:, 0], final_population[:, 1], c=fitness, cmap='viridis')
