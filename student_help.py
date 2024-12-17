@@ -39,11 +39,11 @@ bell_curve_y = norm.pdf(bell_curve_x, mean, std)
 print("Time Periods | Understanding Level | Rate of Change")
 print("-------------------------------------------------")
 for t, ul, rc in zip(time_periods, understanding_levels, rate_of_change):
-    print(f"{t:12.2f} | {ul:18.5f} | {rc:16.5f}")
+    print(f"{t:12.2f} | {ul:18.25f} | {rc:16.25f}")
 
 # Print mean and standard deviation
-print(f"\nMean of Rate of Change: {mean:.5f}")
-print(f"Standard Deviation of Rate of Change: {std:.5f}")
+print(f"\nMean of Rate of Change: {mean:.25f}")
+print(f"Standard Deviation of Rate of Change: {std:.25f}")
 
 # Plot the results
 plt.figure(figsize=(8, 10))
