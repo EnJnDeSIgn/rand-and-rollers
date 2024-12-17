@@ -26,7 +26,7 @@ understanding_levels = understanding(time_periods)
 rate_of_change = derivative(understanding_levels)
 
 # Create an array of x values for the limit function
-x = np.linspace(0.1, 100, 400)
+x = np.linspace(0.1, 10, 400)
 y = f(x)
 
 # Fit a normal distribution to the rate of change data
@@ -52,7 +52,7 @@ plt.figure(figsize=(8, 10))
 # Plot understanding levels with limit function
 plt.subplot(3, 1, 1)
 plt.plot(time_periods, understanding_levels, label='Understanding Level')
-plt.plot(x, y, label='$f(x) = \\frac{1}{x}$', linestyle='--')
+plt.plot(x, y, label='$f(x) = \\frac{1}{x}$ Approaches Infinity', linestyle='--')
 plt.xlabel('Time Periods')
 plt.ylabel('Understanding Level')
 plt.title('Student Understanding Over Time')
