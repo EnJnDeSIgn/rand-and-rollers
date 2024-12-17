@@ -1,3 +1,4 @@
+import random
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
@@ -36,7 +37,7 @@ bell_curve_x = np.linspace(min(rate_of_change), max(rate_of_change), 100)
 bell_curve_y = norm.pdf(bell_curve_x, mean, std)
 
 # Print understanding levels and rate of change
-print("Time Periods | Understanding Level | Rate of Change")
+print("Time Periods | Understanding Level           | Rate of Change")
 print("-------------------------------------------------")
 for t, ul, rc in zip(time_periods, understanding_levels, rate_of_change):
     print(f"{t:12.2f} | {ul:18.25f} | {rc:16.25f}")
