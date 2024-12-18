@@ -73,12 +73,26 @@ std_dev_fitness = np.std(final_fitness)
 print(f"Mean fitness value: {mean_fitness:.25f}")
 print(f"Standard deviation of fitness values: {std_dev_fitness:.25f}")
 
-# Optional: Plotting the final population (for 2D problems)
+# Optional: Plotting the final population
 final_population = initialize_population(pop_size, dimensions, bounds)
 fitness = evaluate_population(final_population, rastrigin)
-plt.scatter(final_population[:, 0], final_population[:, 1], c=fitness, cmap='viridis')
-plt.colorbar(label='Fitness')
-plt.title('Final Population Fitness')
-plt.xlabel('X1')
-plt.ylabel('X2')
+
+# Create figure for final population scatter plot
+fig1, ax1 = plt.subplots(figsize=(8, 6))
+sc = ax1.scatter(final_population[:, 0], final_population[:, 1], c=fitness, cmap='viridis')
+ax1.set_xlabel('X1')
+ax1.set_ylabel('X2')
+ax1.set_title('Final Population Fitness')
+plt.colorbar(sc, ax=ax1, label='Fitness')
+plt.show()
+
+# Create a separate figure for the bell curve
+fig2, ax2 = plt.subplots(figsize=(14, 6))
+bell_curve_x = np.linspace(mean_fitness - 3*std_dev_fitness, mean_fitness + 3*std_dev_fitness, 100)
+bell_curve_y = norm.pdf(bell_curve_x, mean_fitness, std_dev_fitness)
+ax2.plot(bell_curve_x, bell_curve_y, label='Bell Curve (Fitness Distribution)', color='g')
+ax2.set_xlabel('Fitness')
+ax2.set_ylabel('Density')
+ax2.set_title('Distribution of Final Population Fitness')
+ax2.legend()
 plt.show()
