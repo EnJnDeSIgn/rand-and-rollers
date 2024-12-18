@@ -44,6 +44,7 @@ def encounter_enemy():
             continue
     if player_health <= 0:
         print("You have been defeated by the enemy!")
+        exit()
     elif enemy_health <= 0:
         print("You defeated the enemy!")
         if player_class == "swordman":
