@@ -8,20 +8,23 @@ w_life = 100
 w_energy = 150
 weapon_damage = 0.0
 total_gold = 0
+player_health = 0
 
 # Random encounter functions
 def encounter_friendly_npc():
-    global s_life, w_life
+    global s_life, w_life, player_health
     print("You meet a friendly NPC who gives you advice and restores some of your health.")
     if player_class == "swordman":
-        global s_life
-        s_life = min(s_life + 20, 150)
+        s_life = min(s_life + random.randint(5, 21), 150)
+        player_health = s_life
+        print(f"Your health is now {player_health}.")
     else:
-        global w_life
-        w_life = min(w_life + 20, 100)
+        w_life = min(w_life + random.randint(10, 26), 100)
+        player_health = w_life
+        print(f"Your health is now {player_health}.")
         
 def encounter_enemy():
-    global s_life, w_life, weapon_damage
+    global s_life, w_life, weapon_damage, total_gold
     print("You encounter an enemy! Prepare for battle!")
     enemy_health = random.randint(20, 50)
     if player_class == "swordman":
@@ -47,6 +50,9 @@ def encounter_enemy():
         exit()
     elif enemy_health <= 0:
         print("You defeated the enemy!")
+        gold = random.randint(1, 10)
+        total_gold = total_gold + gold
+        print(f"You receive {gold} gold.")
         if player_class == "swordman":
             print("Your a swordman ")
             print("life " + str(player_health))
@@ -61,22 +67,30 @@ def encounter_enemy():
 def encounter_treasure():
     global total_gold
     print("You find a treasure chest filled with gold!")
-    gold = random.randint(10, 100)
+    gold = random.randint(1, 20)
     total_gold = total_gold + gold
     print(f"You receive {gold} gold.")
     print(f"You have {total_gold} total gold!")
 
 def encounter_trap():
-    global s_life, w_life
+    global s_life, w_life, player_health
     print("You encounter a trap! You lose some health.")
     if player_class == "swordman":
-        global s_life
-        s_life = max(s_life - random.randint(10, 30), 0)
-        print(f"Your health is now {s_life}.")
+        s_life = max(s_life - random.randint(10, 33), 0)
     else:
-        global w_life
-        w_life = max(w_life - random.randint(10, 30), 0)
-        print(f"Your health is now {w_life}.")
+        w_life = max(w_life - random.randint(10, 33), 0)
+    
+    # Update player_health after modifying s_life or w_life
+    if player_class == "swordman":
+        player_health = s_life
+    else:
+        player_health = w_life
+    
+    print(f"Your health is now {player_health}.")
+    
+    if player_health <= 0:
+        print("You have succumbed to your injuries. Game Over!")
+        exit()
 
 def random_encounter():
     encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap]
