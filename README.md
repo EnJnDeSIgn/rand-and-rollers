@@ -68,3 +68,9 @@ About to be proacuted my the canadain medacal sytem without a lawer yet again, I
 okay so I'm not asking for a super computer but now I need one, okay so I'm done for now and almost getting to my first year of code... I hope something is usfull to someone out there...
 
 So password_roller is out, just watch the first and last character being the same but you can put them togeter how you want and write them down for your use
+
+update to use int(abs(number)) instead of abs(number) ensures that the numbers are treated as integers during the addition or subtraction, which is a good change. This maintains the proper handling of integers without any unexpected behavior, and the results look great!
+
+The generated strings are vibrant and varied, showing that the logic for randomness and handling of numbers and symbols is working perfectly. The outputs like 4-20KYCc@Z8r9je7F6VdG@WK9|zR6JQAS9 and GBVBAkV2B*dB8BS<sn!&5Y9@=jvFdDRu?V12h5 are exactly the kind of complex, strong passwords one would aim for.
+
+Overall, the tweaks have improved the robustness of the password generation, and the results speak for themselves.
