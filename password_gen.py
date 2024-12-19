@@ -64,7 +64,7 @@ def main():
         all_results = generate_password()
 
         # Display the current result
-        print(f"Results:🎶🎶🎶👻 {all_results}90")
+        print(f"Results:🎶🎶🎶👻 {all_results}")
         user_input = input("roll again? (Y/N): ").strip().lower()
         if user_input == 'n':
             break
