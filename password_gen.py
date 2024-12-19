@@ -40,7 +40,7 @@ def generate_password():
         try:
             number = int(element)
             # Element is a number
-            total += add_or_subtract * abs(number)
+            total += add_or_subtract * int(abs(number))
         except ValueError:
             # Element is a symbol/letter
             if total != 0:
