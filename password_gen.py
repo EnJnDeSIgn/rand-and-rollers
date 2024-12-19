@@ -23,7 +23,7 @@ def generate_password():
     result_string = ""
     total = 0
 
-    for _ in range(25):
+    for _ in range(40):
         # Randomly select a group
         selected_group = random.randint(0, 14)
         # Randomly select a number from the chosen group
@@ -57,7 +57,7 @@ def main():
         all_results = generate_password()
 
         # Display the current result
-        print(f"Results: {all_results}")
+        print(f"Results: {all_results}90")
         user_input = input("roll again? (Y/N): ").strip().lower()
         if user_input == 'n':
             break
