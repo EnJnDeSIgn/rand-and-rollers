@@ -1,5 +1,9 @@
 import random
-
+# Example symbols +, -, *, /, =, <, >, &, |, %, @, #, !, ?, . and ,.
+# A: 🀀   B: 🀁   C: 🀂   D: 🀃   E: 🀄   F: 🀅   G: 🀆   H: 🀇   I: 🀈
+# J: 🀉   K: 🀊   L: 🀋   M: 🀌   N: 🀍    O: 🀎   P: 🀏   Q: 🀐   R: 🀑
+# S: 🀒   T: 🀓   U: 🀔   V: 🀕   W: 🀖    X: 🀗   Y: 🀘   Z: 🀙
+# Ian = 🀈🀀🀍 🀉 🀍🀎🀑🀑🀈🀒. Enjn Design = 🀄🀍🀉🀍 🀃🀄🀒🀈🀆🀍 2024 Dec 19
 # Initialize groups
 groups = [
     ["i", "+", "5", "8", "a", "p", "4", "r", "/"],
@@ -60,13 +64,14 @@ def main():
         all_results = generate_password()
 
         # Display the current result
-        print(f"Results: {all_results}90")
+        print(f"Results:🎶🎶🎶👻 {all_results}90")
         user_input = input("roll again? (Y/N): ").strip().lower()
         if user_input == 'n':
             break
 
     print(f"Total iterations: {count}")
-    print("Thank you for using the Password roller.")
+    print("Thank you for using the Password roller.😍")
+    print("Ian = 🀈🀀🀍 🀉 🀍🀎🀑🀑🀈🀒. Enjn Design = 🀄🀍🀉🀍 🀃🀄🀒🀈🀆🀍 2024 Dec 19.👍")
 
 if __name__ == "__main__":
     main()
