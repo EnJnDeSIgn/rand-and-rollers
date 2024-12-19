@@ -89,7 +89,7 @@ do while (.true.)
 	all_results = trim(adjustl(all_results)) // trim(adjustl(result_string))
 	
 	! display the selected number
-print *, "from group ", selected_group, ": ", &
+print *, "Results ", ": ", &
 	trim(groups(selected_group, selected_number)), all_results
 	!print *, trim(result_string)
 	print *, "roll again? (Y/N)"
