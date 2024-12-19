@@ -2,8 +2,9 @@ program password_roller_EnJnDeSIgn2024
 	implicit none
 	character(len=1) :: user_input
 	integer :: selected_group, selected_number, i, count, j
-	character(len=2), dimension(0:10, 0:9) :: groups
-	character(len=2), dimension(10) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9, group10
+	character(len=2), dimension(0:13, 0:8) :: groups
+	character(len=2), dimension(9) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, group9, group10
+	character(len=2), dimension(9) :: group11, group12, group13
 	character(len=2) :: element
 	character(len=255) :: result_string, all_results
 	integer :: number, total, ios
@@ -22,20 +23,23 @@ program password_roller_EnJnDeSIgn2024
 	! +, -, *, /, =, <, >, &, |, %, @, #, !, ?, . and ,.
 	
 	! Initialize group0 to group10
-	group0 = (/ "i ", "4 ", "+5", "8 ", "a ", "p ", "-4", "r ", "/ ", "+2"/)
-	group1 = (/ "h ", "J ", "-3", "% ", "H ", "l ", "+7", "t ", "= ", "w "/)
-	group2 = (/ "| ", "x ", "-1", "& ", "I ", "-9", "+7", "# ", "-3", "+8"/)
-	group3 = (/ "g ", "-2", "A ", "3 ", "q ", "c ", "R ", "0 ", "y ", "m "/)
-	group4 = (/ "9 ", "e ", "+3", "V ", "j ", "s ", "u ", "-6", "+ ", "G "/)
-	group5 = (/ "-7", ". ", "0 ", "+1", "> ", "+4", "z ", "U ", "- ", "F "/)
-	group6 = (/ "-6", "+5", "-2", "T ", "v ", "n ", "+4", "Q ", "< ", "E "/)
-	group7 = (/ "+2", "@ ", "-5", "+9", "d ", "! ", "+3", "W ", "b ", "D "/)
-	group8 = (/ "-9", "+6", "-5", ", ", "C ", "X ", "Y ", "B ", "-4", "k "/)
-	group9 = (/ "$ ", "-7", "-8", "+8", "-1", "S ", "+9", "* ", "o ", "f "/)
-   group10 = (/ "+6", "Z ", "? ", "7 ", "6 ", "5 ", "+1", "-8", "2 ", "1 "/)
+	group0 = (/ "i ", "+ ", "5 ", "8 ", "a ", "p ", "4 ", "r ", "/ "/)	! 9
+	group1 = (/ "h ", "J ", "3 ", "% ", "H ", "| ", "7 ", "t ", "= "/)	! 18
+	group2 = (/ "@ ", "x ", "! ", "& ", "I ", "9 ", "7 ", "# ", "3 "/)	! 27
+	group3 = (/ "g ", "2 ", "A ", "3 ", "/ ", "c ", "R ", "0 ", "y "/)	! 36
+	group4 = (/ "9 ", "e ", "= ", "V ", "j ", "s ", "u ", "? ", "+ "/)	! 45
+	group5 = (/ "7 ", ". ", ". ", "1 ", "< ", "4 ", "z ", "U ", "- "/)	! 54
+	group6 = (/ "6 ", "5 ", "> ", "T ", "v ", "n ", "4 ", "Q ", "< "/)	! 63
+	group7 = (/ "2 ", "@ ", "5 ", "9 ", "d ", "! ", "3 ", "W ", "b "/)	! 72
+	group8 = (/ "9 ", "6 ", "& ", ", ", "C ", "X ", ", ", "B ", "# "/)	! 81
+	group9 = (/ "$ ", "7 ", "8 ", "8 ", "1 ", "S ", "9 ", "* ", "o "/)	! 90
+   group10 = (/ "6 ", "Z ", "? ", "7 ", "6 ", "5 ", "1 ", "8 ", "2 "/)	! 99
+   group11 = (/ "2 ", "w ", "8 ", "% ", "G ", "F ", "E ", "D ", "k "/)	! 108
+   group12 = (/ "f ", "1 ", "4 ", "4 ", "* ", "q ", "3 ", "> ", "2 "/)
+   group13 = (/ "5 ", "l ", "m ", "| ", "- ", "1 ", "6 ", "0 ", "Y "/)
 	groups(0,:) = group0; groups(1,:) = group1; groups(2,:) = group2; groups(3,:) = group3; groups(4,:) = group4
     groups(5,:) = group5; groups(6,:) = group6; groups(7,:) = group7; groups(8,:) = group8; groups(9,:) = group9
-	groups(10,:) = group10
+	groups(10,:) = group10; groups(11,:) = group11; groups(12,:) = group12; groups(13,:) = group13
 	
 	all_results = ""
 	count = 0
@@ -49,10 +53,10 @@ do while (.true.)
 	do i = 1, 25
 		! Randomly select a group
 		call random_number(rand)
-		selected_group = int(rand * 11)
+		selected_group = int(rand * 14)
 		! Randomly select a number from the chosen group
 		call random_number(rand)
-		selected_number = int(rand * 10)
+		selected_number = int(rand * 9)
 	
 		element = trim(adjustl(groups(selected_group, selected_number)))
 		
@@ -85,7 +89,7 @@ do while (.true.)
 	
 	! display the selected number
 print *, "from group ", selected_group, ": ", &
-	trim(adjustl(groups(selected_group, selected_number))), all_results
+	trim(groups(selected_group, selected_number)), all_results
 	!print *, trim(result_string)
 	print *, "roll again? (Y/N)"
 	read(*,*) user_input
