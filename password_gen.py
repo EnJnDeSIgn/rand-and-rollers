@@ -22,6 +22,7 @@ groups = [
 def generate_password():
     result_string = ""
     total = 0
+    add_or_subtract = random.choice([1, -1]) # Initial random choice for addition or subtraction
 
     for _ in range(40):
         # Randomly select a group
@@ -35,17 +36,19 @@ def generate_password():
         try:
             number = int(element)
             # Element is a number
-            total += abs(number)
+            total += add_or_subtract * abs(number)
+            # Randomly decide whether the next operation will be addition or subtraction
+            add_or_subtract = random.choice([1, -1])
         except ValueError:
             # Element is a symbol/letter
             if total != 0:
-                result_string += str(total)
+                result_string += str(abs(total)) # Ensure total is positive
                 total = 0
             result_string += element
 
     # Append any remaining total to the result string
     if total != 0:
-        result_string += str(total)
+        result_string += str(abs(total)) # Ensure total is positive
 
     return result_string
 
