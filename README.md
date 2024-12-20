@@ -75,4 +75,4 @@ The generated strings are vibrant and varied, showing that the logic for randomn
 
 Overall, the tweaks have improved the robustness of the password generation, and the results speak for themselves.
 
-my number I got for 2^n with range 0 - 999,999,999 = (approximately) = 30 102 999 566.39811992645264 thrity billion one hundred and two million, nine hundred and ninty nine thousand, five hundred and sixty six, point = .39811992645264
+my number I got for 2^n with range 0 - 999,999,999 = (approximately) = 30 102 999 566 . 39811992645264 thrity billion one hundred and two million, nine hundred and ninty nine thousand, five hundred and sixty six, point = .39811992645264
