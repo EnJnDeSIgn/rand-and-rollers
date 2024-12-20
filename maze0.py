@@ -177,8 +177,9 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         y_range = max(y_points) - min(y_points)
         plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     else:
-        plt.text(0.5, 0.5, 'No valid paths found', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
+        plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
     plt.show()
+    
 
 def main():
     size = int(input("Enter the size of the maze (e.g., 5 for a 5x5 maze): "))
@@ -197,8 +198,8 @@ def main():
             if best_path is None or steps < best_steps:
                 best_path = path
                 best_steps = steps
-            steps_list.extend(steps_per_iter)
-            final_population = final_pop
+                steps_list.extend(steps_per_iter)
+                final_population = final_pop
     
     # Calculate total steps
     total_steps = sum(step for step in steps_list if step != float('inf'))
@@ -212,10 +213,15 @@ def main():
         mean_steps = 0
         std_dev_steps = 0
 
-    print(f"Best path found takes {best_steps} steps.")
-    print(f"Total steps taken: {total_steps:.25f}")
-    print(f"Mean steps taken: {mean_steps:.25f}")
-    print(f"Standard deviation of steps: {std_dev_steps:.25f}")
+    # Check if no valid path was found
+    if best_steps == float('inf') or best_steps == 0:
+        print("Alas, the walls closed in. But Aldor still dreams")
+        print(f"Best path found takes {best_steps} steps.")
+    else:
+        print(f"Best path found takes {best_steps} steps.")
+        print(f"Total steps taken: {total_steps:.25f}")
+        print(f"Mean steps taken: {mean_steps:.25f}")
+        print(f"Standard deviation of steps: {std_dev_steps:.25f}")
 
     if best_path is not None:
         print("Best path found:")
