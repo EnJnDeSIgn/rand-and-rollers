@@ -60,8 +60,8 @@ def genetic_explore(maze, population_size, generations):
     size = len(maze)
     population = [generate_random_path(size) for _ in range(population_size)]
     best_path = None
-    best_steps = float(1e+25)
-    #best_steps = float('inf')
+    #best_steps = float(1e+25)
+    best_steps = float('inf')
     steps_list = []
     final_population = []
 
