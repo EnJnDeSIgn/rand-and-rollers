@@ -60,7 +60,8 @@ def genetic_explore(maze, population_size, generations):
     size = len(maze)
     population = [generate_random_path(size) for _ in range(population_size)]
     best_path = None
-    best_steps = float('inf')
+    best_steps = float(1e+25)
+    #best_steps = float('inf')
     steps_list = []
     final_population = []
 
@@ -81,14 +82,21 @@ def genetic_explore(maze, population_size, generations):
         population = new_population
         
         # Logging generation and best steps with normalization check 
-        if best_steps == float('inf'): 
-            print(f"Generation {gen+1}: Best Steps = Alas, the walls closed in. But Aldor still dreams") 
+        if best_steps == float('inf'):
+            print(f"Generation {gen+1}: Best Steps = {best_steps:.25f} Alas, the walls closed in. But Aldor still dreams") 
         elif best_steps < 0: 
-            print(f"Generation {gen+1}: Best Steps = 0 (Too small, normalized)") 
+            print(f"Generation {gen+1}: Best Steps = {best_steps} 0 (Too small, normalized)") 
             best_steps = 0.0 
         else:
-            # Logging generation and best steps
-            print(f"Generation {gen+1}: Best Steps = {best_steps:.25f}")
+            # Ensure `best_steps` is a reasonable large number, not exceeding some limit like 10^6
+            if best_steps > 1e6:
+                best_steps = float(random.random())
+                print(f"Generation {gen+1}: Best Steps = {1e25:.25f} (normalized)")
+                best_steps = 1e6
+                #steps_list = [best_steps]
+            else:
+                # Logging generation and best steps
+                print(f"Generation {gen+1}: Best Steps = {best_steps:.25f}")
 
     return best_path, best_steps, steps_list, final_population
 
@@ -96,7 +104,7 @@ def generate_random_path(size):
     return [(random.choice([-1, 0, 1]), random.choice([-1, 0, 1])) for _ in range(size * 2)]  # Longer paths
 
 def evaluate_path(maze, path):
-    steps = 0.0
+    steps = 0
     x, y = 0, 0
     for dx, dy in path:
         x, y = x + dx, y + dy
@@ -158,16 +166,18 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
             colors.append(fitness_list[i])
 
     plt.subplot(1, 2, 2)
-    sc = plt.scatter(x_points, y_points, c=colors, cmap='viridis', alpha=0.6)
-    plt.colorbar(sc, label='Fitness')
-    plt.xlabel('X Coordinate')
-    plt.ylabel('Y Coordinate')
-    plt.title('Final Population Paths with Fitness Color Coding')
-    #plt.gca().set_aspect('equal', adjustable='box') # Make the plot square
-    # Adjust the aspect ratio to match the data
-    x_range = max(x_points) - min(x_points)
-    y_range = max(y_points) - min(y_points)
-    plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
+    if x_points and y_points:
+        sc = plt.scatter(x_points, y_points, c=colors, cmap='viridis', alpha=0.6)
+        plt.colorbar(sc, label='Fitness')
+        plt.xlabel('X Coordinate')
+        plt.ylabel('Y Coordinate')
+        plt.title('Final Population Paths with Fitness Color Coding')
+        # Adjust the aspect ratio to match the data
+        x_range = max(x_points) - min(x_points)
+        y_range = max(y_points) - min(y_points)
+        plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
+    else:
+        plt.text(0.5, 0.5, 'No valid paths found', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
     plt.show()
 
 def main():
@@ -203,7 +213,7 @@ def main():
         std_dev_steps = 0
 
     print(f"Best path found takes {best_steps} steps.")
-    print(f"Total steps taken: {total_steps}")
+    print(f"Total steps taken: {total_steps:.25f}")
     print(f"Mean steps taken: {mean_steps:.25f}")
     print(f"Standard deviation of steps: {std_dev_steps:.25f}")
 
