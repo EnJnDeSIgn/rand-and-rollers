@@ -26,7 +26,7 @@ def generate_maze(size):
     
     # Initialize the maze with an entry and multiple exits
     maze[0][0] = 0
-    num_exits = size // 2  # Adjust the number of exits based on size
+    num_exits = max(size // 2, 3)  # Ensure at least 3 exits
     exits = [(random.randint(0, size-1), random.randint(0, size-1)) for _ in range(num_exits)]
     exits.append((size-1, size-1))  # Ensure at least one exit at the bottom right
 
@@ -64,9 +64,9 @@ def genetic_explore(maze, population_size, generations):
     steps_list = []
     final_population = []
 
-    for _ in range(generations):
+    for gen in range(generations):
         population = sorted(population, key=lambda path: evaluate_path(maze, path))
-        if evaluate_path(maze, population[0]) < best_steps:
+        if evaluate_path(maze, population[0]) != float('inf'):
             best_path = population[0]
             best_steps = evaluate_path(maze, best_path)
         steps_list.append(best_steps)
@@ -76,8 +76,12 @@ def genetic_explore(maze, population_size, generations):
             parent1, parent2 = random.sample(population[:population_size // 2], 2)
             child = crossover(parent1, parent2)
             child = mutate(child, size)
+            child = repair_path(maze, child)  # Repair path
             new_population.append(child)
         population = new_population
+        
+        # Logging generation and best steps
+        print(f"Generation {gen+1}: Best Steps = {best_steps}")
 
     return best_path, best_steps, steps_list, final_population
 
@@ -94,7 +98,20 @@ def evaluate_path(maze, path):
         if maze[x][y] == 2:
             return steps
         steps += 1
-    return steps if steps < float('inf') else float('inf')
+    return steps if 3 <= steps <= 12 else float('inf')
+
+def repair_path(maze, path):
+    # Ensure the path stays within bounds and avoids walls
+    repaired_path = []
+    x, y = 0, 0
+    for dx, dy in path:
+        new_x, new_y = x + dx, y + dy
+        if 0 <= new_x < len(maze) and 0 <= new_y < len(maze) and maze[new_x][new_y] != 1:
+            repaired_path.append((dx, dy))
+            x, y = new_x, new_y
+        else:
+            repaired_path.append((0, 0))  # Stay in place if the move is invalid
+    return repaired_path
 
 def crossover(parent1, parent2):
     crossover_point = random.randint(0, len(parent1) - 1)
@@ -110,20 +127,20 @@ def mutate(path, size):
             new_path.append((dx, dy))
     return new_path
 
-def plot_steps(steps_list):
-    plt.figure(figsize=(8, 6))
+def plot_steps_and_fitness(steps_list, final_population, fitness_list):
+    plt.figure(figsize=(10, 6))
+
+    # Plot steps taken per generation
+    plt.subplot(1, 2, 1)
     plt.plot(range(len(steps_list)), steps_list, color='b', marker='o', alpha=0.6)
     plt.xlabel('Generation')
     plt.ylabel('Best Steps Taken')
     plt.title('Best Steps Taken per Generation in Genetic Algorithm')
-    plt.show()
 
-def plot_final_population(final_population, fitness_list):
-    # Flatten the population paths for plotting
+    # Plot final population with fitness color coding
     x_points = []
     y_points = []
     colors = []
-
     for i, path in enumerate(final_population):
         x, y = 0, 0
         for dx, dy in path:
@@ -133,7 +150,7 @@ def plot_final_population(final_population, fitness_list):
             y_points.append(y)
             colors.append(fitness_list[i])
 
-    plt.figure(figsize=(8, 6))
+    plt.subplot(1, 2, 2)
     sc = plt.scatter(x_points, y_points, c=colors, cmap='viridis', alpha=0.6)
     plt.colorbar(sc, label='Fitness')
     plt.xlabel('X Coordinate')
@@ -147,29 +164,47 @@ def main():
     
     display_maze(maze)
 
-    population_size = 50
-    generations = 100
-    best_path, best_steps, steps_list, final_population = genetic_explore(maze, population_size, generations)
+    population_size = 100
+    generations = 200
+    best_path, best_steps, steps_list, final_population = None, None, [], []
+
+    # Perform multiple iterations for better convergence
+    for iteration in range(5):
+        path, steps, steps_per_iter, final_pop = genetic_explore(maze, population_size, generations)
+        if path is not None and steps < float('inf'):
+            if best_path is None or steps < best_steps:
+                best_path = path
+                best_steps = steps
+            steps_list.extend(steps_per_iter)
+            final_population = final_pop
+    
+    # Calculate total steps
+    total_steps = sum(step for step in steps_list if step != float('inf'))
 
     # Calculate mean and standard deviation of steps
-    steps_list = [step if step != float('inf') else 0 for step in steps_list]
-    mean_steps = np.mean(steps_list)
-    std_dev_steps = np.std(steps_list)
+    valid_steps = [step for step in steps_list if step != float('inf')]
+    if valid_steps:
+        mean_steps = np.mean(valid_steps)
+        std_dev_steps = np.std(valid_steps)
+    else:
+        mean_steps = 0
+        std_dev_steps = 0
 
     print(f"Best path found takes {best_steps} steps.")
-    print(f"Mean steps taken: {mean_steps:.2f}")
-    print(f"Standard deviation of steps: {std_dev_steps:.2f}")
+    print(f"Total steps taken: {total_steps}")
+    print(f"Mean steps taken: {mean_steps:.5f}")
+    print(f"Standard deviation of steps: {std_dev_steps:.5f}")
 
     if best_path is not None:
         print("Best path found:")
         for step in best_path[:10]:  # Print the first 10 steps to keep it concise
             print(step)
     
-    plot_steps(steps_list)
-
     # Calculate fitness for final population
     fitness_list = [evaluate_path(maze, path) for path in final_population]
-    plot_final_population(final_population, fitness_list)
+
+    # Plot steps and final population with fitness
+    plot_steps_and_fitness(steps_list, final_population, fitness_list)
     
     print("Can Algor find his way out of this digital maze?")
     print("Thank you for using the Maze explorer EnJnDeSIgn2024.")
