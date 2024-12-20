@@ -80,8 +80,15 @@ def genetic_explore(maze, population_size, generations):
             new_population.append(child)
         population = new_population
         
-        # Logging generation and best steps
-        print(f"Generation {gen+1}: Best Steps = {best_steps:.25f}")
+        # Logging generation and best steps with normalization check 
+        if best_steps == float('inf'): 
+            print(f"Generation {gen+1}: Best Steps = Alas, the walls closed in. But Aldor still dreams") 
+        elif best_steps < 0: 
+            print(f"Generation {gen+1}: Best Steps = 0 (Too small, normalized)") 
+            best_steps = 0.0 
+        else:
+            # Logging generation and best steps
+            print(f"Generation {gen+1}: Best Steps = {best_steps:.25f}")
 
     return best_path, best_steps, steps_list, final_population
 
