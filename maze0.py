@@ -81,7 +81,7 @@ def genetic_explore(maze, population_size, generations):
         population = new_population
         
         # Logging generation and best steps
-        print(f"Generation {gen+1}: Best Steps = {best_steps}")
+        print(f"Generation {gen+1}: Best Steps = {best_steps:.25f}")
 
     return best_path, best_steps, steps_list, final_population
 
@@ -89,7 +89,7 @@ def generate_random_path(size):
     return [(random.choice([-1, 0, 1]), random.choice([-1, 0, 1])) for _ in range(size * 2)]  # Longer paths
 
 def evaluate_path(maze, path):
-    steps = 0
+    steps = 0.0
     x, y = 0, 0
     for dx, dy in path:
         x, y = x + dx, y + dy
@@ -97,7 +97,7 @@ def evaluate_path(maze, path):
             return float('inf')
         if maze[x][y] == 2:
             return steps
-        steps += 1
+        steps += random.random()
     return steps if 3 <= steps <= 12 else float('inf')
 
 def repair_path(maze, path):
@@ -128,7 +128,7 @@ def mutate(path, size):
     return new_path
 
 def plot_steps_and_fitness(steps_list, final_population, fitness_list):
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(14, 6))
 
     # Plot steps taken per generation
     plt.subplot(1, 2, 1)
@@ -156,6 +156,11 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
     plt.xlabel('X Coordinate')
     plt.ylabel('Y Coordinate')
     plt.title('Final Population Paths with Fitness Color Coding')
+    #plt.gca().set_aspect('equal', adjustable='box') # Make the plot square
+    # Adjust the aspect ratio to match the data
+    x_range = max(x_points) - min(x_points)
+    y_range = max(y_points) - min(y_points)
+    plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     plt.show()
 
 def main():
@@ -192,8 +197,8 @@ def main():
 
     print(f"Best path found takes {best_steps} steps.")
     print(f"Total steps taken: {total_steps}")
-    print(f"Mean steps taken: {mean_steps:.5f}")
-    print(f"Standard deviation of steps: {std_dev_steps:.5f}")
+    print(f"Mean steps taken: {mean_steps:.25f}")
+    print(f"Standard deviation of steps: {std_dev_steps:.25f}")
 
     if best_path is not None:
         print("Best path found:")
