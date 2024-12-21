@@ -44,7 +44,7 @@ jobs:
           echo "hashes=$hashes" >> $GITHUB_ENV
 
       - name: Set digests output
-        run: echo "digests=$hashes" >> $GITHUB_OUTPUT
+        run: echo "digests=${hashes}" >> $GITHUB_OUTPUT
 
   provenance:
     needs: [build]
