@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      digests: ${{ steps.set-digest.outputs.digests }}
+      digests: ${{ steps.generate-hash.outputs.digests }}
 
     steps:
       - uses: actions/checkout@v4
@@ -22,16 +22,16 @@ jobs:
 
       # Step 2: Generate the provenance subjects.
       - name: Generate subject for provenance
-        id: hash
+        id: generate-hash
         run: |
           set -euo pipefail
 
           # List the artifacts the provenance will refer to.
-          files=$(ls artifact*)
+          files=$(ls artifact1 artifact2)
           # Generate the subjects (base64 encoded).
           hashes=$(sha256sum $files | base64 -w0)
           echo "hashes=$hashes" >> $GITHUB_ENV
-          echo "hashes=$hashes" >> $GITHUB_OUTPUT
+          echo "::set-output name=digests::$hashes" # Deprecated but included for compatibility
 
   provenance:
     needs: [build]
