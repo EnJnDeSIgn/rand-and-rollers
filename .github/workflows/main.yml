@@ -40,7 +40,8 @@ jobs:
           # List the artifacts the provenance will refer to.
           files=$(ls artifact*)
           # Generate the subjects (base64 encoded).
-          echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+          hashes=$(sha256sum $files | base64 -w0)
+          echo "hashes=$hashes" >> $GITHUB_ENV
 
   provenance:
     needs: [build]
@@ -50,5 +51,5 @@ jobs:
       contents: write # To add assets to a release.
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
-      base64-subjects: "${{ needs.build.outputs.digests }}"
+      base64-subjects: "${{ env.hashes }}"
       upload-assets: true # Optional: Upload to a new release
