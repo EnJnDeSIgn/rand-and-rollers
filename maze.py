@@ -21,21 +21,41 @@ groups = [
 def generate_maze(size):
     maze = [[1 for _ in range(size)] for _ in range(size)]
     
-    # Initialize the maze with an entry and an exit
+    # Initialize the maze with an entry and multiple exits
     maze[0][0] = 0
-    maze[size-1][size-1] = 2
+    num_exits = max(size // 2, 2)  # Ensure at least 2 exits
+    exits = [(random.randint(0, size-1), random.randint(0, size-1)) for _ in range(num_exits)]
+    exits.append((size-1, size-1))  # Ensure at least one exit at the bottom right
 
-    # Carve a guaranteed path from (0,0) to (size-1,size-1)
-    for i in range(size):
-        maze[i][0] = 0
-    for j in range(size):
-        maze[size-1][j] = 0
-
-    # Randomly generate the rest of the maze
+    for (i, j) in exits:
+        maze[i][j] = 2  # Exits
+        
+    # Randomly generate the rest of the maze with a balanced chance of open paths
     for i in range(size):
         for j in range(size):
-            if maze[i][j] != 2 and not (i == size-1 and j == 0) and not (i == 0 and j == size-1):
-                maze[i][j] = 0 if random.random() > 0.3 else 1
+            if maze[i][j] != 2 and not (i == 0 and j == 0):
+                maze[i][j] = 0 if random.random() > 0.5 else 1  # Balanced wall probability
+
+    # Print the exits for verification
+    print("Exits:", exits)
+#def generate_maze(size):
+#    maze = [[1 for _ in range(size)] for _ in range(size)]
+    
+    # Initialize the maze with an entry and an exit
+#    maze[0][0] = 0
+#    maze[size-1][size-1] = 2
+
+    # Carve a guaranteed path from (0,0) to (size-1,size-1)
+#    for i in range(size):
+#        maze[i][0] = 0
+#    for j in range(size):
+#        maze[size-1][j] = 0
+
+    # Randomly generate the rest of the maze
+    #for i in range(size):
+    #    for j in range(size):
+    #        if maze[i][j] != 2 and not (i == size-1 and j == 0) and not (i == 0 and j == size-1):
+    #            maze[i][j] = 0 if random.random() > 0.3 else 1
 
     return maze
 
@@ -93,7 +113,7 @@ def main():
     
     display_maze(maze)
 
-    print("Press Enter to start exploring the maze...")
+    print("Press 0 or 1 and Enter to start exploring the maze...")
     input()
 
     result = explore_maze(maze, 0, 0)
