@@ -1,4 +1,4 @@
-name: SLSA generic generator
+name: Maze0 generic generator
 on:
   workflow_dispatch:
   release:
@@ -44,7 +44,8 @@ jobs:
           echo "hashes=$hashes" >> $GITHUB_ENV
 
       - name: Set digests output
-        run: echo "digests=${hashes}" >> $GITHUB_OUTPUT
+        id: set-digest
+        run: echo "digests=${{ hash }}" >> $GITHUB_ENV
 
   provenance:
     needs: [build]
@@ -54,5 +55,5 @@ jobs:
       contents: write # To add assets to a release.
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
-      base64-subjects: "${{ needs.build.outputs.digests }}"
+      base64-subjects: "${{ env.hashes }}"
       upload-assets: true # Optional: Upload to a new release
