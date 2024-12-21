@@ -64,12 +64,15 @@ def genetic_explore(maze, population_size, generations):
     best_steps = float('inf')
     steps_list = []
     final_population = []
+    failed_attempts = 0 # Initialize the failed attempts counter
 
     for gen in range(generations):
         seeker_population = sorted(seeker_population, key=lambda path: evaluate_path(maze, path))
         if evaluate_path(maze, seeker_population[0]) != float('inf'):
             best_path = seeker_population[0]
             best_steps = evaluate_path(maze, best_path)
+        else:
+            failed_attempts += 1 # Increment the failed attempts counter if no valid path is found
         steps_list.append(best_steps)
         final_population = seeker_population.copy()  # Keep the last generation for plotting
         new_population = seeker_population[:population_size // 2]
@@ -79,7 +82,7 @@ def genetic_explore(maze, population_size, generations):
             child = mutate(child, size)
             child = repair_path(maze, child)  # Repair path
             new_population.append(child)
-        seeker_population = new_population
+            seeker_population = new_population
         
         # Logging generation and best steps with normalization check 
         if best_steps == float('inf'):
@@ -99,7 +102,7 @@ def genetic_explore(maze, population_size, generations):
                 # Logging generation and best steps
             print(f"Generation {gen+1}: Best Steps = {best_steps}")
 
-    return best_path, best_steps, steps_list, final_population
+    return best_path, best_steps, steps_list, final_population, failed_attempts
 
 def generate_random_path(size):
     return [(random.choice([-1, 0, 1]), random.choice([-1, 0, 1])) for _ in range(size * 2)]  # Longer paths
@@ -194,9 +197,9 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         x_range = max(x_points) - min(x_points)
         y_range = max(y_points) - min(y_points)
         if y_range == 0:
-            y_range = 1.0 # Avoid division by zero
+           y_range = 1.0 # Avoid division by zero
         elif x_range == 0:
-            x_range = 1.0
+           x_range = 1.0
         plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     else:
         plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
@@ -211,17 +214,18 @@ def main():
 
     population_size = 100
     generations = 200
-    best_path, best_steps, steps_list, final_population = None, None, [], []
+    best_path, best_steps, steps_list, final_population, total_failed_attempts = None, None, [], [], 0
 
     # Perform multiple iterations for better convergence
     for iteration in range(5):
-        path, steps, steps_per_iter, final_pop = genetic_explore(maze, population_size, generations)
+        path, steps, steps_per_iter, final_pop, failed_attempts = genetic_explore(maze, population_size, generations)
         if path is not None and steps < float('inf'):
             if best_path is None or steps < best_steps:
                 best_path = path
                 best_steps = steps
                 steps_list.extend(steps_per_iter)
                 final_population = final_pop
+        total_failed_attempts += failed_attempts # Increment total failed attempts
     
     # Calculate total steps
     total_steps = sum(step for step in steps_list if step != float('inf'))
@@ -238,7 +242,6 @@ def main():
     # Check if no valid path was found
     if best_steps == float('inf') or best_steps == 0:
         print("Alas, the walls closed in. But Aldor still dreams")
-        print(f"Best path found takes {best_steps} steps.")
     else:
         print(f"Best path found takes {best_steps} steps.")
         print(f"Total steps taken: {total_steps:.25f}")
@@ -256,6 +259,7 @@ def main():
     # Plot steps and final population with fitness
     plot_steps_and_fitness(steps_list, final_population, fitness_list)
     
+    print(f"Total failed attempts: {total_failed_attempts}") # Print the total failed attempts
     print("Can Algor find his way out of this digital maze?")
     print("Thank you for using the Maze explorer EnJnDeSIgn2024.")
 
