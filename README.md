@@ -121,7 +121,7 @@ Keep exploring...Press 0 or 1 and Enter
 
 ### README for Automatic Graph Version
 
-```markdown
+    ```markdown
 # Maze Explorer (Automatic Graph Version)
 
 Welcome to Maze Explorer, an automatic maze solver that uses a genetic algorithm to find the best path through a digital maze! Created by Ian J Norris (ian.enjn@gmail.com), this script generates a maze and automatically finds the best path using advanced algorithms.
@@ -185,5 +185,4 @@ Can Algor find his way out of this digital maze?
 Thank you for using the Maze explorer EnJnDeSIgn2024.
 
 
-[Figure_1](https://github.com/user-attachments/assets/f2df7d80-5027-4736-80ca-173b37767f69)
-
+![Figure_1](https://github.com/user-attachments/assets/1a4a8533-bd0d-495d-8f7f-ff45afb85f8a)
