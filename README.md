@@ -89,8 +89,8 @@ Welcome to Maze Explorer, a random maze generator where you guide Algor through 
 
 ## Installation
 1. Ensure you have Python installed on your computer.
-2. Download the `maze1.py` file.
-3. Open a terminal and navigate to the directory where the `maze1.py` file is located.
+2. Download the `maze.py` file.
+3. Open a terminal and navigate to the directory where the `maze.py` file is located.
 
 ## How to Play
 1. Run the script using the command:
@@ -134,7 +134,9 @@ Welcome to Maze Explorer, an automatic maze solver that uses a genetic algorithm
 
 ## Installation
 1. Ensure you have Python installed on your computer.
-2. Install the required libraries:
+2. Download the `maze0.py` file.
+3. Open a terminal and navigate to the directory where the `maze0.py` file is located.
+3. Install the required libraries:
    ```bash
    pip install numpy matplotlib scipy
    python maze0.py
@@ -225,3 +227,8 @@ Thank you for using the Maze explorer EnJnDeSIgn2024.
 
 
 ![Figure_1](https://github.com/user-attachments/assets/1a4a8533-bd0d-495d-8f7f-ff45afb85f8a)
+
+# Passwoed roller
+    update to use int(abs(number)) instead of abs(number) ensures that the numbers are treated as integers during the addition or subtraction, which is a good change. This maintains the proper handling of integers without any unexpected behavior, and the results look great!
+
+    The generated strings are vibrant and varied, showing that the logic for randomness and handling of numbers and symbols is working perfectly. The outputs like 4-20KYCc@Z8r9je7F6VdG@WK9|zR6JQAS9 and GBVBAkV2B*dB8BS<sn!&5Y9@=jvFdDRu?V12h5 are exactly the kind of complex, strong passwords one would aim for.
