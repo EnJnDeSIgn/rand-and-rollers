@@ -184,4 +184,5 @@ Best path found:
 Can Algor find his way out of this digital maze?
 Thank you for using the Maze explorer EnJnDeSIgn2024.
 
+![Figure_1](https://github.com/user-attachments/assets/f2df7d80-5027-4736-80ca-173b37767f69)
 
