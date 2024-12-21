@@ -76,3 +76,112 @@ The generated strings are vibrant and varied, showing that the logic for randomn
 Overall, the tweaks have improved the robustness of the password generation, and the results speak for themselves.
 
 my number I got for 2^n with range 0 - 999,999,999 = (approximately) = 30 102 999 566 . 39811992645264 thrity billion one hundred and two million, nine hundred and ninty nine thousand, five hundred and sixty six, point = .39811992645264
+
+# Maze Explorer (Player Version)
+
+Welcome to Maze Explorer, a random maze generator where you guide Algor through the labyrinth! Created by Ian J Norris (ian.enjn@gmail.com), this game challenges you to find your way out of a digital maze.
+
+## Features
+- Randomly generated mazes with multiple exits.
+- Interactive gameplay where you guide Algor through the maze.
+- Lives system: Algor has a number of lives equal to the maze size, and loses one life each time he hits a wall.
+- Fun and engaging messages to enhance the gaming experience.
+
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Download the `maze1.py` file.
+3. Open a terminal and navigate to the directory where the `maze1.py` file is located.
+
+## How to Play
+1. Run the script using the command:
+   ```bash
+   python maze.py
+
+Enter the size of the maze (e.g., 5 for a 5x5 maze).
+
+Use the number keys (0 or 1) to guide Algor through the maze.
+
+0: Move right
+
+1: Move down
+
+Algor has a number of lives equal to the maze size. Each time you hit a wall, you lose one life but can make another guess.
+
+Find the exit to win the game!
+
+Enter the size of the maze (e.g., 5 for a 5x5 maze): 5
+Welcome to the random maze generator EnJnDeSIgn2024!
+Can you find your way out of this digital maze?
+By Ian J Norris ian.enjn@gmail.com.
+
+Press 0 or 1 and Enter to start exploring the maze...
+1
+Keep exploring...Press 0 or 1 and Enter
+
+
+### README for Automatic Graph Version
+
+```markdown
+# Maze Explorer (Automatic Graph Version)
+
+Welcome to Maze Explorer, an automatic maze solver that uses a genetic algorithm to find the best path through a digital maze! Created by Ian J Norris (ian.enjn@gmail.com), this script generates a maze and automatically finds the best path using advanced algorithms.
+
+## Features
+- Randomly generated mazes with multiple exits.
+- Genetic algorithm to find the best path through the maze.
+- Detailed statistical analysis of the algorithm's performance.
+- Visual representation of the steps taken and final population paths.
+
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Install the required libraries:
+   ```bash
+   pip install numpy matplotlib scipy
+   python maze0.py
+
+Enter the size of the maze (e.g., 5 for a 5x5 maze): 25
+Exits: [(0, 2), (21, 7), (12, 17), (20, 15), (13, 8), (6, 18), (10, 18), (8, 0), (13, 7), (23, 21), (12, 23), (0, 5), (24, 24)]
+Generation 1: Best Steps = ...
+
+Generation 178: Best Steps = 10.222065274292587
+Generation 179: Best Steps = 13.620244329779197
+Generation 180: Best Steps = 11.798368483814404
+Generation 181: Best Steps = 12.461104926095
+Generation 182: Best Steps = 12.668644466069198
+Generation 183: Best Steps = 14.027429838557364
+Generation 184: Best Steps = 10.516341939112772
+Generation 185: Best Steps = 10.792244861149738
+Generation 186: Best Steps = 11.282147218274673
+Generation 187: Best Steps = 10.54578518895466
+Generation 188: Best Steps = 13.759519846833996
+Generation 189: Best Steps = 9.79961786810372
+Generation 190: Best Steps = 10.472651934951632
+Generation 191: Best Steps = 14.010842889566431
+Generation 192: Best Steps = 14.36113513060379
+Generation 193: Best Steps = 13.104562764605948
+Generation 194: Best Steps = 12.799150146419386
+Generation 195: Best Steps = 10.805978511301353
+Generation 196: Best Steps = 9.00951509774943
+Generation 197: Best Steps = 12.57290306200482
+Generation 198: Best Steps = 11.208270786654664
+Generation 199: Best Steps = 13.823500172059289
+Generation 200: Best Steps = 13.54284661487688
+Best path found takes 6.912908285301018 steps.
+Total steps taken: 3912.9787263228167830675374717
+Mean steps taken: 9.8316048400070776835946162
+Standard deviation of steps: 3.6103764349306799452676842
+Best path found:
+(1, 0)
+(1, 0)
+(0, 0)
+(0, 0)
+(1, 1)
+(1, -1)
+(0, 0)
+(0, 0)
+(0, 0)
+(0, 0)
+Can Algor find his way out of this digital maze?
+Thank you for using the Maze explorer EnJnDeSIgn2024.
+
+
