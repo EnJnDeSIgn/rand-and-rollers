@@ -83,11 +83,11 @@ def genetic_explore(maze, population_size, generations):
         
         # Logging generation and best steps with normalization check 
         if best_steps == float('inf'):
-            best_steps = 1e6
+            #best_steps = 1e6
             print(f"Generation {gen+1}: Best Steps = {best_steps} Alas, the walls closed in. But Aldor still dreams")
         elif best_steps < 0: 
             print(f"Generation {gen+1}: Best Steps = {best_steps} 0 (Too small, normalized)") 
-            best_steps = 0 
+            best_steps = 0.0 
         else:
             # Ensure `best_steps` is a reasonable large number, not exceeding some limit like 10^6
             #if best_steps > 1e6:
