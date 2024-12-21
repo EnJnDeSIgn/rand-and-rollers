@@ -13,12 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Step 1: Build your artifacts.
-      - name: Build artifacts
+      # Step 1: Ensure artifacts (copying maze0.py to an artifact file).
+      - name: Ensure artifacts
         run: |
-          # Assuming maze0.py is your main script
           cp maze0.py artifact1
-          echo "artifact2" > artifact2
+          echo "This is a generated artifact" > artifact2
 
       # Step 2: Generate the provenance subjects.
       - name: Generate subject for provenance
@@ -31,7 +30,7 @@ jobs:
           # Generate the subjects (base64 encoded).
           hashes=$(sha256sum $files | base64 -w0)
           echo "hashes=$hashes" >> $GITHUB_ENV
-          echo "::set-output name=digests::$hashes" # Deprecated but included for compatibility
+          echo "::set-output name=digests::$hashes"
 
   provenance:
     needs: [build]
