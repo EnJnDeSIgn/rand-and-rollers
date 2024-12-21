@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      digests: ${{ steps.hash.outputs.digests }}
+      digests: ${{ steps.set-digest.outputs.digests }}
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
           # Generate the subjects (base64 encoded).
           hashes=$(sha256sum $files | base64 -w0)
           echo "hashes=$hashes" >> $GITHUB_ENV
-          echo "::set-output name=digests::$hashes"
+          echo "hashes=$hashes" >> $GITHUB_OUTPUT
 
   provenance:
     needs: [build]
