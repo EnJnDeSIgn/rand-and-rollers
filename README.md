@@ -163,20 +163,35 @@ Thank you for using the Maze explorer EnJnDeSIgn2024.
     GBVBAkV2B*dB8BS<sn!&5Y9@=jvFdDRu?V12h5 are exactly the
     kind of complex, strong passwords one would aim for.
 C:\Users\enjn\gcc>password_gen.py
+
 Results:👻🎶🎶🎶🎶👻 3h2dL*10h1gDX9HY*$a/q#H2?cg>k7.7L*4&rn2
+
 roll again? (Y/N): y
+
 Results:👻🎶🎶🎶🎶👻 7<@7/10!!H9Q=.#W=%<GOd+9|d@=@*%$9z+=.&
+
 roll again? (Y/N): y
+
 Results:👻🎶🎶🎶🎶👻 Rp2&7I29=7hP3>v10.#in19*|Lzc9w9.r
+
 roll again? (Y/N): y
+
 Results:👻🎶🎶🎶🎶👻 YNezSXj28!Eb,Pf#%R4I13UP8Axh<.9M2H
+
 roll again? (Y/N): y
+
 Results:👻🎶🎶🎶🎶👻 8d3jN16?&ZY|Ho11iy#xv1T9fXD%16X4&L7J
+
 roll again? (Y/N): y
+
 Results:👻🎶🎶🎶🎶👻 o$6B<*!TcfEiFa9%?10nZ%9<4f-|Gyy13=aBfGu
+
 roll again? (Y/N): n
+
 Total iterations: 6
+
 Thank you for using the Password roller.😍
+
 Ian = 🀈🀀🀍 🀉 🀍🀎🀑🀑🀈🀒. Enjn Design = 🀄🀍🀉🀍 🀃🀄🀒🀈🀆🀍 2024 Dec 19.👍
 
 C:\Users\enjn\gcc>
