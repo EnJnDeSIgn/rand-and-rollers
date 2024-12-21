@@ -204,7 +204,6 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
     else:
         plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
     plt.show()
-    
 
 def main():
     size = int(input("Enter the size of the maze (e.g., 5 for a 5x5 maze): "))
