@@ -144,44 +144,83 @@ Exits: [(0, 2), (21, 7), (12, 17), (20, 15), (13, 8), (6, 18), (10, 18), (8, 0),
 Generation 1: Best Steps = ...
 
 Generation 178: Best Steps = 10.222065274292587
+
 Generation 179: Best Steps = 13.620244329779197
+
 Generation 180: Best Steps = 11.798368483814404
+
 Generation 181: Best Steps = 12.461104926095
+
 Generation 182: Best Steps = 12.668644466069198
+
 Generation 183: Best Steps = 14.027429838557364
+
 Generation 184: Best Steps = 10.516341939112772
+
 Generation 185: Best Steps = 10.792244861149738
+
 Generation 186: Best Steps = 11.282147218274673
+
 Generation 187: Best Steps = 10.54578518895466
+
 Generation 188: Best Steps = 13.759519846833996
+
 Generation 189: Best Steps = 9.79961786810372
+
 Generation 190: Best Steps = 10.472651934951632
+
 Generation 191: Best Steps = 14.010842889566431
+
 Generation 192: Best Steps = 14.36113513060379
+
 Generation 193: Best Steps = 13.104562764605948
+
 Generation 194: Best Steps = 12.799150146419386
+
 Generation 195: Best Steps = 10.805978511301353
+
 Generation 196: Best Steps = 9.00951509774943
+
 Generation 197: Best Steps = 12.57290306200482
+
 Generation 198: Best Steps = 11.208270786654664
+
 Generation 199: Best Steps = 13.823500172059289
+
 Generation 200: Best Steps = 13.54284661487688
+
 Best path found takes 6.912908285301018 steps.
+
 Total steps taken: 3912.9787263228167830675374717
+
 Mean steps taken: 9.8316048400070776835946162
+
 Standard deviation of steps: 3.6103764349306799452676842
+
 Best path found:
+
 (1, 0)
+
 (1, 0)
+
 (0, 0)
+
 (0, 0)
+
 (1, 1)
+
 (1, -1)
+
 (0, 0)
+
 (0, 0)
+
 (0, 0)
+
 (0, 0)
+
 Can Algor find his way out of this digital maze?
+
 Thank you for using the Maze explorer EnJnDeSIgn2024.
 
 
