@@ -53,7 +53,7 @@ def convert_to_character(value):
 def get_user_guess():
     while True:
         try:
-            guess = int(input("Enter your guess (0 or 1): "))
+            guess = int(input("Enter your guess 🏃‍➡️Keep exploring...Press 0 or 1 and Enter🏃‍ "))
             if guess in [0, 1]:
                 return guess
             else:
@@ -63,13 +63,13 @@ def get_user_guess():
 
 def explore_maze(maze, x, y, lives):
     if x < 0 or x >= len(maze) or y < 0 or y >= len(maze):
-        return "Alas, the walls closed in. But Aldor still dreams."
+        return "Alas, the walls closed in. 😶‍🌫️ But Aldor still dreams 😶‍🌫️"
     if maze[x][y] == 2:
-        return "Aldor emerged into the sunlight. Freedom!"
+        return "🪬Aldor emerged into the sunlight. Freedom!🪬"
     if maze[x][y] == 1:
         lives -= 1
         if lives > 0:
-            print(f"The walls start shaking and crumbling! Algor has {lives} lives.")
+            print(f"The walls start shaking and crumbling!⚕️ Algor has {lives} lives⚕️")
             # Allow another guess with reduced lives
             next_choice = get_user_guess()
             if next_choice == 0 and x + 1 < len(maze):
@@ -79,11 +79,11 @@ def explore_maze(maze, x, y, lives):
             else:
                 return explore_maze(maze, x, y, lives)
         else:
-            return "Alas, the walls closed in. But Aldor still dreams."
+            return "Alas, the walls closed in. 😶‍🌫️ But Aldor still dreams 😶‍🌫️"
 
     maze[x][y] = 1  # Mark this path as visited
 
-    print("Keep exploring...Press 0 or 1 and Enter")
+    print("Enter your guess 🏃‍➡️Keep exploring...Press 0 or 1 and Enter🏃‍➡ ️")
     display_maze(maze)
 
     next_choice = get_user_guess()
@@ -105,7 +105,7 @@ def main():
     
     display_maze(maze)
 
-    print("Press 0 or 1 and Enter to start exploring the maze...")
+    print("🏃Press 0 or 1 and Enter to start exploring the maze...🏃")
     input()
 
     result = explore_maze(maze, 0, 0, lives)
