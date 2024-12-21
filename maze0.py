@@ -58,7 +58,7 @@ def convert_to_character(value):
 
 def genetic_explore(maze, population_size, generations):
     size = len(maze)
-    population = [generate_random_path(size) for _ in range(population_size)]
+    seeker_population = [generate_random_path(size) for _ in range(population_size)]   #population 9
     best_path = None
     #best_steps = float(1e+25)
     best_steps = float('inf')
@@ -66,20 +66,20 @@ def genetic_explore(maze, population_size, generations):
     final_population = []
 
     for gen in range(generations):
-        population = sorted(population, key=lambda path: evaluate_path(maze, path))
-        if evaluate_path(maze, population[0]) != float('inf'):
-            best_path = population[0]
+        seeker_population = sorted(seeker_population, key=lambda path: evaluate_path(maze, path))
+        if evaluate_path(maze, seeker_population[0]) != float('inf'):
+            best_path = seeker_population[0]
             best_steps = evaluate_path(maze, best_path)
         steps_list.append(best_steps)
-        final_population = population.copy()  # Keep the last generation for plotting
-        new_population = population[:population_size // 2]
+        final_population = seeker_population.copy()  # Keep the last generation for plotting
+        new_population = seeker_population[:population_size // 2]
         while len(new_population) < population_size:
-            parent1, parent2 = random.sample(population[:population_size // 2], 2)
+            parent1, parent2 = random.sample(seeker_population[:population_size // 2], 2)
             child = crossover(parent1, parent2)
             child = mutate(child, size)
             child = repair_path(maze, child)  # Repair path
             new_population.append(child)
-        population = new_population
+        seeker_population = new_population
         
         # Logging generation and best steps with normalization check 
         if best_steps == float('inf'):
@@ -114,7 +114,24 @@ def evaluate_path(maze, path):
         if maze[x][y] == 2:
             return steps
         steps += random.random()
-    return steps if 3 <= steps <= 200 else float('inf')
+    # Ensure `steps` is a long decimal within the desired range
+    if 3 <= steps <= 250:
+        return steps
+    else:
+        # Reset steps to `float('inf')` if the path length is invalid
+        return float('inf')
+
+#def evaluate_path(maze, path):
+#    steps = 0
+#    x, y = 0, 0
+#    for dx, dy in path:
+#        x, y = x + dx, y + dy
+#        if x < 0 or x >= len(maze) or y < 0 or y >= len(maze) or maze[x][y] == 1:
+#            return float('inf')
+#        if maze[x][y] == 2:
+#            return steps
+#        steps += random.random()
+#    return steps if 3 <= steps <= 2000 else float('inf')
 
 def repair_path(maze, path):
     # Ensure the path stays within bounds and avoids walls
