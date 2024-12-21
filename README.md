@@ -196,6 +196,13 @@ Ian = 🀈🀀🀍 🀉 🀍🀎🀑🀑🀈🀒. Enjn Design = 🀄🀍🀉🀍
 
 C:\Users\enjn\gcc>
 
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Download the `password_gen.py` file.
+3. Open a terminal and navigate to the directory where the `password_gen.py` file is located.
+   ```bash
+   python password_gen.py
+
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
     Metaphoric statistical math poems...And lover of everything random!    
