@@ -26,7 +26,7 @@ def generate_maze(size):
     
     # Initialize the maze with an entry and multiple exits
     maze[0][0] = 0
-    num_exits = max(size // 2, 3)  # Ensure at least 3 exits
+    num_exits = max(size // 2, 2)  # Ensure at least 2 exits
     exits = [(random.randint(0, size-1), random.randint(0, size-1)) for _ in range(num_exits)]
     exits.append((size-1, size-1))  # Ensure at least one exit at the bottom right
 
@@ -83,20 +83,21 @@ def genetic_explore(maze, population_size, generations):
         
         # Logging generation and best steps with normalization check 
         if best_steps == float('inf'):
-            print(f"Generation {gen+1}: Best Steps = {best_steps:.25f} Alas, the walls closed in. But Aldor still dreams") 
+            best_steps = 1e6
+            print(f"Generation {gen+1}: Best Steps = {best_steps} Alas, the walls closed in. But Aldor still dreams")
         elif best_steps < 0: 
             print(f"Generation {gen+1}: Best Steps = {best_steps} 0 (Too small, normalized)") 
-            best_steps = 0.0 
+            best_steps = 0 
         else:
             # Ensure `best_steps` is a reasonable large number, not exceeding some limit like 10^6
-            if best_steps > 1e6:
-                best_steps = float(random.random())
-                print(f"Generation {gen+1}: Best Steps = {1e25:.25f} (normalized)")
-                best_steps = 1e6
+            #if best_steps > 1e6:
+            #    best_steps = float(random.random())
+            #    print(f"Generation {gen+1}: Best Steps = {1e25:.25f} (normalized)")
+            #    best_steps = 1e6
                 #steps_list = [best_steps]
-            else:
+           # else:
                 # Logging generation and best steps
-                print(f"Generation {gen+1}: Best Steps = {best_steps:.25f}")
+            print(f"Generation {gen+1}: Best Steps = {best_steps}")
 
     return best_path, best_steps, steps_list, final_population
 
@@ -113,7 +114,7 @@ def evaluate_path(maze, path):
         if maze[x][y] == 2:
             return steps
         steps += random.random()
-    return steps if 3 <= steps <= 12 else float('inf')
+    return steps if 3 <= steps <= 200 else float('inf')
 
 def repair_path(maze, path):
     # Ensure the path stays within bounds and avoids walls
@@ -175,6 +176,10 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         # Adjust the aspect ratio to match the data
         x_range = max(x_points) - min(x_points)
         y_range = max(y_points) - min(y_points)
+        if y_range == 0:
+            y_range = 1.0 # Avoid division by zero
+        elif x_range == 0:
+            x_range = 1.0
         plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     else:
         plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
