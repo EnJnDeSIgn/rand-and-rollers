@@ -1,4 +1,4 @@
-name: SLSA generic generator
+name: Maze generic generator
 on:
   workflow_dispatch:
   release:
