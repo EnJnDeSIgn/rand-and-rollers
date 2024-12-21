@@ -36,27 +36,6 @@ def generate_maze(size):
             if maze[i][j] != 2 and not (i == 0 and j == 0):
                 maze[i][j] = 0 if random.random() > 0.5 else 1  # Balanced wall probability
 
-    # Print the exits for verification
-    print("Exits:", exits)
-#def generate_maze(size):
-#    maze = [[1 for _ in range(size)] for _ in range(size)]
-    
-    # Initialize the maze with an entry and an exit
-#    maze[0][0] = 0
-#    maze[size-1][size-1] = 2
-
-    # Carve a guaranteed path from (0,0) to (size-1,size-1)
-#    for i in range(size):
-#        maze[i][0] = 0
-#    for j in range(size):
-#        maze[size-1][j] = 0
-
-    # Randomly generate the rest of the maze
-    #for i in range(size):
-    #    for j in range(size):
-    #        if maze[i][j] != 2 and not (i == size-1 and j == 0) and not (i == 0 and j == size-1):
-    #            maze[i][j] = 0 if random.random() > 0.3 else 1
-
     return maze
 
 def display_maze(maze):
@@ -82,30 +61,43 @@ def get_user_guess():
         except ValueError:
             print("Invalid input. Please enter 0 or 1.")
 
-def explore_maze(maze, x, y):
+def explore_maze(maze, x, y, lives):
     if x < 0 or x >= len(maze) or y < 0 or y >= len(maze):
         return "Alas, the walls closed in. But Aldor still dreams."
     if maze[x][y] == 2:
         return "Aldor emerged into the sunlight. Freedom!"
     if maze[x][y] == 1:
-        return "Alas, the walls closed in. But Aldor still dreams."
+        lives -= 1
+        if lives > 0:
+            print(f"The walls start shaking and crumbling! Algor has {lives} lives.")
+            # Allow another guess with reduced lives
+            next_choice = get_user_guess()
+            if next_choice == 0 and x + 1 < len(maze):
+                return explore_maze(maze, x + 1, y, lives)
+            elif next_choice == 1 and y + 1 < len(maze):
+                return explore_maze(maze, x, y + 1, lives)
+            else:
+                return explore_maze(maze, x, y, lives)
+        else:
+            return "Alas, the walls closed in. But Aldor still dreams."
 
     maze[x][y] = 1  # Mark this path as visited
 
-    print("Keep exploring...")
+    print("Keep exploring...Press 0 or 1 and Enter")
     display_maze(maze)
 
     next_choice = get_user_guess()
     if next_choice == 0 and x + 1 < len(maze):
-        return explore_maze(maze, x + 1, y)
+        return explore_maze(maze, x + 1, y, lives)
     elif next_choice == 1 and y + 1 < len(maze):
-        return explore_maze(maze, x, y + 1)
+        return explore_maze(maze, x, y + 1, lives)
     else:
-        return "Alas, the walls closed in. But Aldor still dreams."
+        return explore_maze(maze, x, y, lives)
 
 def main():
     size = int(input("Enter the size of the maze (e.g., 5 for a 5x5 maze): "))
     maze = generate_maze(size)
+    lives = size  # Number of lives equal to the size of the maze
     
     print("Welcome to the random maze generator EnJnDeSIgn2024!")
     print("Can you find your way out of this digital maze?")
@@ -116,7 +108,7 @@ def main():
     print("Press 0 or 1 and Enter to start exploring the maze...")
     input()
 
-    result = explore_maze(maze, 0, 0)
+    result = explore_maze(maze, 0, 0, lives)
     print(result)
 
 if __name__ == "__main__":
