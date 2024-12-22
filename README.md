@@ -227,8 +227,8 @@ C:\Users\enjn\gcc>
 2. Download the `large_exponent.f90` file.
 3. Open a terminal and navigate to the directory where the `large_exponent.f90` file is located.
 4. and in gcc folder or is set up too use folder file is located
-5.     C:/user/gcc/gfortran -o large_exponent large_exponent.f90
-6.     C:/user/gcc/large_exponent.exe  
+5.     C:/user/user_folder_namr/gcc/gfortran -o large_exponent large_exponent.f90
+6.     C:/user/user_folder_namr/gcc/large_exponent.exe  
 
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
