@@ -56,9 +56,9 @@ def convert_to_character(value):
         return random.choice(random.choice(groups))  # Pick a random character from the table
     return str(value)
 
-def genetic_explore(maze, population_size, generations):
+def genetic_explore(maze, seeker_population_size, generations):    #population_size
     size = len(maze)
-    seeker_population = [generate_random_path(size) for _ in range(population_size)]   #population 9
+    seeker_population = [generate_random_path(size) for _ in range(seeker_population_size)]   #population 9
     best_path = None
     #best_steps = float(1e+25)
     best_steps = float('inf')
@@ -75,14 +75,14 @@ def genetic_explore(maze, population_size, generations):
             failed_attempts += 1 #* float(best_steps if best_steps != 0 else 1)
         steps_list.append(best_steps)
         final_population = seeker_population.copy()  # Keep the last generation for plotting
-        new_population = seeker_population[:population_size // 2]
-        while len(new_population) < population_size:
-            parent1, parent2 = random.sample(seeker_population[:population_size // 2], 2)
-            child = crossover(parent1, parent2)
-            child = mutate(child, size)
-            child = repair_path(maze, child)  # Repair path
-            new_population.append(child)
-            seeker_population = new_population
+        new_way_population = seeker_population[:seeker_population_size // 2]
+        while len(new_way_population) < seeker_population_size:
+            parent1, parent2 = random.sample(seeker_population[:seeker_population_size // 2], 2)
+            path_finder_child = crossover(parent1, parent2)  #child
+            path_finder_child = evolved_mutation(path_finder_child, size)
+            path_finder_child = repair_path(maze, path_finder_child)  # Repair path
+            new_way_population.append(path_finder_child)
+            seeker_population = new_way_population  #new_population
         
         # Logging generation and best steps with normalization check 
         if best_steps == float('inf'):
@@ -153,7 +153,7 @@ def crossover(parent1, parent2):
     crossover_point = random.randint(0, len(parent1) - 1)
     return parent1[:crossover_point] + parent2[crossover_point:]
 
-def mutate(path, size):
+def evolved_mutation(path, size):
     mutation_rate = 0.1
     new_path = []
     for dx, dy in path:
@@ -184,7 +184,7 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
             y += dy
             x_points.append(abs(x))
             y_points.append(abs(y))
-            colors.append(fitness_list[i])
+            colors.append(abs(fitness_list[i]))
 
     plt.subplot(1, 2, 2)
     if x_points and y_points:
@@ -197,9 +197,9 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         x_range = max(x_points) - min(x_points)
         y_range = max(y_points) - min(y_points)
         if y_range == 0:
-           y_range = 1.0e25 # Avoid division by zero
+           y_range = abs(1.0e25) # Avoid division by zero
         elif x_range == 0:
-           x_range = 1.0e25
+           x_range = abs(1.0e25)
         plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     else:
         plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
@@ -211,13 +211,13 @@ def main():
     
     display_maze(maze)
 
-    population_size = 100
+    seeker_population_size = 100
     generations = 200
     best_path, best_steps, steps_list, final_population, total_failed_attempts = None, None, [], [], 0
 
     # Perform multiple iterations for better convergence
     for iteration in range(5):
-        path, steps, steps_per_iter, final_pop, failed_attempts = genetic_explore(maze, population_size, generations)
+        path, steps, steps_per_iter, final_pop, failed_attempts = genetic_explore(maze, seeker_population_size, generations)
         if path is not None and steps < float('inf'):
             if best_path is None or steps < best_steps:
                 best_path = path
