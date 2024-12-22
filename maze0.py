@@ -241,10 +241,10 @@ def main():
     if best_steps == float('inf') or best_steps == 0:
         print("Alas, the walls closed in. But Aldor still dreams")
     else:
-        print(f"Best path found takes {best_steps} steps.")
-        print(f"Total steps taken: {total_steps:.25f}")
-        print(f"Mean steps taken: {mean_steps:.25f}")
-        print(f"Standard deviation of steps: {std_dev_steps:.25f}")
+        print(f"Best path found takes {best_steps:.50e} steps.")
+        print(f"Total steps taken: {total_steps:.50e}")
+        print(f"Mean steps taken: {mean_steps:25e}")
+        print(f"Standard deviation of steps: {std_dev_steps:.50e}")
 
     if best_path is not None:
         print("Best path found:")
@@ -259,7 +259,7 @@ def main():
     
     total_failed_attempts = total_failed_attempts / std_dev_steps
     
-    print(f"Total failed attempts: {total_failed_attempts:.25e}") # Print the total failed attempts
+    print(f"Total failed attempts: {total_failed_attempts:.54e}") # Print the total failed attempts
     print("Can Algor find his way out of this digital maze?")
     print("Thank you for using the Maze explorer EnJnDeSIgn2024.")
 
