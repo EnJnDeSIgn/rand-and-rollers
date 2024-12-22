@@ -75,14 +75,13 @@ def main():
     glacier_data.to_csv('processed_glacier_data.csv', index=False)
     tide_data.to_csv('processed_tide_data.csv', index=False)
 
-    # Print results in a format similar to the Fortran program
-    print("Processed Glacier Data:")
-    for _, row in glacier_data.iterrows():
-        print(f"GRNG: {row['RandomExponents']:.60e}")
+    # Concatenate, sort, and print combined exponents
+    combined_exponents = np.concatenate((glacier_exponents, tide_exponents))
+    sorted_combined_exponents = np.sort(combined_exponents)
 
-    print("Processed Tide Data:")
-    for _, row in tide_data.iterrows():
-        print(f"TRNG: {row['RandomExponents']:.60e}")
+    print("Combined Sorted Exponents:")
+    for value in sorted_combined_exponents:
+        print(f"{value:.60e}")
 
     total_sum = glacier_data['RandomExponents'].sum() + tide_data['RandomExponents'].sum()
     mean = total_sum / (len(glacier_data) + len(tide_data))
