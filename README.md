@@ -213,6 +213,7 @@ C:\Users\enjn\gcc>
 
       C:\Users\enjn\gcc>test0.py
       The largest n such that 2^n is less than 1 billion is approximately: 29
+      
       C:\Users\enjn\gcc>large_exponent.exe
       2^10^9 in scientific notation is approximately: 10^.3010299956639811992645264E+09
 This is Approximately = 30 102 999 566 . 398 119 926 452 64
@@ -224,6 +225,8 @@ C:\Users\enjn\gcc>
 2. Download the `large_exponent.f90` file.
 3. Open a terminal and navigate to the directory where the `large_exponent.f90` file is located.
 4. and in gcc folder or is set up too use folder file is located
+5.     C:/user/gcc/gfortran -o large_exponent large_exponent.f90
+6.     C:/user/gcc/large_exponent.exe  
 
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
