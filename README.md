@@ -253,16 +253,7 @@ C:\Users\enjn\gcc>
    C:/user/user_folder_namr/gcc/python GD.py.py
    C:/user/user_folder_namr/gcc/python tidesGEN.py
    C:/user/user_folder_namr/gcc/gfortran -o NRNG NRNG.f90
-   C:/user/user_folder_namr/gcc/NRNG.exe  
-
-      
-
-Download the `NRNG.f90` file.
-Open a terminal and navigate to the directory where the `NRNG.f90` file is located.
-and in gcc folder or is set up too use folder file is located
-      ```
-   C:/user/user_folder_namr/gcc/gfortran -o large_exponent large_exponent.f90
-   C:/user/user_folder_namr/gcc/large_exponent.exe
+   C:/user/user_folder_namr/gcc/NRNG.exe
 
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
