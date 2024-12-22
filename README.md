@@ -40,7 +40,7 @@ Press 0 or 1 and Enter to start exploring the maze...
 Keep exploring...Press 0 or 1 and Enter
 
 
-### README for Automatic Graph Version 'maze0.py'
+### README for Automatic Graph Version ¿ maze0.py
 
     maze0.py
     Testing has been done on mostly 200 size,
