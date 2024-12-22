@@ -8,16 +8,6 @@ def load_data():
     tide_data = pd.read_csv('mock_tide_data.csv')
     return glacier_data, tide_data
 
-import random
-import pandas as pd
-import numpy as np
-from scipy.stats import norm
-
-def load_data():
-    glacier_data = pd.read_csv('simulated_glacier_data.csv')
-    tide_data = pd.read_csv('mock_tide_data.csv')
-    return glacier_data, tide_data
-
 def normalize_trng(tide_heights):
     min_val = tide_heights.min()
     max_val = tide_heights.max()
@@ -72,6 +62,7 @@ def main(runs=25):
     all_combined_exponents = []
     total_sum_accum = 0.0
     mean_accum = 0.0
+    std_dev_accum = 0.0
 
     for run in range(runs):
         glacier_data, tide_data = load_data()
@@ -102,6 +93,7 @@ def main(runs=25):
         mean_accum += mean
         
         std_dev = np.sqrt(((glacier_data['RandomExponents'] - mean)**2).sum() + ((tide_data['RandomExponents'] - mean)**2).sum()) / (len(glacier_data) + len(tide_data) - 1)
+        std_dev_accum += std_dev
 
         print(f"Sum (Run {run+1}): {total_sum:.64e}")
         print(f"Mean (Run {run+1}): {mean:.25e}")
@@ -123,6 +115,10 @@ def main(runs=25):
     # Print mean_accum (mean across all runs divided by the number of runs)
     normalized_mean_accum = mean_accum / runs
     print(f"Normalized Mean Accum: {normalized_mean_accum:.25e}")
+
+    # Calculate and print sample standard deviation (std_dev across all runs divided by the number of runs)
+    normalized_std_dev = std_dev_accum / runs
+    print(f"Normalized Sample Std Dev: {normalized_std_dev:.64e}")
 
 if __name__ == "__main__":
     main()
