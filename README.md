@@ -47,7 +47,11 @@ Keep exploring...Press 0 or 1 and Enter
     I Don't think it will work well much higher
 # Maze Explorer (Automatic Graph Version)
 
-Welcome to Maze Explorer, an automatic maze solver that uses a genetic algorithm to find the best path through a digital maze! Created by Ian J Norris (ian.enjn@gmail.com), this script generates a maze and automatically finds the best path using advanced algorithms.
+Welcome to Maze Explorer, an automatic maze solver that
+uses a genetic algorithm to find the best path through a
+digital maze! Created by Ian J Norris (ian.enjn@gmail.com),
+this script generates a maze and automatically finds the
+best path using advanced algorithms.
 
 ## Features
 - Randomly generated mazes with multiple exits.
@@ -152,13 +156,13 @@ Thank you for using the Maze explorer EnJnDeSIgn2024.
 ![Figure_1](https://github.com/user-attachments/assets/1a4a8533-bd0d-495d-8f7f-ff45afb85f8a)
 
 # Password roller
-    update to use int(abs(number)) instead of abs(number)
+   update to use int(abs(number)) instead of abs(number)
     ensures that the numbers are treated as integers during
     the addition or subtraction, which is a good change.
     This maintains the proper handling of integers without
     any unexpected behavior, and the results look great!
 
-    The generated strings are vibrant and varied, showing
+   The generated strings are vibrant and varied, showing
     that the logic for randomness and handling of numbers
     and symbols is working perfectly. The outputs like
     4-20KYCc@Z8r9je7F6VdG@WK9|zR6JQAS9 and
@@ -204,6 +208,22 @@ C:\Users\enjn\gcc>
 3. Open a terminal and navigate to the directory where the `password_gen.py` file is located.
    ```bash
    python password_gen.py
+
+# Program To calculate Total Sub Sets for making huge combo's
+
+      C:\Users\enjn\gcc>test0.py
+      The largest n such that 2^n is less than 1 billion is approximately: 29
+      C:\Users\enjn\gcc>large_exponent.exe
+      2^10^9 in scientific notation is approximately: 10^.3010299956639811992645264E+09
+This is Approximately = 30 102 999 566 . 398 119 926 452 64
+
+C:\Users\enjn\gcc>
+
+## Installation
+1. Ensure you have gcc installed on your computer.
+2. Download the `large_exponent.f90` file.
+3. Open a terminal and navigate to the directory where the `large_exponent.f90` file is located.
+4. and in gcc folder or is set up too use folder file is located
 
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
