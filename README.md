@@ -154,6 +154,8 @@ Thank you for using the Maze explorer EnJnDeSIgn2024.
 
 
 ![Figure_1](https://github.com/user-attachments/assets/1a4a8533-bd0d-495d-8f7f-ff45afb85f8a)
+![Figure_0](https://github.com/user-attachments/assets/a4e0cb2b-ebcb-40b8-b4e0-21954bafbf49)
+
 
 # Password roller
    update to use int(abs(number)) instead of abs(number)
