@@ -57,39 +57,47 @@ def check_and_regenerate_glacier_data(glacier_data):
         glacier_data = pd.read_csv('simulated_glacier_data.csv')
     return glacier_data
 
-def main():
-    glacier_data, tide_data = load_data()
+def main(runs=25):
+    all_combined_exponents = []
 
-    # Normalize TRNG values
-    tide_data['NormalizedTideHeight'] = normalize_trng(tide_data['TideHeight'])
+    for run in range(runs):
+        glacier_data, tide_data = load_data()
 
-    # Find random exponents
-    glacier_exponents, tide_exponents = find_random_exponents(tide_data['NormalizedTideHeight'], glacier_data, tide_data)
-    glacier_data['RandomExponents'] = glacier_exponents
-    tide_data['RandomExponents'] = tide_exponents
+        # Normalize TRNG values
+        tide_data['NormalizedTideHeight'] = normalize_trng(tide_data['TideHeight'])
 
-    # Check and regenerate glacier data if necessary
-    glacier_data = check_and_regenerate_glacier_data(glacier_data)
+        # Find random exponents
+        glacier_exponents, tide_exponents = find_random_exponents(tide_data['NormalizedTideHeight'], glacier_data, tide_data)
+        glacier_data['RandomExponents'] = glacier_exponents
+        tide_data['RandomExponents'] = tide_exponents
 
-    # Save processed data for further analysis
-    glacier_data.to_csv('processed_glacier_data.csv', index=False)
-    tide_data.to_csv('processed_tide_data.csv', index=False)
+        # Check and regenerate glacier data if necessary
+        glacier_data = check_and_regenerate_glacier_data(glacier_data)
 
-    # Concatenate, sort, and print combined exponents
-    combined_exponents = np.concatenate((glacier_exponents, tide_exponents))
-    sorted_combined_exponents = np.sort(combined_exponents)
+        # Save processed data for further analysis
+        glacier_data.to_csv(f'processed_glacier_data_run_{run+1}.csv', index=False)
+        tide_data.to_csv(f'processed_tide_data_run_{run+1}.csv', index=False)
 
-    print("Combined Sorted Exponents:")
-    for value in sorted_combined_exponents:
+        # Concatenate exponents for combined sorting
+        combined_exponents = np.concatenate((glacier_exponents, tide_exponents))
+        all_combined_exponents.append(combined_exponents)
+
+        total_sum = glacier_data['RandomExponents'].sum() + tide_data['RandomExponents'].sum()
+        mean = total_sum / (len(glacier_data) + len(tide_data))
+        std_dev = np.sqrt(((glacier_data['RandomExponents'] - mean)**2).sum() + ((tide_data['RandomExponents'] - mean)**2).sum()) / (len(glacier_data) + len(tide_data) - 1)
+
+        print(f"Sum (Run {run+1}): {total_sum:.64e}")
+        print(f"Mean (Run {run+1}): {mean:.25e}")
+        print(f"Std (Run {run+1}): {std_dev:.64e}")
+        print("\n")
+
+    # Sort and print all combined exponents from all runs
+    all_combined_exponents = np.concatenate(all_combined_exponents)
+    sorted_all_combined_exponents = np.sort(all_combined_exponents)
+
+    print("Sorted Exponents from All Runs:")
+    for value in sorted_all_combined_exponents:
         print(f"{value:.60e}")
-
-    total_sum = glacier_data['RandomExponents'].sum() + tide_data['RandomExponents'].sum()
-    mean = total_sum / (len(glacier_data) + len(tide_data))
-    std_dev = np.sqrt(((glacier_data['RandomExponents'] - mean)**2).sum() + ((tide_data['RandomExponents'] - mean)**2).sum()) / (len(glacier_data) + len(tide_data) - 1)
-
-    print(f"Sum: {total_sum:.64e}")
-    print(f"Mean: {mean:.25e}")
-    print(f"Std : {std_dev:.64e}")
 
 if __name__ == "__main__":
     main()
