@@ -239,7 +239,7 @@ C:\Users\enjn\gcc>
    python test0.py
 
 # NRNG and python to make files for it
-## Summary of Achievements
+### Summary of Achievements
 -Simulated Glacier Data
 We created synthetic data to simulate glacier decay,
 incorporating factors such as temperature and
