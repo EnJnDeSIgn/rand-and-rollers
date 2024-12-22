@@ -227,8 +227,8 @@ C:\Users\enjn\gcc>
 2. Download the `large_exponent.f90` file.
 3. Open a terminal and navigate to the directory where the `large_exponent.f90` file is located.
 4. and in gcc folder or is set up too use folder file is located
-5.     C:/user/user_folder_namr/gcc/gfortran -o large_exponent large_exponent.f90
-6.     C:/user/user_folder_namr/gcc/large_exponent.exe  
+5.     C:/user/user_folder_name/gcc/gfortran -o large_exponent large_exponent.f90
+6.     C:/user/user_folder_name/gcc/large_exponent.exe  
 
 ## Installation
 1. Ensure you have Python installed on your computer.
@@ -274,11 +274,11 @@ and the added randomness.
    are located and in gcc folder or is set up too use folder
 
       ```
-   C:/user/user_folder_namr/gcc/pip install numpy pandas
-   C:/user/user_folder_namr/gcc/python GD.py.py
-   C:/user/user_folder_namr/gcc/python tidesGEN.py
-   C:/user/user_folder_namr/gcc/gfortran -o NRNG NRNG.f90
-   C:/user/user_folder_namr/gcc/NRNG.exe
+   C:/user/user_folder_name/gcc/pip install numpy pandas
+   C:/user/user_folder_name/gcc/python GD.py.py
+   C:/user/user_folder_name/gcc/python tidesGEN.py
+   C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
+   C:/user/user_folder_name/gcc/NRNG.exe
 
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
