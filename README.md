@@ -230,6 +230,40 @@ C:\Users\enjn\gcc>
 5.     C:/user/user_folder_namr/gcc/gfortran -o large_exponent large_exponent.f90
 6.     C:/user/user_folder_namr/gcc/large_exponent.exe  
 
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Download the `lg.py` file.
+3. Open a terminal and navigate to the directory where the `lg.py` file is located.
+   ```
+   python lg.py
+   python test0.py
+
+# NRNG and python to make files for it
+
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Ensure you have gcc installed on your computer.
+3. Download the `NRNG.f90`, `GD.py.py` and `tidesGEN.py` files.
+5. Open a terminal and navigate to the directory
+6. where the `NRNG.f90`, `GD.py.py` and `tidesGEN.py` files
+   are located and in gcc folder or is set up too use folder
+
+      ```
+   C:/user/user_folder_namr/gcc/pip install numpy pandas
+   C:/user/user_folder_namr/gcc/python GD.py.py
+   C:/user/user_folder_namr/gcc/python tidesGEN.py
+   C:/user/user_folder_namr/gcc/gfortran -o NRNG NRNG.f90
+   C:/user/user_folder_namr/gcc/NRNG.exe  
+
+      
+
+Download the `NRNG.f90` file.
+Open a terminal and navigate to the directory where the `NRNG.f90` file is located.
+and in gcc folder or is set up too use folder file is located
+      ```
+   C:/user/user_folder_namr/gcc/gfortran -o large_exponent large_exponent.f90
+   C:/user/user_folder_namr/gcc/large_exponent.exe
+
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
     Metaphoric statistical math poems...And lover of everything random!    
