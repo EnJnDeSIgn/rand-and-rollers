@@ -64,7 +64,7 @@ def genetic_explore(maze, population_size, generations):
     best_steps = float('inf')
     steps_list = []
     final_population = []
-    failed_attempts = 0 # Initialize the failed attempts counter
+    failed_attempts = 0.0 # Initialize the failed attempts counter
 
     for gen in range(generations):
         seeker_population = sorted(seeker_population, key=lambda path: evaluate_path(maze, path))
@@ -72,7 +72,7 @@ def genetic_explore(maze, population_size, generations):
             best_path = seeker_population[0]
             best_steps = evaluate_path(maze, best_path)
         else:
-            failed_attempts += 1 # Increment the failed attempts counter if no valid path is found
+            failed_attempts += 1 #* float(best_steps if best_steps != 0 else 1)
         steps_list.append(best_steps)
         final_population = seeker_population.copy()  # Keep the last generation for plotting
         new_population = seeker_population[:population_size // 2]
@@ -182,8 +182,8 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         for dx, dy in path:
             x += dx
             y += dy
-            x_points.append(x)
-            y_points.append(y)
+            x_points.append(abs(x))
+            y_points.append(abs(y))
             colors.append(fitness_list[i])
 
     plt.subplot(1, 2, 2)
@@ -197,9 +197,9 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         x_range = max(x_points) - min(x_points)
         y_range = max(y_points) - min(y_points)
         if y_range == 0:
-           y_range = 1.0e6 # Avoid division by zero
+           y_range = 1.0e25 # Avoid division by zero
         elif x_range == 0:
-           x_range = 1.0e6
+           x_range = 1.0e25
         plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     else:
         plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
@@ -258,7 +258,9 @@ def main():
     # Plot steps and final population with fitness
     plot_steps_and_fitness(steps_list, final_population, fitness_list)
     
-    print(f"Total failed attempts: {total_failed_attempts}") # Print the total failed attempts
+    total_failed_attempts = total_failed_attempts / std_dev_steps
+    
+    print(f"Total failed attempts: {total_failed_attempts:.25e}") # Print the total failed attempts
     print("Can Algor find his way out of this digital maze?")
     print("Thank you for using the Maze explorer EnJnDeSIgn2024.")
 
