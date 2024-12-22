@@ -197,9 +197,9 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
         x_range = max(x_points) - min(x_points)
         y_range = max(y_points) - min(y_points)
         if y_range == 0:
-           y_range = 1.0 # Avoid division by zero
+           y_range = 1.0e6 # Avoid division by zero
         elif x_range == 0:
-           x_range = 1.0
+           x_range = 1.0e6
         plt.gca().set_aspect(aspect=x_range/y_range, adjustable='box')
     else:
         plt.text(0.5, 0.5, 'Alas, the walls closed in. But Aldor still dreams', horizontalalignment='center', verticalalignment='center', transform=plt.gca().transAxes)
