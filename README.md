@@ -272,13 +272,21 @@ and the added randomness.
 5. Open a terminal and navigate to the directory
 6. where the `NRNG.f90`, `GD.py.py` and `tidesGEN.py` files
    are located and in gcc folder or is set up too use folder
-
-      ```
+   ```
    C:/user/user_folder_name/gcc/pip install numpy pandas
    C:/user/user_folder_name/gcc/python GD.py.py
    C:/user/user_folder_name/gcc/python tidesGEN.py
    C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
    C:/user/user_folder_name/gcc/NRNG.exe
+## Installation HMG_software.py
+1. Ensure you have Python installed on your computer.
+2. Download the `HMG_software.py` and files `GD.py.py` `tidesGEN.py`
+3. Open a terminal and navigate to the directory where they are
+    ```
+   C:/user/user_folder_name/gcc/pip install numpy pandas
+   C:/user/user_folder_name/gcc/python GD.py.py
+   C:/user/user_folder_name/gcc/python tidesGEN.py
+   C:/user/user_folder_name/gcc/python HMG_software.py
 
 # Programs edited in notepad + +     
     Hi... I'm Turing's Art consultant on brainstorming and concepts,
