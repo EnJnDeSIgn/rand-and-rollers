@@ -40,9 +40,11 @@ Press 0 or 1 and Enter to start exploring the maze...
 Keep exploring...Press 0 or 1 and Enter
 
 
-### README for Automatic Graph Version
+### README for Automatic Graph Version 'maze0.py'
 
-    ```markdown
+    maze0.py
+    Testing has been done on mostly 200 size,
+    I Don't think it will work well much higher
 # Maze Explorer (Automatic Graph Version)
 
 Welcome to Maze Explorer, an automatic maze solver that uses a genetic algorithm to find the best path through a digital maze! Created by Ian J Norris (ian.enjn@gmail.com), this script generates a maze and automatically finds the best path using advanced algorithms.
