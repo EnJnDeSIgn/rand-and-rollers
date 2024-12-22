@@ -56,7 +56,7 @@ def convert_to_character(value):
         return random.choice(random.choice(groups))  # Pick a random character from the table
     return str(value)
 
-def genetic_explore(maze, seeker_population_size, generations):    #population_size
+def genetic_explore(maze, seeker_population_size, evolving_generations):    #population_size generations
     size = len(maze)
     seeker_population = [generate_random_path(size) for _ in range(seeker_population_size)]   #population 9
     best_path = None
@@ -66,7 +66,7 @@ def genetic_explore(maze, seeker_population_size, generations):    #population_s
     final_population = []
     failed_attempts = 0.0 # Initialize the failed attempts counter
 
-    for gen in range(generations):
+    for gen in range(evolving_generations):
         seeker_population = sorted(seeker_population, key=lambda path: evaluate_path(maze, path))
         if evaluate_path(maze, seeker_population[0]) != float('inf'):
             best_path = seeker_population[0]
@@ -78,7 +78,7 @@ def genetic_explore(maze, seeker_population_size, generations):    #population_s
         new_way_population = seeker_population[:seeker_population_size // 2]
         while len(new_way_population) < seeker_population_size:
             parent1, parent2 = random.sample(seeker_population[:seeker_population_size // 2], 2)
-            path_finder_child = crossover(parent1, parent2)  #child
+            path_finder_child = seeker_crossover(parent1, parent2)  #child
             path_finder_child = evolved_mutation(path_finder_child, size)
             path_finder_child = repair_path(maze, path_finder_child)  # Repair path
             new_way_population.append(path_finder_child)
@@ -149,7 +149,7 @@ def repair_path(maze, path):
             repaired_path.append((0, 0))  # Stay in place if the move is invalid
     return repaired_path
 
-def crossover(parent1, parent2):
+def seeker_crossover(parent1, parent2):
     crossover_point = random.randint(0, len(parent1) - 1)
     return parent1[:crossover_point] + parent2[crossover_point:]
 
@@ -212,19 +212,18 @@ def main():
     display_maze(maze)
 
     seeker_population_size = 100
-    generations = 200
+    evolving_generations = 200
     best_path, best_steps, steps_list, final_population, total_failed_attempts = None, None, [], [], 0
 
     # Perform multiple iterations for better convergence
     for iteration in range(5):
-        path, steps, steps_per_iter, final_pop, failed_attempts = genetic_explore(maze, seeker_population_size, generations)
+        path, steps, steps_per_iter, final_population, failed_attempts = genetic_explore(maze, seeker_population_size, evolving_generations)
         if path is not None and steps < float('inf'):
             if best_path is None or steps < best_steps:
                 best_path = path
                 best_steps = steps
                 steps_list.extend(steps_per_iter)
-                final_population = final_pop
-        total_failed_attempts += failed_attempts # Increment total failed attempts
+        total_failed_attempts += failed_attempts # Increment total failed attempts final_pop
     
     # Calculate total steps
     total_steps = sum(step for step in steps_list if step != float('inf'))
