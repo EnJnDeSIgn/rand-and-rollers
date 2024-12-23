@@ -1,8 +1,7 @@
  Hi... I'm Turing's Art consultant on brainstorming and concepts,
     Metaphoric statistical math poems...And lover of everything random!    
 
-    listen to my stanza, truth is in the moment but,
-    these are just words and empty...    
+    listen to my stanza, truth is in the moment but, these are just words and empty...    
 
 # Maze Explorer (Player Version)
 
