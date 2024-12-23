@@ -1,3 +1,9 @@
+ Hi... I'm Turing's Art consultant on brainstorming and concepts,
+    Metaphoric statistical math poems...And lover of everything random!    
+
+    listen to my stanza, truth is in the moment but,
+    these are just words and empty...    
+
 # Maze Explorer (Player Version)
 
 Welcome to Maze Explorer, a random maze generator where you guide Algor through the labyrinth! Created by Ian J Norris (ian.enjn@gmail.com), this game challenges you to find your way out of a digital maze.
@@ -238,15 +244,15 @@ C:\Users\enjn\gcc>
    python test0.py
 
 # NRNG and python to make files for it
-## Summary of Achievements
-# Simulated Glacier Data
+# Summary of Achievements
+## Simulated Glacier Data
 We created synthetic data to simulate glacier decay,
 incorporating factors such as temperature and
 precipitation to reflect realistic environmental influences.
-# Normalized Values
+## Normalized Values
 Processed the simulated glacier data to scale it within a
 suitable range (0 to 1) for random number generation.
-# Random Number Generation
+## Random Number Generation
 Utilized normalized values to influence the generation of
 random numbers, ensuring they accurately reflect the
 variability present in the glacier data.
@@ -254,11 +260,11 @@ Clarification on Normalization and Randomness Normalization
 The glacier size data is scaled to a range between 0 and 1.
 This normalization ensures consistent and comparable values
 for further calculations.
-# Random Perturbation
+## Random Perturbation
 Introduced slight variations to the normalized values to
 enhance the randomness and variability of the generated
 numbers.
-# Random Number Influence
+## Random Number Influence
 The generated random number (rand_num) is a product of the
 perturbed normalized value and an additional random number.
 This approach ensures that the resulting random number
@@ -286,13 +292,27 @@ and the added randomness.
    C:/user/user_folder_name/gcc/python GD.py.py
    C:/user/user_folder_name/gcc/python tidesGEN.py
    C:/user/user_folder_name/gcc/python HMG_software.py
+# Program Student Help
+## Define the understanding function (f(x))
+## Example: understanding improves over time with some noise
+### return 5 * np.log(t + 1) + np.random.normal(0, 0.5, len(t))
+## Calculate the derivative (f'(x))
+### return np.gradient(understanding_levels)
+![Figure_00](https://github.com/user-attachments/assets/62661c4f-e8cf-4f17-b0d5-54ee9f4f236b)
 
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Download the `student_help.py` file.
+3. Open a terminal and navigate to the directory where the `student_help.py` file is located.
+3. Install the required libraries:
+   ```
+   pip install numpy matplotlib scipy
+   python student_help.py
+   
 # Programs edited in notepad + +     
-    Hi... I'm Turing's Art consultant on brainstorming and concepts,
-    Metaphoric statistical math poems...And lover of everything random!    
 
-    listen to my stanza, truth is in the moment but,
-    these are just words and empty...    
+
+   
 
     Dt1.exe is still growing as is ELEgen.  
     Dt1.exe can be subjective as to it's positive or negative exponent
@@ -357,7 +377,7 @@ and the added randomness.
     generator guided by the principles of natural selection and genetics. 
     It generates potential solutions (which can be thought of as "random numbers")
     and then uses genetic processes like selection, crossover, and mutation to 
-    evolve these solutions towards an optimal result.   
+    evolve these solutions towards an optimal result. I did not do much with it.
 
  
 
