@@ -63,7 +63,7 @@ def genetic_explore(maze, seeker_population_size, evolving_generations):    #pop
     #best_steps = float(1e+25)
     best_steps = float('inf')
     steps_list = []
-    final_population = []
+    finding_final_population = []   #final_population
     failed_attempts = 0.0 # Initialize the failed attempts counter
 
     for gen in range(evolving_generations):
@@ -74,7 +74,7 @@ def genetic_explore(maze, seeker_population_size, evolving_generations):    #pop
         else:
             failed_attempts += 1 #* float(best_steps if best_steps != 0 else 1)
         steps_list.append(best_steps)
-        final_population = seeker_population.copy()  # Keep the last generation for plotting
+        finding_final_population = seeker_population.copy()  # Keep the last generation for plotting
         new_way_population = seeker_population[:seeker_population_size // 2]
         while len(new_way_population) < seeker_population_size:
             parent1, parent2 = random.sample(seeker_population[:seeker_population_size // 2], 2)
@@ -102,7 +102,7 @@ def genetic_explore(maze, seeker_population_size, evolving_generations):    #pop
                 # Logging generation and best steps
             print(f"Generation {gen+1}: Best Steps = {best_steps}")
 
-    return best_path, best_steps, steps_list, final_population, failed_attempts
+    return best_path, best_steps, steps_list, finding_final_population, failed_attempts
 
 def generate_random_path(size):
     return [(random.choice([-1, 0, 1]), random.choice([-1, 0, 1])) for _ in range(size * 2)]  # Longer paths
@@ -163,7 +163,7 @@ def evolved_mutation(path, size):
             new_path.append((dx, dy))
     return new_path
 
-def plot_steps_and_fitness(steps_list, final_population, fitness_list):
+def plot_steps_and_fitness(steps_list, finding_final_population, fitness_list):
     plt.figure(figsize=(14, 6))
 
     # Plot steps taken per generation
@@ -177,7 +177,7 @@ def plot_steps_and_fitness(steps_list, final_population, fitness_list):
     x_points = []
     y_points = []
     colors = []
-    for i, path in enumerate(final_population):
+    for i, path in enumerate(finding_final_population):
         x, y = 0, 0
         for dx, dy in path:
             x += dx
@@ -213,11 +213,11 @@ def main():
 
     seeker_population_size = 100
     evolving_generations = 200
-    best_path, best_steps, steps_list, final_population, total_failed_attempts = None, None, [], [], 0
+    best_path, best_steps, steps_list, finding_final_population, total_failed_attempts = None, None, [], [], 0
 
     # Perform multiple iterations for better convergence
     for iteration in range(5):
-        path, steps, steps_per_iter, final_population, failed_attempts = genetic_explore(maze, seeker_population_size, evolving_generations)
+        path, steps, steps_per_iter, finding_final_population, failed_attempts = genetic_explore(maze, seeker_population_size, evolving_generations)
         if path is not None and steps < float('inf'):
             if best_path is None or steps < best_steps:
                 best_path = path
@@ -252,10 +252,10 @@ def main():
             print(step)
     
     # Calculate fitness for final population
-    fitness_list = [evaluate_path(maze, path) for path in final_population]
+    fitness_list = [evaluate_path(maze, path) for path in finding_final_population]
 
     # Plot steps and final population with fitness
-    plot_steps_and_fitness(steps_list, final_population, fitness_list)
+    plot_steps_and_fitness(steps_list, finding_final_population, fitness_list)
     
     total_failed_attempts = total_failed_attempts / std_dev_steps
     
