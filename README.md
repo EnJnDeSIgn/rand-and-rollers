@@ -152,10 +152,9 @@ Can Algor find his way out of this digital maze?
 
 Thank you for using the Maze explorer EnJnDeSIgn2024.
 
-
 ![Figure_1](https://github.com/user-attachments/assets/1a4a8533-bd0d-495d-8f7f-ff45afb85f8a)
 ![Figure_0](https://github.com/user-attachments/assets/a4e0cb2b-ebcb-40b8-b4e0-21954bafbf49)
-
+![Figure_3](https://github.com/user-attachments/assets/86a51d0a-75a4-415c-bca7-7747dd93208b)
 
 # Password roller
    update to use int(abs(number)) instead of abs(number)
