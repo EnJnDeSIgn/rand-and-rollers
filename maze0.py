@@ -216,7 +216,7 @@ def main():
     best_path, best_steps, steps_list, finding_final_population, total_failed_attempts = None, None, [], [], 0
 
     # Perform multiple iterations for better convergence
-    for iteration in range(5):
+    for iteration in range(5, 10):
         path, steps, steps_per_iter, finding_final_population, failed_attempts = genetic_explore(maze, seeker_population_size, evolving_generations)
         if path is not None and steps < float('inf'):
             if best_path is None or steps < best_steps:
