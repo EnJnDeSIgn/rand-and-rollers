@@ -51,6 +51,9 @@ def find_random_exponents(normalized_data, glacier_data, tide_data):
     
     return glacier_exponents, tide_exponents
 
+def apply_firing_system(values):
+    return values - 1.0
+
 def check_and_regenerate_glacier_data(glacier_data):
     if glacier_data['GlacierSize'].min() <= 0:
         # Regenerate glacier data using GD.py
@@ -59,66 +62,79 @@ def check_and_regenerate_glacier_data(glacier_data):
     return glacier_data
 
 def main(runs=25):
-    all_combined_exponents = []
-    total_sum_accum = 0.0
-    mean_accum = 0.0
-    std_dev_accum = 0.0
+    while True:
+        user_input = input("Press '1' to fire the system, '0' to exit: ")
+        if user_input == '0':
+            print("Exiting program.")
+            return
+        elif user_input != '1':
+            print("Invalid input. Please press '1' to fire the system or '0' to exit.")
+            continue
 
-    for run in range(runs):
-        glacier_data, tide_data = load_data()
+        all_combined_exponents = []
+        total_sum_accum = 0.0
+        mean_accum = 0.0
+        std_dev_accum = 0.0
 
-        # Normalize TRNG values
-        tide_data['NormalizedTideHeight'] = normalize_trng(tide_data['TideHeight'])
+        for run in range(runs):
+            glacier_data, tide_data = load_data()
 
-        # Find random exponents
-        glacier_exponents, tide_exponents = find_random_exponents(tide_data['NormalizedTideHeight'], glacier_data, tide_data)
-        glacier_data['RandomExponents'] = glacier_exponents
-        tide_data['RandomExponents'] = tide_exponents
+            # Normalize TRNG values
+            tide_data['NormalizedTideHeight'] = normalize_trng(tide_data['TideHeight'])
 
-        # Check and regenerate glacier data if necessary
-        glacier_data = check_and_regenerate_glacier_data(glacier_data)
+            # Find random exponents
+            glacier_exponents, tide_exponents = find_random_exponents(tide_data['NormalizedTideHeight'], glacier_data, tide_data)
+            glacier_data['RandomExponents'] = glacier_exponents
+            tide_data['RandomExponents'] = tide_exponents
 
-        # Save processed data for further analysis
-        glacier_data.to_csv(f'processed_glacier_data_run_{run+1}.csv', index=False)
-        tide_data.to_csv(f'processed_tide_data_run_{run+1}.csv', index=False)
+            # Apply firing system
+            glacier_exponents = apply_firing_system(glacier_exponents)
+            tide_exponents = apply_firing_system(tide_exponents)
 
-        # Concatenate exponents for combined sorting
-        combined_exponents = np.concatenate((glacier_exponents, tide_exponents))
-        all_combined_exponents.append(combined_exponents)
+            # Check and regenerate glacier data if necessary
+            glacier_data = check_and_regenerate_glacier_data(glacier_data)
 
-        total_sum = glacier_data['RandomExponents'].sum() + tide_data['RandomExponents'].sum()
-        total_sum_accum += total_sum
-        
-        mean = total_sum / (len(glacier_data) + len(tide_data))
-        mean_accum += mean
-        
-        std_dev = np.sqrt(((glacier_data['RandomExponents'] - mean)**2).sum() + ((tide_data['RandomExponents'] - mean)**2).sum()) / (len(glacier_data) + len(tide_data) - 1)
-        std_dev_accum += std_dev
+            # Save processed data for further analysis
+            glacier_data.to_csv(f'processed_glacier_data_run_{run+1}.csv', index=False)
+            tide_data.to_csv(f'processed_tide_data_run_{run+1}.csv', index=False)
 
-        print(f"Sum (Run {run+1}): {total_sum:.64e}")
-        print(f"Mean (Run {run+1}): {mean:.25e}")
-        print(f"Std (Run {run+1}): {std_dev:.64e}")
-        print("\n")
+            # Concatenate exponents for combined sorting
+            combined_exponents = np.concatenate((glacier_exponents, tide_exponents))
+            all_combined_exponents.append(combined_exponents)
 
-    # Sort and print all combined exponents from all runs
-    all_combined_exponents = np.concatenate(all_combined_exponents)
-    sorted_all_combined_exponents = np.sort(all_combined_exponents)
+            total_sum = glacier_data['RandomExponents'].sum() + tide_data['RandomExponents'].sum()
+            total_sum_accum += total_sum
+            
+            mean = total_sum / (len(glacier_data) + len(tide_data))
+            mean_accum += mean
+            
+            std_dev = np.sqrt(((glacier_data['RandomExponents'] - mean)**2).sum() + ((tide_data['RandomExponents'] - mean)**2).sum()) / (len(glacier_data) + len(tide_data) - 1)
+            std_dev_accum += std_dev
 
-    print("Sorted Exponents from All Runs:")
-    for value in sorted_all_combined_exponents:
-        print(f"{value:.60e}")
+            print(f"Sum (Run {run+1}): {total_sum:.64e}")
+            print(f"Mean (Run {run+1}): {mean:.25e}")
+            print(f"Std (Run {run+1}): {std_dev:.64e}")
+            print("\n")
 
-    # Print normalized total_sum (total sum across all runs divided by the number of runs)
-    normalized_total_sum = total_sum_accum / runs
-    print(f"Normalized Total Sum : {normalized_total_sum:.64e}")
+        # Sort and print all combined exponents from all runs
+        all_combined_exponents = np.concatenate(all_combined_exponents)
+        sorted_all_combined_exponents = np.sort(all_combined_exponents)
 
-    # Print mean_accum (mean across all runs divided by the number of runs)
-    normalized_mean_accum = mean_accum / runs
-    print(f"Normalized Mean Accum: {normalized_mean_accum:.25e}")
+        print("Sorted Exponents from All Runs:")
+        for value in sorted_all_combined_exponents:
+            print(f"{value:.60e}")
 
-    # Calculate and print sample standard deviation (std_dev across all runs divided by the number of runs)
-    normalized_std_dev = std_dev_accum / runs
-    print(f"Normalized Sample Std Dev: {normalized_std_dev:.64e}")
+        # Print normalized total_sum (total sum across all runs divided by the number of runs)
+        normalized_total_sum = total_sum_accum / runs
+        print(f"Normalized Total Sum : {normalized_total_sum:.64e}")
+
+        # Print mean_accum (mean across all runs divided by the number of runs)
+        normalized_mean_accum = mean_accum / runs
+        print(f"Normalized Mean Accum: {normalized_mean_accum:.25e}")
+
+        # Calculate and print sample standard deviation (std_dev across all runs divided by the number of runs)
+        normalized_std_dev = std_dev_accum / runs
+        print(f"Normalized Sample Std Dev: {normalized_std_dev:.64e}")
 
 if __name__ == "__main__":
     main()
