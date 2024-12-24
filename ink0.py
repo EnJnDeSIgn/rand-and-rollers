@@ -55,6 +55,21 @@ new_symbols = {
     # Add more symbols with their meanings here
 }
 
+# Define color codes as RGB tuples
+color_palette = [
+    (255, 0, 0),    # Red
+    (0, 255, 0),    # Green
+    (255, 255, 0),  # Yellow
+    (0, 0, 255),    # Blue
+    (255, 0, 255),  # Magenta
+    (0, 255, 255),  # Cyan
+    (255, 255, 255),# White
+    (128, 0, 128),  # Purple
+    (255, 165, 0),  # Orange
+    (0, 128, 0),    # Dark Green
+    (75, 0, 130)    # Indigo
+]
+
 # Function to encode a message with the new symbols
 def encode_with_new_symbols(message, symbol_set):
     encoded_message = ''
@@ -82,29 +97,16 @@ def generate_fractal(size, max_iter):
     
     return fractal
 
-def apply_kaleidoscope_effect(fractal, colors, iterations=9):
+def apply_colors_and_symbols(fractal, colors, symbols):
     height, width = fractal.shape
-    kaleidoscope = np.zeros((height, width, 3), dtype=int)
-
-    center_y, center_x = height // 2, width // 2
+    colored_fractal = np.zeros((height, width, 3), dtype=int)
 
     for y in range(height):
         for x in range(width):
-            distance = int(np.sqrt((y - center_y) ** 2 + (x - center_x) ** 2)) % len(colors)
-            color = colors[distance]
-            kaleidoscope[y, x] = color
+            color = colors[fractal[y, x] % len(colors)]
+            colored_fractal[y, x] = color
 
-    result = kaleidoscope.copy()
-
-    for _ in range(iterations):
-        result = np.rot90(result, k=random.randint(1, 3))  # Random rotation
-        if random.choice([True, False]):
-            result = np.flipud(result)  # Random vertical flip
-        if random.choice([True, False]):
-            result = np.fliplr(result)  # Random horizontal flip
-        result = apply_random_color(result, colors)  # Add random colors
-
-    return result
+    return colored_fractal, symbols
 
 def apply_random_color(image, colors):
     height, width, _ = image.shape
@@ -114,27 +116,25 @@ def apply_random_color(image, colors):
                 image[y, x] = random.choice(colors)
     return image
 
-def plot_kaleidoscope_fractal(fractal, title):
+def overlay_symbols(colored_fractal, symbols):
+    from matplotlib.font_manager import FontProperties
+
+    # Specify the corrected path to the Noto Sans Symbols font
+    font_path = r'C:\users\enjn\Noto_Sans_Symbols\static\NotoSansSymbols-Regular.ttf'
+    font_prop = FontProperties(fname=font_path)
+
     plt.figure(figsize=(10, 10))
-    plt.imshow(fractal)
-    plt.title(title)
+    plt.imshow(colored_fractal)
+    
+    height, width, _ = colored_fractal.shape
+    for y in range(height):
+        for x in range(width):
+            if random.choice([True, False]):
+                symbol = random.choice(list(symbols.values()))
+                plt.text(x, y, symbol, fontsize=8, ha='center', va='center', color='black', fontproperties=font_prop)
+
     plt.axis('off')
     plt.show()
-
-# Define color codes as RGB tuples for the kaleidoscope effect
-color_palette = [
-    (255, 0, 0),    # Red
-    (0, 255, 0),    # Green
-    (255, 255, 0),  # Yellow
-    (0, 0, 255),    # Blue
-    (255, 0, 255),  # Magenta
-    (0, 255, 255),  # Cyan
-    (255, 255, 255),# White
-    (128, 0, 128),  # Purple
-    (255, 165, 0),  # Orange
-    (0, 128, 0),    # Dark Green
-    (75, 0, 130)    # Indigo
-]
 
 # Example usage of Ink class with symbolic language and kaleidoscope fractal pattern
 black_ink = Ink(color='black', viscosity=10)
@@ -149,17 +149,16 @@ message = "Alpha to Omega"
 encoded_message = encode_with_new_symbols(message, new_symbols)
 print(f"Encoded message: {encoded_message}")
 
-# Set the mood of the ink based on the encoded message
-mood = black_ink.encode_mood(encoded_message)
-print(f"Determined Mood: {mood}")
-
 # Generate the fractal with 40 iterations
-size = 500  # Adjust size for resolution
+size = 250  # Adjust size for resolution
 max_iter = 40  # 40 iterations for fine detail
 fractal = generate_fractal(size, max_iter)
 
-# Apply the kaleidoscope effect with enhanced transformations
-kaleidoscope_fractal = apply_kaleidoscope_effect(fractal, color_palette)
+# Apply colors and symbols
+colored_fractal, symbols = apply_colors_and_symbols(fractal, color_palette, new_symbols)
 
-# Plot the kaleidoscope fractal
-plot_kaleidoscope_fractal(kaleidoscope_fractal, "Kaleidoscope Fractal Pattern")
+# Apply random colors
+colored_fractal = apply_random_color(colored_fractal, color_palette)
+
+# Overlay symbols on the colored fractal with updated font support
+overlay_symbols(colored_fractal, symbols)
