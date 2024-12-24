@@ -1,32 +1,29 @@
 import random
+import numpy as np
+import matplotlib.pyplot as plt
+from collections import Counter
 
 class Ink:
     def __init__(self, color, viscosity, mood='neutral'):
         self.color = color
         self.viscosity = viscosity
-        self.mood = mood  # The ink's 'mood' can affect how it behaves on the canvas
+        self.mood = mood
 
     def apply_to_canvas(self, canvas, position):
-        # The ink's behavior could change based on its 'mood'
-        if self.mood == 'positive':
-            # Ink spreads more, creating a bolder mark
-            pass
-        elif self.mood == 'negative':
-            # Ink retracts, creating a finer line
-            pass
-        else:
-            # Default behavior
-            pass
         # Add ink to canvas
         canvas.add_ink(self, position)
         
-    def encode_mood(self):
+    def encode_mood(self, encoded_message):
+        symbol_counts = Counter(encoded_message)
+        most_common_symbol = symbol_counts.most_common(1)[0][0]
+        
         mood_symbols = {
-            'neutral': '🜎',
-            'positive': '🜂',
-            'negative': '🜃'
+            '🜂': 'positive',
+            '🜃': 'negative'
         }
-        return mood_symbols.get(self.mood, '🜎')
+        
+        self.mood = mood_symbols.get(most_common_symbol, 'neutral')
+        return self.mood
 
 class Canvas:
     def __init__(self):
@@ -37,8 +34,7 @@ class Canvas:
 
     def display(self):
         for item in self.contents:
-            mood_symbol = item[0].encode_mood()
-            print(f"Ink: {item[0].color}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood} ({mood_symbol})")
+            print(f"Ink: {item[0].color}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}")
 
 # Define a new set of symbols
 new_symbols = {
@@ -101,25 +97,60 @@ def quantum_ink_pattern(condition, size=10):
     
     return pattern
 
-# Example usage of Ink class with symbolic language and quantum pattern
-black_ink = Ink(color='black', viscosity=10, mood='positive')
+def generate_fractal(size, max_iter):
+    # Create a grid of complex numbers
+    x = np.linspace(-2.5, 1.5, size)
+    y = np.linspace(-2, 2, size)
+    X, Y = np.meshgrid(x, y)
+    C = X + 1j * Y
+    Z = np.zeros_like(C)
+    fractal = np.zeros(C.shape, dtype=int)
+    
+    for i in range(max_iter):
+        mask = np.abs(Z) <= 2
+        Z[mask] = Z[mask]**2 + C[mask]
+        fractal += mask
+    
+    return fractal
+
+def plot_fractal(fractal, title):
+    plt.figure(figsize=(10, 10))
+    plt.imshow(fractal, cmap='twilight', extent=(-2.5, 1.5, -2, 2))
+    plt.colorbar()
+    plt.title(title)
+    plt.show()
+
+# Example usage of Ink class with symbolic language and fractal pattern
+black_ink = Ink(color='black', viscosity=10)
 canvas = Canvas()
 position = (100, 200)
-black_ink.apply_to_canvas(canvas, position)
-
-# Display the canvas contents
-canvas.display()
 
 # Encode a message with the new symbols
 message = "Alpha to Omega"
 encoded_message = encode_with_new_symbols(message, new_symbols)
 print(f"Encoded message: {encoded_message}")
 
+# Set the mood of the ink based on the encoded message
+mood = black_ink.encode_mood(encoded_message)
+print(f"Determined Mood: {mood}")
+
 # Generate and print a quantum ink pattern based on a condition
 current_condition = 'positive'  # This could be any condition you define
 quantum_pattern = quantum_ink_pattern(current_condition, size=30)  # Adjust size for a larger pattern
 print(f"Quantum ink pattern:\n{quantum_pattern}")
 
-# The quantum ink pattern could be used to add a layer of complexity to the artwork
+# Apply the ink to the canvas
+black_ink.apply_to_canvas(canvas, position)
+
+# Display the canvas contents
+canvas.display()
+
+# Generate and plot the fractal
+size = 800  # Adjust size for higher resolution
+max_iter = 100  # Adjust max iterations for more detail
+fractal = generate_fractal(size, max_iter)
+plot_fractal(fractal, "Fractal Pattern")
+
+# The fractal pattern could be used to add a layer of complexity to the artwork
 
 # The quantum ink pattern could be used to add a layer of complexity to the artwork
