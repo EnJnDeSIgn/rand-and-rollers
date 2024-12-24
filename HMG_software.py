@@ -15,7 +15,7 @@ def normalize_trng(tide_heights):
     
     # Introduce randomness to normalization
     random_factor = np.random.uniform(0.1, 0.5, size=normalized.shape)  # Introducing random factors between 0.1 and 0.5
-    normalized = 0.1 + normalized * (1.0 - 0.1) * random_factor  # Normalize to range [0.1, 1.0] with randomness
+    normalized = 0.0 + normalized * (1.0 - 0.1) * random_factor  # Normalize to range [0.1, 1.0] with randomness
     
     # Ensure no value is exactly zero
     mask = normalized == 0.0
@@ -52,7 +52,7 @@ def find_random_exponents(normalized_data, glacier_data, tide_data):
     return glacier_exponents, tide_exponents
 
 def apply_firing_system(values):
-    return values
+    return values * 0.1
 
 def check_and_regenerate_glacier_data(glacier_data):
     if glacier_data['GlacierSize'].min() <= 0:
