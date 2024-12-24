@@ -242,56 +242,83 @@ C:\Users\enjn\gcc>
    python lg.py
    python test0.py
 
-# NRNG and python to make files for it
-# Summary of Achievements
-## Simulated Glacier Data
-We created synthetic data to simulate glacier decay,
-incorporating factors such as temperature and
-precipitation to reflect realistic environmental influences.
-## Normalized Values
-Processed the simulated glacier data to scale it within a
-suitable range (0 to 1) for random number generation.
-## Random Number Generation
-Utilized normalized values to influence the generation of
-random numbers, ensuring they accurately reflect the
-variability present in the glacier data.
-Clarification on Normalization and Randomness Normalization
-The glacier size data is scaled to a range between 0 and 1.
-This normalization ensures consistent and comparable values
-for further calculations.
-## Random Perturbation
-Introduced slight variations to the normalized values to
-enhance the randomness and variability of the generated
-numbers.
-## Random Number Influence
-The generated random number (rand_num) is a product of the
-perturbed normalized value and an additional random number.
-This approach ensures that the resulting random number
-reflects both the variability inherent in the glacier data
-and the added randomness.
+# NRNG and Python to Make Files for It
+
+## Summary of Achievements
+
+### Simulated Glacier Data
+We created synthetic data to simulate glacier decay, incorporating factors such as temperature and precipitation to reflect realistic environmental influences.
+
+### Normalized Values
+Processed the simulated glacier data to scale it within a suitable range (0 to 1) for random number generation.
+
+### Random Number Generation
+Utilized normalized values to influence the generation of random numbers, ensuring they accurately reflect the variability present in the glacier data.
+
+#### Clarification on Normalization and Randomness
+
+**Normalization**: The glacier size data is scaled to a range between 0 and 1. This normalization ensures consistent and comparable values for further calculations.
+
+**Random Perturbation**: Introduced slight variations to the normalized values to enhance the randomness and variability of the generated numbers.
+
+**Random Number Influence**: The generated random number (`rand_num`) is a product of the perturbed normalized value and an additional random number. This approach ensures that the resulting random number reflects both the variability inherent in the glacier data and the added randomness.
+
+## Performance Metrics
+
+### Calculation of Runs Per Second (RPS) and Runs Per Minute (RPM)
+
+You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
+
+**Runs Per Second (RPS)**
+
+
+\[ \text{RPS} = \frac{\text{Number of Runs}}{\text{Elapsed Time (seconds)}} = \frac{3}{0.024902105} \approx 120.47 \]
+
+
+
+**Runs Per Minute (RPM)**
+
+
+\[ \text{RPM} = \text{RPS} \times 60 = 120.47 \times 60 \approx 7228.20 \]
+
+
+
+### Summary
+- **Runs Per Second (RPS)**: Approximately 120.47 runs per second
+- **Runs Per Minute (RPM)**: Approximately 7228.20 runs per minute
+
 ## Installation
+
+### NRNG.f90, GD.py.py, and tidesGEN.py
+
 1. Ensure you have Python installed on your computer.
 2. Ensure you have gcc installed on your computer.
-3. Download the `NRNG.f90`, `GD.py.py` and `tidesGEN.py` files.
-5. Open a terminal and navigate to the directory
-6. where the `NRNG.f90`, `GD.py.py` and `tidesGEN.py` files
-   are located and in gcc folder or is set up too use folder
-   ```
-   C:/user/user_folder_name/gcc/pip install numpy pandas
-   C:/user/user_folder_name/gcc/python GD.py.py
-   C:/user/user_folder_name/gcc/python tidesGEN.py
-   C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
-   C:/user/user_folder_name/gcc/NRNG.exe
-## Installation HMG_software.py
-1. Ensure you have Python installed on your computer.
-2. Download the `HMG_software.py` and files `GD.py.py` `tidesGEN.py`
-3. Open a terminal and navigate to the directory where they are
+3. Download the `NRNG.f90`, `GD.py.py`, and `tidesGEN.py` files.
+4. Open a terminal and navigate to the directory where the files are located.
+5. Execute the following commands:
     ```
-   C:/user/user_folder_name/gcc/pip install numpy pandas
-   C:/user/user_folder_name/gcc/python GD.py.py
-   C:/user/user_folder_name/gcc/python tidesGEN.py
-   C:/user/user_folder_name/gcc/python HMG_software.py
-# Program Student Help
+    C:/user/user_folder_name/gcc/pip install numpy pandas
+    C:/user/user_folder_name/gcc/python GD.py.py
+    C:/user/user_folder_name/gcc/python tidesGEN.py
+    C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
+    C:/user/user_folder_name/gcc/NRNG.exe
+    ```
+
+### Installation HMG_software.py
+
+1. Ensure you have Python installed on your computer.
+2. Download the `HMG_software.py` and the files `GD.py.py` and `tidesGEN.py`.
+3. Open a terminal and navigate to the directory where they are located.
+4. Execute the following commands:
+    ```
+    C:/user/user_folder_name/gcc/pip install numpy pandas
+    C:/user/user_folder_name/gcc/python GD.py.py
+    C:/user/user_folder_name/gcc/python tidesGEN.py
+    C:/user/user_folder_name/gcc/python HMG_software.py
+    ```
+
+## Program Student Help
+
 ## Define the understanding function (f(x))
 ## Example: understanding improves over time with some noise
 ### return 5 * np.log(t + 1) + np.random.normal(0, 0.5, len(t))
