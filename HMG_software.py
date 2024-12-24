@@ -2,6 +2,7 @@ import random
 import pandas as pd
 import numpy as np
 from scipy.stats import norm
+import time
 
 def load_data():
     glacier_data = pd.read_csv('simulated_glacier_data.csv')
@@ -52,7 +53,7 @@ def find_random_exponents(normalized_data, glacier_data, tide_data):
     return glacier_exponents, tide_exponents
 
 def apply_firing_system(values):
-    return values * 0.1
+    return values
 
 def check_and_regenerate_glacier_data(glacier_data):
     if glacier_data['GlacierSize'].min() <= 0:
@@ -61,7 +62,7 @@ def check_and_regenerate_glacier_data(glacier_data):
         glacier_data = pd.read_csv('simulated_glacier_data.csv')
     return glacier_data
 
-def main(runs=25):
+def main(runs=2):
     while True:
         user_input = input("Press '1' to fire the system, '0' to exit: ")
         if user_input == '0':
@@ -75,6 +76,8 @@ def main(runs=25):
         total_sum_accum = 0.0
         mean_accum = 0.0
         std_dev_accum = 0.0
+        
+        start_time = time.time() # Start timing
 
         for run in range(runs):
             glacier_data, tide_data = load_data()
@@ -115,6 +118,11 @@ def main(runs=25):
             print(f"Mean (Run {run+1}): {mean:.25e}")
             print(f"Std (Run {run+1}): {std_dev:.64e}")
             print("\n")
+            
+        end_time = time.time() # End timing
+        elapsed_time = end_time - start_time # Calculate elapsed time
+        
+        print(f"Elapsed Time for {runs} Runs: {elapsed_time:.6f} seconds")
 
         # Sort and print all combined exponents from all runs
         all_combined_exponents = np.concatenate(all_combined_exponents)
