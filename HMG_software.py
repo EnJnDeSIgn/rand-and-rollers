@@ -15,7 +15,7 @@ def normalize_trng(tide_heights):
     normalized = (tide_heights - min_val) / (max_val - min_val)
     
     # Introduce randomness to normalization
-    random_factor = np.random.uniform(0.1, 0.5, size=normalized.shape)  # Introducing random factors between 0.1 and 0.5
+    random_factor = np.random.uniform(0.1, 0.5, size=normalized.shape)
     normalized = 0.0 + normalized * (1.0 - 0.1) * random_factor  # Normalize to range [0.1, 1.0] with randomness
     
     # Ensure no value is exactly zero
@@ -62,7 +62,7 @@ def check_and_regenerate_glacier_data(glacier_data):
         glacier_data = pd.read_csv('simulated_glacier_data.csv')
     return glacier_data
 
-def main(runs=2):
+def main():
     while True:
         user_input = input("Press '1' to fire the system, '0' to exit: ")
         if user_input == '0':
@@ -72,12 +72,15 @@ def main(runs=2):
             print("Invalid input. Please press '1' to fire the system or '0' to exit.")
             continue
 
+        runs = random.choice([2, 3])  # Randomly choose between 2 or 3 runs
+        print(f"Number of Runs: {runs}")
+
         all_combined_exponents = []
         total_sum_accum = 0.0
         mean_accum = 0.0
         std_dev_accum = 0.0
         
-        start_time = time.time() # Start timing
+        start_time = time.time()  # Start timing
 
         for run in range(runs):
             glacier_data, tide_data = load_data()
@@ -119,8 +122,8 @@ def main(runs=2):
             print(f"Std (Run {run+1}): {std_dev:.64e}")
             print("\n")
             
-        end_time = time.time() # End timing
-        elapsed_time = end_time - start_time # Calculate elapsed time
+        end_time = time.time()  # End timing
+        elapsed_time = end_time - start_time  # Calculate elapsed time
         
         print(f"Elapsed Time for {runs} Runs: {elapsed_time:.6f} seconds")
 
