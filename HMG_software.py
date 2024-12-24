@@ -52,7 +52,7 @@ def find_random_exponents(normalized_data, glacier_data, tide_data):
     return glacier_exponents, tide_exponents
 
 def apply_firing_system(values):
-    return values - 1.0
+    return values
 
 def check_and_regenerate_glacier_data(glacier_data):
     if glacier_data['GlacierSize'].min() <= 0:
