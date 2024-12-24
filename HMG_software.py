@@ -125,7 +125,7 @@ def main():
         end_time = time.time()  # End timing
         elapsed_time = end_time - start_time  # Calculate elapsed time
         
-        print(f"Elapsed Time for {runs} Runs: {elapsed_time:.6f} seconds")
+        print(f"Elapsed Time for {runs} Runs: {elapsed_time:.30f} seconds")
 
         # Sort and print all combined exponents from all runs
         all_combined_exponents = np.concatenate(all_combined_exponents)
