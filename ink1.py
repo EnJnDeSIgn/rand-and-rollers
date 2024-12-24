@@ -57,7 +57,8 @@ class Canvas:
         for item in self.contents:
             color_name = f"RGB{item[2][:3]}"
             color_fore = item[2][3]
-            print(f"{color_fore}Ink: {color_name}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}{Style.RESET_ALL}")
+            # Commented out ink prints for future testing
+            #print(f"{color_fore}Ink: {color_name}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}{Style.RESET_ALL}")
 
 # Define a new set of symbols
 new_symbols = {
@@ -77,25 +78,8 @@ def encode_with_new_symbols(message, symbol_set):
             encoded_message += char  # Keep the character as is if no symbol is defined
     return encoded_message
 
-# Function to generate a pattern that changes based on a condition
-def quantum_ink_pattern(condition):
-    # Define two different states of the pattern
-    state_one = '█'  # A filled block representing one state
-    state_two = '░'  # A lighter block representing another state
-    
-    pattern = ''
-    
-    # Generate a pattern that changes based on the given condition
-    for i in range(50):  # Extend the length of the pattern by a factor of 5
-        if condition == 'positive':
-            pattern += random.choice([state_one, state_two])
-        else:
-            pattern += state_two
-    
-    return pattern
-
 # Function to generate a colorized quantum ink pattern
-def quantum_ink_pattern_colored(condition):
+def quantum_ink_pattern_colored(condition, lines=20):
     # Define two different states of the pattern
     state_one = '█'  # A filled block representing one state
     state_two = '░'  # A lighter block representing another state
@@ -103,14 +87,17 @@ def quantum_ink_pattern_colored(condition):
     pattern = ''
     
     # Generate a pattern that changes based on the given condition
-    for i in range(50):  # Extend the length of the pattern by a factor of 5
-        if condition == 'positive':
-            symbol = random.choice([state_one, state_two])
-        else:
-            symbol = state_two
+    for _ in range(lines):  # Print specified number of lines
+        line = ''
+        for i in range(50):  # Extend the length of the pattern by a factor of 5
+            if condition == 'positive':
+                symbol = random.choice([state_one, state_two])
+            else:
+                symbol = state_two
 
-        random_color = random.choice(color_palette)[3]
-        pattern += f"{random_color}{symbol}{Style.RESET_ALL}"
+            random_color = random.choice(color_palette)[3]
+            line += f"{random_color}{symbol}{Style.RESET_ALL}"
+        pattern += line + '\n'
     
     return pattern
 
@@ -130,5 +117,5 @@ print(f"Encoded message: {encoded_message}")
 
 # Generate and print a quantum ink pattern based on a condition
 current_condition = 'positive'  # This could be any condition you define
-quantum_pattern = quantum_ink_pattern_colored(current_condition)
-print(f"Quantum ink pattern: {quantum_pattern}")
+quantum_pattern = quantum_ink_pattern_colored(current_condition, lines=20)  # Specify number of lines
+print(f"Quantum ink pattern:\n{quantum_pattern}")
