@@ -57,6 +57,17 @@ new_symbols = {
     # Add more symbols with their meanings here
 }
 
+# Define color codes
+colors = [
+    '\033[31m',  # Red
+    '\033[32m',  # Green
+    '\033[33m',  # Yellow
+    '\033[34m',  # Blue
+    '\033[35m',  # Magenta
+    '\033[36m',  # Cyan
+    '\033[37m',  # White
+]
+
 # Function to encode a message with the new symbols
 def encode_with_new_symbols(message, symbol_set):
     encoded_message = ''
@@ -79,9 +90,13 @@ def quantum_ink_pattern(condition, size=10):
         line = ''
         for _ in range(size):
             if condition == 'positive':
-                line += random.choice(states)
+                symbol = random.choice(states)
+                color = random.choice(colors)
+                line += f"{color}{symbol}\033[0m"  # Add color to the symbol
             else:
-                line += states[0]  # Default to the first symbol for non-positive condition
+                symbol = states[0]  # Default to the first symbol for non-positive condition
+                color = random.choice(colors)
+                line += f"{color}{symbol}\033[0m"  # Add color to the symbol
         pattern += line + '\n'  # Newline after each row to form a square pattern
     
     return pattern
