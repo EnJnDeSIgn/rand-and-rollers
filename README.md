@@ -263,7 +263,7 @@ Utilized normalized values to influence the generation of random numbers, ensuri
 
 **Random Number Influence**: The generated random number (`rand_num`) is a product of the perturbed normalized value and an additional random number. This approach ensures that the resulting random number reflects both the variability inherent in the glacier data and the added randomness.
 
-## Performance Metrics
+## Performance Metrics For HMG Sofware
 
 ### Calculation of Runs Per Second (RPS) and Runs Per Minute (RPM)
 
