@@ -133,7 +133,7 @@ def main():
 
         print("Sorted Exponents from All Runs:")
         for value in sorted_all_combined_exponents:
-            print(f"{value:.60e}")
+            print(f"{value:.64e}")
 
         # Print normalized total_sum (total sum across all runs divided by the number of runs)
         normalized_total_sum = total_sum_accum / runs
