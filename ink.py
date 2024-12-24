@@ -117,7 +117,9 @@ print(f"Encoded message: {encoded_message}")
 
 # Generate and print a quantum ink pattern based on a condition
 current_condition = 'positive'  # This could be any condition you define
-quantum_pattern = quantum_ink_pattern(current_condition, size=10)  # Adjust size for a larger pattern
+quantum_pattern = quantum_ink_pattern(current_condition, size=30)  # Adjust size for a larger pattern
 print(f"Quantum ink pattern:\n{quantum_pattern}")
+
+# The quantum ink pattern could be used to add a layer of complexity to the artwork
 
 # The quantum ink pattern could be used to add a layer of complexity to the artwork
