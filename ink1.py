@@ -6,17 +6,21 @@ init(autoreset=True)
 
 # Define color codes as RGB tuples and their corresponding colorama colors
 color_palette = [
-    (255, 0, 0, Fore.RED),    # Red
-    (0, 255, 0, Fore.GREEN),    # Green
-    (255, 255, 0, Fore.YELLOW),  # Yellow
-    (0, 0, 255, Fore.BLUE),    # Blue
-    (255, 0, 255, Fore.MAGENTA),  # Magenta
-    (0, 255, 255, Fore.CYAN),  # Cyan
-    (255, 255, 255, Fore.WHITE),# White
-    (128, 0, 128, Fore.MAGENTA),  # Purple
-    (255, 165, 0, Fore.YELLOW),  # Orange
-    (0, 128, 0, Fore.GREEN),    # Dark Green
-    (75, 0, 130, Fore.MAGENTA)  # Indigo
+    (255, 0, 0, Fore.RED),         # Red
+    (0, 255, 0, Fore.GREEN),       # Green
+    (255, 255, 0, Fore.YELLOW),    # Yellow
+    (0, 0, 255, Fore.BLUE),        # Blue
+    (255, 0, 255, Fore.MAGENTA),   # Magenta
+    (0, 255, 255, Fore.CYAN),      # Cyan
+    (255, 255, 255, Fore.WHITE),   # White
+    (128, 0, 128, Fore.MAGENTA),   # Purple
+    (255, 165, 0, Fore.YELLOW),    # Orange
+    (0, 128, 0, Fore.GREEN),       # Dark Green
+    (75, 0, 130, Fore.MAGENTA),    # Indigo
+    (255, 105, 180, Fore.MAGENTA), # Pink
+    (165, 42, 42, Fore.RED),       # Brown (closest available)
+    (255, 215, 0, Fore.YELLOW),    # Gold (closest available)
+    (192, 192, 192, Fore.WHITE)    # Silver (closest available)
 ]
 
 class Ink:
