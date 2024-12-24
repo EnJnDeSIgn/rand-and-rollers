@@ -136,5 +136,11 @@ def main(runs=25):
         normalized_std_dev = std_dev_accum / runs
         print(f"Normalized Sample Std Dev: {normalized_std_dev:.64e}")
 
+        # Reset the values for the next firing
+        all_combined_exponents = []
+        #total_sum_accum = 0.0
+        #mean_accum = 0.0
+        #std_dev_accum = 0.0
+
 if __name__ == "__main__":
     main()
