@@ -19,6 +19,14 @@ class Ink:
             pass
         # Add ink to canvas
         canvas.add_ink(self, position)
+        
+    def encode_mood(self):
+        mood_symbols = {
+            'neutral': '🜎',
+            'positive': '🜂',
+            'negative': '🜃'
+        }
+        return mood_symbols.get(self.mood, '🜎')
 
 class Canvas:
     def __init__(self):
@@ -29,13 +37,23 @@ class Canvas:
 
     def display(self):
         for item in self.contents:
-            print(f"Ink: {item[0].color}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood if hasattr(item[0], 'mood') else 'N/A'}")
+            mood_symbol = item[0].encode_mood()
+            print(f"Ink: {item[0].color}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood} ({mood_symbol})")
 
 # Define a new set of symbols
 new_symbols = {
     'alpha': '🜂',  # Represents the beginning or a new start
     'omega': '🜃',  # Represents the end or completion
     'kappa': '🜄',  # Represents knowledge or learning
+    'delta': '🜅',  # Represents change or difference
+    'phi': '🜆',    # Represents balance or harmony
+    'theta': '🜇',  # Represents thought or contemplation
+    'sigma': '🜈',  # Represents total or sum
+    'rho': '🜉',    # Represents flow or movement
+    'epsilon': '🜊',# Represents small quantity or error
+    'lambda': '🜋', # Represents light or enlightenment
+    'tau': '🜌',    # Represents time or duration
+    'upsilon': '🜍',# Represents mystery or unknown
     # Add more symbols with their meanings here
 }
 
@@ -50,19 +68,21 @@ def encode_with_new_symbols(message, symbol_set):
     return encoded_message
 
 # Function to generate a pattern that changes based on a condition
-def quantum_ink_pattern(condition):
-    # Define two different states of the pattern
-    state_one = '█'  # A filled block representing one state
-    state_two = '░'  # A lighter block representing another state
+def quantum_ink_pattern(condition, size=10):
+    # Define different states of the pattern using symbols for colors
+    states = list(new_symbols.values())
     
     pattern = ''
     
     # Generate a pattern that changes based on the given condition
-    for i in range(10):  # Let's say we have a pattern of 10 elements
-        if condition == 'positive':
-            pattern += random.choice([state_one, state_two])
-        else:
-            pattern += state_two
+    for _ in range(size):  # Generate pattern with 'size' lines
+        line = ''
+        for _ in range(size):
+            if condition == 'positive':
+                line += random.choice(states)
+            else:
+                line += states[0]  # Default to the first symbol for non-positive condition
+        pattern += line + '\n'  # Newline after each row to form a square pattern
     
     return pattern
 
@@ -82,7 +102,7 @@ print(f"Encoded message: {encoded_message}")
 
 # Generate and print a quantum ink pattern based on a condition
 current_condition = 'positive'  # This could be any condition you define
-quantum_pattern = quantum_ink_pattern(current_condition)
-print(f"Quantum ink pattern: {quantum_pattern}")
+quantum_pattern = quantum_ink_pattern(current_condition, size=10)  # Adjust size for a larger pattern
+print(f"Quantum ink pattern:\n{quantum_pattern}")
 
 # The quantum ink pattern could be used to add a layer of complexity to the artwork
