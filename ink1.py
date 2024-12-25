@@ -67,7 +67,6 @@ class Canvas:
 # Define a new set of symbols
 new_symbols = {
     'alpha': '🜂 - Represents the beginning or a new start',   # Represents the beginning or a new start
-    'omega': '🜃 - Represents the end or completion',   # Represents the end or completion
     'kappa': '🜄 - Represents knowledge or learning',   # Represents knowledge or learning
     'delta': '🜅 - Represents change or difference',   # Represents change or difference
     'phi': '🜆 - Represents balance or harmony',     # Represents balance or harmony
