@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.stats as stats
+import matplotlib.pyplot as plt
 
 def main():
     # Inputs
@@ -24,6 +25,19 @@ def main():
     for x in data:
         pdf = stats.norm.pdf(x, mu, sigma)
         print(f"x = {x}, pdf value = {pdf:.64e}")
+
+    # Plot the bell curve (normal distribution)
+    x_values = np.linspace(min(data) - 10, max(data) + 10, 100)
+    y_values = stats.norm.pdf(x_values, mu, sigma)
+    
+    plt.plot(x_values, y_values, label='Normal Distribution')
+    plt.scatter(data, stats.norm.pdf(data, mu, sigma), color='red', label='Data Points')
+    plt.xlabel('Data Points')
+    plt.ylabel('Probability Density')
+    plt.title('Bell Curve (Normal Distribution)')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 if __name__ == "__main__":
     main()
