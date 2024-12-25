@@ -24,7 +24,7 @@ def main():
     # Calculate and output pdf for each data point
     for x in data:
         pdf = stats.norm.pdf(x, mu, sigma)
-        print(f"x = {x}, pdf value = {pdf:.64e}")
+        print(f"x = {x:.30e}, pdf value = {pdf:.50e}")
 
     # Plot the bell curve (normal distribution)
     x_values = np.linspace(min(data) - 10, max(data) + 10, 100)
