@@ -42,7 +42,7 @@ class Ink:
                 random_color = random.choice(color_palette[:8])  # Brighter colors
             elif self.mood == 'negative':
                 # Random color from the palette with a negative bias
-                random_color = random.choice(color_palette[6:])  # Darker colors
+                random_color = random.choice(color_palette[8:])  # Darker colors
             else:
                 # Default random color from the full palette
                 random_color = random.choice(color_palette)
@@ -66,18 +66,19 @@ class Canvas:
 
 # Define a new set of symbols
 new_symbols = {
-    'alpha': '🜂',  # Represents the beginning or a new start
-    'omega': '🜃',  # Represents the end or completion
-    'kappa': '🜄',  # Represents knowledge or learning
-    'delta': '🜅',  # Represents change or difference
-    'phi': '🜆',    # Represents balance or harmony
-    'theta': '🜇',  # Represents thought or contemplation
-    'sigma': '🜈',  # Represents total or sum
-    'rho': '🜉',    # Represents flow or movement
-    'epsilon': '🜊',# Represents small quantity or error
-    'lambda': '🜋', # Represents light or enlightenment
-    'tau': '🜌',    # Represents time or duration
-    'upsilon': '🜍',# Represents mystery or unknown
+    'alpha': '🜂 - Represents the beginning or a new start',   # Represents the beginning or a new start
+    'omega': '🜃 - Represents the end or completion',   # Represents the end or completion
+    'kappa': '🜄 - Represents knowledge or learning',   # Represents knowledge or learning
+    'delta': '🜅 - Represents change or difference',   # Represents change or difference
+    'phi': '🜆 - Represents balance or harmony',     # Represents balance or harmony
+    'theta': '🜇 - Represents thought or contemplation',   # Represents thought or contemplation
+    'sigma': '🜈 - Represents total or sum',   # Represents total or sum
+    'rho': '🜉 - Represents flow or movement',     # Represents flow or movement
+    'epsilon': '🜊 - Represents small quantity or error', # Represents small quantity or error
+    'lambda': '🜋 - Represents light or enlightenment',  # Represents light or enlightenment
+    'tau': '🜌 - Represents time or duration',     # Represents time or duration
+    'upsilon': '🜍 - Represents mystery or unknown', # Represents mystery or unknown
+    'omega': '🜃 - Represents the end or completion',   # Represents the end or completion
     # Add more symbols with their meanings here
 }
 
@@ -90,6 +91,11 @@ def encode_with_new_symbols(message, symbol_set):
         else:
             encoded_message += char  # Keep the character as is if no symbol is defined
     return encoded_message
+
+# Function to print a random symbol and its meaning
+def print_random_symbol(symbol_set):
+    symbol, meaning = random.choice(list(symbol_set.items()))
+    print(f"Random Symbol: {symbol} = {meaning}")
 
 # Function to generate a colorized quantum ink pattern
 def quantum_ink_pattern_colored(condition, lines=20):
@@ -127,6 +133,9 @@ canvas.display()
 message = "Alpha to Omega"
 encoded_message = encode_with_new_symbols(message, new_symbols)
 print(f"Encoded message: {encoded_message}")
+
+# Print a random symbol and its meaning
+print_random_symbol(new_symbols)
 
 # Generate and print a quantum ink pattern based on a condition
 current_condition = 'positive'  # This could be any condition you define
