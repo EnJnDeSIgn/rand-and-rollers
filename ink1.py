@@ -39,7 +39,7 @@ class Ink:
 
             if self.mood == 'positive':
                 # Random color from the palette with a positive bias
-                random_color = random.choice(color_palette[:6])  # Brighter colors
+                random_color = random.choice(color_palette[:8])  # Brighter colors
             elif self.mood == 'negative':
                 # Random color from the palette with a negative bias
                 random_color = random.choice(color_palette[6:])  # Darker colors
@@ -62,13 +62,22 @@ class Canvas:
             color_name = f"RGB{item[2][:3]}"
             color_fore = item[2][3]
             # Commented out ink prints for future testing
-            #print(f"{color_fore}Ink: {color_name}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}{Style.RESET_ALL}")
+            print(f"{color_fore}Ink: {color_name}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}{Style.RESET_ALL}")
 
 # Define a new set of symbols
 new_symbols = {
     'alpha': '🜂',  # Represents the beginning or a new start
     'omega': '🜃',  # Represents the end or completion
     'kappa': '🜄',  # Represents knowledge or learning
+    'delta': '🜅',  # Represents change or difference
+    'phi': '🜆',    # Represents balance or harmony
+    'theta': '🜇',  # Represents thought or contemplation
+    'sigma': '🜈',  # Represents total or sum
+    'rho': '🜉',    # Represents flow or movement
+    'epsilon': '🜊',# Represents small quantity or error
+    'lambda': '🜋', # Represents light or enlightenment
+    'tau': '🜌',    # Represents time or duration
+    'upsilon': '🜍',# Represents mystery or unknown
     # Add more symbols with their meanings here
 }
 
