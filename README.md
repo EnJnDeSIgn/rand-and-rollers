@@ -303,6 +303,7 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
     C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
     C:/user/user_folder_name/gcc/NRNG.exe
     ```
+# Bell Curve from _test.py version of HMG_software.py
 ![Figure_000](https://github.com/user-attachments/assets/bdb541a2-d9c2-48b3-a41d-00700c1d0206)
 
 
