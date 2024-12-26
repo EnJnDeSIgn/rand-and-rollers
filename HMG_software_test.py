@@ -85,7 +85,9 @@ def plot_bell_curve(data):
         #print(f"x = {x}, pdf value = {pdf:.64e}")
 
     # Plot the bell curve (normal distribution)
-    x_values = np.linspace(min(data) - 10, max(data) + 10, 100)
+    x_min = min(data) - 0.1  # Adjusted to zoom in on data range
+    x_max = max(data) + 0.1  # Adjusted to zoom in on data range
+    x_values = np.linspace(x_min, x_max, 100)
     y_values = stats.norm.pdf(x_values, mu, sigma)
     
     plt.plot(x_values, y_values, label='Normal Distribution')
@@ -93,6 +95,7 @@ def plot_bell_curve(data):
     plt.xlabel('Data Points')
     plt.ylabel('Probability Density')
     plt.title('Bell Curve (Normal Distribution)')
+    plt.xlim(x_min, x_max)  # Set x-axis limits to focus on data range
     plt.legend()
     plt.grid(True)
     plt.show()
