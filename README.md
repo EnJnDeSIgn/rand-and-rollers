@@ -242,7 +242,7 @@ C:\Users\enjn\gcc>
    python lg.py
    python test0.py
 
-# NRNG and Python to Make Files for It
+# NRNG and Python to Make Files for It and HMG_software.py, bell curve form HMG_software_test.py
 
 ## Summary of Achievements
 
@@ -303,6 +303,8 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
     C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
     C:/user/user_folder_name/gcc/NRNG.exe
     ```
+![Figure_000](https://github.com/user-attachments/assets/bdb541a2-d9c2-48b3-a41d-00700c1d0206)
+
 
 ### Installation HMG_software.py
 
