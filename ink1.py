@@ -31,7 +31,7 @@ class Ink:
 
     def apply_to_canvas(self, canvas, position):
         # Determine the ink's behavior based on its 'mood'
-        ink_length = 5  # Extend the line by a factor of 5
+        ink_length = 999990  # Extend the line by a factor of 5
         ink_width = 1  # Make the line as thin as possible
 
         for _ in range(ink_length):
@@ -58,6 +58,7 @@ class Canvas:
         self.contents.append((ink, position, ink.color))  # Store the color
 
     def display(self):
+        #print(f"Total items in contents: {len(self.contents)}")  # Debug print to check total items
         for item in self.contents:
             color_name = f"RGB{item[2][:3]}"
             color_fore = item[2][3]
