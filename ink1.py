@@ -62,7 +62,7 @@ class Canvas:
             color_name = f"RGB{item[2][:3]}"
             color_fore = item[2][3]
             # Commented out ink prints for future testing
-            print(f"{color_fore}Ink: {color_name}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}{Style.RESET_ALL}")
+            #print(f"{color_fore}Ink: {color_name}, Position: {item[1]}, Viscosity: {item[0].viscosity}, Mood: {item[0].mood}{Style.RESET_ALL}")
 
 # Define a new set of symbols
 new_symbols = {
