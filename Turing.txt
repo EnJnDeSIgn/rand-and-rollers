@@ -224,4 +224,94 @@ aligns with Turing's argument that working out consequences is valuable.
 (¬𝑄→𝑅)∧(¬𝑄→𝑈)∧(𝑈→𝑊)
 captures the value and necessity of reasoning.
 
-This keeps our logical analysis clean without expanding the table further.
+Simplified and Extended Logic Table
+P (Fact Presented)	Q (Immediate Consequences)	~Q (Not Immediate Consequences)	R (Value of Working Out)	S (Prone to Fallacy)	T (No Virtue in Working Out)	U (Reasoning Necessary)	V (Immediate Understanding Possible)	W (Practical Utility)	Conclusion
+True	True	False	False	True	True	False	True	False	Fallacy and common mistake
+True	False	True	True	True	False	True	False	True	Supported by Turing
+True	False	True	True	False	False	True	False	True	Logical and valuable
+False	True	False	False	True	True	False	True	False	Not applicable
+False	False	True	True	False	False	True	False	True	Not applicable
+
+
+Absolutely, let's dive into logical fallacies (yes, you're close with the spelling!) and make this more insightful. Logical fallacies are errors in reasoning that undermine the logic of an argument. We can certainly highlight these in our table to create awareness about the types of bad logic that could be at play.
+
+Logical Fallacies to Consider:
+Hasty Generalization: Making broad generalizations based on a small sample.
+
+False Dilemma: Presenting only two options when more exist.
+
+Circular Reasoning: The argument repeats what has already been assumed.
+
+Ad Hominem: Attacking the person instead of the argument.
+
+Appeal to Authority: Assuming something is true because an expert says it is.
+
+Appeal to Ignorance: Assuming something is true because it hasn't been proven false.
+
+Slippery Slope: Assuming one small step will lead to extreme consequences.
+
+Updated Logic Table with Fallacy Awareness:
+We'll indicate potential fallacies for rows with bad logic.
+
+P (Fact Presented)	Q (Immediate Consequences)	~Q (Not Immediate Consequences)	R (Value of Working Out)	S (Prone to Fallacy)	T (No Virtue in Working Out)	U (Reasoning Necessary)	V (Immediate Understanding Possible)	W (Practical Utility)	Conclusion	Fallacy Awareness
+True	            True	                    False	                        False	                    True	                True	                        False	                True	                                False	                Fallacy and common mistake	False Dilemma, Appeal to Authority
+True	            False	                    True	                        True	                    True	                False	                        True	                False	                                True	                Supported by Turing	None
+True	            False	                    True	                        True	                    False	                False	                        True	                False	                                True	                Logical and valuable	None
+False	            True	                    False	                        False	                    True	                True	                        False	                True	                                False	                Not applicable	Hasty Generalization, Circular Reasoning
+False	            False	                    True	                        True	                    False	                False	                        True	                False	                                True	                Not applicable	Appeal to Ignorance, Slippery Slope
+Breakdown of Fallacies:
+Row 1:
+
+Fallacy and common mistake: This row assumes immediate understanding without working out consequences, leading to a
+false dilemma (only two options: immediate understanding or no value) and appeal to authority (relying on assumed expertise without reasoning).
+
+Row 2:
+
+Supported by Turing: This row correctly identifies the value of reasoning and practical utility, with no fallacies.
+
+Row 3:
+
+Logical and valuable: This row is also free from logical fallacies, focusing on the necessity and utility of reasoning.
+
+Row 4:
+
+Not applicable: Assumes immediate understanding without presenting a fact, leading to hasty generalization 
+(broad claim with limited evidence) and circular reasoning (repeating assumptions without proof).
+
+Row 5:
+
+Not applicable: Dismisses consequences due to lack of immediate understanding, leading to appeal to ignorance
+(assuming truth from lack of evidence) and slippery slope (assuming extreme consequences from small steps).
+
+This table now highlights logical fallacies, providing awareness about the types of bad logic that could be present.
+
+Applying to Our Extended Table:
+Fallacy and Common Mistake:
+
+𝑃→𝑄→¬𝑅→𝑆→𝑇→¬𝑈→𝑉→¬𝑊
+If a fact is presented (P), then all consequences are immediately understood (Q), leading to no value in working them out 
+(¬𝑅), prone to fallacy (S), no virtue in working out (T), no necessity in reasoning 
+(¬𝑈), assumed immediate understanding (V), no practical utility (¬𝑊).
+
+Supported by Turing:
+
+𝑃→¬𝑄→𝑅→𝑆→¬𝑇→𝑈→¬𝑉→𝑊
+
+If a fact is presented (P), then all consequences are not immediately understood 
+(¬𝑄), leading to value in working them out (R), prone to fallacy (S), virtue in working out 
+(¬𝑇), necessity in reasoning (U), not assumed immediate understanding (¬𝑉), practical utility (W).
+
+Logical and Valuable:
+
+𝑃→¬𝑄→𝑅→¬𝑆→¬𝑇→𝑈→¬𝑉→𝑊
+
+If a fact is presented (P), then all consequences are not immediately 
+understood (¬𝑄), leading to value in working them out (R), not prone to fallacy 
+(¬𝑆), virtue in working out (¬𝑇), necessity in reasoning (U), not
+assumed immediate understanding (¬𝑉), practical utility (W).
+
+Summary:
+This conversion captures the logical relationships using formal operators,
+based on the insights from Turing and our extended analysis. Each combined
+equation reflects the logical path from the presentation of a fact to the final
+conclusion, emphasizing the importance of reasoning and practical utility.
