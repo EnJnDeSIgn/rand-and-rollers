@@ -225,6 +225,10 @@ C:\Users\enjn\gcc>
       2^10^9 in scientific notation is approximately: 10^.3010299956639811992645264E+09
 This is Approximately = 30 102 999 566 . 398 119 926 452 64
 
+C:\Users\enjn\gcc>lg.py
+2^1000000000 in scientific notation is approximately: 10^301029995.6639811992645263671875000 
+with this print size I get a differnt decamal mostly
+
 C:\Users\enjn\gcc>
 
 ## Installation
