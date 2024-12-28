@@ -1,5 +1,6 @@
  Hi... I'm Turing's Art consultant on brainstorming and concepts,
     Metaphoric statistical math poems...And lover of everything random!    
+    Copilot is my co author so I don't know who all helped with our code
 
     listen to my stanza, truth is in the moment but, these are just words and empty...    
 
