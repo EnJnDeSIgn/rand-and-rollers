@@ -2,6 +2,8 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
+# Define the understanding function (f(x)), I need a copilot sub for this..... tooo long.
+# Calculate the derivative (f'(x))
 
 groups = [
     ["i", "+", "5", "8", "a", "p", "4", "r", "/"],
