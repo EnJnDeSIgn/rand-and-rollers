@@ -14,11 +14,10 @@ def roll_die(die_type):
     def group_selection():
         return random.choice(shared_groups)
 
-    def generate_numbers():
+    def generate_numbers(iterations):
         final_numbers = []
-        roll_count = 30
 
-        for _ in range(roll_count):
+        for _ in range(iterations):
             selected_value = group_selection()
             final_numbers.append(int(random.choice(selected_value)))
         
@@ -27,7 +26,20 @@ def roll_die(die_type):
         current_number = int(random_number_str, 2)
         return current_number
 
-    current_number = generate_numbers()
+    # Adjust the number of iterations based on the die type
+    iterations_map = {
+        4: 30,
+        6: 30,
+        8: 30,
+        10: 30,
+        12: 50,
+        20: 50,
+        30: 70,
+        100: 100
+    }
+
+    iterations = iterations_map[die_type]
+    current_number = generate_numbers(iterations)
     return current_number % die_type + 1
 
 if __name__ == "__main__":
