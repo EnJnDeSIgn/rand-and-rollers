@@ -31,11 +31,16 @@ def roll_die(die_type):
     return current_number % die_type + 1
 
 if __name__ == "__main__":
+    die_type = int(input("Enter die type (4, 6, 8, 10, 12, 20, 30, or 100): "))
+
     while True:
-        die_type = int(input("Enter die type (4, 6, 8, 10, 12, 20, 30, or 100): "))
         result = roll_die(die_type)
         print(f"Random D{die_type}: {result}")
         
         user_input = input("Roll again? (Y/N): ").strip().lower()
         if user_input != 'y':
-            break
+            change_die = input("Would you like to select a different die? (Y/N): ").strip().lower()
+            if change_die == 'y':
+                die_type = int(input("Enter die type (4, 6, 8, 10, 12, 20, 30, or 100): "))
+            else:
+                break
