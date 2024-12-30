@@ -341,8 +341,14 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
    ```
    pip install numpy matplotlib scipy
    python student_help.py
-   
-# Programs edited in notepad + +     
+
+# program die_roller.py
+![Figure_01](https://github.com/user-attachments/assets/7f54a558-a447-42b4-95a2-c15dfdc0b13e)
+Mean (mu): 49.22 This value is very close to the expected average for a D100, which is 50.5. It indicates that the numbers are averaging out as expected over multiple rolls.
+
+Standard Deviation (sigma): 30.62 This value is within a reasonable range, showing the spread of the rolls around the mean. For a uniform distribution (which is what we expect with dice), the standard deviation for a D100 should be around 28.87. So, your results are pretty close, indicating a good spread of values.
+
+# programs edited in notepad + +     
 
 
    
