@@ -8,44 +8,34 @@ shared_groups = [
 ]
 
 def roll_die(die_type):
-    if die_type not in [4, 6, 8, 10, 12]:
+    if die_type not in [4, 6, 8, 10, 12, 20, 30, 100]:
         raise ValueError("Unsupported die type")
 
     def group_selection():
         return random.choice(shared_groups)
 
-    def number_selection(value, ranges):
-        if value == '0':
-            return random.randint(0, ranges[0])
-        else:
-            return random.randint(ranges[1], ranges[2])
-
-    def generate_numbers(value_ranges):
+    def generate_numbers():
         final_numbers = []
         roll_count = 30
 
         for _ in range(roll_count):
             selected_value = group_selection()
-            final_numbers.append(number_selection(selected_value, value_ranges))
+            final_numbers.append(int(random.choice(selected_value)))
         
-        binary_numbers = [str(num % 2) for num in final_numbers]
+        binary_numbers = [str(num) for num in final_numbers]
         random_number_str = ''.join(binary_numbers)
         current_number = int(random_number_str, 2)
         return current_number
 
-    value_ranges_map = {
-        4: (1, 2, 3),
-        6: (2, 3, 5),
-        8: (3, 4, 7),
-        10: (4, 5, 9),
-        12: (5, 6, 11)
-    }
-    
-    current_number = generate_numbers(value_ranges_map[die_type])
+    current_number = generate_numbers()
     return current_number % die_type + 1
 
-# Example usage:
 if __name__ == "__main__":
-    die_type = int(input("Enter die type (4, 6, 8, 10, or 12): "))
-    result = roll_die(die_type)
-    print(f"Random D{die_type}: {result}")
+    while True:
+        die_type = int(input("Enter die type (4, 6, 8, 10, 12, 20, 30, or 100): "))
+        result = roll_die(die_type)
+        print(f"Random D{die_type}: {result}")
+        
+        user_input = input("Roll again? (Y/N): ").strip().lower()
+        if user_input != 'y':
+            break
