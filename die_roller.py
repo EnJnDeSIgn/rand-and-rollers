@@ -1,54 +1,51 @@
 import random
 
-# Function to generate binary numbers and convert to specified range
-def generate_numbers(group_selection, number_selection, value_ranges):
-    final_numbers = []
-    roll_count = 30
+shared_groups = [
+    "1000000001", "1100100001", "1111111111", "1111101000",
+    "0100011100", "0011000000", "1111101110", "0001001011",
+    "0100101100", "1011000101", "0110101010", "1001010110",
+    "1101000110", "0110110011", "0011100101", "0101101010"
+]
 
-    for _ in range(roll_count):
-        selected_value = group_selection()
-        final_numbers.append(number_selection(selected_value, value_ranges))
-    
-    binary_numbers = [str(num % 2) for num in final_numbers]
-    random_number_str = ''.join(binary_numbers)
-    current_number = int(random_number_str, 2)
-    return current_number
-
-# Roll functions for different dice
-def roll_d4():
-    groups = ["1111110000", "1010011110", "1100101000", "1001010011", "0110001100", "1110110011", "0101110110", "1100011100", "1000001000", "0111001001"]
-    def group_selection(): return random.choice(groups)
-    def number_selection(value, ranges): return random.randint(0, 1) if value == '0' else random.randint(2, 3)
-    current_number = generate_numbers(group_selection, number_selection, (0, 1, 2, 3))
-    return current_number % 4 + 1
-
-def roll_d6():
-    groups = ["0101010100", "1000100111", "0100000001", "1101011000", "0011111000", "0100001101", "1001001101", "0110110011", "1101111100", "1011101011"]
-    def group_selection(): return random.choice(groups)
-    def number_selection(value, ranges): return random.randint(0, 2) if value == '0' else random.randint(3, 5)
-    current_number = generate_numbers(group_selection, number_selection, (0, 1, 2, 3, 4, 5))
-    return current_number % 6 + 1
-
-def roll_d8():
-    groups = ["0000111111", "0111110101", "0100010111", "0000000000", "0001010100", "0011001111", "1100101001", "1010110110", "1101001110", "0111001111"]
-    def group_selection(): return random.choice(groups)
-    def number_selection(value, ranges): return random.randint(0, 3) if value == '0' else random.randint(4, 7)
-    current_number = generate_numbers(group_selection, number_selection, (0, 1, 2, 3, 4, 5, 6, 7))
-    return current_number % 8 + 1
-
-# Function to roll a die based on its type
 def roll_die(die_type):
-    if die_type == 4:
-        return roll_d4()
-    elif die_type == 6:
-        return roll_d6()
-    elif die_type == 8:
-        return roll_d8()
-    else:
+    if die_type not in [4, 6, 8, 10, 12]:
         raise ValueError("Unsupported die type")
 
-# Example usage
+    def group_selection():
+        return random.choice(shared_groups)
+
+    def number_selection(value, ranges):
+        if value == '0':
+            return random.randint(0, ranges[0])
+        else:
+            return random.randint(ranges[1], ranges[2])
+
+    def generate_numbers(value_ranges):
+        final_numbers = []
+        roll_count = 30
+
+        for _ in range(roll_count):
+            selected_value = group_selection()
+            final_numbers.append(number_selection(selected_value, value_ranges))
+        
+        binary_numbers = [str(num % 2) for num in final_numbers]
+        random_number_str = ''.join(binary_numbers)
+        current_number = int(random_number_str, 2)
+        return current_number
+
+    value_ranges_map = {
+        4: (1, 2, 3),
+        6: (2, 3, 5),
+        8: (3, 4, 7),
+        10: (4, 5, 9),
+        12: (5, 6, 11)
+    }
+    
+    current_number = generate_numbers(value_ranges_map[die_type])
+    return current_number % die_type + 1
+
+# Example usage:
 if __name__ == "__main__":
-    die_type = int(input("Enter die type (4, 6, or 8): "))
+    die_type = int(input("Enter die type (4, 6, 8, 10, or 12): "))
     result = roll_die(die_type)
     print(f"Random D{die_type}: {result}")
