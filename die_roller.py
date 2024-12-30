@@ -14,32 +14,33 @@ def roll_die(die_type):
     def group_selection():
         return random.choice(shared_groups)
 
-    def generate_numbers(iterations):
+    def generate_numbers(iterations, roll_count):
         final_numbers = []
 
         for _ in range(iterations):
             selected_value = group_selection()
-            final_numbers.append(int(random.choice(selected_value)))
+            for _ in range(roll_count):
+                final_numbers.append(int(random.choice(selected_value)))
         
         binary_numbers = [str(num) for num in final_numbers]
         random_number_str = ''.join(binary_numbers)
         current_number = int(random_number_str, 2)
         return current_number
 
-    # Adjust the number of iterations based on the die type
-    iterations_map = {
-        4: 30,
-        6: 30,
-        8: 30,
-        10: 30,
-        12: 50,
-        20: 50,
-        30: 70,
-        100: 100
+    # Adjust the number of iterations and roll count based on the die type
+    config_map = {
+        4: (30, 30),
+        6: (30, 30),
+        8: (30, 30),
+        10: (30, 30),
+        12: (50, 50),
+        20: (50, 50),
+        30: (70, 50),
+        100: (100, 50)
     }
 
-    iterations = iterations_map[die_type]
-    current_number = generate_numbers(iterations)
+    iterations, roll_count = config_map[die_type]
+    current_number = generate_numbers(iterations, roll_count)
     return current_number % die_type + 1
 
 if __name__ == "__main__":
