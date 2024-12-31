@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
             change_die = input("Would you like to select a different die? (Y/N): ").strip().lower()
             if change_die == 'n':
-                break
+                exit()
             elif change_die != 'y':
                 print("Invalid input. Please enter 'Y' to select a different die or 'N' to stop.")
                 continue
