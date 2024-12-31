@@ -17,7 +17,8 @@ shared_groups = [
     "0100101100", "0111001001", "1111010010", "0110001110", "1111111011", "1101000010",
     "1001111011", "1101010000", "0001110110", "1101010101", "0001101100", "0011010011",
     "1101110010", "0000110000", "0111111011", "1010011001", "1101101101", "0110010110",
-    "0011001101", "0010101011", "1101000110", "1011010101", "1010000101", "0010111010"
+    "0011001101", "0010101011", "1101000110", "1011010101", "1010000101", "0010111010",
+    "0100011110", "0101100001", "0100100001", "1100110011", "1000000000", "0100001111"
 ]
 
 def roll_die(die_type):
@@ -66,12 +67,18 @@ if __name__ == "__main__":
                 print(f"Random D{die_type}: {result}")
 
                 user_input = input("Roll again? (Y/N): ").strip().lower()
-                if user_input != 'y':
+                if user_input == 'n':
                     break
+                elif user_input != 'y':
+                    print("Invalid input. Please enter 'Y' to roll again or 'N' to stop.")
+                    continue
 
             change_die = input("Would you like to select a different die? (Y/N): ").strip().lower()
-            if change_die != 'y':
+            if change_die == 'n':
                 break
+            elif change_die != 'y':
+                print("Invalid input. Please enter 'Y' to select a different die or 'N' to stop.")
+                continue
 
         except ValueError:
             print("Invalid die type. Please enter a valid number from the list (4, 6, 8, 10, 12, 20, 30, or 100).")
