@@ -302,7 +302,7 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
 5. Execute the following commands:
     ```
     C:/user/user_folder_name/gcc/pip install numpy pandas
-    C:/user/user_folder_name/gcc/python GD.py.py
+    C:/user/user_folder_name/gcc/python GD.py
     C:/user/user_folder_name/gcc/python tidesGEN.py
     C:/user/user_folder_name/gcc/gfortran -o NRNG NRNG.f90
     C:/user/user_folder_name/gcc/NRNG.exe
@@ -313,15 +313,15 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
 
 ### Installation HMG_software.py
 
-1. Ensure you have Python installed on your computer.
+1. Ensure you have Python installed on your computer. You may only need the main file.
 2. Download the `HMG_software.py` and the files `GD.py.py` and `tidesGEN.py`.
 3. Open a terminal and navigate to the directory where they are located.
 4. Execute the following commands:
     ```
-    C:/user/user_folder_name/gcc/pip install numpy pandas
-    C:/user/user_folder_name/gcc/python GD.py.py
-    C:/user/user_folder_name/gcc/python tidesGEN.py
-    C:/user/user_folder_name/gcc/python HMG_software.py
+    C:/user/user_folder_name/pip install numpy pandas
+    C:/user/user_folder_name/python GD.py
+    C:/user/user_folder_name/python tidesGEN.py
+    C:/user/user_folder_name/python HMG_software.py
     ```
 
 ## Program Student Help
