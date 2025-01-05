@@ -62,6 +62,8 @@ def main():
                 final_numbers[i] = int(random.random() * 5) + 5
             random_number_str += str(final_numbers[i])
         
+        print(random_number_str)  # Print each generated number
+        
         current_number = float(random_number_str)
         carry_over += current_number
         total_sum += carry_over
