@@ -96,12 +96,12 @@ def main():
     else:
         exponent = (10 ** int(random.random() * 32)) / total_sum
 
-    print(f"Total sum (in scientific notation): {total_sum:.10e}")
-    print(f"Mean: {mean}")
-    print(f"Standard Deviation: {std_dev}")
+    print(f"Total sum (in scientific notation): {total_sum:.32e}")
+    print(f"Mean: {mean:.52e}")
+    print(f"Standard Deviation: {std_dev:.60e}")
     print(f"Most Frequent Digit(s): {most_frequent_digits}")
     print(f"Random Select: {random_select}")
-    print(f"Random Exponent: {exponent:.25e}")
+    print(f"Random Exponent: {exponent:.94e}")
 
 if __name__ == "__main__":
     main()
