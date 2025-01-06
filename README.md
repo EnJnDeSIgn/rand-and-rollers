@@ -348,6 +348,28 @@ Mean (mu): 49.22 This value is very close to the expected average for a D100, wh
 
 Standard Deviation (sigma): 30.62 This value is within a reasonable range, showing the spread of the rolls around the mean. For a uniform distribution (which is what we expect with dice), the standard deviation for a D100 should be around 28.87. So, your results are pretty close, indicating a good spread of values.
 
+# Program D2b4.exe that runs Db4.exe for it's random binary numbers, Maybe useful in tracking down lost numbers
+    ```
+    C:\Users\enjn\gcc>D2b4.exe
+    Binary1:  11001101101000110000001110110
+    Binary2:  01010110000000111101111000111
+    Binary1 is greater than Binary2.
+    Difference of binary numbers: 001110111100111110010010101111
+    Sum of binary numbers:        100100011101001101110000111101
+    OR of binary numbers:  011011111101000111101111110111
+    AND of binary numbers: 001000100000000110000001000110
+    XOR of binary numbers: 010011011101000001101110110001
+
+    C:\Users\enjn\gcc>
+## Installation
+1. Ensure you have gcc installed on your computer.
+2. Download the `D2b4.f90` and `Db4.f90`files.
+3. Open a terminal and navigate to the directory where the `D2b4.f90` files are located.
+4. and in gcc folder or is set up too use folder file is located
+5.     C:/user/user_folder_name/gcc/gfortran -o Db4 Db4.f90
+6.     C:/user/user_folder_name/gcc/gfortran -o D2b4 D2b4.f90
+7.     C:/user/user_folder_name/gcc/D2b4.exe
+
 # programs edited in notepad + +     
 
 
