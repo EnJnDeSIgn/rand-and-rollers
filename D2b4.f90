@@ -1,7 +1,7 @@
 program D2b4_EnJnDeSIgn2024
     implicit none
     character(len=30) :: binary1, binary2, result
-    integer :: int1, int2, difference, sum
+    integer :: int1, int2, difference, sum, or_result, and_result, xor_result
 	
     ! Function prototypes
     !integer function bin2dec(binary)
@@ -17,18 +17,20 @@ program D2b4_EnJnDeSIgn2024
     ! Example binary numbers (replace these with actual output from Db4.exe)
     ! binary1 = "011001011101011000000110011000"
     ! binary2 = "011001011101011000000110011001"
+    
+    ! Example binary numbers (replace these with actual output from Db4.exe)
     call execute_command_line('Db4.exe > output3.txt')
     call execute_command_line('Db4.exe > output4.txt')
-	
+
     ! Open the output files and read the binary numbers
     open(unit=10, file='output3.txt', status='old')
     read(10, '(A30)') binary1
     close(10)
-	
+    
     open(unit=11, file='output4.txt', status='old')
     read(11, '(A30)') binary2
     close(11)
-	
+    
     ! Print the binary numbers being compared
     print *, "Binary1: ", binary1
     print *, "Binary2: ", binary2
@@ -40,33 +42,33 @@ program D2b4_EnJnDeSIgn2024
     ! Compare the integers
     if (int1 == int2) then
         print *, "The binary numbers are equal."
-		! Check if the sum will be too large
-		if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
-			print *, "Error: Sum of binary numbers will be to large."
-		else
-		! Add the integers
-		sum = int1 + int2
-		! Convert the sum back to binary
-		result = dec2bin(sum)
-		print *, "Sum of binary numbers: ", result
-		end if
+        ! Check if the sum will be too large
+        if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
+            print *, "Error: Sum of binary numbers will be too large."
+        else
+            ! Add the integers
+            sum = int1 + int2
+            ! Convert the sum back to binary
+            result = dec2bin(sum)
+            print *, "Sum of binary numbers:        ", result
+        end if
     else if (int1 > int2) then
         print *, "Binary1 is greater than Binary2."
-		! Subtract the integers
-		difference = int1 - int2
-		! Convert the difference back to binary
-		result = dec2bin(difference)
-		print *, "Difference of binary numbers: ", result
-		! Check if the sum is too large
-		if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
-			print *, "Error: Sum of binary numbers will be to large."
-		else
-		! Add the integers
-		sum = int1 + int2
-		! Convert the sum back to binary
-		result = dec2bin(sum)
-		print *, "Sum of binary numbers: ", result
-		end if
+        ! Subtract the integers
+        difference = int1 - int2
+        ! Convert the difference back to binary
+        result = dec2bin(difference)
+        print *, "Difference of binary numbers: ", result
+        ! Check if the sum is too large
+        if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
+            print *, "Error: Sum of binary numbers will be too large."
+        else
+            ! Add the integers
+            sum = int1 + int2
+            ! Convert the sum back to binary
+            result = dec2bin(sum)
+            print *, "Sum of binary numbers:        ", result
+        end if
     else
         print *, "Binary1 is less than Binary2."
         ! Subtract the integers
@@ -74,17 +76,27 @@ program D2b4_EnJnDeSIgn2024
         ! Convert the difference back to binary
         result = dec2bin(difference)
         print *, "Difference of binary numbers: ", result
-		! Check if the sum is too large
-		if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
-			print *, "Error: Sum of binary numbers will be to large."
-		else
-		! Add the integers
-		sum = int2 + int1
-		! Convert the sum back to binary
-		result = dec2bin(sum)
-		print *, "Sum of binary numbers: ", result
-		end if
+        ! Check if the sum is too large
+        if (binary1(1:1) == '1' .and. binary2(1:1) == '1') then
+            print *, "Error: Sum of binary numbers will be too large."
+        else
+            ! Add the integers
+            sum = int2 + int1
+            ! Convert the sum back to binary
+            result = dec2bin(sum)
+            print *, "Sum of binary numbers:        ", result
+        end if
     end if
+
+    ! Calculate OR, AND, XOR
+    or_result = ior(int1, int2)
+    and_result = iand(int1, int2)
+    xor_result = ieor(int1, int2)
+
+    ! Convert results to binary strings
+    print *, "OR of binary numbers:  ", dec2bin(or_result)
+    print *, "AND of binary numbers: ", dec2bin(and_result)
+    print *, "XOR of binary numbers: ", dec2bin(xor_result)
 
 contains
 
