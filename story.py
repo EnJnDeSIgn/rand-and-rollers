@@ -112,6 +112,7 @@ clothes = random.choice(clothes_)
 character0 = random.choice(characters)
 complex_cha0 = random.choice(complex_chas)
 location0 = random.choice(locations)
+plot_point0 = random.choice(plot_points)
 
 # Assemble the story
 story = f"{character} found themselves {location}. They were there to {plot_point}."
@@ -131,7 +132,8 @@ story = f"Before the could finish {character0} that looked {complex_cha0}"
 
 print(story)
 print("quickly ran over and punched them in the nose, knocking them unconscious!")
+print("There after,")
 
-story = f"There after they woke up and found them selfs {location0}."
+story = f"they woke up and found them selfs {location0} where they were asked {plot_point0}."
 
 print(story)
