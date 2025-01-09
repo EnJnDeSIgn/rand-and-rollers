@@ -2,6 +2,7 @@ program D2b4_EnJnDeSIgn2024
     implicit none
     character(len=30) :: binary1, binary2, result
     integer :: int1, int2, difference, sum, or_result, and_result, xor_result
+    call random_seed()
 	
     ! Function prototypes
     !integer function bin2dec(binary)
@@ -16,20 +17,12 @@ program D2b4_EnJnDeSIgn2024
 
     ! Example binary numbers (replace these with actual output from Db4.exe)
     ! binary1 = "011001011101011000000110011000"
-    ! binary2 = "011001011101011000000110011001"
-    
+    ! binary2 = "011001011101011000000110011001"    
     ! Example binary numbers (replace these with actual output from Db4.exe)
-    call execute_command_line('Db4.exe > output3.txt')
-    call execute_command_line('Db4.exe > output4.txt')
-
-    ! Open the output files and read the binary numbers
-    open(unit=10, file='output3.txt', status='old')
-    read(10, '(A30)') binary1
-    close(10)
     
-    open(unit=11, file='output4.txt', status='old')
-    read(11, '(A30)') binary2
-    close(11)
+    ! Generate random 30-bit binary numbers
+    call generate_random_binary(binary1)
+    call generate_random_binary(binary2)
     
     ! Print the binary numbers being compared
     print *, "Binary1: ", binary1
@@ -99,6 +92,23 @@ program D2b4_EnJnDeSIgn2024
     print *, "XOR of binary numbers: ", dec2bin(xor_result)
 
 contains
+
+    ! Function to generate a random 30-bit binary number
+    subroutine generate_random_binary(binary)
+        implicit none
+        character(len=30), intent(out) :: binary
+        integer :: i
+        real :: rand_val
+        binary = ''
+        do i = 1, 30
+            call random_number(rand_val)
+            if (rand_val < 0.5) then
+                binary(i:i) = '0'
+            else
+                binary(i:i) = '1'
+            end if
+        end do
+    end subroutine generate_random_binary
 
     ! Function to convert binary string to integer
     integer function bin2dec(binary)
