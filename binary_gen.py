@@ -41,7 +41,7 @@ def generate_random_binary():
 
     selected_numbers = []
     for _ in range(30):
-        selected_group = random.randint(0, 251)
+        selected_group = random.randint(0, 250)
         selected_number = random.randint(0, 9)
         selected_numbers.append(groups[selected_group][selected_number])
 
