@@ -6,6 +6,12 @@ def bin2dec(binary):
 def dec2bin(decimal):
     return bin(decimal)[2:].zfill(30)
 
+# The number of combinations of a binary string of length 10 can be calculated as 
+# 2^10. This is because each digit in the binary string can be either 0 or 1. So, 
+# 2^10=1024.
+# you're absolutely right! The number of subsets of the set {0, 1, 2, ..., 9} and
+# the number of binary strings of length 10 are both 1024.
+# Quite the neat mathematical connection!
 def generate_random_binary():
     groups = [
         "1000000001", "1100100001", "0101111001", "1111101000", "0000110001", "0010001100", "1000000101", "0101110111", "0101100000",
@@ -41,12 +47,13 @@ def generate_random_binary():
         "0011011010", "1111111110", "0100100100", "0001011010", "1011111100", "1000100010", "1111111111", "0111011011", "0100110011",   #269
         "0101000001", "1011001100", "0011010111", "1100000100", "1011100011", "0000100000", "1100100111", "1011000011", "1011001000",   #278
         "0010101000", "1001011010", "0000010000", "1110101110", "1110011001", "0010100100", "1011101110", "1011111000", "0010100000",   #287
-        "1000101110", "1001011000"
+        "1000101110", "1001011000", "0011100010", "1110111110", "0111101100", "1010011000", "0100001001", "1011011001", "1001001100",   #296
+        "1011001111", "1000010100", "0111101110", "0111110100", "0011100000"
     ]
 
     selected_numbers = []
     for _ in range(30):
-        selected_group = random.randint(0, 288)
+        selected_group = random.randint(0, 300)
         selected_number = random.randint(0, 9)
         selected_numbers.append(groups[selected_group][selected_number])
 
