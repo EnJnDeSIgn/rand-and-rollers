@@ -94,12 +94,15 @@ def generate_random_binary():
         "1000100100", "1110111100", "1010111011", "1100110101", "0111001011", "1010010101", "1001010001", "0000011001", "1100010011",   # 702
         "1010100101", "0110001010", "1111010110", "1001101010", "0101000100", "0110001011", "0101001011", "0100111110", "0110101110",   # 711
         "0101000101", "1111101001", "1001011011", "1101011011", "0100111000", "1110000110", "0101110100", "1011110100", "0111010110",   # 720
-        "1000101001", "1001101110", "0010111011", "1101101011", "1011000001", "1010110001", "0000110111", "1110010100"
+        "1000101001", "1001101110", "0010111011", "1101101011", "1011000001", "1010110001", "0000110111", "1110010100", "0111011010",   # 729
+        "0000101010", "0001110000", "0101010001", "0010110110", "1111101101", "0011011111", "0000110101", "1011011000", "0101010110",   # 738
+        "0011111101", "1010001101", "0110011100", "0010101111", "0001111000", "1010101100", "1001010101", "1100101110", "1101000111",   # 747
+        "0010000111", "1111101010", "0001001001", "1010110110", "0111011101"
     ]
 
     selected_numbers = []
     for _ in range(30):
-        selected_group = random.randint(0, 727)
+        selected_group = random.randint(0, 751)
         selected_number = random.randint(0, 9)
         selected_numbers.append(groups[selected_group][selected_number])
 
@@ -118,34 +121,31 @@ def main():
 
     if int1 == int2:
         print("The binary numbers are equal.")
-        if binary1[0] == '1' and binary2[0] == '1':
-            print("Error: Sum of binary numbers will be too large.")
-        else:
-            sum = int1 + int2
-            result = dec2bin(sum)
-            print("Sum of binary numbers:        ", result)
+        sum = int1 + int2
+        result = dec2bin(sum).zfill(40)
+        if result[:10] == '0' * 10:
+            result = result.lstrip('0')
+        print("Sum of binary numbers:        ", result)
     elif int1 > int2:
         print("Binary1 is greater than Binary2.")
         difference = int1 - int2
         result = dec2bin(difference)
         print("Difference of binary numbers: ", result)
-        if binary1[0] == '1' and binary2[0] == '1':
-            print("Error: Sum of binary numbers will be too large.")
-        else:
-            sum = int1 + int2
-            result = dec2bin(sum)
-            print("Sum of binary numbers:        ", result)
+        sum = int1 + int2
+        result = dec2bin(sum).zfill(40)
+        if result[:10] == '0' * 10:
+            result = result.lstrip('0')
+        print("Sum of binary numbers:        ", result)
     else:
         print("Binary1 is less than Binary2.")
         difference = int2 - int1
         result = dec2bin(difference)
         print("Difference of binary numbers: ", result)
-        if binary1[0] == '1' and binary2[0] == '1':
-            print("Error: Sum of binary numbers will be too large.")
-        else:
-            sum = int2 + int1
-            result = dec2bin(sum)
-            print("Sum of binary numbers:        ", result)
+        sum = int2 + int1
+        result = dec2bin(sum).zfill(40)
+        if result[:10] == '0' * 10:
+            result = result.lstrip('0')
+        print("Sum of binary numbers:        ", result)
 
     or_result = int1 | int2
     and_result = int1 & int2
