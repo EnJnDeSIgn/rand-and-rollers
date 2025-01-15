@@ -97,12 +97,18 @@ def generate_random_binary():
         "1000101001", "1001101110", "0010111011", "1101101011", "1011000001", "1010110001", "0000110111", "1110010100", "0111011010",   # 729
         "0000101010", "0001110000", "0101010001", "0010110110", "1111101101", "0011011111", "0000110101", "1011011000", "0101010110",   # 738
         "0011111101", "1010001101", "0110011100", "0010101111", "0001111000", "1010101100", "1001010101", "1100101110", "1101000111",   # 747
-        "0010000111", "1111101010", "0001001001", "1010110110", "0111011101"
+        "0010000111", "1111101010", "0001001001", "1010110110", "0111011101", "1000110001", "0011111100", "1000001000", "1010010110",   # 756
+        "0010110000", "0001100011", "1011110111", "1111010111", "0100011000", "1010111111", "0100111100", "0011101111", "1110011101",   # 765
+        "0100001010", "1110101101", "1000111110", "1011000110", "0000100111", "1000001110", "0100010100", "1110101011", "0111011000",   # 774
+        "1110001000", "1000100001", "1110101001", "1000011000", "1100001100", "0001101011", "1011010011", "1011101100", "0001100100",   # 783
+        "1101010010", "1001110110", "0011110010", "1100010100", "0110000100", "1001111010", "1010101001", "1100010111", "1100011110",   # 792
+        "1010000100", "1101010100", "0111000110", "1111001100", "0010010010", "0010110010", "1101011001", "0110000111", "0100001011",   # 801
+        "1101000001", "0100111010", "1011011110", "0111001100", "1010111110", "0000001010"
     ]
 
     selected_numbers = []
     for _ in range(30):
-        selected_group = random.randint(0, 751)
+        selected_group = random.randint(0, 806)
         selected_number = random.randint(0, 9)
         selected_numbers.append(groups[selected_group][selected_number])
 
@@ -119,41 +125,30 @@ def main():
     int1 = bin2dec(binary1)
     int2 = bin2dec(binary2)
 
+    # Calculate the difference, sum, OR, AND, XOR results
+    difference_result = dec2bin(abs(int1 - int2)).zfill(30)
+    sum_result = dec2bin(int1 + int2)
+    or_result = dec2bin(int1 | int2).zfill(30)
+    and_result = dec2bin(int1 & int2).zfill(30)
+    xor_result = dec2bin(int1 ^ int2).zfill(30)
+
     if int1 == int2:
         print("The binary numbers are equal.")
-        sum = int1 + int2
-        result = dec2bin(sum).zfill(40)
-        if result[:10] == '0' * 10:
-            result = result.lstrip('0')
-        print("Sum of binary numbers:        ", result)
     elif int1 > int2:
         print("Binary1 is greater than Binary2.")
-        difference = int1 - int2
-        result = dec2bin(difference)
-        print("Difference of binary numbers: ", result)
-        sum = int1 + int2
-        result = dec2bin(sum).zfill(40)
-        if result[:10] == '0' * 10:
-            result = result.lstrip('0')
-        print("Sum of binary numbers:        ", result)
     else:
         print("Binary1 is less than Binary2.")
-        difference = int2 - int1
-        result = dec2bin(difference)
-        print("Difference of binary numbers: ", result)
-        sum = int2 + int1
-        result = dec2bin(sum).zfill(40)
-        if result[:10] == '0' * 10:
-            result = result.lstrip('0')
-        print("Sum of binary numbers:        ", result)
 
-    or_result = int1 | int2
-    and_result = int1 & int2
-    xor_result = int1 ^ int2
+    # Remove leading zeros if the first 10 digits are zeros
+    if sum_result[:10] == '0' * 10:
+        sum_result = sum_result.lstrip('0')
+    sum_result = sum_result.zfill(30)
 
-    print("OR of binary numbers:  ", dec2bin(or_result))
-    print("AND of binary numbers: ", dec2bin(and_result))
-    print("XOR of binary numbers: ", dec2bin(xor_result))
+    print("Difference of binary numbers: ", difference_result)
+    print("Sum of binary numbers:        ", sum_result)
+    print("OR of binary numbers:  ", or_result)
+    print("AND of binary numbers: ", and_result)
+    print("XOR of binary numbers: ", xor_result)
 
 if __name__ == "__main__":
     main()
