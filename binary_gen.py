@@ -111,16 +111,27 @@ def generate_random_binary():
         "1011000100", "1110011000", "1101110110", "1001001101", "0110110101", "0100101001", "1011011101", "0111110101", "0111000001",   # 855
         "1010000111", "0111101000", "0001010000", "0111100110", "0100001000", "0100011001", "1011110001", "1110010000", "0000101000",   # 864
         "0110010011", "0100010011", "0111001010", "0111010011", "0111111101", "0101001010", "1101100101", "0010011101", "1110010010",   # 873
-        "1100110000", "0110010010", "1101110111"
+        "1100110000", "0110010010", "1101110111", "1101010110", "1010111101", "0101011100", "0000111101", "0001110001", "1110001001",   # 882
+        "1110100100", "1110101010", "1010110000", "1110100011", "0110110001", "0001100001", "1101001000", "0100011011", "0110100111",   # 891
+        "1100000101", "0110011000"
     ]
 
     selected_numbers = []
     for _ in range(30):
-        selected_group = random.randint(0, 875)
+        selected_group = random.randint(0, len(groups) - 1)
         selected_number = random.randint(0, 9)
         selected_numbers.append(groups[selected_group][selected_number])
 
     return ''.join(selected_numbers)
+
+def twos_complement(binary):
+    num_bits = len(binary)
+    complement = ''.join('1' if bit == '0' else '0' for bit in binary)  # One's complement
+    complement = bin(int(complement, 2) + 1)[2:]  # Add 1
+    return complement.zfill(num_bits)
+
+def nor(a, b):
+    return ~(a | b) & ((1 << 30) - 1)  # Ensuring a 30-bit result
 
 def main():
     # Generate two random 30-bit binary numbers
@@ -133,12 +144,16 @@ def main():
     int1 = bin2dec(binary1)
     int2 = bin2dec(binary2)
 
-    # Calculate the difference, sum, OR, AND, XOR results
+    # Calculate the difference, sum, OR, AND, XOR, and NOR results
     difference_result = dec2bin(abs(int1 - int2)).zfill(30)
     sum_result = dec2bin(int1 + int2)
     or_result = dec2bin(int1 | int2).zfill(30)
     and_result = dec2bin(int1 & int2).zfill(30)
     xor_result = dec2bin(int1 ^ int2).zfill(30)
+    nor_result = dec2bin(nor(int1, int2)).zfill(30)
+
+    binary1_twos_complement = twos_complement(binary1)
+    binary2_twos_complement = twos_complement(binary2)
 
     if int1 == int2:
         print("The binary numbers are equal.")
@@ -157,6 +172,9 @@ def main():
     print("OR of binary numbers:  ", or_result)
     print("AND of binary numbers: ", and_result)
     print("XOR of binary numbers: ", xor_result)
+    print("NOR of binary numbers: ", nor_result)
+    print("Binary1 Two's Complement: ", binary1_twos_complement)
+    print("Binary2 Two's Complement: ", binary2_twos_complement)
 
 if __name__ == "__main__":
     main()
