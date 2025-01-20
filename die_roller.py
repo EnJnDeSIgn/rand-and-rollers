@@ -115,23 +115,20 @@ def roll_die(die_type):
     if die_type not in [4, 6, 8, 10, 12, 20, 30, 100]:
         raise ValueError("Unsupported die type")
 
-    def group_selection():
-        return random.choice(shared_groups)
-
     def generate_numbers(iterations, roll_count):
         final_numbers = []
 
         for _ in range(iterations):
-            selected_value = group_selection()
+            selected_group = random.choice(shared_groups)
             for _ in range(roll_count):
-                final_numbers.append(int(random.choice(selected_value)))
+                selected_number = random.choice(selected_group)
+                final_numbers.append(int(selected_number))
         
         binary_numbers = [str(num) for num in final_numbers]
         random_number_str = ''.join(binary_numbers)
         current_number = int(random_number_str, 2)
         return current_number
 
-    # Adjust the number of iterations and roll count based on the die type
     config_map = {
         4: (30, 30),
         6: (30, 30),
