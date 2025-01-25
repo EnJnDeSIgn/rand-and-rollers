@@ -455,6 +455,9 @@ Standard Deviation (sigma): 30.62 This value is within a reasonable range, showi
     okay so I'm not asking for a super computer but now I need one,
     okay so I'm done for now and almost getting to my first year of 
     code... I hope something is usfull to someone out there...
+
+    I had one friend go too Ratchal's facilitation and two of my friend's died,
+    whats the statistics on that? I call it facilitation of death!!!!
 https://www.youtube.com/watch?v=9yNPgx0swCM
 
 So password_roller is out, just watch the first and last character being the same but you can put them togeter how you want and write them down for your use
