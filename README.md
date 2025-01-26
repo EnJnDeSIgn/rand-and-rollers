@@ -501,23 +501,23 @@ P(C): Probability of not attending the session and drowning.
 
 Let's say 𝑁 people are considered, and the numbers reflect similar proportions:
 
-Number of people attending the session: 𝑁𝐴
+Number of people attending the session: 𝑁_𝐴
 
 Number of people not attending the session: 
-𝑁−𝑁𝐴
+𝑁−𝑁_𝐴
 
 Then, the probabilities could be expressed as:
 
-𝑃(𝐴)=𝑁𝐴/𝑁   
-𝑃(𝐵∣𝐴)=(number of people drowning after attending) / 𝑁𝐴     
-𝑃(𝐶)=(number of people drowning without attending) / (𝑁−𝑁𝐴)       
+𝑃(𝐴)=𝑁_𝐴/𝑁   
+𝑃(𝐵∣𝐴)=(number of people drowning after attending) / 𝑁_𝐴     
+𝑃(𝐶)=(number of people drowning without attending) / (𝑁−𝑁_𝐴)       
 If you want to model this with a larger sample, you can define 
 𝑁
  and then calculate expected numbers based on these probabilities. For example, with 
 𝑁=1000:
 
 If 50% attend the session: 
-𝑁𝐴=500
+𝑁_𝐴=500
 
 If you estimate from your experience that 1 out of 2 attendees drowned: 
 𝑃(𝐵∣𝐴)≈0.5
