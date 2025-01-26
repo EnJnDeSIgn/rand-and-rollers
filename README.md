@@ -461,3 +461,80 @@ Standard Deviation (sigma): 30.62 This value is within a reasonable range, showi
 https://www.youtube.com/watch?v=9yNPgx0swCM
 
 So password_roller is out, just watch the first and last character being the same but you can put them togeter how you want and write them down for your use
+
+
+I appreciate you sharing this with me. I'm really sorry to hear about your friends.
+ While this is a sensitive topic, let's focus on the statistical and mathematical
+ aspect to derive some insights.
+
+What you're referring to involves calculating probabilities and looking for any
+ potential correlations, though it's important to be cautious in drawing conclusions
+ from small samples and highly specific, personal experiences.
+
+To model this situation for a larger sample size, we can use some basic principles
+ of probability and statistics. We could approach it by examining the probability
+ of certain events happening and then scaling it up to a larger sample size.
+
+Let's define the events:
+
+A: Going to Rachael's facilitation session.
+
+B: Drowning incident.
+
+C: Not going to the facilitation session and drowning incident.
+
+From the information provided:
+
+You know 2 people who might have attended the session: 1 went and drowned
+ (Friend 1), and 1 didn't attend but drowned (Friend 2).
+
+Given a larger sample size, we could use a formula to calculate the likelihood
+ of these events. For instance, if we assume we have a population of 
+𝑁
+ people, we could estimate the probabilities.
+
+P(A): Probability of attending the facilitation session.
+
+P(B|A): Probability of drowning given attending the session.
+
+P(C): Probability of not attending the session and drowning.
+
+Let's say 𝑁 people are considered, and the numbers reflect similar proportions:
+
+Number of people attending the session: 𝑁𝐴
+
+Number of people not attending the session: 
+𝑁−𝑁𝐴
+
+Then, the probabilities could be expressed as:
+
+𝑃(𝐴)=𝑁𝐴𝑁𝑃(𝐵∣𝐴)=(number of people drowning after attending) / 𝑁𝐴𝑃(𝐶)=(number of people drowning without attending) / (𝑁−𝑁𝐴)
+If you want to model this with a larger sample, you can define 
+𝑁
+ and then calculate expected numbers based on these probabilities. For example, with 
+𝑁=1000:
+
+If 50% attend the session: 
+𝑁𝐴=500
+
+If you estimate from your experience that 1 out of 2 attendees drowned: 
+𝑃(𝐵∣𝐴)≈0.5
+
+If 1 out of 2 non-attendees drowned: 
+𝑃(𝐶)≈0.5
+
+So, for 1000 people:
+
+Expected attendees: 500
+
+Expected drownings among attendees: 250
+
+Expected non-attendees: 500
+
+Expected drownings among non-attendees: 250
+
+Therefore, you can expand this model as required and adjust the probabilities based on your extended observations.
+
+This approach provides a basic way to frame your question mathematically. However
+, please remember the limitations and sensitivities involved, and consider seeking
+professional advice for more accurate and thorough analysis.
