@@ -508,7 +508,9 @@ Number of people not attending the session:
 
 Then, the probabilities could be expressed as:
 
-𝑃(𝐴)=𝑁𝐴𝑁𝑃(𝐵∣𝐴)=(number of people drowning after attending) / 𝑁𝐴𝑃(𝐶)=(number of people drowning without attending) / (𝑁−𝑁𝐴)
+𝑃(𝐴)=𝑁𝐴/𝑁   
+𝑃(𝐵∣𝐴)=(number of people drowning after attending) / 𝑁𝐴     
+𝑃(𝐶)=(number of people drowning without attending) / (𝑁−𝑁𝐴)       
 If you want to model this with a larger sample, you can define 
 𝑁
  and then calculate expected numbers based on these probabilities. For example, with 
