@@ -1,5 +1,9 @@
  Hi... I'm Turing's Art consultant on brainstorming and concepts,    
  Metaphoric statistical math poems...And lover of everything random!    
+ I was an imbarasment to my grade 9 Qbasic teacher as when he       
+ found out I was learning formula translation and counting from 0     
+ he said That thay were not going to send me to university.....     
+ I graduated with 18/36 arts credits!
  Copilot is my co author so I don't know who all helped with our code
 
     listen to my stanza, truth is in the moment but, these are just words and empty...    
