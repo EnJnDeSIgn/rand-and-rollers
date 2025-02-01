@@ -153,12 +153,19 @@ def main():
 
     # Randomly select a colormap
     cmap_name = random.choice(colormaps)
+    
+    interpolations = ['none', 'nearest', 'bilinear', 'bicubic', 'spline16', 'spline36', 'hanning',
+                  'hamming', 'hermite', 'kaiser', 'quadric', 'catrom', 'gaussian', 'bessel',
+                  'mitchell', 'sinc', 'lanczos']
+
+    interp_method = random.choice(interpolations)
+
 
     # Adjust the figure size
     plt.figure(figsize=(12, 8))
 
     # Plot the binary matrix with the random colormap
-    plt.imshow(binary_matrix, cmap=cmap_name, interpolation='bicubic')
+    plt.imshow(binary_matrix, cmap=cmap_name, interpolation=interp_method)
     plt.title(f'Visualization of Binary Sequences with "{cmap_name}" Colormap')
     plt.xlabel('Bit Position')
     plt.ylabel('Sequence Index')
