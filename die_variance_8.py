@@ -1,4 +1,5 @@
 import random
+import matplotlib.pyplot as plt
 
 def bin2dec(binary):
     return int(binary, 2)
@@ -125,9 +126,11 @@ def generate_custom_binary():
     ]
 
     selected_numbers = []
+    binary_patterns = []  # To store selected groups
 
     for segment_index in range(3):  # For each 10-digit segment
         selected_group = random.choice(groups)
+        binary_patterns.append(selected_group)
         base_number = random.randint(0, 9)
         one_counter = base_number
         first_one_found = False
@@ -149,16 +152,26 @@ def generate_custom_binary():
                 random_digit = random.randint(0, 9)
                 selected_numbers.append(str(random_digit))
 
-    return ''.join(selected_numbers[:30])
+    return ''.join(selected_numbers[:30]), binary_patterns
 
 def main():
-    num_lines = 15  # Change this number as needed
+    num_lines = 15
     for _ in range(num_lines):
-        binary1 = generate_custom_binary()
-        binary2 = generate_custom_binary()
+        binary1, patterns1 = generate_custom_binary()
+        binary2, patterns2 = generate_custom_binary()
 
-        print("Binary1: ", binary1)
-        print("Binary2: ", binary2)
+        #print("Binary1 Patterns: ", patterns1)
+        print("Binary1:          ", binary1)
+        #print("Binary2 Patterns: ", patterns2)
+        print("Binary2:          ", binary2)
+
+    digits = [int(d) for d in binary1]
+    plt.bar(range(len(digits)), digits)
+    plt.xlabel('Digit Position')
+    plt.ylabel('Digit Value')
+    plt.title('Visualization of Binary1 Digits')
+    plt.show()
+
 
 if __name__ == "__main__":
     main()
