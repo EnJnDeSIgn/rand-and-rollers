@@ -6,7 +6,7 @@ def bin2dec(binary):
     return int(binary, 2)
 
 def dec2bin(decimal):
-    return bin(decimal)[2:].zfill(30)
+    return bin(decimal)[2:].zfill(90)
 
 def generate_custom_binary():
     groups = [
@@ -129,7 +129,7 @@ def generate_custom_binary():
     selected_numbers = []
     binary_patterns = []  # To store selected groups
 
-    for segment_index in range(3):  # For each 10-digit segment
+    for segment_index in range(9):  # For each 10-digit segment
         selected_group = random.choice(groups)
         binary_patterns.append(selected_group)
         base_number = random.randint(0, 9)
@@ -153,7 +153,7 @@ def generate_custom_binary():
                 random_digit = random.randint(0, 9)
                 selected_numbers.append(str(random_digit))
 
-    return ''.join(selected_numbers[:30]), binary_patterns
+    return ''.join(selected_numbers[:90]), binary_patterns
 
 def main():
     num_lines = 15
