@@ -1,5 +1,6 @@
 import random
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 import numpy as np
 
 def bin2dec(binary):
@@ -170,6 +171,29 @@ def main():
     plt.xlabel('Bit Position')
     plt.ylabel('Sequence Index')
     plt.show()
+    
+fig = plt.figure()
+
+# List of available colormaps in Matplotlib
+colormaps = [
+    'viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys',
+    'Purples', 'Blues', 'Greens', 'Oranges', 'Reds', 'YlOrBr', 'YlOrRd',
+    'OrRd', 'PuRd', 'RdPu', 'BuPu', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn',
+    'BuGn', 'YlGn', 'binary', 'gist_gray', 'bone', 'pink', 'spring',
+    'summer', 'autumn', 'winter', 'cool', 'hot', 'afmhot', 'gist_heat',
+    'copper'
+]
+
+ims = []
+for _ in range(30):
+    cmap_name = random.choice(colormaps)
+    binary_sequences = [generate_random_binary() for _ in range(30)]
+    binary_matrix = np.array([list(map(int, list(seq))) for seq in binary_sequences])
+    im = plt.imshow(binary_matrix, cmap=cmap_name, animated=True)
+    ims.append([im])
+
+ani = animation.ArtistAnimation(fig, ims, interval=500, blit=True)
+plt.show()
 
 if __name__ == "__main__":
     main()
