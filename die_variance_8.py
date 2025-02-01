@@ -124,40 +124,32 @@ def generate_custom_binary():
         "1110001110", "1000010110", "1101001011", "1000010111", "1111110100", "1101111010", "1001001011"
     ]
 
-    selected_group = random.choice(groups)
-    base_number = random.randint(0, 9)
-    one_counter = base_number
     selected_numbers = []
-    first_one_found = False
 
-    for bit in selected_group:
-        if bit == '1':
-            if not first_one_found:
-                selected_numbers.append(str(one_counter))
-                first_one_found = True
-            else:
-                one_counter = (one_counter + 1) % 10
-                selected_numbers.append(str(one_counter))
-        else:
-            random_digit = random.randint(0, 9)
-            selected_numbers.append(str(random_digit))
+    for segment_index in range(3):  # For each 10-digit segment
+        selected_group = random.choice(groups)
+        base_number = random.randint(0, 9)
+        one_counter = base_number
+        first_one_found = False
 
-    # Extend to 30 digits
-    pattern_length = len(selected_numbers)
-    while len(selected_numbers) < 30:
-        for i in range(pattern_length):
-            if len(selected_numbers) >= 30:
-                break
-            bit = selected_group[i % len(selected_group)]
+        # For positions in this 10-digit segment
+        for position in range(10):
+            bit = selected_group[position % len(selected_group)]
+
             if bit == '1':
-                one_counter = (one_counter + 1) % 10
-                selected_numbers.append(str(one_counter))
+                if not first_one_found:
+                    selected_numbers.append(str(one_counter))
+                    first_one_found = True
+                else:
+                    # Randomly increment or decrement by 1
+                    step = random.choice([-1, 1])
+                    one_counter = (one_counter + step) % 10
+                    selected_numbers.append(str(one_counter))
             else:
                 random_digit = random.randint(0, 9)
                 selected_numbers.append(str(random_digit))
 
     return ''.join(selected_numbers[:30])
-    #return ''.join(selected_numbers[:30]), selected_group
 
 def main():
     num_lines = 15  # Change this number as needed
@@ -167,7 +159,6 @@ def main():
 
         print("Binary1: ", binary1)
         print("Binary2: ", binary2)
-        print()
 
 if __name__ == "__main__":
     main()
