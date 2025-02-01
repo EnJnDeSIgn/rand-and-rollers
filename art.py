@@ -1,6 +1,6 @@
 import random
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 
 def bin2dec(binary):
@@ -156,44 +156,44 @@ def main():
     cmap_name = random.choice(colormaps)
     
     interpolations = ['none', 'nearest', 'bilinear', 'bicubic', 'spline16', 'spline36', 'hanning',
-                  'hamming', 'hermite', 'kaiser', 'quadric', 'catrom', 'gaussian', 'bessel',
-                  'mitchell', 'sinc', 'lanczos']
+                      'hamming', 'hermite', 'kaiser', 'quadric', 'catrom', 'gaussian', 'bessel',
+                      'mitchell', 'sinc', 'lanczos']
 
     interp_method = random.choice(interpolations)
 
+    # Create coordinate arrays for 3D plotting
+    x = np.arange(binary_matrix.shape[1])
+    y = np.arange(binary_matrix.shape[0])
+    X, Y = np.meshgrid(x, y)
+    Z = binary_matrix.astype(float)  # Ensure Z is float for the 3D plot
 
     # Adjust the figure size
-    plt.figure(figsize=(12, 8))
+    fig = plt.figure(figsize=(14, 6))
 
-    # Plot the binary matrix with the random colormap
-    plt.imshow(binary_matrix, cmap=cmap_name, interpolation=interp_method)
-    plt.title(f'Visualization of Binary Sequences with "{cmap_name}" Colormap')
-    plt.xlabel('Bit Position')
-    plt.ylabel('Sequence Index')
+    # Create a subplot grid with 1 row and 2 columns
+    # First subplot: 2D visualization
+    ax1 = fig.add_subplot(1, 2, 1)
+    im = ax1.imshow(binary_matrix, cmap=cmap_name, interpolation=interp_method)
+    ax1.set_title(f'2D Visualization\nColormap: {cmap_name}, Interp: {interp_method}')
+    ax1.set_xlabel('Bit Position')
+    ax1.set_ylabel('Sequence Index')
+    fig.colorbar(im, ax=ax1, fraction=0.046, pad=0.04)
+
+    # Second subplot: 3D visualization
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    surface = ax2.plot_surface(X, Y, Z, cmap=cmap_name, linewidth=0, antialiased=False)
+    ax2.set_title(f'3D Visualization\nColormap: {cmap_name}')
+    ax2.set_xlabel('Bit Position')
+    ax2.set_ylabel('Sequence Index')
+    ax2.set_zlabel('Bit Value')
+    fig.colorbar(surface, ax=ax2, shrink=0.5, aspect=10)
+
+    # Adjust viewing angle for better visualization
+    ax2.view_init(elev=30, azim=120)
+
+    # Adjust layout to prevent overlap
+    plt.tight_layout()
     plt.show()
-    
-fig = plt.figure()
-
-# List of available colormaps in Matplotlib
-colormaps = [
-    'viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys',
-    'Purples', 'Blues', 'Greens', 'Oranges', 'Reds', 'YlOrBr', 'YlOrRd',
-    'OrRd', 'PuRd', 'RdPu', 'BuPu', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn',
-    'BuGn', 'YlGn', 'binary', 'gist_gray', 'bone', 'pink', 'spring',
-    'summer', 'autumn', 'winter', 'cool', 'hot', 'afmhot', 'gist_heat',
-    'copper'
-]
-
-ims = []
-for _ in range(30):
-    cmap_name = random.choice(colormaps)
-    binary_sequences = [generate_random_binary() for _ in range(30)]
-    binary_matrix = np.array([list(map(int, list(seq))) for seq in binary_sequences])
-    im = plt.imshow(binary_matrix, cmap=cmap_name, animated=True)
-    ims.append([im])
-
-ani = animation.ArtistAnimation(fig, ims, interval=500, blit=True)
-plt.show()
 
 if __name__ == "__main__":
     main()
