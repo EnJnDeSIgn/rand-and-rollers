@@ -166,12 +166,12 @@ def main():
         #print("Binary2 Patterns: ", patterns2)
         print("Binary2:          ", binary2)
 
-    #digits = [int(d) for d in binary1]
-    #plt.bar(range(len(digits)), digits)
-    #plt.xlabel('Digit Position')
-    #plt.ylabel('Digit Value')
-    #plt.title('Visualization of Binary1 Digits')
-    #plt.show()
+    digits = [int(d) for d in binary1 and binary2]
+    plt.bar(range(len(digits)), digits)
+    plt.xlabel('Digit Position')
+    plt.ylabel('Digit Value')
+    plt.title('Visualization of Binary1 and Binary2 Digits')
+    plt.show()
 
     #counts = Counter(binary1)
     #print("Digit Frequencies in Binary1:", counts)
