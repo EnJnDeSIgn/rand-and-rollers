@@ -416,7 +416,8 @@ Binary2:           3444771442128130132257987890167006578898129845714878643706077
 2. Download the `die_variance_8.py` file.
 3. Open a terminal and navigate to the directory where the `die_variance_8.py` file is located.
 ```
-   python die_variance_8.py
+   C:/user/user_folder_name/pip install matplotlib
+   C:/user/user_folder_name/die_variance_8.py
 ```
 # programs edited in notepad + +     
 
