@@ -375,7 +375,7 @@ Standard Deviation (sigma): 30.62 This value is within a reasonable range, showi
 7.     C:/user/user_folder_name/gcc/D2b4.exe
 
 # program die_variance_8.py
-binary pattern random number generator (BPRNG)
+binary pattern random number generator (BPRNG)    
 Mods' are acting like nice slow turns'
    ```
 C:\Users\enjn\gcc>die_variance_8.py
