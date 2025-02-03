@@ -235,7 +235,7 @@ def main():
 
     # Visualization code
     # Adjust the figure size
-    fig = plt.figure(figsize=(15, 655))
+    fig = plt.figure(figsize=(80, 655))
 
     # Create a subplot grid with 1 row and 2 columns
     # First subplot: 2D visualization
