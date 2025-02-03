@@ -240,7 +240,7 @@ def main():
     # Create a subplot grid with 1 row and 2 columns
     # First subplot: 2D visualization
     ax1 = fig.add_subplot(1, 2, 1)
-    im = ax1.imshow(binary_matrix, cmap='viridis', interpolation='nearest', aspect='auto')
+    im = ax1.imshow(binary_matrix, cmap=cmap_name, interpolation=interp_method, aspect='auto')
 
     # Set y-ticks to display the labels
     ax1.set_yticks(np.arange(len(labels)))
@@ -254,7 +254,7 @@ def main():
     ax2 = fig.add_subplot(1, 2, 2, projection='3d')
     X, Y = np.meshgrid(np.arange(BIT_LENGTH), np.arange(len(labels)))
     Z = binary_matrix.astype(float)
-    surface = ax2.plot_surface(X, Y, Z, cmap='viridis', linewidth=0, antialiased=False)
+    surface = ax2.plot_surface(X, Y, Z, cmap=cmap_name, linewidth=0, antialiased=False)
 
     ax2.set_yticks(np.arange(len(labels)))
     ax2.set_yticklabels(labels, fontsize=10)
