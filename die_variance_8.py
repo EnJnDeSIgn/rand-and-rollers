@@ -173,8 +173,8 @@ def main():
     plt.title('Visualization of Binary1 and Binary2 Digits')
     plt.show()
 
-    #counts = Counter(binary1)
-    #print("Digit Frequencies in Binary1:", counts)
+    counts = Counter(binary1 and binary2)
+    print("Mods:", counts)
 
 if __name__ == "__main__":
     main()
