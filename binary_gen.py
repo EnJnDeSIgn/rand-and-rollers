@@ -235,7 +235,7 @@ def main():
 
     # Visualization code
     # Adjust the figure size
-    fig = plt.figure(figsize=(20, 12))
+    fig = plt.figure(figsize=(15, 655))
 
     # Create a subplot grid with 1 row and 2 columns
     # First subplot: 2D visualization
@@ -257,12 +257,12 @@ def main():
     surface = ax2.plot_surface(X, Y, Z, cmap=cmap_name, linewidth=0, antialiased=False)
 
     ax2.set_yticks(np.arange(len(labels)))
-    ax2.set_yticklabels(labels, fontsize=10)
+    ax2.set_yticklabels(labels, fontsize=4)
 
-    ax2.set_title('3D Visualization', fontsize=14)
-    ax2.set_xlabel('Bit Position', fontsize=12)
-    ax2.set_ylabel('Sequence', fontsize=12)
-    ax2.set_zlabel('Bit Value', fontsize=12)
+    ax2.set_title('3D Visualization', fontsize=10)
+    ax2.set_xlabel('Bit Position', fontsize=5)
+    ax2.set_ylabel('Sequence', fontsize=5)
+    ax2.set_zlabel('Bit Value', fontsize=5)
 
     fig.colorbar(im, ax=ax1)
     fig.colorbar(surface, ax=ax2, shrink=0.5, aspect=10)
