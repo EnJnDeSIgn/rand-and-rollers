@@ -1,10 +1,15 @@
 import random
+import matplotlib.pyplot as plt
+import numpy as np
 
 def bin2dec(binary):
     return int(binary, 2)
 
 def dec2bin(decimal):
-    return bin(decimal)[2:].zfill(30)
+    return bin(decimal)[2:]
+
+def dec2bin_fixed_length(decimal, length=30):
+    return bin(decimal % (1 << length))[2:].zfill(length)
 
 # The number of combinations of a binary string of length 10 can be calculated as 
 # 2^10. This is because each digit in the binary string can be either 0 or 1. So, 
@@ -132,20 +137,20 @@ def generate_random_binary():
 
     selected_numbers = []
     for _ in range(30):
-        selected_group = random.randint(0, len(groups) - 1)
+        selected_group = random.choice(groups)
         selected_number = random.randint(0, 9)
-        selected_numbers.append(groups[selected_group][selected_number])
+        selected_numbers.append(selected_group[selected_number])
 
     return ''.join(selected_numbers)
 
 def twos_complement(binary):
     num_bits = len(binary)
     complement = ''.join('1' if bit == '0' else '0' for bit in binary)  # One's complement
-    complement = bin(int(complement, 2) + 1)[2:]  # Add 1
-    return complement.zfill(num_bits)
+    complement_int = int(complement, 2) + 1
+    return bin(complement_int % (1 << num_bits))[2:].zfill(num_bits)
 
-def nor(a, b):
-    return ~(a | b) & ((1 << 30) - 1)  # Ensuring a 30-bit result
+def nor(a, b, length):
+    return (~(a | b) & ((1 << length) - 1))
 
 def main():
     # Generate two random 30-bit binary numbers
@@ -157,14 +162,17 @@ def main():
 
     int1 = bin2dec(binary1)
     int2 = bin2dec(binary2)
+    BIT_LENGTH = 30
+    MAX_VALUE = (1 << BIT_LENGTH) - 1
 
     # Calculate the difference, sum, OR, AND, XOR, and NOR results
-    difference_result = dec2bin(abs(int1 - int2)).zfill(30)
-    sum_result = dec2bin(int1 + int2)
-    or_result = dec2bin(int1 | int2).zfill(30)
-    and_result = dec2bin(int1 & int2).zfill(30)
-    xor_result = dec2bin(int1 ^ int2).zfill(30)
-    nor_result = dec2bin(nor(int1, int2)).zfill(30)
+    difference_result = dec2bin_fixed_length(abs(int1 - int2), BIT_LENGTH)
+    sum_result = dec2bin_fixed_length(int1 + int2, BIT_LENGTH)
+    or_result = dec2bin_fixed_length(int1 | int2, BIT_LENGTH)
+    and_result = dec2bin_fixed_length(int1 & int2, BIT_LENGTH)
+    xor_result = dec2bin_fixed_length(int1 ^ int2, BIT_LENGTH)
+    nor_result_int = nor(int1, int2, BIT_LENGTH)
+    nor_result = dec2bin_fixed_length(nor_result_int, BIT_LENGTH)
 
     binary1_twos_complement = twos_complement(binary1)
     binary2_twos_complement = twos_complement(binary2)
@@ -176,19 +184,72 @@ def main():
     else:
         print("Binary1 is less than Binary2.")
 
-    # Remove leading zeros if the first 10 digits are zeros
-    if sum_result[:10] == '0' * 10:
-        sum_result = sum_result.lstrip('0')
-    sum_result = sum_result.zfill(30)
-
+    # Print all calculated results
     print("Difference of binary numbers: ", difference_result)
     print("Sum of binary numbers:        ", sum_result)
-    print("OR of binary numbers:  ", or_result)
-    print("AND of binary numbers: ", and_result)
-    print("XOR of binary numbers: ", xor_result)
-    print("NOR of binary numbers: ", nor_result)
-    print("Binary1 Two's Complement: ", binary1_twos_complement)
-    print("Binary2 Two's Complement: ", binary2_twos_complement)
+    print("OR of binary numbers:         ", or_result)
+    print("AND of binary numbers:        ", and_result)
+    print("XOR of binary numbers:        ", xor_result)
+    print("NOR of binary numbers:        ", nor_result)
+    print("Binary1 Two's Complement:     ", binary1_twos_complement)
+    print("Binary2 Two's Complement:     ", binary2_twos_complement)
+
+    # Prepare the sequences for visualization
+    sequences = [
+        ('Binary1', binary1),
+        ('Binary2', binary2),
+        ('Difference', difference_result),
+        ('Sum', sum_result),
+        ('OR', or_result),
+        ('AND', and_result),
+        ('XOR', xor_result),
+        ('NOR', nor_result),
+        ("Binary1 Two's Comp", binary1_twos_complement),
+        ("Binary2 Two's Comp", binary2_twos_complement)
+    ]
+
+    labels = [label for label, seq in sequences]
+    sequences = [seq for label, seq in sequences]
+
+    # Convert binary strings to a 2D array (matrix)
+    binary_matrix = np.array([list(map(int, list(seq))) for seq in sequences])
+
+    # Visualization code
+    # Adjust the figure size
+    fig = plt.figure(figsize=(20, 12))
+
+    # Create a subplot grid with 1 row and 2 columns
+    # First subplot: 2D visualization
+    ax1 = fig.add_subplot(1, 2, 1)
+    im = ax1.imshow(binary_matrix, cmap='viridis', interpolation='nearest', aspect='auto')
+
+    # Set y-ticks to display the labels
+    ax1.set_yticks(np.arange(len(labels)))
+    ax1.set_yticklabels(labels, fontsize=10)
+
+    ax1.set_title('2D Visualization', fontsize=14)
+    ax1.set_xlabel('Bit Position', fontsize=12)
+    ax1.set_ylabel('Sequence', fontsize=12)
+
+    # Second subplot: 3D visualization
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    X, Y = np.meshgrid(np.arange(BIT_LENGTH), np.arange(len(labels)))
+    Z = binary_matrix.astype(float)
+    surface = ax2.plot_surface(X, Y, Z, cmap='viridis', linewidth=0, antialiased=False)
+
+    ax2.set_yticks(np.arange(len(labels)))
+    ax2.set_yticklabels(labels, fontsize=10)
+
+    ax2.set_title('3D Visualization', fontsize=14)
+    ax2.set_xlabel('Bit Position', fontsize=12)
+    ax2.set_ylabel('Sequence', fontsize=12)
+    ax2.set_zlabel('Bit Value', fontsize=12)
+
+    fig.colorbar(im, ax=ax1)
+    fig.colorbar(surface, ax=ax2, shrink=0.5, aspect=10)
+
+    #plt.tight_layout()
+    plt.show()
 
 if __name__ == "__main__":
     main()
