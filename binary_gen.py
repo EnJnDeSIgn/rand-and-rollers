@@ -233,12 +233,6 @@ def main():
 
     interp_method = random.choice(interpolations)
 
-    # Create coordinate arrays for 3D plotting
-    x = np.arange(binary_matrix.shape[1])
-    y = np.arange(binary_matrix.shape[0])
-    X, Y = np.meshgrid(x, y)
-    Z = binary_matrix.astype(float)  # Ensure Z is float for the 3D plot
-
     # Visualization code
     # Adjust the figure size
     fig = plt.figure(figsize=(20, 12))
