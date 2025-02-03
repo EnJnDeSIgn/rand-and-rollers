@@ -1,4 +1,5 @@
 import random
+import numpy as np
 import matplotlib.pyplot as plt
 from collections import Counter
 
@@ -166,15 +167,14 @@ def main():
         #print("Binary2 Patterns: ", patterns2)
         print("Binary2:          ", binary2)
 
-    digits = [int(d) for d in binary1 and binary2]
+        digits = [int(d) for d in binary1 and binary2]
+        counts = Counter(binary1 and binary2)
+        #print(f"Mods: {counts}")
     plt.bar(range(len(digits)), digits)
     plt.xlabel('Digit Position')
     plt.ylabel('Digit Value')
     plt.title('Visualization of Binary1 and Binary2 Digits')
     plt.show()
-
-    counts = Counter(binary1 and binary2)
-    print("Mods:", counts)
 
 if __name__ == "__main__":
     main()
