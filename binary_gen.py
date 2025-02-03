@@ -213,6 +213,31 @@ def main():
 
     # Convert binary strings to a 2D array (matrix)
     binary_matrix = np.array([list(map(int, list(seq))) for seq in sequences])
+    
+    # List of available colormaps in Matplotlib
+    colormaps = [
+        'viridis', 'plasma', 'inferno', 'magma', 'cividis', 'Greys',
+        'Purples', 'Blues', 'Greens', 'Oranges', 'Reds', 'YlOrBr', 'YlOrRd',
+        'OrRd', 'PuRd', 'RdPu', 'BuPu', 'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn',
+        'BuGn', 'YlGn', 'binary', 'gist_gray', 'bone', 'pink', 'spring',
+        'summer', 'autumn', 'winter', 'cool', 'hot', 'afmhot', 'gist_heat',
+        'copper'
+    ]
+
+    # Randomly select a colormap
+    cmap_name = random.choice(colormaps)
+    
+    interpolations = ['none', 'nearest', 'bilinear', 'bicubic', 'spline16', 'spline36', 'hanning',
+                      'hamming', 'hermite', 'kaiser', 'quadric', 'catrom', 'gaussian', 'bessel',
+                      'mitchell', 'sinc', 'lanczos']
+
+    interp_method = random.choice(interpolations)
+
+    # Create coordinate arrays for 3D plotting
+    x = np.arange(binary_matrix.shape[1])
+    y = np.arange(binary_matrix.shape[0])
+    X, Y = np.meshgrid(x, y)
+    Z = binary_matrix.astype(float)  # Ensure Z is float for the 3D plot
 
     # Visualization code
     # Adjust the figure size
