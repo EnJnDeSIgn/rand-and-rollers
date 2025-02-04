@@ -130,7 +130,7 @@ def generate_custom_binary():
     selected_numbers = []
     binary_patterns = []  # To store selected groups
 
-    for segment_index in range(9):  # For each 10-digit segment
+    for segment_index in range(9):  # For each 10-digit segment to make 90 digits total
         selected_group = random.choice(groups)
         binary_patterns.append(selected_group)
         base_number = random.randint(0, 9)
@@ -157,23 +157,90 @@ def generate_custom_binary():
     return ''.join(selected_numbers[:90]), binary_patterns
 
 def main():
-    num_lines = 15
-    for _ in range(num_lines):
-        binary1, patterns1 = generate_custom_binary()
-        binary2, patterns2 = generate_custom_binary()
+    num_binaries = 30  # Generate binaries from binary0 to binary29
+    binaries = []
+    patterns_list = []
 
-        #print("Binary1 Patterns: ", patterns1)
-        print("Binary1:          ", binary1)
-        #print("Binary2 Patterns: ", patterns2)
-        print("Binary2:          ", binary2)
+    # Generate and print binaries
+    for i in range(num_binaries):
+        binary, patterns = generate_custom_binary()
+        binaries.append(binary)
+        patterns_list.append(patterns)
+        print(f"Binary{i}:          {binary}")
 
-        digits = [int(d) for d in binary1 and binary2]
-        counts = Counter(binary1 and binary2)
-        #print(f"Mods: {counts}")
+    # Combine binary0 and binary1 for plotting
+    binary0 = binaries[0]
+    binary1 = binaries[1]
+    binary2 = binaries[2]
+    binary3 = binaries[3]
+    binary4 = binaries[4]
+    binary5 = binaries[5]
+    binary6 = binaries[6]
+    binary7 = binaries[7]
+    binary8 = binaries[8]
+    binary9 = binaries[9]
+    binary10 = binaries[10]
+    binary11 = binaries[11]
+    binary12 = binaries[12]
+    binary13 = binaries[13]
+    binary14 = binaries[14]
+    binary15 = binaries[15]
+    binary16 = binaries[16]
+    binary17 = binaries[17]
+    binary18 = binaries[18]
+    binary19 = binaries[19]
+    binary20 = binaries[20]
+    binary21 = binaries[21]
+    binary22 = binaries[22]
+    binary23 = binaries[23]
+    binary24 = binaries[24]
+    binary25 = binaries[25]
+    binary26 = binaries[26]
+    binary27 = binaries[27]
+    binary28 = binaries[28]
+    binary29 = binaries[29]
+    combined_binary = binary0 + binary1  # Concatenate the two binaries
+    combined_binary = combined_binary + binary2
+    combined_binary = combined_binary + binary3
+    combined_binary = combined_binary + binary4
+    combined_binary = combined_binary + binary5
+    combined_binary = combined_binary + binary5
+    combined_binary = combined_binary + binary6
+    combined_binary = combined_binary + binary7
+    combined_binary = combined_binary + binary8
+    combined_binary = combined_binary + binary9
+    combined_binary = combined_binary + binary10
+    combined_binary = combined_binary + binary11
+    combined_binary = combined_binary + binary12
+    combined_binary = combined_binary + binary13
+    combined_binary = combined_binary + binary14
+    combined_binary = combined_binary + binary15
+    combined_binary = combined_binary + binary16
+    combined_binary = combined_binary + binary17
+    combined_binary = combined_binary + binary18
+    combined_binary = combined_binary + binary19
+    combined_binary = combined_binary + binary20
+    combined_binary = combined_binary + binary21
+    combined_binary = combined_binary + binary22
+    combined_binary = combined_binary + binary23
+    combined_binary = combined_binary + binary24
+    combined_binary = combined_binary + binary25
+    combined_binary = combined_binary + binary26
+    combined_binary = combined_binary + binary27
+    combined_binary = combined_binary + binary28
+    combined_binary = combined_binary + binary29
+    
+    # Convert combined binary string to a list of integers for plotting
+    digits = [int(d) for d in combined_binary]
+
+    counts = Counter(combined_binary)
+    print(f"Mods: {counts}")
+    # Plotting the digits
+    plt.figure(figsize=(12, 6))
     plt.bar(range(len(digits)), digits)
     plt.xlabel('Digit Position')
     plt.ylabel('Digit Value')
-    plt.title('Visualization of Binary1 and Binary2 Digits')
+    plt.title('Visualization of Combined Digits')
     plt.show()
 
 if __name__ == "__main__":
