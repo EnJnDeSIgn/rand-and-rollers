@@ -157,7 +157,7 @@ def generate_custom_binary():
     return ''.join(selected_numbers[:90]), binary_patterns
 
 def main():
-    num_binaries = 30  # Generate binaries from binary0 to binary29
+    num_binaries = 30  # Generate binaries from Binary0 to Binary29
     binaries = []
     patterns_list = []
 
@@ -168,79 +168,23 @@ def main():
         patterns_list.append(patterns)
         print(f"Binary{i}:          {binary}")
 
-    # Combine binary0 and binary1 for plotting
-    binary0 = binaries[0]
-    binary1 = binaries[1]
-    binary2 = binaries[2]
-    binary3 = binaries[3]
-    binary4 = binaries[4]
-    binary5 = binaries[5]
-    binary6 = binaries[6]
-    binary7 = binaries[7]
-    binary8 = binaries[8]
-    binary9 = binaries[9]
-    binary10 = binaries[10]
-    binary11 = binaries[11]
-    binary12 = binaries[12]
-    binary13 = binaries[13]
-    binary14 = binaries[14]
-    binary15 = binaries[15]
-    binary16 = binaries[16]
-    binary17 = binaries[17]
-    binary18 = binaries[18]
-    binary19 = binaries[19]
-    binary20 = binaries[20]
-    binary21 = binaries[21]
-    binary22 = binaries[22]
-    binary23 = binaries[23]
-    binary24 = binaries[24]
-    binary25 = binaries[25]
-    binary26 = binaries[26]
-    binary27 = binaries[27]
-    binary28 = binaries[28]
-    binary29 = binaries[29]
-    combined_binary = binary0 + binary1  # Concatenate the two binaries
-    combined_binary = combined_binary + binary2
-    combined_binary = combined_binary + binary3
-    combined_binary = combined_binary + binary4
-    combined_binary = combined_binary + binary5
-    combined_binary = combined_binary + binary5
-    combined_binary = combined_binary + binary6
-    combined_binary = combined_binary + binary7
-    combined_binary = combined_binary + binary8
-    combined_binary = combined_binary + binary9
-    combined_binary = combined_binary + binary10
-    combined_binary = combined_binary + binary11
-    combined_binary = combined_binary + binary12
-    combined_binary = combined_binary + binary13
-    combined_binary = combined_binary + binary14
-    combined_binary = combined_binary + binary15
-    combined_binary = combined_binary + binary16
-    combined_binary = combined_binary + binary17
-    combined_binary = combined_binary + binary18
-    combined_binary = combined_binary + binary19
-    combined_binary = combined_binary + binary20
-    combined_binary = combined_binary + binary21
-    combined_binary = combined_binary + binary22
-    combined_binary = combined_binary + binary23
-    combined_binary = combined_binary + binary24
-    combined_binary = combined_binary + binary25
-    combined_binary = combined_binary + binary26
-    combined_binary = combined_binary + binary27
-    combined_binary = combined_binary + binary28
-    combined_binary = combined_binary + binary29
-    
+    # Combine all binaries into one string
+    combined_binary = ''.join(binaries)
+
     # Convert combined binary string to a list of integers for plotting
     digits = [int(d) for d in combined_binary]
 
-    counts = Counter(combined_binary)
-    print(f"Mods: {counts}")
-    # Plotting the digits
-    plt.figure(figsize=(12, 6))
-    plt.bar(range(len(digits)), digits)
-    plt.xlabel('Digit Position')
-    plt.ylabel('Digit Value')
-    plt.title('Visualization of Combined Digits')
+    # Count the frequency of each digit
+    counts = Counter(digits)
+    print(f"Frequencies: {counts}")
+
+    # Plotting the digit frequencies
+    plt.figure(figsize=(10, 6))
+    plt.bar(counts.keys(), counts.values())
+    plt.xlabel('Digit')
+    plt.ylabel('Frequency')
+    plt.title('Digit Frequencies in Combined Binaries')
+    plt.xticks(range(10))  # Digits from 0 to 9
     plt.show()
 
 if __name__ == "__main__":
