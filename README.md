@@ -425,8 +425,10 @@ C:\Users\enjn\gcc>
 ```
 # program binary_gen.py     
 Note that the sum is some times' wrong where the 1 is 10 and should be carryed up too make 31 digits    
-![Figure_7](https://github.com/user-attachments/assets/30d8551c-8d66-4ca7-b7f1-4edb48bba7b6)
+
+![Figure_7](https://github.com/user-attachments/assets/30d8551c-8d66-4ca7-b7f1-4edb48bba7b6)    
 ```
+
 C:\Users\enjn\gcc>binary_gen.py
 Binary1:  011010010001111010100111111010
 Binary2:  000010011101010011110101110011
@@ -442,6 +444,15 @@ Binary2 Two's Complement:      111101100010101100001010001101
 
 C:\Users\enjn\gcc>
 ```
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Download the `binary_gen.py` file.
+3. Open a terminal and navigate to the directory where the `binary_gen.py` file is located.
+```
+   C:/user/user_folder_name/pip install matplotlib numpy
+   C:/user/user_folder_name/binary_gen.py
+```
+
 # programs edited in notepad + +     
 
 
