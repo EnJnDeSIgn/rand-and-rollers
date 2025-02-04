@@ -423,6 +423,25 @@ C:\Users\enjn\gcc>
    C:/user/user_folder_name/pip install matplotlib
    C:/user/user_folder_name/die_variance_8.py
 ```
+# program binary_gen.py     
+Note that the sum is some times' wrong where the 1 is 10 and should be carryed up too make 31 digits    
+![Figure_7](https://github.com/user-attachments/assets/30d8551c-8d66-4ca7-b7f1-4edb48bba7b6)
+```
+C:\Users\enjn\gcc>binary_gen.py
+Binary1:  011010010001111010100111111010
+Binary2:  000010011101010011110101110011
+Binary1 is greater than Binary2.
+Difference of binary numbers:  010111110100100110110010000111
+Sum of binary numbers:         011100101111001110011101101101
+OR of binary numbers:          011010011101111011110111111011
+AND of binary numbers:         000010010001010010100101110010
+XOR of binary numbers:         011000001100101001010010001001
+NOR of binary numbers:         100101100010000100001000000100
+Binary1 Two's Complement:      100101101110000101011000000110
+Binary2 Two's Complement:      111101100010101100001010001101
+
+C:\Users\enjn\gcc>
+```
 # programs edited in notepad + +     
 
 
