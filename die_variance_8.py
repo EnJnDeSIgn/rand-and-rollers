@@ -171,12 +171,22 @@ def main():
     # Combine all binaries into one string
     combined_binary = ''.join(binaries)
 
-    # Convert combined binary string to a list of integers for plotting
+    # Convert combined binary string to a list of integers for analysis
     digits = [int(d) for d in combined_binary]
 
     # Count the frequency of each digit
     counts = Counter(digits)
     print(f"Frequencies: {counts}")
+
+    # Calculate statistical measures
+    mean_value = np.mean(digits)
+    median_value = np.median(digits)
+    std_deviation = np.std(digits)
+
+    print(f"\nStatistical Measures:")
+    print(f"Mean: {mean_value:.60f}")
+    print(f"Median: {median_value}")
+    print(f"Standard Deviation: {std_deviation:.60f}")
 
     # Plotting the digit frequencies
     plt.figure(figsize=(10, 6))
