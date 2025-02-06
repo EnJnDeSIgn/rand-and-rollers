@@ -147,7 +147,7 @@ def generate_custom_binary():
                     first_one_found = True
                 else:
                     # Randomly increment or decrement by 1
-                    step = random.choice([-1, 1])
+                    step = random.choice([-9, 9])
                     one_counter = (one_counter + step) % 10
                     selected_numbers.append(str(one_counter))
             else:
@@ -166,7 +166,7 @@ def main():
         binary, patterns = generate_custom_binary()
         binaries.append(binary)
         patterns_list.append(patterns)
-        print(f"Binary{i}:          {binary}")
+        print(f"Binary{i}:   {binary}")
 
     # Combine all binaries into one string
     combined_binary = ''.join(binaries)
