@@ -1,9 +1,6 @@
  Hi... I'm Turing's Art consultant on brainstorming and concepts,    
  Metaphoric statistical math poems...And lover of everything random!    
- I was an imbarasment to my grade 9 Qbasic teacher as when he       
- found out I was learning formula translation and counting from 0     
- he said That thay were not going to send me to university.....     
- I graduated with 18/36 arts credits!     
+      
  Copilot is my co author so I don't know who all helped with our code
 
     listen to my stanza, truth is in the moment but, these are just words and empty...    
@@ -376,7 +373,9 @@ Standard Deviation (sigma): 30.62 This value is within a reasonable range, showi
 
 # program die_variance_8.py
 binary pattern random number generator (BPRNG)    
-Mods' are acting like nice slow turns'
+Mods' are acting like nice slow turns'    
+-7 and 7 were not used in code or tested but
+mathmaticly could be used as well.     
    ```
 C:\Users\enjn\gcc>die_variance_8.py
 Binary1:           367391893637617825767943621327435433521176948934816783476517354065458938285101507195742356
