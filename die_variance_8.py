@@ -147,7 +147,7 @@ def generate_custom_binary():
                     first_one_found = True
                 else:
                     # Randomly increment or decrement by 1
-                    step = random.choice([-1, 3, 9, -3, 1, -9])
+                    step = random.choice([-1, -7, 7, 3, 9, -3, 1, -9])
                     one_counter = (one_counter + step) % 10
                     selected_numbers.append(str(one_counter))
             else:
