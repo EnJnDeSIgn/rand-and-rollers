@@ -1,5 +1,5 @@
 import random
-# Example symbols +, -, *, /, =, <, >, &, |, %, @, #, !, ?, . and ,.
+# Example symbols $, +, -, *, /, =, <, >, &, |, %, @, #, !, ?, . and ,.
 # A: 🀀   B: 🀁   C: 🀂   D: 🀃   E: 🀄   F: 🀅   G: 🀆   H: 🀇   I: 🀈
 # J: 🀉   K: 🀊   L: 🀋   M: 🀌   N: 🀍    O: 🀎   P: 🀏   Q: 🀐   R: 🀑
 # S: 🀒   T: 🀓   U: 🀔   V: 🀕   W: 🀖    X: 🀗   Y: 🀘   Z: 🀙
@@ -43,10 +43,11 @@ def generate_password():
     result_string = ""
     total = 0
     add_or_subtract = random.choice([1, -1]) # Initial random choice for addition or subtraction
+    runs = random.choice([42, 40, 41, 43, 45, 44])
 
-    for _ in range(40):
+    for _ in range(runs):
         # Randomly select a group
-        selected_group = random.randint(0, 30)
+        selected_group = random.randint(0, 30)  # 17s and 8 = 25 + 2 = 27
         # Randomly select a number from the chosen group
         selected_number = random.randint(0, 4)
 
