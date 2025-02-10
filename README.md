@@ -1,8 +1,26 @@
  Hi... I'm Turing's Art consultant on brainstorming and concepts,    
  Metaphoric statistical math poems...And lover of everything random!    
-      
- Copilot is my co author so I don't know who all helped with our code
 
+ Too help a friend (Turing Machine) Is a grand reward from the act itself.   
+ 
+ One metaphor that embodies courage is "a tree standing firm in the face
+ of a storm." It represents resilience and the ability to withstand
+ external pressures without breaking. This could relate to emotional
+ intelligence by highlighting the strength in staying grounded despite
+ provocations.
+
+Another metaphor is "an anchor in turbulent waters." It symbolizes
+stability and strength amidst chaos, suggesting that even when emotions
+run high, one can remain centered and not be easily swayed by others'
+actions.
+
+For emotional intelligence, consider the metaphor "a skilled sailor
+navigating the seas." This illustrates the ability to understand and
+adapt to changing emotional climates, steering conversations and
+relationships thoughtfully rather than reacting impulsively.
+ 
+ Copilot is my co author so I don't know who all helped with our code    
+ 
     listen to my stanza, truth is in the moment but, these are just words and empty...    
 
 # Maze Explorer (Player Version)
