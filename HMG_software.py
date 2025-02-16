@@ -1,3 +1,9 @@
+# Uses of normalized tide heights data from Modern Fortran By Milan Curcic For base data.
+# Uses of glacier data, I got it from Copilot and don't know who was working on glacier decay.
+# Using for the NRNG.f90 and then this to ping random numbers off of is Me!!!!
+# The glaciers will melt one day and I don't have exel so you should set up how you want to
+# deal with that even though there is some code there for it I can't test it.
+# Also makes data files that can be analized.
 import random
 import pandas as pd
 import numpy as np
