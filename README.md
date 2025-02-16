@@ -392,8 +392,11 @@ Standard Deviation (sigma): 30.62 This value is within a reasonable range, showi
 # program die_variance_8.py
 binary pattern random number generator (BPRNG)    
 Mods' are acting like nice slow turns'    
--7 and 7 were not used in code or tested but
-mathmaticly could be used as well.     
+-7 and 7 were not used(now has) in code or tested but
+mathmaticly could be used as well.  Didn't work 
+right removed 7s' and I feel although with the 3s'
+be okay there is something to be said of the 1,9s'
+version even though it may seam less vearyed
    ```
 C:\Users\enjn\gcc>die_variance_8.py
 Binary1:           367391893637617825767943621327435433521176948934816783476517354065458938285101507195742356
