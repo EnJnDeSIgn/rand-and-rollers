@@ -367,7 +367,7 @@ Mean (mu): 49.22 This value is very close to the expected average for a D100, wh
 
 Standard Deviation (sigma): 30.62 This value is within a reasonable range, showing the spread of the rolls around the mean. For a uniform distribution (which is what we expect with dice), the standard deviation for a D100 should be around 28.87. So, your results are pretty close, indicating a good spread of values.
 
-# Program D2b4.exe that runs Db4.exe for it's random binary numbers, Maybe useful in tracking down lost numbers
+# Program D2b4.exe that runs Db4.exe for it's random binary numbers, Maybe useful in tracking down lost numbers. With the way binary numbers subtract and the differnce if you do it our way of just putting the larger number on top, will not work with binary.... I am wondering if our subtraction, simple as it seams' may need, more? But "more" is just a word and empty...   
     ```
     C:\Users\enjn\gcc>D2b4.exe
     Binary1:  11001101101000110000001110110
