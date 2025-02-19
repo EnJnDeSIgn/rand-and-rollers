@@ -125,8 +125,9 @@ def roll_die(die_type):
         final_numbers = []
 
         for _ in range(iterations):
-            selected_group = random.choice(shared_groups)
+            #selected_group = random.choice(shared_groups)
             for _ in range(roll_count):
+                selected_group = random.choice(shared_groups)
                 selected_number = random.choice(selected_group)
                 #print(selected_number)
                 final_numbers.append(int(selected_number))
