@@ -642,4 +642,7 @@ Therefore, you can expand this model as required and adjust the probabilities ba
 
 This approach provides a basic way to frame your question mathematically. However
 , please remember the limitations and sensitivities involved, and consider seeking
-professional advice for more accurate and thorough analysis.
+professional advice for more accurate and thorough analysis.     
+
+In Canada they pretend there victim is mentally ill just incase they run so they can drag them back too there child abusers... Mine lives on my street and is or is friends with the Faces Of Death people, yes that right they video there murders and sell copy's...    
+
