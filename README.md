@@ -333,7 +333,7 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
 ### Installation HMG_software.py
 
 1. Ensure you have Python installed on your computer. You may only need the main file.
-2. Download the `HMG_software.py` and the files `GD.py.py` and `tidesGEN.py`.
+2. Download the `HMG_software.py` and the files `GD.py` and `tidesGEN.py`.
 3. Open a terminal and navigate to the directory where they are located.
 4. Execute the following commands:
     ```
