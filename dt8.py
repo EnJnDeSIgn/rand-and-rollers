@@ -42,7 +42,8 @@ groups = [
     ["e", "0", "?", "7", "2"]
 ]
 
-def generate_password(existing_passwords):
+def generate_password():
+    existing_passwords = set()
     while True:
         result_string = ""
         total = 0
@@ -115,15 +116,6 @@ def load_salt(filename):
         salt = file.read()
     return salt
 
-def save_password(password, filename):
-    with open(filename, 'w', encoding='utf-8') as file:
-        file.write(password)
-
-def load_password(filename):
-    with open(filename, 'r', encoding='utf-8') as file:
-        password = file.read()
-    return password
-
 def main():
     choice = input("Do you want to (E)ncrypt or (D)ecrypt a message? ").strip().upper()
 
@@ -131,45 +123,46 @@ def main():
         message = input("Enter the message to encrypt: ")
 
         # Generate a password using your custom function
-        existing_passwords = set()
-        password = generate_password(existing_passwords)
+        password = generate_password()
         print(f"\nGenerated Password:\n{password}\n")
-        print("The password has been saved to 'encryption_key.key'. Please keep it secure.")
+        print("Please store this password securely; you'll need it to decrypt the message.")
 
         # Generate a random salt
-        salt = os.urandom(16)
-        # Derive key from password and salt
-        key = derive_key_from_password(password, salt)
+        salt = os.urandom(64)
+        try:
+            # Derive key from password and salt
+            key = derive_key_from_password(password, salt)
 
-        # Encrypt the message
-        encrypted_message = encrypt_message(message, key)
+            # Encrypt the message
+            encrypted_message = encrypt_message(message, key)
+        except Exception as e:
+            print(f"An error occurred during encryption: {e}")
+            return
 
-        # Save the encrypted message, password, and salt
+        # Save the encrypted message and salt
         message_filename = 'encrypted_message.dat'
-        key_filename = 'encryption_key.key'
         salt_filename = 'salt.dat'
 
         save_encrypted_message(encrypted_message, message_filename)
-        save_password(password, key_filename)
         save_salt(salt, salt_filename)
 
         print(f"Encrypted message saved to '{message_filename}'")
-        print(f"Password (key) saved to '{key_filename}'")
         print(f"Salt saved to '{salt_filename}'")
 
     elif choice == 'D':
         message_filename = 'encrypted_message.dat'
-        key_filename = 'encryption_key.key'
         salt_filename = 'salt.dat'
 
-        # Load the encrypted message, password, and salt
+        # Load the encrypted message and salt
         try:
             encrypted_message = load_encrypted_message(message_filename)
-            password = load_password(key_filename)
             salt = load_salt(salt_filename)
         except FileNotFoundError:
-            print("Encrypted message, password, or salt file not found.")
+            print("Encrypted message or salt file not found.")
             return
+
+        # Prompt user for the password
+        password = input("Enter the password to decrypt the message: ")
 
         # Derive key from password and salt
         key = derive_key_from_password(password, salt)
@@ -179,7 +172,7 @@ def main():
             decrypted_message = decrypt_message(encrypted_message, key)
             print(f"\nDecrypted Message:\n{decrypted_message}\n")
         except Exception:
-            print("Failed to decrypt the message. The password or salt file may be incorrect or corrupted.")
+            print("Failed to decrypt the message. The password may be incorrect.")
 
     else:
         print("Invalid choice. Please select 'E' to encrypt or 'D' to decrypt.")
