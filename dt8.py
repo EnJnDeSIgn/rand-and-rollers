@@ -1,12 +1,7 @@
 import random
-import base64
-import hashlib
-import os
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from cryptography.fernet import Fernet
+import json
 
-# Your existing groups and generate_password() function
+# Initialize groups
 groups = [
     ["4", "+", "5", "8", "a"],
     ["p", "4", "r", "/", "h"],
@@ -42,8 +37,7 @@ groups = [
     ["e", "0", "?", "7", "2"]
 ]
 
-def generate_password():
-    existing_passwords = set()
+def generate_password(existing_passwords):
     while True:
         result_string = ""
         total = 0
@@ -70,51 +64,40 @@ def generate_password():
             result_string += str(abs(total))
 
         if result_string not in existing_passwords:
+            existing_passwords.add(result_string)
             return result_string
 
-def derive_key_from_password(password, salt):
-    """
-    Derives a cryptographic key from the provided password and salt.
-    """
-    password_bytes = password.encode('utf-8')
+def encrypt_message(message):
+    password_char_pairs = []
+    existing_passwords = set()
+    passwords = []
 
-    kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256(),
-        length=32,  # Fernet requires a 32-byte key
-        salt=salt,
-        iterations=100_000,
-    )
-    key = kdf.derive(password_bytes)
-    key = base64.urlsafe_b64encode(key)
-    return key
+    for idx, char in enumerate(message):
+        password = generate_password(existing_passwords)
+        existing_passwords.add(password)
+        passwords.append(password)
+        password_char_pairs.append((password, char))
 
-def encrypt_message(message, key):
-    fernet = Fernet(key)
-    encrypted_message = fernet.encrypt(message.encode('utf-8'))
-    return encrypted_message
+    encrypted_message = ' '.join(passwords)
+    return encrypted_message, password_char_pairs
 
-def decrypt_message(encrypted_message, key):
-    fernet = Fernet(key)
-    decrypted_message = fernet.decrypt(encrypted_message).decode('utf-8')
+def decrypt_message(encrypted_message, password_char_pairs):
+    decrypted_chars = []
+    encrypted_passwords = encrypted_message.split(' ')
+
+    if len(encrypted_passwords) != len(password_char_pairs):
+        print("Error: Mismatch in encrypted data.")
+        return None
+
+    for idx, password in enumerate(encrypted_passwords):
+        stored_password, char = password_char_pairs[idx]
+        if password == stored_password:
+            decrypted_chars.append(char)
+        else:
+            decrypted_chars.append('?')  # Indicate an error
+
+    decrypted_message = ''.join(decrypted_chars)
     return decrypted_message
-
-def save_encrypted_message(encrypted_message, filename):
-    with open(filename, 'wb') as file:
-        file.write(encrypted_message)
-
-def load_encrypted_message(filename):
-    with open(filename, 'rb') as file:
-        encrypted_message = file.read()
-    return encrypted_message
-
-def save_salt(salt, filename):
-    with open(filename, 'wb') as file:
-        file.write(salt)
-
-def load_salt(filename):
-    with open(filename, 'rb') as file:
-        salt = file.read()
-    return salt
 
 def main():
     choice = input("Do you want to (E)ncrypt or (D)ecrypt a message? ").strip().upper()
@@ -122,57 +105,39 @@ def main():
     if choice == 'E':
         message = input("Enter the message to encrypt: ")
 
-        # Generate a password using your custom function
-        password = generate_password()
-        print(f"\nGenerated Password:\n{password}\n")
-        print("Please store this password securely; you'll need it to decrypt the message.")
+        # Encrypt the message
+        encrypted_message, password_char_pairs = encrypt_message(message)
+        print(f"\nEncrypted Message:\n{encrypted_message}\n")
 
-        # Generate a random salt
-        salt = os.urandom(255)
-        try:
-            # Derive key from password and salt
-            key = derive_key_from_password(password, salt)
+        # Save the mapping to a file
+        with open('password_mapping.json', 'w') as f:
+            # We need to convert tuples to lists for JSON serialization
+            json.dump({'password_char_pairs': [list(pair) for pair in password_char_pairs]}, f)
 
-            # Encrypt the message
-            encrypted_message = encrypt_message(message, key)
-        except Exception as e:
-            print(f"An error occurred during encryption: {e}")
-            return
-
-        # Save the encrypted message and salt
-        message_filename = 'encrypted_message.dat'
-        salt_filename = 'salt.dat'
-
-        save_encrypted_message(encrypted_message, message_filename)
-        save_salt(salt, salt_filename)
-
-        print(f"Encrypted message saved to '{message_filename}'")
-        print(f"Salt saved to '{salt_filename}'")
+        print("Password mapping saved to 'password_mapping.json'.")
+        print("You can now run the program again to decrypt the message.")
 
     elif choice == 'D':
-        message_filename = 'encrypted_message.dat'
-        salt_filename = 'salt.dat'
+        encrypted_message = input("Enter the encrypted message: ")
 
-        # Load the encrypted message and salt
+        # Load the mapping from the file
         try:
-            encrypted_message = load_encrypted_message(message_filename)
-            salt = load_salt(salt_filename)
+            with open('password_mapping.json', 'r') as f:
+                data = json.load(f)
+                password_char_pairs = [tuple(pair) for pair in data['password_char_pairs']]
         except FileNotFoundError:
-            print("Encrypted message or salt file not found.")
+            print("Password mapping file not found. Cannot decrypt the message.")
             return
 
-        # Prompt user for the password
-        password = input("Enter the password to decrypt the message: ")
-
-        # Derive key from password and salt
-        key = derive_key_from_password(password, salt)
-
         # Decrypt the message
-        try:
-            decrypted_message = decrypt_message(encrypted_message, key)
-            print(f"\nDecrypted Message:\n{decrypted_message}\n")
-        except Exception:
-            print("Failed to decrypt the message. The password may be incorrect.")
+        decrypted_message = decrypt_message(encrypted_message, password_char_pairs)
+        print(f"\nDecrypted Message:\n{decrypted_message}\n")
+
+        # Verify if decryption is successful
+        if decrypted_message is not None:
+            print("Decryption completed.")
+        else:
+            print("Decryption failed due to mismatched data.")
 
     else:
         print("Invalid choice. Please select 'E' to encrypt or 'D' to decrypt.")
