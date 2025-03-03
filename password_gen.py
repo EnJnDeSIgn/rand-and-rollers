@@ -43,7 +43,7 @@ def generate_password():
     result_string = ""
     total = 0
     add_or_subtract = random.choice([1, -1]) # Initial random choice for addition or subtraction
-    runs = random.choice([42, 40, 41, 43, 45, 44])
+    runs = random.choice([54, 46, 49, 48, 36, 39, 47, 53, 51, 38, 37, 42, 43, 35, 50, 41, 52, 55, 45, 44, 40])
 
     for _ in range(runs):
         # Randomly select a group
