@@ -1,6 +1,6 @@
 import random
 
-# Initialize groups (your original groups variable)
+# Initialize groups
 groups = [
     ["4", "+", "5", "8", "a"],  # 5 +
     ["p", "4", "r", "/", "h"],  # 10 /
@@ -40,75 +40,59 @@ def generate_password(existing_passwords):
     while True:
         result_string = ""
         total = 0
-        add_or_subtract = random.choice([1, -1])  # Initial random choice for addition or subtraction
-        runs = random.choice([54, 46, 49, 48, 36, 39, 47, 53, 51, 38,
-                              37, 42, 43, 35, 50, 41, 52, 55, 45, 44,
-                              40])
+        add_or_subtract = random.choice([1, -1])
+        runs = random.choice(range(35, 56))  # Adjusted for variety
 
         for _ in range(runs):
-            # Randomly select a group
             selected_group = random.randint(0, len(groups) - 1)
-            # Randomly select a number from the chosen group
             selected_number = random.randint(0, 4)
 
             element = groups[selected_group][selected_number].strip()
 
-            # Check if the element is a number or symbol/letter
             try:
                 number = int(element)
-                # Element is a number
                 total += add_or_subtract * abs(number)
             except ValueError:
-                # Element is a symbol/letter
                 if total != 0:
-                    result_string += str(abs(total))  # Ensure total is positive
+                    result_string += str(abs(total))
                     total = 0
                 result_string += element
-
-                # Randomly decide whether the next operation will be addition or subtraction
                 add_or_subtract = random.choice([1, -1])
 
-        # Append any remaining total to the result string
         if total != 0:
-            result_string += str(abs(total))  # Ensure total is positive
+            result_string += str(abs(total))
 
-        # Ensure password is unique
         if result_string not in existing_passwords:
             return result_string
 
 def encrypt_message(message):
-    char_to_password = {}
-    password_to_char = {}
-    encrypted_passwords = []
+    password_char_pairs = []
     existing_passwords = set()
+    passwords = []
 
-    for char in message:
-        if char in char_to_password:
-            password = char_to_password[char]
-        else:
-            # Generate a unique password for the character
-            password = generate_password(existing_passwords)
-            existing_passwords.add(password)
-            char_to_password[char] = password
-            password_to_char[password] = char
+    for idx, char in enumerate(message):
+        password = generate_password(existing_passwords)
+        existing_passwords.add(password)
+        passwords.append(password)
+        password_char_pairs.append((password, char))
 
-        encrypted_passwords.append(password)
+    encrypted_message = ' '.join(passwords)
+    return encrypted_message, password_char_pairs
 
-    # Use a delimiter (e.g., space) to separate passwords
-    encrypted_message = ' '.join(encrypted_passwords)
-    return encrypted_message, char_to_password, password_to_char
-
-def decrypt_message(encrypted_message, password_to_char):
+def decrypt_message(encrypted_message, password_char_pairs):
     decrypted_chars = []
     encrypted_passwords = encrypted_message.split(' ')
 
-    for password in encrypted_passwords:
-        if password in password_to_char:
-            char = password_to_char[password]
+    if len(encrypted_passwords) != len(password_char_pairs):
+        print("Error: Mismatch in encrypted data.")
+        return None
+
+    for idx, password in enumerate(encrypted_passwords):
+        stored_password, char = password_char_pairs[idx]
+        if password == stored_password:
             decrypted_chars.append(char)
         else:
-            # Handle unknown passwords
-            decrypted_chars.append('?')  # Or raise an error
+            decrypted_chars.append('?')  # Indicate an error
 
     decrypted_message = ''.join(decrypted_chars)
     return decrypted_message
@@ -117,11 +101,11 @@ def main():
     message = input("Enter the message to encrypt: ")
 
     # Encrypt the message
-    encrypted_message, char_to_password, password_to_char = encrypt_message(message)
+    encrypted_message, password_char_pairs = encrypt_message(message)
     print(f"\nEncrypted Message:\n{encrypted_message}\n")
 
     # Decrypt the message
-    decrypted_message = decrypt_message(encrypted_message, password_to_char)
+    decrypted_message = decrypt_message(encrypted_message, password_char_pairs)
     print(f"Decrypted Message:\n{decrypted_message}\n")
 
     # Verify if decryption is successful
