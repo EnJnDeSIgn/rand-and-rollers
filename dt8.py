@@ -2,6 +2,8 @@ import random
 import json
 import os
 import hashlib
+import base64
+from cryptography.fernet import Fernet
 
 # Initialize groups (your existing groups)
 groups = [
@@ -51,6 +53,10 @@ def get_symbols_from_salt(salt):
         symbol = groups[group_index][symbol_index]
         symbols.append(symbol)
     return symbols
+
+def derive_key_from_salt(salt):
+    key = hashlib.sha256(salt).digest()
+    return base64.urlsafe_b64encode(key)
 
 def generate_password(existing_passwords, salt_symbols):
     # Use the salt_symbols to influence password generation
@@ -106,7 +112,7 @@ def encrypt_message(message, salt):
     encrypted_message = ' '.join(passwords)
     return encrypted_message, password_char_pairs
 
-def decrypt_message(encrypted_message, salt):
+def decrypt_message(encrypted_message, salt, password_char_pairs):
     # Seed the random number generator with the salt-derived seed
     seed = get_seed_from_salt(salt)
     random.seed(seed)
@@ -114,7 +120,7 @@ def decrypt_message(encrypted_message, salt):
     salt_symbols = get_symbols_from_salt(salt)
 
     existing_passwords = set()
-    password_char_pairs = []
+    regenerated_passwords = []
     decrypted_chars = []
 
     encrypted_passwords = encrypted_message.split(' ')
@@ -122,19 +128,14 @@ def decrypt_message(encrypted_message, salt):
     for idx in range(len(encrypted_passwords)):
         password = generate_password(existing_passwords, salt_symbols)
         existing_passwords.add(password)
-        # Retrieve the character from mapping
-        # Load the mapping from the file
-        try:
-            with open('password_mapping.json', 'r') as f:
-                data = json.load(f)
-                mapping = [tuple(pair) for pair in data['password_char_pairs']]
-                # Assign the character based on the password
-                char = next((char for pw, char in mapping if pw == password), '?')
-        except FileNotFoundError:
-            print("Password mapping file not found. Cannot decrypt the message.")
-            return None
+        regenerated_passwords.append(password)
 
-        if password == encrypted_passwords[idx]:
+    # Now map regenerated passwords to encrypted passwords to get the characters
+    password_char_dict = dict(password_char_pairs)
+    for idx, password in enumerate(encrypted_passwords):
+        if password == regenerated_passwords[idx]:
+            # Retrieve the character based on the password
+            char = password_char_dict.get(password, '?')
             decrypted_chars.append(char)
         else:
             decrypted_chars.append('?')
@@ -149,44 +150,64 @@ def main():
         message = input("Enter the message to encrypt: ")
 
         # Generate a random salt
-        salt = os.urandom(255)
+        salt = os.urandom(1000)
 
         # Encrypt the message
         encrypted_message, password_char_pairs = encrypt_message(message, salt)
         print(f"\nEncrypted Message:\n{encrypted_message}\n")
 
-        # Save the mapping and salt to files
-        with open('password_mapping.json', 'w') as f:
-            json.dump({'password_char_pairs': [list(pair) for pair in password_char_pairs]}, f)
+        # Generate encryption key for mapping data
+        key = derive_key_from_salt(salt)
+        fernet = Fernet(key)
 
+        # Serialize and encrypt the mapping data
+        mapping_json = json.dumps(password_char_pairs)
+        mapping_bytes = mapping_json.encode('utf-8')
+        encrypted_mapping = fernet.encrypt(mapping_bytes)
+        mapping_length = len(encrypted_mapping)
+
+        # Prepare data to write to salt.dat
+        salt_data = salt + mapping_length.to_bytes(4, byteorder='big') + encrypted_mapping
+
+        # Save the combined data to salt.dat
         with open('salt.dat', 'wb') as f:
-            f.write(salt)
+            f.write(salt_data)
 
-        print("Password mapping saved to 'password_mapping.json'.")
-        print("Salt saved to 'salt.dat'.")
+        print("Salt and encrypted mapping data combined and saved to 'salt.dat'.")
         print("You can now run the program again to decrypt the message.")
 
     elif choice == 'D':
         encrypted_message = input("Enter the encrypted message: ")
 
-        # Load the mapping and salt from files
-        try:
-            with open('password_mapping.json', 'r') as f:
-                data = json.load(f)
-                password_char_pairs = [tuple(pair) for pair in data['password_char_pairs']]
-        except FileNotFoundError:
-            print("Password mapping file not found. Cannot decrypt the message.")
-            return
-
+        # Load the combined salt and encrypted mapping data from salt.dat
         try:
             with open('salt.dat', 'rb') as f:
-                salt = f.read()
+                salt = f.read(1000)
+                mapping_length_bytes = f.read(4)
+                mapping_length = int.from_bytes(mapping_length_bytes, byteorder='big')
+                encrypted_mapping = f.read(mapping_length)
         except FileNotFoundError:
             print("Salt file not found. Cannot decrypt the message.")
             return
+        except Exception as e:
+            print(f"Error loading salt and mapping data: {e}")
+            return
+
+        # Generate decryption key for mapping data
+        key = derive_key_from_salt(salt)
+        fernet = Fernet(key)
+
+        # Decrypt the mapping data
+        try:
+            mapping_bytes = fernet.decrypt(encrypted_mapping)
+            mapping_json = mapping_bytes.decode('utf-8')
+            password_char_pairs = json.loads(mapping_json)
+        except Exception as e:
+            print(f"Error decrypting mapping data: {e}")
+            return
 
         # Decrypt the message
-        decrypted_message = decrypt_message(encrypted_message, salt)
+        decrypted_message = decrypt_message(encrypted_message, salt, password_char_pairs)
         print(f"\nDecrypted Message:\n{decrypted_message}\n")
 
         # Verify if decryption is successful
