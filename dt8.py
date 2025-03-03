@@ -128,7 +128,7 @@ def main():
         print("Please store this password securely; you'll need it to decrypt the message.")
 
         # Generate a random salt
-        salt = os.urandom(64)
+        salt = os.urandom(255)
         try:
             # Derive key from password and salt
             key = derive_key_from_password(password, salt)
