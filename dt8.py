@@ -1,7 +1,9 @@
 import random
 import json
+import os
+import hashlib
 
-# Initialize groups
+# Initialize groups (your existing groups)
 groups = [
     ["4", "+", "5", "8", "a"],
     ["p", "4", "r", "/", "h"],
@@ -37,18 +39,36 @@ groups = [
     ["e", "0", "?", "7", "2"]
 ]
 
-def generate_password(existing_passwords):
+def get_seed_from_salt(salt):
+    # Convert salt bytes to an integer
+    return int(hashlib.sha256(salt).hexdigest(), 16)
+
+def get_symbols_from_salt(salt):
+    symbols = []
+    for byte in salt:
+        group_index = byte % len(groups)
+        symbol_index = byte % len(groups[group_index])
+        symbol = groups[group_index][symbol_index]
+        symbols.append(symbol)
+    return symbols
+
+def generate_password(existing_passwords, salt_symbols):
+    # Use the salt_symbols to influence password generation
     while True:
         result_string = ""
         total = 0
         add_or_subtract = random.choice([1, -1])
-        runs = random.choice(range(35, 56))  # Adjusted for variety
+        runs = random.choice(range(35, 56))
 
-        for _ in range(runs):
+        for i in range(runs):
             selected_group = random.randint(0, len(groups) - 1)
             selected_number = random.randint(0, 4)
 
             element = groups[selected_group][selected_number].strip()
+
+            # Occasionally insert a symbol from salt_symbols
+            if i % 10 == 0 and i // 10 < len(salt_symbols):
+                element = salt_symbols[i // 10]
 
             try:
                 number = int(element)
@@ -67,34 +87,57 @@ def generate_password(existing_passwords):
             existing_passwords.add(result_string)
             return result_string
 
-def encrypt_message(message):
+def encrypt_message(message, salt):
+    # Seed the random number generator with the salt-derived seed
+    seed = get_seed_from_salt(salt)
+    random.seed(seed)
+
+    salt_symbols = get_symbols_from_salt(salt)
+
     password_char_pairs = []
     existing_passwords = set()
     passwords = []
 
     for idx, char in enumerate(message):
-        password = generate_password(existing_passwords)
-        existing_passwords.add(password)
+        password = generate_password(existing_passwords, salt_symbols)
         passwords.append(password)
         password_char_pairs.append((password, char))
 
     encrypted_message = ' '.join(passwords)
     return encrypted_message, password_char_pairs
 
-def decrypt_message(encrypted_message, password_char_pairs):
+def decrypt_message(encrypted_message, salt):
+    # Seed the random number generator with the salt-derived seed
+    seed = get_seed_from_salt(salt)
+    random.seed(seed)
+
+    salt_symbols = get_symbols_from_salt(salt)
+
+    existing_passwords = set()
+    password_char_pairs = []
     decrypted_chars = []
+
     encrypted_passwords = encrypted_message.split(' ')
 
-    if len(encrypted_passwords) != len(password_char_pairs):
-        print("Error: Mismatch in encrypted data.")
-        return None
+    for idx in range(len(encrypted_passwords)):
+        password = generate_password(existing_passwords, salt_symbols)
+        existing_passwords.add(password)
+        # Retrieve the character from mapping
+        # Load the mapping from the file
+        try:
+            with open('password_mapping.json', 'r') as f:
+                data = json.load(f)
+                mapping = [tuple(pair) for pair in data['password_char_pairs']]
+                # Assign the character based on the password
+                char = next((char for pw, char in mapping if pw == password), '?')
+        except FileNotFoundError:
+            print("Password mapping file not found. Cannot decrypt the message.")
+            return None
 
-    for idx, password in enumerate(encrypted_passwords):
-        stored_password, char = password_char_pairs[idx]
-        if password == stored_password:
+        if password == encrypted_passwords[idx]:
             decrypted_chars.append(char)
         else:
-            decrypted_chars.append('?')  # Indicate an error
+            decrypted_chars.append('?')
 
     decrypted_message = ''.join(decrypted_chars)
     return decrypted_message
@@ -105,22 +148,28 @@ def main():
     if choice == 'E':
         message = input("Enter the message to encrypt: ")
 
+        # Generate a random salt
+        salt = os.urandom(255)
+
         # Encrypt the message
-        encrypted_message, password_char_pairs = encrypt_message(message)
+        encrypted_message, password_char_pairs = encrypt_message(message, salt)
         print(f"\nEncrypted Message:\n{encrypted_message}\n")
 
-        # Save the mapping to a file
+        # Save the mapping and salt to files
         with open('password_mapping.json', 'w') as f:
-            # We need to convert tuples to lists for JSON serialization
             json.dump({'password_char_pairs': [list(pair) for pair in password_char_pairs]}, f)
 
+        with open('salt.dat', 'wb') as f:
+            f.write(salt)
+
         print("Password mapping saved to 'password_mapping.json'.")
+        print("Salt saved to 'salt.dat'.")
         print("You can now run the program again to decrypt the message.")
 
     elif choice == 'D':
         encrypted_message = input("Enter the encrypted message: ")
 
-        # Load the mapping from the file
+        # Load the mapping and salt from files
         try:
             with open('password_mapping.json', 'r') as f:
                 data = json.load(f)
@@ -129,8 +178,15 @@ def main():
             print("Password mapping file not found. Cannot decrypt the message.")
             return
 
+        try:
+            with open('salt.dat', 'rb') as f:
+                salt = f.read()
+        except FileNotFoundError:
+            print("Salt file not found. Cannot decrypt the message.")
+            return
+
         # Decrypt the message
-        decrypted_message = decrypt_message(encrypted_message, password_char_pairs)
+        decrypted_message = decrypt_message(encrypted_message, salt)
         print(f"\nDecrypted Message:\n{decrypted_message}\n")
 
         # Verify if decryption is successful
