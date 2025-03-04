@@ -5,6 +5,7 @@ import base64
 import hashlib
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
+import os
 
 # Initialize groups
 groups = [
@@ -42,15 +43,11 @@ groups = [
     ["e", "0", "?", "7", "2"]
 ]
 
-def derive_key_from_password(password):
-    """
-    Derives a key from the provided password using PBKDF2HMAC.
-    """
+def derive_key_from_password(password, salt):
     password_bytes = password.encode('utf-8')
-    salt = b'some_salt_value'  # For better security, use a random salt and store it securely
     kdf = PBKDF2HMAC(
         algorithm=hashes.SHA256(),
-        length=32,  # Length of Fernet key
+        length=32,
         salt=salt,
         iterations=100000,
     )
@@ -131,7 +128,8 @@ def main():
 
         # Prompt for a password to encrypt the mapping
         password = input("Enter a password to encrypt the mapping file: ")
-        key = derive_key_from_password(password)
+        salt = os.urandom(16)
+        key = derive_key_from_password(password, salt)
         fernet = Fernet(key)
 
         # Serialize and encrypt the mapping data
@@ -139,9 +137,10 @@ def main():
         mapping_bytes = mapping_json.encode('utf-8')
         encrypted_mapping = fernet.encrypt(mapping_bytes)
 
-        # Save the encrypted mapping to a file
+        # Save the salt and encrypted mapping to a file
+        # We'll save the salt first, then the encrypted mapping
         with open('password_mapping.enc', 'wb') as f:
-            f.write(encrypted_mapping)
+            f.write(salt + encrypted_mapping)
 
         print("Encrypted password mapping saved to 'password_mapping.enc'.")
         print("You can now run the program again to decrypt the message.")
@@ -151,13 +150,17 @@ def main():
 
         # Prompt for the password to decrypt the mapping
         password = input("Enter the password to decrypt the mapping file: ")
-        key = derive_key_from_password(password)
-        fernet = Fernet(key)
 
-        # Load and decrypt the mapping from the file
+        # Load the salt and encrypted mapping from the file
         try:
             with open('password_mapping.enc', 'rb') as f:
-                encrypted_mapping = f.read()
+                file_content = f.read()
+            salt = file_content[:16]  # First 16 bytes are the salt
+            encrypted_mapping = file_content[16:]  # The rest is the encrypted mapping
+
+            key = derive_key_from_password(password, salt)
+            fernet = Fernet(key)
+
             mapping_bytes = fernet.decrypt(encrypted_mapping)
             mapping_json = mapping_bytes.decode('utf-8')
             data = json.loads(mapping_json)
