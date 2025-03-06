@@ -5,34 +5,40 @@ def call_die_variance_8too():
     result = subprocess.run(['python', 'die_variance_8too.py'], capture_output=True, text=True)
     return result.stdout.strip()
 
-def get_red_starting_location(output):
-    # Assuming the red starting location is printed in the output, extract it.
-    # Note: You might need to adjust this based on the actual output format of die_variance8too.py
-    # Example: If the output contains "Red starting location: <number>"
+def extract_numbers_from_output(output):
+    numbers = []
     for line in output.split('\n'):
-        if 'Red starting location' in line:
-            return int(line.split(':')[-1].strip())
-    return None
+        if 'Binary' in line:
+            # Extract numbers from 0 to 9 from the binary pattern
+            numbers.extend(int(char) for char in line if char.isdigit())
+    return numbers
+
+def generate_custom_binary():
+    binary = ''.join(random.choice('01') for _ in range(90))
+    patterns = [binary[i:i+10] for i in range(0, 90, 10)]
+    return binary, patterns
 
 def main():
-    # Call die_variance8too.py twice and get red starting locations
+    # Call die_variance_8too.py twice and extract numbers
     output1 = call_die_variance_8too()
     output2 = call_die_variance_8too()
-    red_start1 = get_red_starting_location(output1)
-    red_start2 = get_red_starting_location(output2)
+    numbers1 = extract_numbers_from_output(output1)
+    numbers2 = extract_numbers_from_output(output2)
 
-    if red_start1 is None or red_start2 is None:
-        print("Could not find red starting locations in the output.")
+    if not numbers1 or not numbers2:
+        print("Could not find numbers in the output.")
         return
 
-    # Randomly add or subtract one from the other
-    if random.choice([True, False]):
-        new_red_start = red_start1 + red_start2
-    else:
-        new_red_start = abs(red_start1 - red_start2)
+    # Randomly add or subtract numbers
+    new_numbers = []
+    for n1, n2 in zip(numbers1, numbers2):
+        if random.choice([True, False]):
+            new_numbers.append(n1 + n2)
+        else:
+            new_numbers.append(abs(n1 - n2))
 
-    # Print the new numbers with the new red starting location
-    print(f"New Red Starting Location: {new_red_start}")
+    # Print the new numbers with a new red starting location
+    print(f"New Numbers: {new_numbers}")
     print(f"Output from first call:\n{output1}")
     print(f"Output from second call:\n{output2}")
 
