@@ -36,8 +36,15 @@ def main():
             new_number = abs(n1 - n2)
         new_numbers.append(wrap_number(new_number))
 
-    # Print the final new numbers in a single row, comma-separated
-    print(', '.join(map(str, new_numbers)))
+    # Select a random red starting location
+    red_index = random.randint(0, len(new_numbers) - 1)
+
+    # Print the final new numbers with a red starting location highlighted
+    new_numbers_with_red = [
+        f'\033[91m{num}\033[0m' if i == red_index else str(num)
+        for i, num in enumerate(new_numbers)
+    ]
+    print(', '.join(new_numbers_with_red))
 
 if __name__ == "__main__":
     main()
