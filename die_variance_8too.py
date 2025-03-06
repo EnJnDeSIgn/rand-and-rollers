@@ -197,13 +197,13 @@ def main():
     print(f"Standard Deviation: {std_deviation:.60f}")
 
     # Plotting the digit frequencies
-    plt.figure(figsize=(10, 6))
-    plt.bar(counts.keys(), counts.values())
-    plt.xlabel('Digit')
-    plt.ylabel('Frequency')
-    plt.title('Digit Frequencies in Combined Binaries')
-    plt.xticks(range(10))  # Digits from 0 to 9
-    plt.show()
+    #plt.figure(figsize=(10, 6))
+    #plt.bar(counts.keys(), counts.values())
+    #plt.xlabel('Digit')
+    #plt.ylabel('Frequency')
+    #plt.title('Digit Frequencies in Combined Binaries')
+    #plt.xticks(range(10))  # Digits from 0 to 9
+    #plt.show()
 
 if __name__ == "__main__":
     main()
