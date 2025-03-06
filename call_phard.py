@@ -27,13 +27,19 @@ def main():
         print("Could not find numbers in the output.")
         return
 
-    # Randomly add or subtract numbers and wrap them to 0-9
+    # Randomly add or subtract numbers and wrap them to 0-9 with increased variability
     new_numbers = []
     for n1, n2 in zip(numbers1, numbers2):
         if random.choice([True, False]):
-            new_number = n1 + n2
+            if random.choice([True, False]):
+                new_number = n1 + n2
+            else:
+                new_number = abs(n1 - n2)
         else:
-            new_number = abs(n1 - n2)
+            if random.choice([True, False]):
+                new_number = n2 + n1
+            else:
+                new_number = abs(n2 - n1)
         new_numbers.append(wrap_number(new_number))
 
     # Select a random red starting location
