@@ -3,7 +3,7 @@ cls
 
 REM Run the call_phard.py script to randomize the seed
 echo Running call_phard.py to randomize the seed...
-python call_phard.py
+python ele_call.py
 
 REM Run the ELEgenV1.exe program
 echo Running ELEgenV1.exe...
