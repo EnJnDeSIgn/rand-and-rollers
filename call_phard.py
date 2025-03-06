@@ -13,10 +13,8 @@ def extract_numbers_from_output(output):
             numbers.extend(int(char) for char in line if char.isdigit())
     return numbers
 
-def generate_custom_binary():
-    binary = ''.join(random.choice('01') for _ in range(90))
-    patterns = [binary[i:i+10] for i in range(0, 90, 10)]
-    return binary, patterns
+def wrap_number(num):
+    return num % 10
 
 def main():
     # Call die_variance_8too.py twice and extract numbers
@@ -29,18 +27,17 @@ def main():
         print("Could not find numbers in the output.")
         return
 
-    # Randomly add or subtract numbers
+    # Randomly add or subtract numbers and wrap them to 0-9
     new_numbers = []
     for n1, n2 in zip(numbers1, numbers2):
         if random.choice([True, False]):
-            new_numbers.append(n1 + n2)
+            new_number = n1 + n2
         else:
-            new_numbers.append(abs(n1 - n2))
+            new_number = abs(n1 - n2)
+        new_numbers.append(wrap_number(new_number))
 
-    # Print the new numbers with a new red starting location
-    print(f"New Numbers: {new_numbers}")
-    print(f"Output from first call:\n{output1}")
-    print(f"Output from second call:\n{output2}")
+    # Print the final new numbers in a single row, comma-separated
+    print(', '.join(map(str, new_numbers)))
 
 if __name__ == "__main__":
     main()
