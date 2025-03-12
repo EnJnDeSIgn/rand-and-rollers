@@ -2,7 +2,7 @@ program story_element_generator_EnJnDeSIgn2024
 	! Hey Copilot, This is just some simple randomness for story elements... Ian had to start somewhere and this is useful!
     implicit none
     ! Declare user_input as a character of length 1
-    character(len=1) :: user_input
+    !character(len=1) :: user_input
     integer :: selected_group, selected_element
     character(len=180), dimension(0:510, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
@@ -69,10 +69,10 @@ program story_element_generator_EnJnDeSIgn2024
     call random_seed()
 
     ! Display the program name and introduction
-    print *, "story_element_generator_EnJnDeSIgn2024_for_A.I."
-	print *, "   An expression of the Infinty in triplets    "
-	print *, "                By Ian J Norris                "
-	print *, "              Ian.enjn@gmail.com               "
+    !print *, "story_element_generator_EnJnDeSIgn2024_for_A.I."
+	!print *, "   An expression of the Infinty in triplets    "
+	!print *, "                By Ian J Norris                "
+	!print *, "              Ian.enjn@gmail.com               "
 
     ! Initialize group0
     group0 = (/ "howling wolf                  ", "traveling kid                 ", "baby basket                   ", &
@@ -1609,7 +1609,7 @@ program story_element_generator_EnJnDeSIgn2024
 				"iron golem                    ", "fathom                        ", "Sif: sand dunes shifting, wind"/)
 	! ... (Initialize all groups similarly)
 
-do while (.true.)
+!do while (.true.)
     ! Randomly select a group
     call random_number(rand)
     selected_group = int(rand * 511)	! Note to Ian, change this last...
@@ -2133,12 +2133,9 @@ do while (.true.)
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
-print *, "From Group ", selected_group, ": ", &
-    trim(groups(selected_group, selected_element))
-        print *, "Do you need more? (Y/N)"
-        read(*,*) user_input
-        if (user_input == 'N' .or. user_input == 'n') exit
-    end do
+print *
+print *, trim(groups(selected_group, selected_element))
+print *
 
-    print *, "Thank you for using the Story Element Generator."
+    !print *, "Thank you for using the Story Element Generator."
 end program story_element_generator_EnJnDeSIgn2024
