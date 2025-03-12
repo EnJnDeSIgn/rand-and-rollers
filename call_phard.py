@@ -50,7 +50,7 @@ def main():
         f'\033[91m{num}\033[0m' if i == red_index else str(num)
         for i, num in enumerate(new_numbers)
     ]
-    print(', '.join(new_numbers_with_red))
+    print(''.join(new_numbers_with_red))
 
 if __name__ == "__main__":
     main()
