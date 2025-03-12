@@ -22,4 +22,4 @@ REM Prompt to draw another card
 set /p user_input="Draw another card? (Y/N): "
 if /I "%user_input%"=="Y" goto loop
 
-echo Done.
+echo Thank you for using the Tarot Card Generator.

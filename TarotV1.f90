@@ -90,5 +90,5 @@ program tarot_card_generator_EnJnDeSIgn2024
 	
     ! Display the selected card
     print *, trim(groups(selected_group, selected_card))
-    print *, "Thank you for using the Tarot Card Generator."
+    !print *, "Thank you for using the Tarot Card Generator."
 end program tarot_card_generator_EnJnDeSIgn2024
