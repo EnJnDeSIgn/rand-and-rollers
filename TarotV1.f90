@@ -1,23 +1,20 @@
+! Display the program name and introduction
+!print *, "      tarot_card_generator_EnJnDeSIgn2024      "
+!print *, "         A Oracle Of Divine Randomness         "
+!print *, "                By Ian J Norris                "
+!print *, "              Ian.enjn@gmail.com               "
 program tarot_card_generator_EnJnDeSIgn2024
     implicit none
-    ! Declare user_input as a character of length 1
-    character(len=1) :: user_input
     integer :: selected_group, selected_card
     character(len=30), dimension(0:12, 0:5) :: groups
     character(len=30), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
-										group9, group10, group11, group12
-	! ... (initialize all group arrays up to group12)
+                                        group9, group10, group11, group12
     real :: rand
 
     ! Seed the random number generator
     call random_seed()
 
-    ! Display the program name and introduction
-    !print *, "      tarot_card_generator_EnJnDeSIgn2024      "
-	!print *, "         A Oracle Of Divine Randomness         "
-	!print *, "                By Ian J Norris                "
-	!print *, "              Ian.enjn@gmail.com               "
-	
+    ! Initialize tarot groups (group0 to group12)
     ! Initialize group0
     group0 = (/ "The Magician                  ", "Two of Swords                 ", "Three of Pentacles            ", &
                 "Queen of Swords               ", "Three of Wands                ", "Nine of Pentacles             " /)
@@ -59,22 +56,21 @@ program tarot_card_generator_EnJnDeSIgn2024
                 "Queen of Pentacles            ", "Queen of Wands                ", "Nine of Swords                "/)
 	! ... (Initialize all groups similarly)
 
-do while (.true.)
     ! Randomly select a group
     call random_number(rand)
     selected_group = int(rand * 13)
-		if (selected_group < 0 .or. selected_group > 12) then
-			print *, "Error: selected_group out of range"	! Start your count from 0
-			stop
-		end if
+    if (selected_group < 0 .or. selected_group > 12) then
+        print *, "Error: selected_group out of range"
+        stop
+    end if
 
-    ! Randomly select an card from the chosen group
+    ! Randomly select a card from the chosen group
     call random_number(rand)
     selected_card = int(rand * 6)
-		if (selected_card < 0 .or. selected_card > 5) then
-			print *, "Error: selected_card out of range"	! Start your count from 0
-			stop
-		end if
+    if (selected_card < 0 .or. selected_card > 5) then
+        print *, "Error: selected_card out of range"
+        stop
+    end if
 
     ! Assign groups to the groups array
     groups(0, :) = group0
@@ -91,15 +87,8 @@ do while (.true.)
     groups(11, :) = group11
     groups(12, :) = group12
 	! ... (assign all other groups similarly)
-
+	
     ! Display the selected card
-!print *, "From Group ", selected_group, ": ", &
-    !trim(groups(selected_group, selected_card))
-	print *, trim(groups(selected_group, selected_card))
-        print *, "Draw another card? (Y/N)"
-        read(*,*) user_input
-        if (user_input == 'N' .or. user_input == 'n') exit
-    end do
-
+    print *, trim(groups(selected_group, selected_card))
     print *, "Thank you for using the Tarot Card Generator."
 end program tarot_card_generator_EnJnDeSIgn2024
