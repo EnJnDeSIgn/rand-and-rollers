@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:517, 0:5) :: groups
+    character(len=180), dimension(0:518, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -62,7 +62,7 @@ program story_element_generator_EnJnDeSIgn2024
 										group486, group487, group488, group489, group490, group491, group492, group493, group494, &
 										group495, group496, group497, group498, group499, group500, group501, group502, group503, &
 										group504, group505, group506, group507, group508, group509, group510, group511, group512, &
-										group513, group514, group515, group516, group517
+										group513, group514, group515, group516, group517, group518
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -88,14 +88,14 @@ program story_element_generator_EnJnDeSIgn2024
     group3 = (/ "blind exploration             ", "change of directions          ", "reading somthing              ", &
                 "soldier,but unfortunately, his", "wondering, whats inside a gift", "sorcerer                      " /)
     ! Initialize group4
-    group4 = (/ "eating                        ", "catching insects or net       ", "an agreement                  ", &
+    group4 = (/ "eating                        ", "catching insects or net       ", "u.s.s.r. joined together to   ", &
                 "it's easy to look up exactly  ", "deciding what to bet          ", "kicking a ball                " /)
     ! Initialize group5
     group5 = (/ "cough                         ", "she resents it                ", "nurse                         ", &
                 "walking together              ", "lifting a heavy weight        ", "aliens explore earth, but     " /)
     ! Initialize group6
     group6 = (/ "castle tower                  ", "their diseases have been      ", "radio                         ", &
-                "eye                           ", "rainbow                       ", "pyramid                       " /)
+                "eye                           ", "suitable caretakers and       ", "pyramid                       " /)
     ! Initialize group7
     group7 = (/ "abacus                        ", "bridge                        ", "bee                           ", &
                 "to permanent daytime          ", "crescent moon                 ", "magician's wand               " /)
@@ -1628,537 +1628,126 @@ program story_element_generator_EnJnDeSIgn2024
 				"pixie                         ", "movie scripts, albeit with a  ", "same man, dressed in the same " /)
 	! Initialize group517
   group517 = (/ "it's now possible to remove or", "possession of a child         ", "toad                          ", &
-				"every day contains codes that ", "shadow monster                ", "discovery                     "/)
+				"every day contains codes that ", "shadow monster                ", "discovery                     " /)
+	! Initialize group518
+  group518 = (/ "an agreement                  ", "s\he begins to take over the  ", "the entries in this old diary ", &
+				"rainbow                       ", "makeup                        ", "the monkeys are screeching at "/)
 	! ... (Initialize all groups similarly)
 
 !do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 518)	! Note to Ian, change this last...
+    selected_group = int(rand * 519)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
     selected_element = int(rand * 6)
 
     ! Assign groups to the groups array
-    groups(0, :) = group0
-    groups(1, :) = group1
-    groups(2, :) = group2
-    groups(3, :) = group3
-    groups(4, :) = group4
-    groups(5, :) = group5
-    groups(6, :) = group6
-    groups(7, :) = group7
-    groups(8, :) = group8
-    groups(9, :) = group9
-    groups(10, :) = group10
-    groups(11, :) = group11
-    groups(12, :) = group12
-    groups(13, :) = group13
-    groups(14, :) = group14
-    groups(15, :) = group15
-    groups(16, :) = group16
-    groups(17, :) = group17
-    groups(18, :) = group18
-    groups(19, :) = group19
-    groups(20, :) = group20
-    groups(21, :) = group21
-    groups(22, :) = group22
-    groups(23, :) = group23
-    groups(24, :) = group24
-    groups(25, :) = group25
-    groups(26, :) = group26
-    groups(27, :) = group27
-    groups(28, :) = group28
-    groups(29, :) = group29
-    groups(30, :) = group30
-    groups(31, :) = group31
-    groups(32, :) = group32
-    groups(33, :) = group33
-    groups(34, :) = group34
-    groups(35, :) = group35
-    groups(36, :) = group36
-    groups(37, :) = group37
-    groups(38, :) = group38
-    groups(39, :) = group39
-    groups(40, :) = group40
-    groups(41, :) = group41
-    groups(42, :) = group42
-    groups(43, :) = group43
-    groups(44, :) = group44
-    groups(45, :) = group45
-    groups(46, :) = group46
-    groups(47, :) = group47
-    groups(48, :) = group48
-    groups(49, :) = group49
-    groups(50, :) = group50
-    groups(51, :) = group51
-    groups(52, :) = group52
-    groups(53, :) = group53
-    groups(54, :) = group54
-    groups(55, :) = group55
-    groups(56, :) = group56
-    groups(57, :) = group57
-    groups(58, :) = group58
-    groups(59, :) = group59
-    groups(60, :) = group60
-    groups(61, :) = group61
-    groups(62, :) = group62
-    groups(63, :) = group63
-    groups(64, :) = group64
-    groups(65, :) = group65
-    groups(66, :) = group66
-    groups(67, :) = group67
-    groups(68, :) = group68 
-    groups(69, :) = group69
-    groups(70, :) = group70
-    groups(71, :) = group71
-    groups(72, :) = group72
-    groups(73, :) = group73
-    groups(74, :) = group74
-    groups(75, :) = group75
-    groups(76, :) = group76
-    groups(77, :) = group77
-    groups(78, :) = group78
-    groups(79, :) = group79
-    groups(80, :) = group80
-    groups(81, :) = group81
-    groups(82, :) = group82
-    groups(83, :) = group83
-    groups(84, :) = group84
-    groups(85, :) = group85
-    groups(86, :) = group86
-    groups(87, :) = group87
-    groups(88, :) = group88
-    groups(89, :) = group89
-    groups(90, :) = group90
-    groups(91, :) = group91
-    groups(92, :) = group92
-    groups(93, :) = group93
-    groups(94, :) = group94
-    groups(95, :) = group95
-    groups(96, :) = group96
-    groups(97, :) = group97
-    groups(98, :) = group98
-    groups(99, :) = group99
-    groups(100, :) = group100
-    groups(101, :) = group101
-    groups(102, :) = group102
-    groups(103, :) = group103
-    groups(104, :) = group104
-    groups(105, :) = group105
-    groups(106, :) = group106
-    groups(107, :) = group107
-    groups(108, :) = group108
-    groups(109, :) = group109
-    groups(110, :) = group110
-    groups(111, :) = group111
-    groups(112, :) = group112
-    groups(113, :) = group113
-    groups(114, :) = group114
-    groups(115, :) = group115
-    groups(116, :) = group116
-    groups(117, :) = group117
-    groups(118, :) = group118
-    groups(119, :) = group119
-    groups(120, :) = group120
-    groups(121, :) = group121
-    groups(122, :) = group122
-    groups(123, :) = group123
-    groups(124, :) = group124
-    groups(125, :) = group125
-    groups(126, :) = group126
-    groups(127, :) = group127
-    groups(128, :) = group128
-    groups(129, :) = group129
-    groups(130, :) = group130
-    groups(131, :) = group131
-    groups(132, :) = group132
-    groups(133, :) = group133
-    groups(134, :) = group134
-    groups(135, :) = group135
-    groups(136, :) = group136
-    groups(137, :) = group137
-    groups(138, :) = group138
-    groups(139, :) = group139
-    groups(140, :) = group140
-    groups(141, :) = group141
-    groups(142, :) = group142
-	groups(143, :) = group143
-	groups(144, :) = group144
-	groups(145, :) = group145
-	groups(146, :) = group146
-	groups(147, :) = group147
-	groups(148, :) = group148
-	groups(149, :) = group149
-	groups(150, :) = group150
-	groups(151, :) = group151
-	groups(152, :) = group152
-	groups(153, :) = group153
-	groups(154, :) = group154
-	groups(155, :) = group155
-	groups(156, :) = group156
-	groups(157, :) = group157
-	groups(158, :) = group158
-	groups(159, :) = group159
-	groups(160, :) = group160
-	groups(161, :) = group161
-	groups(162, :) = group162
-	groups(163, :) = group163
-	groups(164, :) = group164
-	groups(165, :) = group165
-	groups(166, :) = group166
-	groups(167, :) = group167
-	groups(168, :) = group168
-	groups(169, :) = group169
-	groups(170, :) = group170
-	groups(171, :) = group171
-	groups(172, :) = group172
-	groups(173, :) = group173
-	groups(174, :) = group174
-	groups(175, :) = group175
-	groups(176, :) = group176
-	groups(177, :) = group177
-	groups(178, :) = group178
-	groups(179, :) = group179
-	groups(180, :) = group180
-	groups(181, :) = group181
-	groups(182, :) = group182
-	groups(183, :) = group183
-	groups(184, :) = group184
-	groups(185, :) = group185
-	groups(186, :) = group186
-	groups(187, :) = group187
-	groups(188, :) = group188
-	groups(189, :) = group189
-	groups(190, :) = group190
-	groups(191, :) = group191
-	groups(192, :) = group192
-	groups(193, :) = group193
-	groups(194, :) = group194
-	groups(195, :) = group195
-	groups(196, :) = group196
-	groups(197, :) = group197
-	groups(198, :) = group198
-	groups(199, :) = group199
-	groups(200, :) = group200
-	groups(201, :) = group201
-	groups(202, :) = group202
-	groups(203, :) = group203
-	groups(204, :) = group204
-	groups(205, :) = group205
-	groups(206, :) = group206
-	groups(207, :) = group207
-	groups(208, :) = group208
-	groups(209, :) = group209
-	groups(210, :) = group210
-	groups(211, :) = group211
-	groups(212, :) = group212
-	groups(213, :) = group213
-	groups(214, :) = group214
-	groups(215, :) = group215
-	groups(216, :) = group216
-	groups(217, :) = group217
-	groups(218, :) = group218
-	groups(219, :) = group219
-	groups(220, :) = group220
-	groups(221, :) = group221
-	groups(222, :) = group222
-	groups(223, :) = group223
-	groups(224, :) = group224
-	groups(225, :) = group225
-	groups(226, :) = group226
-	groups(227, :) = group227
-	groups(228, :) = group228
-	groups(229, :) = group229
-	groups(230, :) = group230
-	groups(231, :) = group231
-	groups(232, :) = group232
-	groups(233, :) = group233
-	groups(234, :) = group234
-	groups(235, :) = group235
-	groups(236, :) = group236
-	groups(237, :) = group237
-	groups(238, :) = group238
-	groups(239, :) = group239
-	groups(240, :) = group240
-	groups(241, :) = group241
-	groups(242, :) = group242
-	groups(243, :) = group243
-	groups(244, :) = group244
-	groups(245, :) = group245
-	groups(246, :) = group246
-	groups(247, :) = group247
-	groups(248, :) = group248
-	groups(249, :) = group249
-	groups(250, :) = group250
-	groups(251, :) = group251
-	groups(252, :) = group252
-	groups(253, :) = group253
-	groups(254, :) = group254
-	groups(255, :) = group255
-	groups(256, :) = group256
-	groups(257, :) = group257
-	groups(258, :) = group258
-	groups(259, :) = group259
-	groups(260, :) = group260
-	groups(261, :) = group261
-	groups(262, :) = group262
-	groups(263, :) = group263
-	groups(264, :) = group264
-	groups(265, :) = group265
-	groups(266, :) = group266
-	groups(267, :) = group267
-	groups(268, :) = group268
-	groups(269, :) = group269
-	groups(270, :) = group270
-	groups(271, :) = group271
-	groups(272, :) = group272
-	groups(273, :) = group273
-	groups(274, :) = group274
-	groups(275, :) = group275
-	groups(276, :) = group276
-	groups(277, :) = group277
-	groups(278, :) = group278
-	groups(279, :) = group279
-	groups(280, :) = group280
-	groups(281, :) = group281
-	groups(282, :) = group282
-	groups(283, :) = group283
-	groups(284, :) = group284
-	groups(285, :) = group285
-	groups(286, :) = group286
-	groups(287, :) = group287
-	groups(288, :) = group288
-	groups(289, :) = group289
-	groups(290, :) = group290
-	groups(291, :) = group291
-	groups(292, :) = group292
-	groups(293, :) = group293
-	groups(294, :) = group294
-	groups(295, :) = group295
-	groups(296, :) = group296
-	groups(297, :) = group297
-	groups(298, :) = group298
-	groups(299, :) = group299
-	groups(300, :) = group300
-	groups(301, :) = group301
-	groups(302, :) = group302
-	groups(303, :) = group303
-	groups(304, :) = group304
-	groups(305, :) = group305
-	groups(306, :) = group306
-	groups(307, :) = group307
-	groups(308, :) = group308
-	groups(309, :) = group309
-	groups(310, :) = group310
-	groups(311, :) = group311
-	groups(312, :) = group312
-	groups(313, :) = group313
-	groups(314, :) = group314
-	groups(315, :) = group315
-	groups(316, :) = group316
-	groups(317, :) = group317
-	groups(318, :) = group318
-	groups(319, :) = group319
-	groups(320, :) = group320
-	groups(321, :) = group321
-	groups(322, :) = group322
-	groups(323, :) = group323
-	groups(324, :) = group324
-	groups(325, :) = group325
-	groups(326, :) = group326
-	groups(327, :) = group327
-	groups(328, :) = group328
-	groups(329, :) = group329
-	groups(330, :) = group330
-	groups(331, :) = group331
-	groups(332, :) = group332
-	groups(333, :) = group333
-	groups(334, :) = group334
-	groups(335, :) = group335
-	groups(336, :) = group336
-	groups(337, :) = group337
-	groups(338, :) = group338
-	groups(339, :) = group339
-	groups(340, :) = group340
-	groups(341, :) = group341
-	groups(342, :) = group342
-	groups(343, :) = group343
-	groups(344, :) = group344
-	groups(345, :) = group345
-	groups(346, :) = group346
-	groups(347, :) = group347
-	groups(348, :) = group348
-	groups(349, :) = group349
-	groups(350, :) = group350
-	groups(351, :) = group351
-	groups(352, :) = group352
-	groups(353, :) = group353
-	groups(354, :) = group354
-	groups(355, :) = group355
-	groups(356, :) = group356
-	groups(357, :) = group357
-	groups(358, :) = group358
-	groups(359, :) = group359
-	groups(360, :) = group360
-	groups(361, :) = group361
-	groups(362, :) = group362
-	groups(363, :) = group363
-	groups(364, :) = group364
-	groups(365, :) = group365
-	groups(366, :) = group366
-	groups(367, :) = group367
-	groups(368, :) = group368
-	groups(369, :) = group369
-	groups(370, :) = group370
-	groups(371, :) = group371
-	groups(372, :) = group372
-	groups(373, :) = group373
-	groups(374, :) = group374
-	groups(375, :) = group375
-	groups(376, :) = group376
-	groups(377, :) = group377
-	groups(378, :) = group378
-	groups(379, :) = group379
-	groups(380, :) = group380
-	groups(381, :) = group381
-	groups(382, :) = group382
-	groups(383, :) = group383
-	groups(384, :) = group384
-	groups(385, :) = group385
-	groups(386, :) = group386
-	groups(387, :) = group387
-	groups(388, :) = group388
-	groups(389, :) = group389
-	groups(390, :) = group390
-	groups(391, :) = group391
-	groups(392, :) = group392
-	groups(393, :) = group393
-	groups(394, :) = group394
-	groups(395, :) = group395
-	groups(396, :) = group396
-	groups(397, :) = group397
-	groups(398, :) = group398
-	groups(399, :) = group399
-	groups(400, :) = group400
-	groups(401, :) = group401
-	groups(402, :) = group402
-	groups(403, :) = group403
-	groups(404, :) = group404
-	groups(405, :) = group405
-	groups(406, :) = group406
-	groups(407, :) = group407
-	groups(408, :) = group408
-	groups(409, :) = group409
-	groups(410, :) = group410
-	groups(411, :) = group411
-	groups(412, :) = group412
-	groups(413, :) = group413
-	groups(414, :) = group414
-	groups(415, :) = group415
-	groups(416, :) = group416
-	groups(417, :) = group417
-	groups(418, :) = group418
-	groups(419, :) = group419
-	groups(420, :) = group420
-	groups(421, :) = group421
-	groups(422, :) = group422
-	groups(423, :) = group423
-	groups(424, :) = group424
-	groups(425, :) = group425
-	groups(426, :) = group426
-	groups(427, :) = group427
-	groups(428, :) = group428
-	groups(429, :) = group429
-	groups(430, :) = group430
-	groups(431, :) = group431
-	groups(432, :) = group432
-	groups(433, :) = group433
-	groups(434, :) = group434
-	groups(435, :) = group435
-	groups(436, :) = group436
-	groups(437, :) = group437
-	groups(438, :) = group438
-	groups(439, :) = group439
-	groups(440, :) = group440
-	groups(441, :) = group441
-	groups(442, :) = group442
-	groups(443, :) = group443
-	groups(444, :) = group444
-	groups(445, :) = group445
-	groups(446, :) = group446
-	groups(447, :) = group447
-	groups(448, :) = group448
-	groups(449, :) = group449
-	groups(450, :) = group450
-	groups(451, :) = group451
-	groups(452, :) = group452
-	groups(453, :) = group453
-	groups(454, :) = group454
-	groups(455, :) = group455
-	groups(456, :) = group456
-	groups(457, :) = group457
-	groups(458, :) = group458
-	groups(459, :) = group459
-	groups(460, :) = group460
-	groups(461, :) = group461
-	groups(462, :) = group462
-	groups(463, :) = group463
-	groups(464, :) = group464
-	groups(465, :) = group465
-	groups(466, :) = group466
-	groups(467, :) = group467
-	groups(468, :) = group468
-	groups(469, :) = group469
-	groups(470, :) = group470
-	groups(471, :) = group471
-	groups(472, :) = group472
-	groups(473, :) = group473
-	groups(474, :) = group474
-	groups(475, :) = group475
-	groups(476, :) = group476
-	groups(477, :) = group477
-	groups(478, :) = group478
-	groups(479, :) = group479
-	groups(480, :) = group480
-	groups(481, :) = group481
-	groups(482, :) = group482
-	groups(483, :) = group483
-	groups(484, :) = group484
-	groups(485, :) = group485
-	groups(486, :) = group486
-	groups(487, :) = group487
-	groups(488, :) = group488
-	groups(489, :) = group489
-	groups(490, :) = group490
-	groups(491, :) = group491
-	groups(492, :) = group492
-	groups(493, :) = group493
-	groups(494, :) = group494
-	groups(495, :) = group495
-	groups(496, :) = group496
-	groups(497, :) = group497
-	groups(498, :) = group498
-	groups(499, :) = group499
-	groups(500, :) = group500
-	groups(501, :) = group501
-	groups(502, :) = group502
-	groups(503, :) = group503
-	groups(504, :) = group504
-	groups(505, :) = group505
-	groups(506, :) = group506
-	groups(507, :) = group507
-	groups(508, :) = group508
-	groups(509, :) = group509
-	groups(510, :) = group510
-	groups(511, :) = group511
-	groups(512, :) = group512
-	groups(513, :) = group513
-	groups(514, :) = group514
-	groups(515, :) = group515
-	groups(516, :) = group516
-	groups(517, :) = group517
+    groups(0,:) = group0; groups(1,:) = group1; groups(2,:) = group2; groups(3,:) = group3; groups(4,:) = group4
+    groups(5,:) = group5; groups(6,:) = group6; groups(7,:) = group7; groups(8,:) = group8; groups(9,:) = group9
+	groups(10,:) = group10; groups(11,:) = group11; groups(12,:) = group12; groups(13,:) = group13; groups(14,:) = group14
+    groups(15,:) = group15; groups(16,:) = group16; groups(17,:) = group17; groups(18,:) = group18; groups(19,:) = group19
+	groups(20,:) = group20; groups(21,:) = group21; groups(22,:) = group22; groups(23,:) = group23; groups(24,:) = group24
+    groups(25,:) = group25; groups(26,:) = group26; groups(27,:) = group27; groups(28,:) = group28; groups(29,:) = group29
+	groups(30,:) = group30; groups(31,:) = group31; groups(32,:) = group32; groups(33,:) = group33; groups(34,:) = group34
+    groups(35,:) = group35; groups(36,:) = group36; groups(37,:) = group37; groups(38,:) = group38; groups(39,:) = group39
+	groups(40,:) = group40; groups(41,:) = group41; groups(42,:) = group42; groups(43,:) = group43; groups(44,:) = group44
+    groups(45,:) = group45; groups(46,:) = group46; groups(47,:) = group47; groups(48,:) = group48; groups(49,:) = group49
+	groups(50,:) = group50; groups(51,:) = group51; groups(52,:) = group52; groups(53,:) = group53; groups(54,:) = group54
+    groups(55,:) = group55; groups(56,:) = group56; groups(57,:) = group57; groups(58,:) = group58; groups(59,:) = group59
+	groups(60,:) = group60; groups(61,:) = group61; groups(62,:) = group62; groups(63,:) = group63; groups(64,:) = group64
+    groups(65,:) = group65; groups(66,:) = group66; groups(67,:) = group67; groups(68,:) = group68; groups(69,:) = group69
+	groups(70,:) = group70; groups(71,:) = group71; groups(72,:) = group72; groups(73,:) = group73; groups(74,:) = group74
+    groups(75,:) = group75; groups(76,:) = group76; groups(77,:) = group77; groups(78,:) = group78; groups(79,:) = group79
+	groups(80,:) = group80; groups(81,:) = group81; groups(82,:) = group82; groups(83,:) = group83; groups(84,:) = group84
+    groups(85,:) = group85; groups(86,:) = group86; groups(87,:) = group87; groups(88,:) = group88; groups(89,:) = group89
+	groups(90,:) = group90; groups(91,:) = group91; groups(92,:) = group92; groups(93,:) = group93; groups(94,:) = group94
+    groups(95,:) = group95; groups(96,:) = group96; groups(97,:) = group97; groups(98,:) = group98; groups(99,:) = group99
+    groups(100, :) = group100; groups(101, :) = group101; groups(102, :) = group102; groups(103, :) = group103; groups(104, :) = group104
+    groups(105, :) = group105; groups(106, :) = group106; groups(107, :) = group107; groups(108, :) = group108; groups(109, :) = group109
+    groups(110, :) = group110; groups(111, :) = group111; groups(112, :) = group112; groups(113, :) = group113; groups(114, :) = group114
+    groups(115, :) = group115; groups(116, :) = group116; groups(117, :) = group117; groups(118, :) = group118; groups(119, :) = group119
+    groups(120, :) = group120; groups(121, :) = group121; groups(122, :) = group122; groups(123, :) = group123; groups(124, :) = group124
+    groups(125, :) = group125; groups(126, :) = group126; groups(127, :) = group127; groups(128, :) = group128; groups(129, :) = group129
+    groups(130, :) = group130; groups(131, :) = group131; groups(132, :) = group132; groups(133, :) = group133; groups(134, :) = group134
+    groups(135, :) = group135; groups(136, :) = group136; groups(137, :) = group137; groups(138, :) = group138; groups(139, :) = group139
+    groups(140, :) = group140; groups(141, :) = group141; groups(142, :) = group142; groups(143, :) = group143; groups(144, :) = group144
+	groups(145, :) = group145; groups(146, :) = group146; groups(147, :) = group147; groups(148, :) = group148; groups(149, :) = group149
+	groups(150, :) = group150; groups(151, :) = group151; groups(152, :) = group152; groups(153, :) = group153; groups(154, :) = group154
+	groups(155, :) = group155; groups(156, :) = group156; groups(157, :) = group157; groups(158, :) = group158; groups(159, :) = group159
+	groups(160, :) = group160; groups(161, :) = group161; groups(162, :) = group162; groups(163, :) = group163; groups(164, :) = group164
+	groups(165, :) = group165; groups(166, :) = group166; groups(167, :) = group167; groups(168, :) = group168; groups(169, :) = group169
+	groups(170, :) = group170; groups(171, :) = group171; groups(172, :) = group172; groups(173, :) = group173; groups(174, :) = group174
+	groups(175, :) = group175; groups(176, :) = group176; groups(177, :) = group177; groups(178, :) = group178; groups(179, :) = group179
+	groups(180, :) = group180; groups(181, :) = group181; groups(182, :) = group182; groups(183, :) = group183; groups(184, :) = group184
+	groups(185, :) = group185; groups(186, :) = group186; groups(187, :) = group187; groups(188, :) = group188; groups(189, :) = group189
+	groups(190, :) = group190; groups(191, :) = group191; groups(192, :) = group192; groups(193, :) = group193; groups(194, :) = group194
+	groups(195, :) = group195; groups(196, :) = group196; groups(197, :) = group197; groups(198, :) = group198; groups(199, :) = group199
+	groups(200, :) = group200; groups(201, :) = group201; groups(202, :) = group202; groups(203, :) = group203; groups(204, :) = group204
+	groups(205, :) = group205; groups(206, :) = group206; groups(207, :) = group207; groups(208, :) = group208; groups(209, :) = group209
+	groups(210, :) = group210; groups(211, :) = group211; groups(212, :) = group212; groups(213, :) = group213; groups(214, :) = group214
+	groups(215, :) = group215; groups(216, :) = group216; groups(217, :) = group217; groups(218, :) = group218; groups(219, :) = group219
+	groups(220, :) = group220; groups(221, :) = group221; groups(222, :) = group222; groups(223, :) = group223; groups(224, :) = group224
+	groups(225, :) = group225; groups(226, :) = group226; groups(227, :) = group227; groups(228, :) = group228; groups(229, :) = group229
+	groups(230, :) = group230; groups(231, :) = group231; groups(232, :) = group232; groups(233, :) = group233; groups(234, :) = group234
+	groups(235, :) = group235; groups(236, :) = group236; groups(237, :) = group237; groups(238, :) = group238; groups(239, :) = group239
+	groups(240, :) = group240; groups(241, :) = group241; groups(242, :) = group242; groups(243, :) = group243; groups(244, :) = group244
+	groups(245, :) = group245; groups(246, :) = group246; groups(247, :) = group247; groups(248, :) = group248; groups(249, :) = group249
+	groups(250, :) = group250; groups(251, :) = group251; groups(252, :) = group252; groups(253, :) = group253; groups(254, :) = group254
+	groups(255, :) = group255; groups(256, :) = group256; groups(257, :) = group257; groups(258, :) = group258; groups(259, :) = group259
+	groups(260, :) = group260; groups(261, :) = group261; groups(262, :) = group262; groups(263, :) = group263; groups(264, :) = group264
+	groups(265, :) = group265; groups(266, :) = group266; groups(267, :) = group267; groups(268, :) = group268; groups(269, :) = group269
+	groups(270, :) = group270; groups(271, :) = group271; groups(272, :) = group272; groups(273, :) = group273; groups(274, :) = group274
+	groups(275, :) = group275; groups(276, :) = group276; groups(277, :) = group277; groups(278, :) = group278; groups(279, :) = group279
+	groups(280, :) = group280; groups(281, :) = group281; groups(282, :) = group282; groups(283, :) = group283; groups(284, :) = group284
+	groups(285, :) = group285; groups(286, :) = group286; groups(287, :) = group287; groups(288, :) = group288; groups(289, :) = group289
+	groups(290, :) = group290; groups(291, :) = group291; groups(292, :) = group292; groups(293, :) = group293; groups(294, :) = group294
+	groups(295, :) = group295; groups(296, :) = group296; groups(297, :) = group297; groups(298, :) = group298; groups(299, :) = group299
+	groups(300, :) = group300; groups(301, :) = group301; groups(302, :) = group302; groups(303, :) = group303; groups(304, :) = group304
+	groups(305, :) = group305; groups(306, :) = group306; groups(307, :) = group307; groups(308, :) = group308; groups(309, :) = group309
+	groups(310, :) = group310; groups(311, :) = group311; groups(312, :) = group312; groups(313, :) = group313; groups(314, :) = group314
+	groups(315, :) = group315; groups(316, :) = group316; groups(317, :) = group317; groups(318, :) = group318; groups(319, :) = group319
+	groups(320, :) = group320; groups(321, :) = group321; groups(322, :) = group322; groups(323, :) = group323; groups(324, :) = group324
+	groups(325, :) = group325; groups(326, :) = group326; groups(327, :) = group327; groups(328, :) = group328; groups(329, :) = group329
+	groups(330, :) = group330; groups(331, :) = group331; groups(332, :) = group332; groups(333, :) = group333; groups(334, :) = group334
+	groups(335, :) = group335; groups(336, :) = group336; groups(337, :) = group337; groups(338, :) = group338; groups(339, :) = group339
+	groups(340, :) = group340; groups(341, :) = group341; groups(342, :) = group342; groups(343, :) = group343; groups(344, :) = group344
+	groups(345, :) = group345; groups(346, :) = group346; groups(347, :) = group347; groups(348, :) = group348; groups(349, :) = group349
+	groups(350, :) = group350; groups(351, :) = group351; groups(352, :) = group352; groups(353, :) = group353; groups(354, :) = group354
+	groups(355, :) = group355; groups(356, :) = group356; groups(357, :) = group357; groups(358, :) = group358; groups(359, :) = group359
+	groups(360, :) = group360; groups(361, :) = group361; groups(362, :) = group362; groups(363, :) = group363; groups(364, :) = group364
+	groups(365, :) = group365; groups(366, :) = group366; groups(367, :) = group367; groups(368, :) = group368; groups(369, :) = group369
+	groups(370, :) = group370; groups(371, :) = group371; groups(372, :) = group372; groups(373, :) = group373; groups(374, :) = group374
+	groups(375, :) = group375; groups(376, :) = group376; groups(377, :) = group377; groups(378, :) = group378; groups(379, :) = group379
+	groups(380, :) = group380; groups(381, :) = group381; groups(382, :) = group382; groups(383, :) = group383; groups(384, :) = group384
+	groups(385, :) = group385; groups(386, :) = group386; groups(387, :) = group387; groups(388, :) = group388; groups(389, :) = group389
+	groups(390, :) = group390; groups(391, :) = group391; groups(392, :) = group392; groups(393, :) = group393; groups(394, :) = group394
+	groups(395, :) = group395; groups(396, :) = group396; groups(397, :) = group397; groups(398, :) = group398; groups(399, :) = group399
+	groups(400, :) = group400; groups(401, :) = group401; groups(402, :) = group402; groups(403, :) = group403; groups(404, :) = group404
+	groups(405, :) = group405; groups(406, :) = group406; groups(407, :) = group407; groups(408, :) = group408; groups(409, :) = group409
+	groups(410, :) = group410; groups(411, :) = group411; groups(412, :) = group412; groups(413, :) = group413; groups(414, :) = group414
+	groups(415, :) = group415; groups(416, :) = group416; groups(417, :) = group417; groups(418, :) = group418; groups(419, :) = group419
+	groups(420, :) = group420; groups(421, :) = group421; groups(422, :) = group422; groups(423, :) = group423; groups(424, :) = group424
+	groups(425, :) = group425; groups(426, :) = group426; groups(427, :) = group427; groups(428, :) = group428; groups(429, :) = group429
+	groups(430, :) = group430; groups(431, :) = group431; groups(432, :) = group432; groups(433, :) = group433; groups(434, :) = group434
+	groups(435, :) = group435; groups(436, :) = group436; groups(437, :) = group437; groups(438, :) = group438; groups(439, :) = group439
+	groups(440, :) = group440; groups(441, :) = group441; groups(442, :) = group442; groups(443, :) = group443; groups(444, :) = group444
+	groups(445, :) = group445; groups(446, :) = group446; groups(447, :) = group447; groups(448, :) = group448; groups(449, :) = group449
+	groups(450, :) = group450; groups(451, :) = group451; groups(452, :) = group452; groups(453, :) = group453; groups(454, :) = group454
+	groups(455, :) = group455; groups(456, :) = group456; groups(457, :) = group457; groups(458, :) = group458; groups(459, :) = group459
+	groups(460, :) = group460; groups(461, :) = group461; groups(462, :) = group462; groups(463, :) = group463; groups(464, :) = group464
+	groups(465, :) = group465; groups(466, :) = group466; groups(467, :) = group467; groups(468, :) = group468; groups(469, :) = group469
+	groups(470, :) = group470; groups(471, :) = group471; groups(472, :) = group472; groups(473, :) = group473; groups(474, :) = group474
+	groups(475, :) = group475; groups(476, :) = group476; groups(477, :) = group477; groups(478, :) = group478; groups(479, :) = group479
+	groups(480, :) = group480; groups(481, :) = group481; groups(482, :) = group482; groups(483, :) = group483; groups(484, :) = group484
+	groups(485, :) = group485; groups(486, :) = group486; groups(487, :) = group487; groups(488, :) = group488; groups(489, :) = group489
+	groups(490, :) = group490; groups(491, :) = group491; groups(492, :) = group492; groups(493, :) = group493; groups(494, :) = group494
+	groups(495, :) = group495; groups(496, :) = group496; groups(497, :) = group497; groups(498, :) = group498; groups(499, :) = group499
+	groups(500, :) = group500; groups(501, :) = group501; groups(502, :) = group502; groups(503, :) = group503; groups(504, :) = group504
+	groups(505, :) = group505; groups(506, :) = group506; groups(507, :) = group507; groups(508, :) = group508; groups(509, :) = group509
+	groups(510, :) = group510; groups(511, :) = group511; groups(512, :) = group512; groups(513, :) = group513; groups(514, :) = group514
+	groups(515, :) = group515; groups(516, :) = group516; groups(517, :) = group517; groups(518, :) = group518
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
