@@ -5,11 +5,11 @@ REM Compile the Fortran program
 echo Compiling tarot_card_generator_EnJnDeSIgn2024.f90...
 gfortran -o TarotV1.exe TarotV1.f90
 
-:loop
 REM Run the ele_call.py script to randomize the seed
 echo Running ele_call.py to randomize the seed...
 python ele_call.py
 
+:loop
 REM Run the TarotV1.exe program
 echo Running TarotV1.exe...
 TarotV1.exe
