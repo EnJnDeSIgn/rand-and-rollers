@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:514, 0:5) :: groups
+    character(len=180), dimension(0:517, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -62,7 +62,7 @@ program story_element_generator_EnJnDeSIgn2024
 										group486, group487, group488, group489, group490, group491, group492, group493, group494, &
 										group495, group496, group497, group498, group499, group500, group501, group502, group503, &
 										group504, group505, group506, group507, group508, group509, group510, group511, group512, &
-										group513, group514
+										group513, group514, group515, group516, group517
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -76,14 +76,14 @@ program story_element_generator_EnJnDeSIgn2024
 	!print *, "              Ian.enjn@gmail.com               "
 
     ! Initialize group0
-    group0 = (/ "howling wolf                  ", "different then she's been led ", "baby basket                   ", &
+    group0 = (/ "howling wolf                  ", "different then she's been led ", "the TV turns itself to a      ", &
                 "they discover that the earth  ", "scary forest                  ", "of the same army are tricked  " /)
     ! Initialize group1
-    group1 = (/ "pixie                         ", "impact on society,            ", "the night and runs out to a   ", &
+    group1 = (/ "such as heartbeats and        ", "impact on society,            ", "the night and runs out to a   ", &
                 "scary tower                   ", "though their lifespan         ", "hand mirror                   " /)
     ! Initialize group2
-    group2 = (/ "toad                          ", "old traveling person          ", "running away                  ", &
-                "shadow monster                ", "cat                           ", "it has advantages and not     " /)
+    group2 = (/ "the room had a door when she  ", "old traveling person          ", "running away                  ", &
+                "of their own                  ", "cat                           ", "it has advantages and not     " /)
     ! Initialize group3
     group3 = (/ "blind exploration             ", "change of directions          ", "reading somthing              ", &
                 "soldier,but unfortunately, his", "wondering, whats inside a gift", "sorcerer                      " /)
@@ -1619,13 +1619,22 @@ program story_element_generator_EnJnDeSIgn2024
 				"to a new use                  ", "appoint                       ", "in order to counteract the    " /)
 	! Initialize group514
   group514 = (/ "variety of negative sensations", "supposed to open when the doll", "vertigo                       ", &
-				"photographer                  ", "the world                     ", "she finds a painting in a     "/)
+				"photographer                  ", "the world                     ", "she finds a painting in a     " /)
+	! Initialize group515
+  group515 = (/ "he's one of many voluntary    ", "construction manager          ", "forge an ancient prophecy that", &
+				"they've all signed a          ", "baby basket                   ", "the population calm and       " /)
+	! Initialize group516
+  group516 = (/ "public relations specialist   ", "artifice                      ", "in the future fails in their  ", &
+				"pixie                         ", "movie scripts, albeit with a  ", "same man, dressed in the same " /)
+	! Initialize group517
+  group517 = (/ "it's now possible to remove or", "possession of a child         ", "toad                          ", &
+				"every day contains codes that ", "shadow monster                ", "discovery                     "/)
 	! ... (Initialize all groups similarly)
 
 !do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 515)	! Note to Ian, change this last...
+    selected_group = int(rand * 518)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
@@ -2147,6 +2156,9 @@ program story_element_generator_EnJnDeSIgn2024
 	groups(512, :) = group512
 	groups(513, :) = group513
 	groups(514, :) = group514
+	groups(515, :) = group515
+	groups(516, :) = group516
+	groups(517, :) = group517
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
