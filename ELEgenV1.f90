@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:529, 0:5) :: groups
+    character(len=180), dimension(0:531, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -63,7 +63,8 @@ program story_element_generator_EnJnDeSIgn2024
 										group495, group496, group497, group498, group499, group500, group501, group502, group503, &
 										group504, group505, group506, group507, group508, group509, group510, group511, group512, &
 										group513, group514, group515, group516, group517, group518, group519, group520, group521, &
-										group522, group523, group524, group525, group526, group527, group528, group529
+										group522, group523, group524, group525, group526, group527, group528, group529, group530, &
+										group531
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -111,9 +112,9 @@ program story_element_generator_EnJnDeSIgn2024
                 "superstition proves true      ", "expression of anger           ", "mountain road at night        " /)
     ! Initialize group11
    group11 = (/ "expulsion in all directions   ", "whip                          ", "the grandfather clock starts  ", &
-                "king's crown                  ", "are a delusion                ", "large amounts of neanderthal  " /)
+                "Wild West, but the outlaw they", "are a delusion                ", "large amounts of neanderthal  " /)
     ! Initialize group12
-   group12 = (/ "people with a variety of      ", "falling apart tower           ", "brother                       ", &
+   group12 = (/ "people with a variety of      ", "falling apart tower           ", "radiation during space travel ", &
                 "arguing                       ", "window                        ", "prophecy fulfilled            " /)
     ! Initialize group13
    group13 = (/ "circumstances is part of a    ", "ugly                          ", "cook                          ", &
@@ -1665,13 +1666,19 @@ program story_element_generator_EnJnDeSIgn2024
 				"ray gun                       ", "the ghost of her husband's    ", "sacred texts inspire a        " /)
 	! Initialize group529
   group529 = (/ "and puppies also keep the     ", "no one is on board the ship   ", "snake                         ", &
-				"but in another reality, he    ", "Eurp: sound of a burp         ", "government, but aliens have   "/)
+				"but in another reality, he    ", "Eurp: sound of a burp         ", "government, but aliens have   " /)
+	! Initialize group530
+  group530 = (/ "threaten                      ", "to have no ability to improve ", "unfinished business           ", &
+				"king's crown                  ", "running backwards             ", "abandoned it on the same night" /)
+  &!! Initialize group531, I like this fuction......
+  group531 = (/ "look like faces               ", "brother                       ", "humans have discovered a way  ", &
+				"such as tigers with           ", "so lifelike, amusing, and     ", "Bastet:purr and hiss of a cat,"/)
 	! ... (Initialize all groups similarly)
 
 !do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 530)	! Note to Ian, change this last...
+    selected_group = int(rand * 532)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
@@ -1784,6 +1791,7 @@ program story_element_generator_EnJnDeSIgn2024
 	groups(515, :) = group515; groups(516, :) = group516; groups(517, :) = group517; groups(518, :) = group518; groups(519, :) = group519
 	groups(520, :) = group520; groups(521, :) = group521; groups(522, :) = group522; groups(523, :) = group523; groups(524, :) = group524
 	groups(525, :) = group525; groups(526, :) = group526; groups(527, :) = group527; groups(528, :) = group528; groups(529, :) = group529
+	groups(530, :) = group530; groups(531, :) = group531
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
