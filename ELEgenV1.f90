@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:537, 0:5) :: groups
+    character(len=180), dimension(0:545, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -64,7 +64,8 @@ program story_element_generator_EnJnDeSIgn2024
 										group504, group505, group506, group507, group508, group509, group510, group511, group512, &
 										group513, group514, group515, group516, group517, group518, group519, group520, group521, &
 										group522, group523, group524, group525, group526, group527, group528, group529, group530, &
-										group531, group532, group533, group534, group535, group536, group537
+										group531, group532, group533, group534, group535, group536, group537, group538, group539, &
+										group540, group541, group542, group543, group544, group545
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -126,19 +127,19 @@ program story_element_generator_EnJnDeSIgn2024
    group15 = (/ "at a new underwater amusement ", "shackled prisoner             ", "shuttered the windows; it came", &
                 "an attempt to                 ", "dragon                        ", "it's about to go back to      " /)
     ! Initialize group16
-   group16 = (/ "throne                        ", "non-confrontational has been  ", "advocating                    ", &
+   group16 = (/ "+ Thats' the rest,of the story", "non-confrontational has been  ", "advocating                    ", &
                 "married the next day          ", "evil-doers                    ", "down a well                   " /)
     ! Initialize group17
-   group17 = (/ "gears                         ", "in a terrifying way           ", "police badge                  ", &
-                "storm                         ", "submarine                     ", "earth's magnetic fields       " /)
+   group17 = (/ "everyone else in an online    ", "in a terrifying way           ", "police badge                  ", &
+                "a parent is descending into   ", "submarine                     ", "earth's magnetic fields       " /)
     ! Initialize group18
    group18 = (/ "place while he's in custody   ", "palace                        ", "husband or wife               ", &
-                "rescued                       ", "vandalism                     ", "never able to find it again   " /)
+                "rescued                       ", "make the human explorers      ", "never able to find it again   " /)
     ! Initialize group19
-   group19 = (/ "they fought long and hard to  ", "ruins                         ", "beggar                        ", &
-                "lost event                    ", "magic spell                   ", "was broken and they were free " /)
+   group19 = (/ "they fought long and hard to  ", "insists on increasingly real  ", "beggar                        ", &
+                "lost event                    ", "decades and haul it out       ", "was broken and they were free " /)
     ! Initialize group20
-   group20 = (/ "in dating or finding work     ", "river                         ", "old person                    ", &
+   group20 = (/ "in dating or finding work     ", "with animals, and all the meat", "old person                    ", &
                 "escaping                      ", "but cheating and foul play are", "revealed true identity        " /)
     ! Initialize group21
    group21 = (/ "ameba                         ", "rice bowl                     ", "someone was watching her, then", &
@@ -409,7 +410,7 @@ program story_element_generator_EnJnDeSIgn2024
                 "ten nine eight seven five four", "three two one. and deeper next", "Next time, and more relaxed   " /)
     ! Initialize group110
   group110 = (/ "hypnotist                     ", "barber                        ", "royal bastard                 ", &
-                "herald                        ", "grandmaster thief             ", "royal scribe                  " /)
+                "herald                        ", "their job is to gather up     ", "royal scribe                  " /)
     ! Initialize group111
   group111 = (/ "who's word is true            ", "put into                      ", "personal guard                ", &
                 "negotiation                   ", "festival                      ", "attends a church service      " /)
@@ -579,7 +580,7 @@ program story_element_generator_EnJnDeSIgn2024
   group166 = (/ "noble                         ", "intangibility                 ", "Whistle: clear, high-pitched  ", &
 				"robin                         ", "cut down tree, freed sprite   ", "circle                        " /)
 	! Initialize group167
-  group167 = (/ "fixing                        ", "logo                          ", "exchanging, vows causes the   ", &
+  group167 = (/ "had a twin who died at birth  ", "logo                          ", "exchanging, vows causes the   ", &
 				"growth                        ", "toxic atmosphere              ", "fringer                       " /)
 	! Initialize group168
   group168 = (/ "Chime: melodious sound, bells ", "scoundrel                     ", "invisibility                  ", &
@@ -1374,7 +1375,7 @@ program story_element_generator_EnJnDeSIgn2024
   group431 = (/ "candy factory                 ", "including, empty set and set  ", "hole to an alternate universe ", &
 				"experience                    ", "reason why the trees in this  ", "groundskeeper                 " /)
 	! Initialize group432
-  group432 = (/ "vacum cleaner                 ", "them off                      ", "assist                        ", &
+  group432 = (/ "vacuum cleaner                 ", "them off                      ", "assist                        ", &
 				"worker learns that the tower  ", "the implants dissolve after a ", "manslaughter                  " /)
 	! Initialize group433
   group433 = (/ "statistics                    ", "a person works as a designer  ", "smash                         ", &
@@ -1690,13 +1691,37 @@ program story_element_generator_EnJnDeSIgn2024
 				"the alien feels terrible about", "hearing from someone who looks", "deities of classic mythology  " /)
   ! ! Initialize group537
   group537 = (/ "Luff: flap of sail in the wind", "campfire was more than a story", "exercise                      ", &
-				"doing the best they can do to ", "it was a total accident and   ", "the ,bloody mary, legend      "/)
+				"doing the best they can do to ", "it was a total accident and   ", "the ,bloody mary, legend      " /)
+  ! ! Initialize group538
+  group538 = (/ "collective memory of an entire", "stimulate                     ", "much bigger business in secret", &
+				"some people in town start     ", "person's consciousness can be ", "gears                         " /)
+  ! ! Initialize group539
+  group539 = (/ "past ones                     ", "Khonsu:tone/moonlight,overland", "there's a fueling station for ", &
+				"city planning by creating a   ", "there's nothing there...      ", "over time, through analysis of" /)
+  ! ! Initialize group540
+  group540 = (/ "withdraw                      ", "virus can be transmitted from ", "what is the dog barking at?   ", &
+				"they accidentally make him/her", "storm                         ", "transmit everything to the    " /)
+  ! ! Initialize group541
+  group541 = (/ "further into outer space      ", "vandalism                     ", "cilantro have a latent        ", &
+				"forests of mature trees to    ", "cryptophasin behave in        ", "grandmaster thief             " /)
+  ! ! Initialize group542
+  group542 = (/ "medical history, and genetic  ", "this is the real story behind ", "throne                        ", &
+				"thin you can't even feel it   ", "ruins                         ", "tell if she's really dead     " /)
+  ! ! Initialize group543
+  group543 = (/ "biologist discovers some      ", "magic spell                   ", "man's future in-laws try to   ", &
+				"low-level employee in a       ", "interact almost entirely in   ", "return                        " /)
+  ! ! Initialize group544
+  group544 = (/ "river                         ", "to be describing a completely ", "like a doll she owned as,child", &
+				"fixing                        ", "have changed... or is he      ", "with no known friends or      " /)
+  ! ! Initialize group545
+  group545 = (/ "books and videogames have both", "descendants                   ", "of the act                    ", &
+				"Wadjet:sharp gaze-cobra, warn ", "vending machine dispenses     ", "prone to depression           "/)
 	! ... (Initialize all groups similarly)
 
 !do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 538)	! Note to Ian, change this last...
+    selected_group = int(rand * 546)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
@@ -1810,7 +1835,9 @@ program story_element_generator_EnJnDeSIgn2024
 	groups(520, :) = group520; groups(521, :) = group521; groups(522, :) = group522; groups(523, :) = group523; groups(524, :) = group524
 	groups(525, :) = group525; groups(526, :) = group526; groups(527, :) = group527; groups(528, :) = group528; groups(529, :) = group529
 	groups(530, :) = group530; groups(531, :) = group531; groups(532, :) = group532; groups(533, :) = group533; groups(534, :) = group534
-	groups(535, :) = group535; groups(536, :) = group536; groups(537, :) = group537
+	groups(535, :) = group535; groups(536, :) = group536; groups(537, :) = group537; groups(538, :) = group538; groups(539, :) = group539
+	groups(540, :) = group540; groups(541, :) = group541; groups(542, :) = group542; groups(543, :) = group543; groups(544, :) = group544
+	groups(545, :) = group545
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
