@@ -23,6 +23,28 @@ relationships thoughtfully rather than reacting impulsively.
  
     listen to my stanza, truth is in the moment but, these are just words and empty...    
 
+# Story Element Genorator and Tarot Card Genorator
+
+Welcome to 
+
+## Features
+- Randomly generated story elements or Tarot cards
+- Auto Compiled with run_elegenv1.bat
+- Auto Manuly randmizes seed
+
+## Installation
+1. Ensure you have Python installed on your computer.
+2. Ensure you have gcc installed on your computer.
+3. Download the `ELEgenV1.f90, intro.f90, ele_seed.py, ele_call.py, run_elegenv1.bat` files.
+4. Open a terminal and navigate to the directory where the `ALL` files are located.
+5. you can use the gcc folder or set it up too one.
+
+## How to Play
+1. Run the script using the command:
+   ```bash
+   run_elegenv1.bat
+or download TarotV1.f90 for the fortran and the run_tarotv1.bat
+
 # Maze Explorer (Player Version)
 
 Welcome to Maze Explorer, a random maze generator where you guide Algor through the labyrinth! Created by Ian J Norris (ian.enjn@gmail.com), this game challenges you to find your way out of a digital maze.
