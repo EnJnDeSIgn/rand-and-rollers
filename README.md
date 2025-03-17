@@ -28,8 +28,9 @@ relationships thoughtfully rather than reacting impulsively.
 Welcome to   
       tarot_card_generator_EnJnDeSIgn2024      
          A Oracle Of Divine Randomness         
-                By Ian J Norris                
-              Ian.enjn@gmail.com               
+      story_element_generator_EnJnDeSIgn2024_for_A.I.   
+	       An expression of the Infinty in triplets    
+        .bat files made from git    
 
 ## Features
 - Randomly generated story elements or Tarot cards
