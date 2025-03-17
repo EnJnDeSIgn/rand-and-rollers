@@ -25,7 +25,11 @@ relationships thoughtfully rather than reacting impulsively.
 
 # Story Element Genorator and Tarot Card Genorator
 
-Welcome to 
+Welcome to   
+      tarot_card_generator_EnJnDeSIgn2024      
+         A Oracle Of Divine Randomness         
+                By Ian J Norris                
+              Ian.enjn@gmail.com               
 
 ## Features
 - Randomly generated story elements or Tarot cards
