@@ -48,7 +48,12 @@ Welcome to
 1. Run the script using the command:
    ```bash
    run_elegenv1.bat
-or download TarotV1.f90 for the fortran and the run_tarotv1.bat
+or download TarotV1.f90 for the fortran and the run_tarotv1.bat   
+
+# poem0-3, poem*.exe   
+I hope you like my dadist poem gens' !!!!    
+BUT DO NOT USE ON DIFFERT COMPUTER THEN DOWNLOADED !!!!    
+you may brake the computer if you do....
 
 # Maze Explorer (Player Version)
 
