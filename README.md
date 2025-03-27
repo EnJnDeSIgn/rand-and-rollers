@@ -344,7 +344,8 @@ You performed 3 runs in an elapsed time of approximately 0.024902105 seconds.
 
 ## Installation
 
-### NRNG.f90, GD.py.py, and tidesGEN.py
+### NRNG.f90, GD.py.py, and tidesGEN.py    
+The GAAI.py being mostly from a introduction to algorithms book I can't afoard on amozon for $200, I forget the auther but my add is very minour.... The point is looking at it I saw a random number genorator to be vauge and it gave me the idea for the NRNG file so I wanted to give a shout out for that here.
 
 1. Ensure you have Python installed on your computer.
 2. Ensure you have gcc installed on your computer.
