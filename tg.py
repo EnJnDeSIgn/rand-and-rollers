@@ -43,10 +43,14 @@ x_value = get_x_value()
 
 # Apply the transformative display based on user input
 result = transformative_display(x_value, original_text)
-print("Transformative display result:", result)
+print("spell        :", result)
+
+print("spell        : I CHANGE MYSELF TO SUIT THE NEED!#!")
 
 # Demonstrate the two modes of temporary_glimmer for reference
 original_text = "My essence now they can not see..."
-print("Temporary Glimmer (hidden mode):", temporary_glimmer(original_text, make_less_noticeable=True))
+print("(hidden mode):", temporary_glimmer(original_text, make_less_noticeable=True))
 original_text = "I am the change they need too see!"
-print("Temporary Glimmer (bright mode):", temporary_glimmer(original_text, make_less_noticeable=False))
+print("(bright mode):", temporary_glimmer(original_text, make_less_noticeable=False))
+
+print("S.M.I.B      : so mote it be.")
