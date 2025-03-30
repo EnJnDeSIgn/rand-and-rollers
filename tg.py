@@ -27,8 +27,8 @@ def transformative_display(x, text):
 def get_x_value():
     while True:
         try:
-            value = int(input("Enter a value for x (between 1 and 100): "))
-            if 1 <= value <= 100:
+            value = float(input("Enter a value for x (between 1 and 100): "))
+            if 1.0 <= value <= 100.0:
                 return value
             else:
                 print("The value must be between 1 and 100. Please try again.")
