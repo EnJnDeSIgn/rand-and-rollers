@@ -36,7 +36,7 @@ def get_x_value():
             print("Invalid input. Please enter an integer.")
 
 # Example usage:
-original_text = "The chameleon dances in the glade, blending into his surroundings."
+original_text = "The chameleon dances in the glade, blend then shift and now he's shade."
 
 # Prompt the user for a valid x_value within the specified range
 x_value = get_x_value()
@@ -46,5 +46,7 @@ result = transformative_display(x_value, original_text)
 print("Transformative display result:", result)
 
 # Demonstrate the two modes of temporary_glimmer for reference
+original_text = "My essence now they can not see..."
 print("Temporary Glimmer (hidden mode):", temporary_glimmer(original_text, make_less_noticeable=True))
+original_text = "I am the change they need too see!"
 print("Temporary Glimmer (bright mode):", temporary_glimmer(original_text, make_less_noticeable=False))
