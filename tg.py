@@ -53,4 +53,4 @@ print("(hidden mode):", temporary_glimmer(original_text, make_less_noticeable=Tr
 original_text = "I am the change they need too see!"
 print("(bright mode):", temporary_glimmer(original_text, make_less_noticeable=False))
 
-print("S.M.I.B      : so mote it be.")
+print("S.M.I.B      : As I will, so mote it be.")
