@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element
-    character(len=180), dimension(0:551, 0:5) :: groups
+    character(len=180), dimension(0:554, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -66,7 +66,7 @@ program story_element_generator_EnJnDeSIgn2024
 										group522, group523, group524, group525, group526, group527, group528, group529, group530, &
 										group531, group532, group533, group534, group535, group536, group537, group538, group539, &
 										group540, group541, group542, group543, group544, group545, group546, group547, group548, &
-										group549, group550, group551
+										group549, group550, group551, group552, group553, group554
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -146,11 +146,11 @@ program story_element_generator_EnJnDeSIgn2024
    group21 = (/ "ameba                         ", "ever since he played the      ", "someone was watching her, then", &
                 "planet's main export:         ", "scientists attempt to         ", "stairs into ground            " /)
     ! Initialize group22
-   group22 = (/ "wound was healed              ", "heart remained broken         ", "courage                       ", &
+   group22 = (/ "wound was healed              ", "heart remained broken         ", "photographs taken in          ", &
                 "alien is taken prisoner after ", "parents                       ", "he knows he's a soldier, but  " /)
     ! Initialize group23
    group23 = (/ "japanese shrine gate          ", "beans                         ", "anamal bones                  ", &
-                "cave down                     ", "waves                         ", "sack                          " /)
+                "cave down                     ", "waves                         ", "france took control of most of" /)
     ! Initialize group24
    group24 = (/ "people opt for gov-arranged   ", "home                          ", "witch                         ", &
                 "chasing                       ", "a water well                  ", "blind for their falsehood     " /)
@@ -1253,7 +1253,7 @@ program story_element_generator_EnJnDeSIgn2024
   group390 = (/ "shadow demon                  ", "group by telling made-up      ", "convince                      ", &
 				"tomato                        ", "new device automatically track", "microbiologist                " /)
 	! Initialize group391
-  group391 = (/ "money                         ", "Drip: liquid falling drop/drop", "goes way too far              ", &
+  group391 = (/ "to take it back               ", "Drip: liquid falling drop/drop", "goes way too far              ", &
 				"test                          ", "centuries ago                 ", "computer systems administrator" /)
 	! Initialize group392
   group392 = (/ "pharmacist                    ", "sibling rivalry is intense    ", "revenant                      ", &
@@ -1734,13 +1734,22 @@ program story_element_generator_EnJnDeSIgn2024
 				"be a portrait of her          ", "exhilarating and terrifying   ", "the moon                      " /)
   ! ! Initialize group551
   group551 = (/ "a person can wonder unaware   ", ",you know!                    ", "formula                       ", &
-				"crash to the earth            ", "person can partially manifest ", "sideshow is fake,             "/)
+				"crash to the earth            ", "person can partially manifest ", "sideshow is fake,             " /)
+  ! ! Initialize group552
+  group552 = (/ "Serqet:clink/scales-scorpion  ", "courage                       ", "catacombs for years           ", &
+				"inhabitant                    ", "the man was executed for a    ", "a group of teenager trolls    " /)
+  ! ! Initialize group553
+  group553 = (/ "money                         ", "sometimes change              ", "medical researchers are       ", &
+				"the atmosphere                ", "show for a funeral, someone   ", "now the planet is going       " /)
+  ! ! Initialize group554
+  group554 = (/ "mine so long ago?There's still", "It Blead's Daylight           ", "miss                          ", &
+				"an evil spirit causes several ", "sack                          ", "popular with humans           "/)
 	! ... (Initialize all groups similarly)
 
 !do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 552)	! Note to Ian, change this last...
+    selected_group = int(rand * 555)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group
     call random_number(rand)
@@ -1857,7 +1866,7 @@ program story_element_generator_EnJnDeSIgn2024
 	groups(535, :) = group535; groups(536, :) = group536; groups(537, :) = group537; groups(538, :) = group538; groups(539, :) = group539
 	groups(540, :) = group540; groups(541, :) = group541; groups(542, :) = group542; groups(543, :) = group543; groups(544, :) = group544
 	groups(545, :) = group545; groups(546, :) = group546; groups(547, :) = group547; groups(548, :) = group548; groups(549, :) = group549
-	groups(550, :) = group550; groups(551, :) = group551
+	groups(550, :) = group550; groups(551, :) = group551; groups(552, :) = group552; groups(553, :) = group553; groups(554, :) = group554
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
