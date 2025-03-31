@@ -68,7 +68,7 @@ complex_chas = [
     "frugal, but generous", "social, but always making faux pas", "stoic, but tenderhearted", "giggly, but wise",
     "evil, but sentimental", "grouchy, but encouraging", "chatty, but secretive", "soft-spoken, but vulgar", "idealistic, but petty",
     "frumpy, but dangerous", "disgusted, but amused", "exhausted, but excited", "innocent, but manipulative",
-    "suspicious, but impressed"
+    "suspicious, but impressed", "uncanny, but irritating"
 ]
 actions = [
     "started breaking into a building", "began washing blood out of there garment's", "picked up tempo playing a drum",
