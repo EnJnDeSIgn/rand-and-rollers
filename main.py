@@ -54,27 +54,22 @@ model = OllamaLLM(model="gemma3")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
-def run_elegenv1_bat():
+def run_main_bat():
     """
-    Executes the run_elegenv1.bat file and captures its output.
-    For non-interactive execution, we simulate responses to interactive prompts.
-    Adjust the input_str below to match what the batch file expects.
+    Executes the run_main.bat file and captures its output.
     """
     try:
-        # Simulate responses: adjust if your batch file needs more or fewer responses.
-        input_str = "y\ny\ny\nn\n"
         result = subprocess.run(
-            r"run_elegenv1.bat",  # Use absolute path if necessary.
+            r"run_main.bat",  # Use absolute path if necessary.
             shell=True,
             check=True,
             text=True,
-            input=input_str,
             capture_output=True  # Capture stdout for later use.
         )
-        print("DEBUG: run_elegenv1.bat executed successfully.")
+        print("DEBUG: run_main.bat executed successfully.")
         return result.stdout
     except subprocess.CalledProcessError as e:
-        print("Error executing run_elegenv1.bat:", e)
+        print("Error executing run_main.bat:", e)
         return ""
 
 def select_folktale_functions():
@@ -90,7 +85,7 @@ def handle_conversation():
     """
     Enhanced conversation loop.
     When the user types "story":
-      - Run run_elegenv1.bat to generate story elements.
+      - Run run_main.bat to generate story elements.
       - Capture and combine its output with randomly selected folktale functions.
       - Modify the question prompt to instruct the language model to create a complete story.
     For other inputs, continue with the standard conversation.
@@ -107,7 +102,7 @@ def handle_conversation():
 
         if user_input.lower() == "story":
             # Capture the output from the external story generator.
-            bat_output = run_elegenv1_bat()
+            bat_output = run_main_bat()
             print("DEBUG: Batch output captured:\n", bat_output)
             # Randomly select folktale functions.
             selected = select_folktale_functions()
