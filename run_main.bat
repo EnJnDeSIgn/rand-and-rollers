@@ -12,9 +12,6 @@ REM Run the ele_call.py script to randomize the seed
 echo Running ele_call.py to randomize the seed...
 python ele_call.py
 
-REM Run the intro.exe
-intro.exe
-
 REM Run the ELEgenV1.exe program
 echo Running ELEgenV1.exe...
 ELEgenV1.exe
