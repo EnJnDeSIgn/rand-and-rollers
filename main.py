@@ -145,6 +145,24 @@ def run_main_bat():
         print("Error executing run_main.bat:", e)
         return ""
 
+def run_elegenV1_exe():
+    """
+    Executes the ELEgenV1.exe file and captures its output.
+    """
+    try:
+        result = subprocess.run(
+            r"ELEgenV1.exe",  # Use absolute path if necessary.
+            shell=True,
+            check=True,
+            text=True,
+            capture_output=True  # Capture stdout for later use.
+        )
+        print("DEBUG: ELEgenV1.exe executed successfully.")
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        print("Error executing ELEgenV1.exe:", e)
+        return ""
+
 def select_folktale_functions():
     """
     Randomly selects a number (between 10 and 20) of folktale functions.
@@ -186,16 +204,18 @@ def handle_conversation():
             break
 
         if user_input.lower() == "story":
-            # Capture the output from the external story generator.
-            bat_output = run_main_bat()
-            print("DEBUG: Batch output captured:\n", bat_output)
+            # Run the batch file to generate story elements.
+            run_main_bat()
+            # Capture the output from ELEgenV1.exe.
+            ele_output = run_elegenV1_exe()
+            print("DEBUG: ELEgenV1.exe output captured:\n", ele_output)
             # Randomly select folktale functions.
             selected = select_folktale_functions()
             # Randomly select additional story elements.
             additional_elements = select_additional_elements()
             # Combine both sources into the extra context.
             extra_context = (
-                f"Story Generator Output:\n{bat_output}\n\n"
+                f"Story Generator Output:\n{ele_output}\n\n"
                 f"Selected Folktale Functions:\n{selected}\n"
                 f"Additional Elements:\n{additional_elements}\n"
             )
@@ -215,7 +235,7 @@ def handle_conversation():
                 "question": user_input
             }
         
-        print("DEBUG: Invocation object being sent to chain.invoke():\n", invocation)
+        #print("DEBUG: Invocation object being sent to chain.invoke():\n", invocation)
         
         # Invoke the chain.
         try:
@@ -223,7 +243,7 @@ def handle_conversation():
         except Exception as ex:
             print("Error during chain.invoke:", ex)
             result = "[Error]"
-        print("\nBot:", result, "\n")
+        print("\nEnjnDesign StoryTeller:", result, "\n")
         context += f"\nUser: {user_input}\nAI: {result}"
         
         # Optional: Reset conversation history for story-generation commands to avoid building huge context.
