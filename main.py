@@ -173,11 +173,11 @@ def run_elegenV1_exe():
 
 def select_folktale_functions():
     """
-    Randomly selects a number (between 10 and 20) of folktale functions.
+    Randomly selects a number (between 5 and 13) of folktale functions in order.
     Returns them as a formatted string.
     """
-    num_functions = random.randint(10, 20)
-    selected_funcs = random.sample(folktale_functions, num_functions)
+    num_functions = random.randint(5, 13)
+    selected_funcs = sorted(random.sample(folktale_functions, num_functions), key=lambda x: int(x.split(":")[0].split()[1]))
     return "\n".join(selected_funcs)
 
 def select_additional_elements():
