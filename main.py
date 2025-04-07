@@ -3,38 +3,21 @@ import subprocess
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
+# word equations'
+# for story fuction do the intro and each function one user enter key press at a time
+
 # 31 functions of the folktale defined here.
 folktale_functions = [
-    "Function 27: The Miracle",
-    "Function 14: The Prophecy",
-    "Function 5: Tests, Allies, Enemies",
-    "Function 19: The Sacrifice",
-    "Function 9: The Road Back",
-    "Function 6: Approach",
-    "Function 1: The Call to Adventure",
-    "Function 25: The Magic of Nature",
-    "Function 13: The Quest",
-    "Function 10: Resurrection",
-    "Function 2: Refusal of the Call",
-    "Function 30: The Destiny",
-    "Function 20: The Revelation",
-    "Function 12: The Transformation",
-    "Function 26: The Hidden World",
-    "Function 31: The Epilogue",
-    "Function 24: The Rebirth",
-    "Function 7: The Ordeal",
-    "Function 8: Reward",
-    "Function 3: Meeting the Mentor",
-    "Function 16: The Darkest Hour",
-    "Function 23: The Journey",
-    "Function 18: The Return",
-    "Function 17: The Ultimate Boon",
-    "Function 15: The Magic Helper",
-    "Function 21: The Betrayal",
-    "Function 4: Crossing the Threshold",
-    "Function 28: The Encounter",
-    "Function 22: The Challenge",
-    "Function 29: The Transformation",
+    "Function 27: The Miracle", "Function 14: The Prophecy", "Function 5: Tests, Allies, Enemies",
+    "Function 19: The Sacrifice", "Function 9: The Road Back", "Function 6: Approach",
+    "Function 1: The Call to Adventure", "Function 25: The Magic of Nature", "Function 13: The Quest",
+    "Function 10: Resurrection", "Function 2: Refusal of the Call", "Function 30: The Destiny",
+    "Function 20: The Revelation", "Function 12: The Transformation", "Function 26: The Hidden World",
+    "Function 31: The Epilogue", "Function 24: The Rebirth", "Function 7: The Ordeal",
+    "Function 8: Reward", "Function 3: Meeting the Mentor", "Function 16: The Darkest Hour",
+    "Function 23: The Journey", "Function 18: The Return", "Function 17: The Ultimate Boon",
+    "Function 15: The Magic Helper", "Function 21: The Betrayal", "Function 4: Crossing the Threshold",
+    "Function 28: The Encounter", "Function 22: The Challenge", "Function 29: The Transformation",
     "Function 11: Return with the Elixir"
 ]
 
@@ -57,7 +40,8 @@ locations = [
     "in a japanese tea garden", "at the brazil slum", "with-in a federal quarantine", "on a highway underpass",
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
-    "near a abandoned railroad track", "near a rocket launch site"
+    "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
+    "two souls within the same body"
 ]
 
 characters = [
@@ -101,7 +85,11 @@ plot_points = [
     "a fae, a giant, and a gnome walk into a tavern", "survives being struck by lightning", "map burned onto there back",
     "hard to resist the urge to sing about the desires of any nearby", "hideous monster is nice when you get to know them",
     "considered bad luck in their country", "magical spell transforms", "man is sent to kidnap", "things don't go according to plan",
-    "arrives at the school for priests", "usually a happy occasion", "zoo for magical beasts", "there plays predicted future"
+    "arrives at the school for priests", "usually a happy occasion", "there plays predicted future",
+    "expecting that the hero would get killed", "she commands the fireflies", "school for wizards is a scam",
+    "prevent civil war by betraying friend or king", "who were turned into wolves", "he commands the dragonflies",
+    "there library was like an arsenal sometimes", "it absorbs all light within about a mile radius", "tries to get a second chance",
+    "poisons anyone who has", "have been locked out of", "being able to weaken other's spells"
 ]
 
 complex_chas = [
@@ -155,7 +143,7 @@ def run_main_bat():
 
 def run_elegenV1_exe():
     """
-    Executes the ELEgenV1.exe file and captures its outputs.
+    Executes the ELEgenV1.exe file and captures its output.
     """
     try:
         result = subprocess.run(
