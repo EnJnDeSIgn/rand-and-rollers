@@ -93,7 +93,15 @@ plot_points = [
     "kiss there lover", "see a performance", "rescue there freind", "declare that they are in big trouble", "bet on a fight",
     "to find a new place to live", "arrest a perp", "see a courtroom trial", "get a job", "get away from a chaser", "wait for someone",
     "commit a crime", "teach another how to do something", "prepare to eat a meal", "attend a class", "attend a church service",
-    "accept an award", "attend a birthday party"
+    "accept an award", "attend a birthday party", "brothers sell them into slavery", "prophecy tells a army to attack",
+    "a nobody slays a supposedly unbeatable enemy", "father the king is jealous", "banished from a paradise",
+    "series of terrible plagues", "squandered there inheritance", "arrival of a letter", "an escape from a prison",
+    "a game or contest", "rescues another", "clearly is in big trouble", "an all-out battle scene", "someone is arrested",
+    "gets fired from a job", "a chase scene", "a busy street scene", "in a triumphant situation", "comes across a significant object",
+    "a fae, a giant, and a gnome walk into a tavern", "survives being struck by lightning", "map burned onto there back",
+    "hard to resist the urge to sing about the desires of any nearby", "hideous monster is nice when you get to know them",
+    "considered bad luck in their country", "magical spell transforms", "man is sent to kidnap", "things don't go according to plan",
+    "arrives at the school for priests", "usually a happy occasion", "zoo for magical beasts", "there plays predicted future"
 ]
 
 complex_chas = [
@@ -195,7 +203,7 @@ def handle_conversation():
     """
     context = ""
     extra_context = ""
-    print("Welcome to the Enjn Design ChatBot!")
+    print("Welcome to the Enjn Design StoryTeller!")
     print("Type 'exit' to quit or 'story' to generate a folktale story with random functions.")
     
     while True:
@@ -235,7 +243,7 @@ def handle_conversation():
                 "question": user_input
             }
         
-        #print("DEBUG: Invocation object being sent to chain.invoke():\n", invocation)
+        print("DEBUG: Invocation object being sent to chain.invoke():\n", invocation)
         
         # Invoke the chain.
         try:
