@@ -5,37 +5,37 @@ from langchain_core.prompts import ChatPromptTemplate
 
 # 31 functions of the folktale defined here.
 folktale_functions = [
-    "Function 1: The Call to Adventure",
-    "Function 2: Refusal of the Call",
-    "Function 3: Meeting the Mentor",
-    "Function 4: Crossing the Threshold",
+    "Function 27: The Miracle",
+    "Function 14: The Prophecy",
     "Function 5: Tests, Allies, Enemies",
+    "Function 19: The Sacrifice",
+    "Function 9: The Road Back",
     "Function 6: Approach",
+    "Function 1: The Call to Adventure",
+    "Function 25: The Magic of Nature",
+    "Function 13: The Quest",
+    "Function 10: Resurrection",
+    "Function 2: Refusal of the Call",
+    "Function 30: The Destiny",
+    "Function 20: The Revelation",
+    "Function 12: The Transformation",
+    "Function 26: The Hidden World",
+    "Function 31: The Epilogue",
+    "Function 24: The Rebirth",
     "Function 7: The Ordeal",
     "Function 8: Reward",
-    "Function 9: The Road Back",
-    "Function 10: Resurrection",
-    "Function 11: Return with the Elixir",
-    "Function 12: The Transformation",
-    "Function 13: The Quest",
-    "Function 14: The Prophecy",
-    "Function 15: The Magic Helper",
+    "Function 3: Meeting the Mentor",
     "Function 16: The Darkest Hour",
-    "Function 17: The Ultimate Boon",
-    "Function 18: The Return",
-    "Function 19: The Sacrifice",
-    "Function 20: The Revelation",
-    "Function 21: The Betrayal",
-    "Function 22: The Challenge",
     "Function 23: The Journey",
-    "Function 24: The Rebirth",
-    "Function 25: The Magic of Nature",
-    "Function 26: The Hidden World",
-    "Function 27: The Miracle",
+    "Function 18: The Return",
+    "Function 17: The Ultimate Boon",
+    "Function 15: The Magic Helper",
+    "Function 21: The Betrayal",
+    "Function 4: Crossing the Threshold",
     "Function 28: The Encounter",
+    "Function 22: The Challenge",
     "Function 29: The Transformation",
-    "Function 30: The Destiny",
-    "Function 31: The Epilogue"
+    "Function 11: Return with the Elixir"
 ]
 
 locations = [
@@ -155,7 +155,7 @@ def run_main_bat():
 
 def run_elegenV1_exe():
     """
-    Executes the ELEgenV1.exe file and captures its output.
+    Executes the ELEgenV1.exe file and captures its outputs.
     """
     try:
         result = subprocess.run(
