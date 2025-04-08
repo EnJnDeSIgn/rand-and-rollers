@@ -41,7 +41,7 @@ locations = [
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
-    "two souls within the same body"
+    "two souls within the same body", "in a library"
 ]
 
 characters = [
@@ -53,7 +53,7 @@ characters = [
     "A grim doula", "An entertainment journalist", "A rude food critic", "A refined sommelier", "A bissy event planner",
     "A clean cut helicopter pilot", "A thin truck driver", "A famous radio personality", "A caring nurse", "An injured firefighter",
     "A political campaingn manager", "A hip microbrewery owner", "A social bartender", "An ignorant psychiatrist",
-    "A helpful physical therapist", "An usher by night", "A social media manager", "A landscape designer",
+    "A helpful physical therapist", "An usher by night", "A social media manager", "A landscape designer", "A demon",
     "A moonlighting house painter", "A band camp counselor", "A sharp FBI agent", "A lonly private tutor", "A old professor",
     "A salty marine biologist", "A real estate agent", "A chubby plumber", "The U.S. ambassador", "A small-town mayor", "A kind librarian",
     "A brilliant meteorologist", "An adventurous travel writer", "A flamboyant interior designer", "A dark surgeon", "A judgemental judge",
@@ -65,31 +65,35 @@ characters = [
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
-    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist"
+    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee"
 ]
 
 plot_points = [
     "discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
     "learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
-    "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation",
-    "escape from a boring meeting", "pay there last repects at a funeral", "see the birth of there child",
+    "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
+    "escape from a boring meeting", "pay there last repects at a funeral", "see the birth of there child", "can smell fear",
     "excape the beginning of a disaster", "see the aftermath of a disaster", "poison someones wine", "play a game of hide and seak",
     "kiss there lover", "see a performance", "rescue there freind", "declare that they are in big trouble", "bet on a fight",
     "to find a new place to live", "arrest a perp", "see a courtroom trial", "get a job", "get away from a chaser", "wait for someone",
     "commit a crime", "teach another how to do something", "prepare to eat a meal", "attend a class", "attend a church service",
     "accept an award", "attend a birthday party", "brothers sell them into slavery", "prophecy tells a army to attack",
-    "a nobody slays a supposedly unbeatable enemy", "father the king is jealous", "banished from a paradise",
+    "a nobody slays a supposedly unbeatable enemy", "father the king is jealous", "banished from a paradise", "can smell jealousy",
     "series of terrible plagues", "squandered there inheritance", "arrival of a letter", "an escape from a prison",
     "a game or contest", "rescues another", "clearly is in big trouble", "an all-out battle scene", "someone is arrested",
     "gets fired from a job", "a chase scene", "a busy street scene", "in a triumphant situation", "comes across a significant object",
     "a fae, a giant, and a gnome walk into a tavern", "survives being struck by lightning", "map burned onto there back",
     "hard to resist the urge to sing about the desires of any nearby", "hideous monster is nice when you get to know them",
     "considered bad luck in their country", "magical spell transforms", "man is sent to kidnap", "things don't go according to plan",
-    "arrives at the school for priests", "usually a happy occasion", "there plays predicted future",
-    "expecting that the hero would get killed", "she commands the fireflies", "school for wizards is a scam",
+    "arrives at the school for priests", "usually a happy occasion", "there plays predicted future", "now she's the only one",
+    "expecting that the hero would get killed", "she commands the fireflies", "school for wizards is a scam", "can smell embarrassment",
     "prevent civil war by betraying friend or king", "who were turned into wolves", "he commands the dragonflies",
     "there library was like an arsenal sometimes", "it absorbs all light within about a mile radius", "tries to get a second chance",
-    "poisons anyone who has", "have been locked out of", "being able to weaken other's spells"
+    "poisons anyone who has", "have been locked out of", "being able to weaken other's spells", "who has been rendered mute",
+    "symptoms affects only one species", "there voice compels everyone else to obey", "turned out to be a terrible idea",
+    "travels easily between land of living and land of dead", "entrusting the quest to", "anyone who touches the",
+    "will die of thirst, no matter how much they drink", "although the hero dosen't know it", "in run by a cadre of supernatural beings",
+    "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms"
 ]
 
 complex_chas = [
