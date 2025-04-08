@@ -23,6 +23,17 @@ relationships thoughtfully rather than reacting impulsively.
  
     listen to my stanza, truth is in the moment but, these are just words and empty...    
 
+# Note on precision data
+		
+	y = roll_value - c			! So far, so good: c is 0
+	t = random_sum + y			! Alas, sum is big, y small, so low-order digits of y are lost.
+	c = (t - random_sum) - y		! (t-random_sum) recovers the high part of y; subtracting y recovers -(low part of y)
+	random_sum = t				! Algebraically, c should always be zero. Beware overly-aggressive optimizing compilers!
+						! Next time around, the lost low part will be added to y in a fresh attempt.
+						! Print the current roll value and the total sum with more decimal places
+This is not my work or syntax, I keep it still because I don't know who wrote it and I like it.... What I came up with is numbering the logic c0, y0, t0, carry_over0 and c1, y1, t1, carry_over1 and so on so that I may use precision data more then once in a formula translation program. I use it 4 times in NRNG.f90.
+
+
 # Story Element Genorator and Tarot Card Genorator
 
 Welcome to   
