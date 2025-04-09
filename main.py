@@ -1,12 +1,10 @@
+import os
 import random
 import subprocess
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
-# word equations'
-# for story fuction do the intro and each function one user enter key press at a time
-
-# 31 functions of the folktale defined here.
+# Folktale elements
 folktale_functions = [
     "Function 27: The Miracle", "Function 14: The Prophecy", "Function 5: Tests, Allies, Enemies",
     "Function 19: The Sacrifice", "Function 9: The Road Back", "Function 6: Approach",
@@ -21,8 +19,7 @@ folktale_functions = [
     "Function 11: Return with the Elixir"
 ]
 
-locations = [
-    "at a remote filming location", "in a bustling city market", "on a serene mountain peak", "in ancient Egypt by the Nile",
+locations = ["at a remote filming location", "in a bustling city market", "on a serene mountain peak", "in ancient Egypt by the Nile",
     "in a mystical forest", "in the middle of the night", "at the shopping mall", "on an old bridge", "in a penthouse suite",
     "in an enclosed elevator", "at a sidewalk cafe", "at a skateboard park", "at a neighborhood basketball court",
     "on the farmhouse porch", "in the slag heaps", "in a graffiti covered tunnel", "near a wishing well", "on a rooftop party",
@@ -41,11 +38,8 @@ locations = [
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
-    "two souls within the same body", "in a library"
-]
-
-characters = [
-    "An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
+    "two souls within the same body", "in a library"]
+characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
     "A howling wolf", "A creative florist", "A talkative service representative", "A strict piano teacher", "A sweaty welder",
     "A fair referee", "An anxious pharmacist", "A loving veterinarian", "An artistic camera operator", "An animator of films",
     "An architect out of work", "A over worked bank teller", "A stoic mail carrier", "A funky nightclub DJ",
@@ -65,11 +59,8 @@ characters = [
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
-    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee"
-]
-
-plot_points = [
-    "discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
+    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee"]
+plot_points = ["discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
     "learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
     "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
     "escape from a boring meeting", "pay there last repects at a funeral", "see the birth of there child", "can smell fear",
@@ -93,11 +84,8 @@ plot_points = [
     "symptoms affects only one species", "there voice compels everyone else to obey", "turned out to be a terrible idea",
     "travels easily between land of living and land of dead", "entrusting the quest to", "anyone who touches the",
     "will die of thirst, no matter how much they drink", "although the hero dosen't know it", "in run by a cadre of supernatural beings",
-    "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms"
-]
-
-complex_chas = [
-    "brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
+    "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms"]
+complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
     "depressed, but determined", "pompous, but kind", "lazy, but organized", "conceited, but charming", "busy, but unproductive",
     "calm, but depairing", "rude, but funny", "neat, but a pack rat", "timid, but vindictive", "altruistic, but impersonal",
@@ -108,10 +96,9 @@ complex_chas = [
     "frugal, but generous", "social, but always making faux pas", "stoic, but tenderhearted", "giggly, but wise",
     "evil, but sentimental", "grouchy, but encouraging", "chatty, but secretive", "soft-spoken, but vulgar", "idealistic, but petty",
     "frumpy, but dangerous", "disgusted, but amused", "exhausted, but excited", "innocent, but manipulative",
-    "suspicious, but impressed", "uncanny, but irritating"
-]
+    "suspicious, but impressed", "uncanny, but irritating"]
 
-# Updated prompt template: extra_context can inject our batch file output and function details
+# Initialize prompt and model
 template = """
 Answer the question below
 
@@ -121,134 +108,93 @@ Question: {question}
 
 Answer:
 """
-
-# Instantiate the model and chain.
 model = OllamaLLM(model="gemma3")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
-def run_main_bat():
+
+def run_command(command):
     """
-    Executes the run_main.bat file and captures its output.
+    Executes a command and captures its output.
     """
     try:
         result = subprocess.run(
-            r"run_main.bat",  # Use absolute path if necessary.
-            shell=True,
-            check=True,
-            text=True,
-            capture_output=True  # Capture stdout for later use.
+            command, shell=True, check=True, text=True, capture_output=True
         )
-        print("DEBUG: run_main.bat executed successfully.")
+        print(f"DEBUG: Command '{command}' executed successfully.")
         return result.stdout
     except subprocess.CalledProcessError as e:
-        print("Error executing run_main.bat:", e)
+        print(f"Error executing '{command}':", e)
         return ""
 
-def run_elegenV1_exe():
-    """
-    Executes the ELEgenV1.exe file and captures its output.
-    """
-    try:
-        result = subprocess.run(
-            r"ELEgenV1.exe",  # Use absolute path if necessary.
-            shell=True,
-            check=True,
-            text=True,
-            capture_output=True  # Capture stdout for later use.
-        )
-        print("DEBUG: ELEgenV1.exe executed successfully.")
-        return result.stdout
-    except subprocess.CalledProcessError as e:
-        print("Error executing ELEgenV1.exe:", e)
-        return ""
 
 def select_folktale_functions():
     """
-    Randomly selects a number (between 5 and 13) of folktale functions in order.
-    Returns them as a formatted string.
+    Randomly selects between 5 and 13 folktale functions.
     """
     num_functions = random.randint(5, 13)
     selected_funcs = sorted(random.sample(folktale_functions, num_functions), key=lambda x: int(x.split(":")[0].split()[1]))
     return "\n".join(selected_funcs)
 
+
 def select_additional_elements():
     """
-    Randomly selects additional story elements from locations, characters, plot points, and complex characteristics.
-    Returns them as a formatted string.
+    Randomly selects additional story elements.
     """
     selected_location = random.choice(locations)
     selected_character = random.choice(characters)
     selected_plot_point = random.choice(plot_points)
     selected_complex_cha = random.choice(complex_chas)
-    
     return f"Location: {selected_location}\nCharacter: {selected_character}\nPlot Point: {selected_plot_point}\nComplex Characteristic: {selected_complex_cha}"
+
+
+def save_story_to_file(story_text, filename="story.txt"):
+    """
+    Saves the generated story to a file.
+    """
+    try:
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(story_text)
+        print(f"Story saved to: {filename}")
+    except Exception as e:
+        print(f"Error saving story to file: {e}")
+
 
 def handle_conversation():
     """
-    Enhanced conversation loop.
-    When the user types "story":
-      - Run run_main.bat to generate story elements.
-      - Capture and combine its output with randomly selected folktale functions and additional elements.
-      - Modify the question prompt to instruct the language model to create a complete story.
-    For other inputs, continue with the standard conversation.
+    Enhanced conversation loop for generating stories.
     """
     context = ""
-    extra_context = ""
-    print("Welcome to the Enjn Design StoryTeller!")
-    print("Type 'exit' to quit or 'story' to generate a folktale story with random functions.")
-    
+    extra_context = "Story generation initiated..."
+
     while True:
-        user_input = input("You: ")
-        if user_input.lower() == "exit":
+        user_input = input("\nYou: ").strip()
+        if user_input.lower() in ["exit", "quit"]:
+            print("Exiting conversation...")
             break
 
-        if user_input.lower() == "story":
-            # Run the batch file to generate story elements.
-            run_main_bat()
-            # Capture the output from ELEgenV1.exe.
-            ele_output = run_elegenV1_exe()
-            print("DEBUG: ELEgenV1.exe output captured:\n", ele_output)
-            # Randomly select folktale functions.
-            selected = select_folktale_functions()
-            # Randomly select additional story elements.
-            additional_elements = select_additional_elements()
-            # Combine both sources into the extra context.
-            extra_context = (
-                f"Story Generator Output:\n{ele_output}\n\n"
-                f"Selected Folktale Functions:\n{selected}\n"
-                f"Additional Elements:\n{additional_elements}\n"
-            )
-            # Instruct the LM to generate a complete folktale story.
-            modified_question = ("Using the above story generator output, the selected folktale functions, and the additional elements, "
-                                 "please generate a complete folktale story.")
-            invocation = {
-                "context": context,
-                "extra_context": extra_context,
-                "question": modified_question
-            }
+        if "story" in user_input.lower():
+            # Generate story elements
+            story_elements = select_folktale_functions() + "\n" + select_additional_elements()
+            print("DEBUG: Generated story elements:\n", story_elements)
+
+            # Modify prompt for long story generation
+            long_prompt = f"Create a very long and detailed story based on the following elements:\n{story_elements}"
+            try:
+                result = chain.invoke({"context": context, "extra_context": extra_context, "question": long_prompt})
+                print("\nEnJnDeSIgn StoryTeller:\n", result)
+                save_story_to_file(result)
+            except Exception as e:
+                print("Error generating story:", e)
         else:
-            extra_context = ""
-            invocation = {
-                "context": context,
-                "extra_context": extra_context,
-                "question": user_input
-            }
-        
-        print("DEBUG: Invocation object being sent to chain.invoke():\n", invocation)
-        
-        # Invoke the chain.
-        try:
-            result = chain.invoke(invocation)
-        except Exception as ex:
-            print("Error during chain.invoke:", ex)
-            result = "[Error]"
-        print("\nEnjnDesign StoryTeller:", result, "\n")
-        context += f"\nUser: {user_input}\nAI: {result}"
-        
-        # Optional: Reset conversation history for story-generation commands to avoid building huge context.
-        if user_input.lower() == "story":
-            context = ""  # or trim context as needed
-    
+            try:
+                result = chain.invoke({"context": context, "extra_context": extra_context, "question": user_input})
+                print("\nEnJnDeSIgn StoryTeller:", result)
+                # Update context for conversation continuity
+                context += f"\nUser: {user_input}\nAI: {result}"
+            except Exception as e:
+                print("Error during conversation:", e)
+
+
 if __name__ == "__main__":
     handle_conversation()
