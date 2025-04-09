@@ -122,7 +122,7 @@ def run_command(command):
             command, shell=True, check=True, text=True, capture_output=True
         )
         print(f"DEBUG: Command '{command}' executed successfully.")
-        return result.stdout
+        return result.stdout.strip()
     except subprocess.CalledProcessError as e:
         print(f"Error executing '{command}':", e)
         return ""
@@ -148,10 +148,31 @@ def select_additional_elements():
     return f"Location: {selected_location}\nCharacter: {selected_character}\nPlot Point: {selected_plot_point}\nComplex Characteristic: {selected_complex_cha}"
 
 
-def save_story_to_file(story_text, filename="story.txt"):
+def add_optional_elements():
     """
-    Saves the generated story to a file.
+    Executes ELEgenV1.exe to generate 5 optional elements and returns them as a string.
     """
+    optional_elements = run_command("ELEgenV1.exe").splitlines()[:5]
+    return "\n".join(optional_elements)
+
+
+def generate_unique_filename(base_name="story", extension=".txt"):
+    """
+    Generates a unique filename by checking existing files in the directory.
+    """
+    counter = 0
+    while True:
+        filename = f"{base_name}{counter}{extension}"
+        if not os.path.exists(filename):
+            return filename
+        counter += 1
+
+
+def save_story_to_file(story_text):
+    """
+    Saves the generated story to a uniquely named file.
+    """
+    filename = generate_unique_filename()
     try:
         with open(filename, "w", encoding="utf-8") as f:
             f.write(story_text)
@@ -176,6 +197,11 @@ def handle_conversation():
         if "story" in user_input.lower():
             # Generate story elements
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
+
+            # Add optional elements from ELEgenV1.exe
+            optional_elements = add_optional_elements()
+            story_elements += f"\nOptional Elements:\n{optional_elements}"
+
             print("DEBUG: Generated story elements:\n", story_elements)
 
             # Modify prompt for long story generation
