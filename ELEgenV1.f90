@@ -72,7 +72,7 @@ program story_element_generator_EnJnDeSIgn2024
 
     ! Seed the random number generator
     call random_seed()
-	roll_count = 5
+	roll_count = 15
 
     ! Display the program name and introduction
     !print *, "story_element_generator_EnJnDeSIgn2024_for_A.I."

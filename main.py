@@ -190,11 +190,11 @@ def handle_conversation():
 
     while True:
         user_input = input("\nYou: ").strip()
-        if user_input.lower() in ["exit", "quit"]:
+        if user_input.lower() in ["/exit", "/quit"]:
             print("Exiting conversation...")
             break
 
-        if "story" in user_input.lower():
+        if "/story" in user_input.lower():
             # Generate story elements
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
 
