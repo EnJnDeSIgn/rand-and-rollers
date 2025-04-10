@@ -98,7 +98,6 @@ complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhea
     "frumpy, but dangerous", "disgusted, but amused", "exhausted, but excited", "innocent, but manipulative",
     "suspicious, but impressed", "uncanny, but irritating"]
 
-# Initialize prompt and model
 template = """
 Answer the question below
 
@@ -112,54 +111,85 @@ model = OllamaLLM(model="gemma3")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
+# Working code buffer for `/code` functionality
+working_code_buffer = ""
 
 def run_command(command):
-    """
-    Executes a command and captures its output.
-    """
     try:
-        result = subprocess.run(
-            command, shell=True, check=True, text=True, capture_output=True
-        )
-        print(f"DEBUG: Command '{command}' executed successfully.")
+        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
         print(f"Error executing '{command}':", e)
         return ""
 
+def save_code_to_file(code, filename):
+    try:
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(code)
+        print(f"Code saved to: {filename}")
+    except Exception as e:
+        print(f"Error saving code: {e}")
+
+def handle_code_mode():
+    """
+    Interactive mode for writing and handling code, including AI assistance with user queries.
+    """
+    global working_code_buffer
+    print("Entering code mode. Type '/exit' to leave, '/save <filename>' to save, '/view' to view, '/clear' to clear, '/ask' to ask the AI, or type code directly.")
+
+    while True:
+        user_input = input("\nCode> ").strip()
+        
+        if user_input.lower() == "/exit":
+            print("Exiting code mode...")
+            break
+        elif user_input.lower().startswith("/save"):
+            parts = user_input.split(" ", 1)
+            if len(parts) > 1:
+                save_code_to_file(working_code_buffer, parts[1].strip())
+            else:
+                print("Error: Provide a filename. Usage: /save <filename>")
+        elif user_input.lower() == "/view":
+            print("\nCurrent Code Buffer:\n" + (working_code_buffer if working_code_buffer else "(Empty)"))
+        elif user_input.lower() == "/clear":
+            working_code_buffer = ""
+            print("Code buffer cleared.")
+        elif user_input.lower() == "/ask":
+            if not working_code_buffer.strip():
+                print("The code buffer is empty. Add some code before asking the AI for assistance.")
+            else:
+                print("Enter your question about the code, or press Enter to cancel:")
+                query = input("Your Question: ").strip()
+                if query:
+                    print("Sending code buffer and query to AI for assistance...")
+                    try:
+                        response = chain.invoke({
+                            "context": working_code_buffer,
+                            "extra_context": f"Question: {query}",
+                            "question": "Provide detailed assistance based on the query and code."
+                        })
+                        print("\nAI Response:\n", response)
+                    except Exception as e:
+                        print("Error during AI assistance:", e)
+                else:
+                    print("Query cancelled.")
+        else:
+            working_code_buffer += user_input + "\n"
+            print("Code added to buffer.")
 
 def select_folktale_functions():
-    """
-    Randomly selects between 5 and 13 folktale functions.
-    """
     num_functions = random.randint(5, 13)
     selected_funcs = sorted(random.sample(folktale_functions, num_functions), key=lambda x: int(x.split(":")[0].split()[1]))
     return "\n".join(selected_funcs)
 
-
 def select_additional_elements():
-    """
-    Randomly selects additional story elements.
-    """
     selected_location = random.choice(locations)
     selected_character = random.choice(characters)
     selected_plot_point = random.choice(plot_points)
     selected_complex_cha = random.choice(complex_chas)
     return f"Location: {selected_location}\nCharacter: {selected_character}\nPlot Point: {selected_plot_point}\nComplex Characteristic: {selected_complex_cha}"
 
-
-def add_optional_elements():
-    """
-    Executes ELEgenV1.exe to generate 5 optional elements and returns them as a string.
-    """
-    optional_elements = run_command("ELEgenV1.exe").splitlines()[:5]
-    return "\n".join(optional_elements)
-
-
 def generate_unique_filename(base_name="story", extension=".txt"):
-    """
-    Generates a unique filename by checking existing files in the directory.
-    """
     counter = 0
     while True:
         filename = f"{base_name}{counter}{extension}"
@@ -167,11 +197,7 @@ def generate_unique_filename(base_name="story", extension=".txt"):
             return filename
         counter += 1
 
-
 def save_story_to_file(story_text):
-    """
-    Saves the generated story to a uniquely named file.
-    """
     filename = generate_unique_filename()
     try:
         with open(filename, "w", encoding="utf-8") as f:
@@ -180,10 +206,55 @@ def save_story_to_file(story_text):
     except Exception as e:
         print(f"Error saving story to file: {e}")
 
+def handle_ask_code():
+    """
+    Handle the /askcode command to provide AI assistance for code in the buffer.
+    """
+    global working_code_buffer
+    if not working_code_buffer.strip():
+        print("The code buffer is empty. Add some code before asking the AI for assistance.")
+        return
+    
+    print("Enter your question or context about the code, or press Enter to cancel:")
+    query = input("Your Question: ").strip()
+    if query:
+        print("Sending code buffer and query to AI for assistance...")
+        try:
+            response = chain.invoke({
+                "context": working_code_buffer,
+                "extra_context": f"Question: {query}",
+                "question": "Provide detailed code assistance or suggestions based on the query."
+            })
+            print("\nEnJnDeSIgn Coder Response:\n", response)
+        except Exception as e:
+            print("Error during AI assistance:", e)
+    else:
+        print("Query cancelled.")
+
+def handle_ask_story():
+    """
+    Handle the /askstory command to provide AI assistance for story generation.
+    """
+    print("Enter your question or context for story assistance, or press Enter to cancel:")
+    query = input("Your Question: ").strip()
+    if query:
+        print("Sending story query to AI for assistance...")
+        try:
+            story_elements = select_folktale_functions() + "\n" + select_additional_elements()
+            response = chain.invoke({
+                "context": story_elements,
+                "extra_context": f"Question: {query}",
+                "question": "Provide detailed story assistance or suggestions based on the query."
+            })
+            print("\nEnJnDeSIgn StoryTeller Response:\n", response)
+        except Exception as e:
+            print("Error during AI assistance:", e)
+    else:
+        print("Query cancelled.")
 
 def handle_conversation():
     """
-    Enhanced conversation loop for generating stories.
+    Enhanced conversation loop for generating stories and managing code functionality.
     """
     context = ""
     extra_context = "Story generation initiated..."
@@ -193,18 +264,14 @@ def handle_conversation():
         if user_input.lower() in ["/exit", "/quit"]:
             print("Exiting conversation...")
             break
-
-        if "/story" in user_input.lower():
-            # Generate story elements
+        elif user_input.lower() == "/code":
+            handle_code_mode()
+        elif user_input.lower() == "/askcode":
+            handle_ask_code()
+        elif user_input.lower() == "/askstory":
+            handle_ask_story()
+        elif "/story" in user_input.lower():
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
-
-            # Add optional elements from ELEgenV1.exe
-            optional_elements = add_optional_elements()
-            story_elements += f"\nOptional Elements:\n{optional_elements}"
-
-            print("DEBUG: Generated story elements:\n", story_elements)
-
-            # Modify prompt for long story generation
             long_prompt = f"Create a very long and detailed story based on the following elements:\n{story_elements}"
             try:
                 result = chain.invoke({"context": context, "extra_context": extra_context, "question": long_prompt})
@@ -216,11 +283,9 @@ def handle_conversation():
             try:
                 result = chain.invoke({"context": context, "extra_context": extra_context, "question": user_input})
                 print("\nEnJnDeSIgn StoryTeller:", result)
-                # Update context for conversation continuity
                 context += f"\nUser: {user_input}\nAI: {result}"
             except Exception as e:
                 print("Error during conversation:", e)
-
 
 if __name__ == "__main__":
     handle_conversation()
