@@ -387,6 +387,9 @@ The GAAI.py being mostly from a introduction to algorithms book I can't afoard o
     C:/user/user_folder_name/python HMG_software.py
     ```
 
+so the current setting is 2-3 runs of the data but, if you set it too just 25 you would get this....    
+https://www.youtube.com/watch?v=d8hlj4EbdsE    
+
 ## Program Student Help
 
 ## Define the understanding function (f(x))
