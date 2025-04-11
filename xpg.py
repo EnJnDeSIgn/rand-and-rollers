@@ -12,7 +12,7 @@ def load_data():
 
 def normalize_tide_heights(tide_data, column_name='TideHeight'):
     """
-    Normalize tide heights to a [0.1, 1.0] range with added randomness.
+    Normalize tide heights to a [0.1, 1.0] range.
     """
     if column_name not in tide_data.columns:
         raise KeyError(f"Column '{column_name}' not found in tide data.")
@@ -21,26 +21,28 @@ def normalize_tide_heights(tide_data, column_name='TideHeight'):
     max_val = tide_data[column_name].max()
     normalized = (tide_data[column_name] - min_val) / (max_val - min_val)
     
-    # Apply randomness to normalization
-    random_factor = np.random.uniform(0.1, 0.5, size=normalized.shape)
-    normalized = 0.1 + normalized * (1.0 - 0.1) * random_factor
-    
-    # Ensure no value is exactly zero
-    mask = normalized == 0.0
-    normalized[mask] = np.random.uniform(1e-6, 1e-5, size=np.sum(mask))
+    # Scale to the range [0.1, 1.0]
+    normalized = 0.1 + normalized * (1.0 - 0.1)
     
     tide_data['NormalizedTideHeight'] = normalized
     return tide_data
 
 def generate_binary_pattern(length=90):
     """
-    Generate a binary pattern of specified length.
+    Generate a random binary pattern of specified length.
     """
     return ''.join(random.choice(['0', '1']) for _ in range(length))
 
-def assign_data_based_on_pattern(binary_pattern, glacier_data, tide_data, glacier_column='GlacierSize'):
+def generate_random_exponent():
     """
-    Use a binary pattern to assign data from glacier decay (0) or normalized tidal heights (1).
+    Generate a random exponent to add to a data value.
+    """
+    return random.uniform(0.1, 2.0)  # Random number between 0.1 and 2.0
+
+def assign_data_with_exponent(binary_pattern, glacier_data, tide_data, glacier_column='GlacierSize'):
+    """
+    Use a binary pattern to assign data from glacier decay (0) or normalized tidal heights (1),
+    and add a random exponent to the selected value.
     """
     if glacier_column not in glacier_data.columns:
         raise KeyError(f"Column '{glacier_column}' not found in glacier data.")
@@ -48,44 +50,61 @@ def assign_data_based_on_pattern(binary_pattern, glacier_data, tide_data, glacie
     combined_data = []
     for bit in binary_pattern:
         if bit == '0':
-            combined_data.append(random.choice(glacier_data[glacier_column]))
+            value = random.choice(glacier_data[glacier_column])
         elif bit == '1':
-            combined_data.append(random.choice(tide_data['NormalizedTideHeight']))
+            value = random.choice(tide_data['NormalizedTideHeight'])
+        else:
+            raise ValueError(f"Unexpected binary value: {bit}")
+        
+        # Add a random exponent to the value
+        random_exponent = generate_random_exponent()
+        combined_value = value + random_exponent
+        combined_data.append(combined_value)
     
     return combined_data
 
-def save_processed_data(data, run_id):
+def hmg_simulation(glacier_data, tide_data, glacier_column='GlacierSize', runs=2):
     """
-    Save processed data to a CSV file for further analysis.
+    Simulate a Heavy Machine Gun (HMG)-like behavior by running 2-3 times
+    and sorting the final exponents.
     """
-    filename = f'processed_combined_data_run_{run_id}.csv'
-    pd.DataFrame(data, columns=['CombinedData']).to_csv(filename, index=False)
-    print(f"Data saved to {filename}")
-
-def main():
-    """
-    Main workflow for generating random numbers using binary patterns and saving processed data.
-    """
-    runs = random.randint(2, 3)  # Randomly choose between 2 or 3 runs
-    print(f"Number of Runs: {runs}")
+    all_exponents = []
     
     for run in range(runs):
-        glacier_data, tide_data = load_data()
-        tide_data = normalize_tide_heights(tide_data, column_name='TideHeight')
-        
         # Generate a binary pattern
         binary_pattern = generate_binary_pattern(length=90)
         print(f"Binary Pattern (Run {run + 1}): {binary_pattern}")
         
-        # Assign data based on the binary pattern
-        combined_data = assign_data_based_on_pattern(
-            binary_pattern, glacier_data, tide_data, glacier_column='GlacierSize'
+        # Assign data and add random exponents
+        combined_data = assign_data_with_exponent(
+            binary_pattern, glacier_data, tide_data, glacier_column=glacier_column
         )
+        print(f"Generated Exponents (Run {run + 1}): {combined_data}")
         
-        # Save processed data for analysis
-        save_processed_data(combined_data, run + 1)
-        
-        print(f"Run {run + 1} complete. Data saved.")
+        # Add to the overall list of exponents
+        all_exponents.extend(combined_data)
+    
+    # Sort all exponents from lowest to highest
+    all_exponents.sort()
+    print(f"Final Sorted Exponents: {all_exponents}")
+    
+    return all_exponents
+
+def main():
+    """
+    Main workflow for generating HMG-like random exponents using binary patterns.
+    """
+    glacier_data, tide_data = load_data()
+    tide_data = normalize_tide_heights(tide_data, column_name='TideHeight')
+    
+    # Simulate HMG behavior for 2-3 runs
+    runs = random.randint(2, 3)
+    print(f"Number of Runs: {runs}")
+    sorted_exponents = hmg_simulation(glacier_data, tide_data, glacier_column='GlacierSize', runs=runs)
+    
+    # Save the sorted exponents to a file
+    pd.DataFrame(sorted_exponents, columns=['SortedExponents']).to_csv('final_sorted_exponents.csv', index=False)
+    print("Sorted exponents saved to 'final_sorted_exponents.csv'.")
 
 if __name__ == "__main__":
     main()
