@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt  # For visualization
 
+
 class Flower:
     def __init__(self, size, frequency):
         self.size = np.float64(size)
@@ -8,64 +9,95 @@ class Flower:
         self.energy = np.float64(0)
         self.resonance_level = np.float64(0)
 
-    def update_resonance(self):
-        self.resonance_level += self.frequency * (1 - self.resonance_level)
+    def update_resonance(self, external_force=0):
+        """
+        Updates the resonance level of the flower based on its frequency and an external force.
+        """
+        self.resonance_level += self.frequency * (1 - self.resonance_level) + external_force
         if self.resonance_level > 0.9:
             self.resonance_level = np.random.uniform(0.009, 0.691)
         return self.resonance_level
 
     def pulse(self):
+        """
+        Simulates a pulse event for the flower.
+        """
         print(f"Flower Pulsed! Resonance Level: {self.resonance_level:.10f}")
 
 
 class Chamber:
-    def __init__(self, dimensions):
+    def __init__(self, dimensions, flower_count=1):
         self.dimensions = {k: np.float64(v) for k, v in dimensions.items()}
-        self.flower = Flower(size=1.0, frequency=10.0)
+        self.flowers = [Flower(size=1.0, frequency=np.random.uniform(8.0, 12.0)) for _ in range(flower_count)]
         self.stability = np.float64(1.0)
 
-    def update(self):
-        resonance = self.flower.update_resonance()
-        self.stability -= resonance * np.float64(0.1)
+    def update(self, external_force=0):
+        """
+        Updates the chamber's state by adjusting stability based on the flowers' resonance levels
+        and an external force.
+        """
+        total_resonance = 0
+        for flower in self.flowers:
+            total_resonance += flower.update_resonance(external_force)
+
+        # Average resonance level of all flowers
+        avg_resonance = total_resonance / len(self.flowers)
+        self.stability -= avg_resonance * np.float64(0.1)
+
         if self.stability < 0.1:
             print("Chamber is Unstable!")
-        return resonance, self.stability
+
+        return avg_resonance, self.stability
 
 
 class Simulation:
-    def __init__(self):
-        self.chamber = Chamber(dimensions={"length": 10, "width": 10, "height": 10})
+    def __init__(self, flower_count=3, external_force_amplitude=0.05):
+        self.chamber = Chamber(dimensions={"length": 10, "width": 10, "height": 10}, flower_count=flower_count)
         self.steps = 0
         self.resonance_history = []
         self.stability_history = []
+        self.external_force_amplitude = external_force_amplitude
 
     def run(self, max_steps=20):
+        """
+        Runs the simulation for a specified number of steps.
+        """
         print("Starting the Simulation...\n")
         while self.steps < max_steps:
             self.steps += 1
-            resonance, stability = self.chamber.update()
+
+            # Simulate an external force as a sinusoidal function
+            external_force = self.external_force_amplitude * np.sin(2 * np.pi * self.steps / max_steps)
+
+            # Update the chamber
+            avg_resonance, stability = self.chamber.update(external_force)
 
             # Log data
-            self.resonance_history.append(resonance)
+            self.resonance_history.append(avg_resonance)
             self.stability_history.append(stability)
 
             # Print step details
             print(f"--- Step {self.steps} ---")
-            print(f"Resonance Level: {resonance:.15f}, Chamber Stability: {stability:.15f}")
+            print(f"External Force: {external_force:.15f}")
+            print(f"Average Resonance Level: {avg_resonance:.15f}, Chamber Stability: {stability:.15f}")
 
             if stability < 0.1:
                 print("The Chamber has reached critical instability!")
                 break
 
             if self.steps % 5 == 0:
-                self.chamber.flower.pulse()
+                for flower in self.chamber.flowers:
+                    flower.pulse()
 
         print("\nSimulation Complete.")
         self.plot_results()
 
     def plot_results(self):
+        """
+        Plots the resonance and stability history over time.
+        """
         plt.figure(figsize=(10, 5))
-        plt.plot(self.resonance_history, label="Resonance Level")
+        plt.plot(self.resonance_history, label="Average Resonance Level")
         plt.plot(self.stability_history, label="Chamber Stability")
         plt.xlabel("Steps")
         plt.ylabel("Values")
@@ -76,5 +108,6 @@ class Simulation:
 
 
 if __name__ == "__main__":
-    simulation = Simulation()
+    # Example: Simulate with 3 flowers and an external force amplitude of 0.05
+    simulation = Simulation(flower_count=3, external_force_amplitude=0.05)
     simulation.run(max_steps=20)
