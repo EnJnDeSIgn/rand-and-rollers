@@ -38,7 +38,9 @@ locations = ["at a remote filming location", "in a bustling city market", "on a 
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
-    "two souls within the same body", "in a library"]
+    "two souls within the same body", "in a library"
+]
+
 characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
     "A howling wolf", "A creative florist", "A talkative service representative", "A strict piano teacher", "A sweaty welder",
     "A fair referee", "An anxious pharmacist", "A loving veterinarian", "An artistic camera operator", "An animator of films",
@@ -59,7 +61,9 @@ characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
-    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee"]
+    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee"
+]
+
 plot_points = ["discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
     "learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
     "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
@@ -84,7 +88,14 @@ plot_points = ["discover a hidden treasure", "encounter unexpected challenges", 
     "symptoms affects only one species", "there voice compels everyone else to obey", "turned out to be a terrible idea",
     "travels easily between land of living and land of dead", "entrusting the quest to", "anyone who touches the",
     "will die of thirst, no matter how much they drink", "although the hero dosen't know it", "in run by a cadre of supernatural beings",
-    "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms"]
+    "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms", "in is trouble for being disloyal",
+    "item erases wearer's bad memories as they are made", "good reason to bring evil guy back to life", "falls in love... with him",
+    "thunderstorms bring him power", "loses gradually over long stretches of clear weather", "bloodshed is needed to inspire the uprising",
+    "statue appeared in the middle of town", "how it got there", "profound bonds between steed and rider", "they command the butterflies",
+    "makes invincible for a time, will also be death of owner", "they are the spirits of the waterfalls", "once belonged to someone else",
+    "cut down a tree and freed a sprite imprisoned there"
+]
+
 complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
     "depressed, but determined", "pompous, but kind", "lazy, but organized", "conceited, but charming", "busy, but unproductive",
@@ -96,7 +107,8 @@ complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhea
     "frugal, but generous", "social, but always making faux pas", "stoic, but tenderhearted", "giggly, but wise",
     "evil, but sentimental", "grouchy, but encouraging", "chatty, but secretive", "soft-spoken, but vulgar", "idealistic, but petty",
     "frumpy, but dangerous", "disgusted, but amused", "exhausted, but excited", "innocent, but manipulative",
-    "suspicious, but impressed", "uncanny, but irritating"]
+    "suspicious, but impressed", "uncanny, but irritating"
+]
 
 template = """
 Answer the question below
@@ -214,16 +226,17 @@ def handle_ask_code():
     if not working_code_buffer.strip():
         print("The code buffer is empty. Add some code before asking the AI for assistance.")
         return
-    
+
     print("Enter your question or context about the code, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
         print("Sending code buffer and query to AI for assistance...")
         try:
+            # AI generates suggestions, error detection, and corrections based on the query
             response = chain.invoke({
                 "context": working_code_buffer,
                 "extra_context": f"Question: {query}",
-                "question": "Provide detailed code assistance or suggestions based on the query."
+                "question": "Provide detailed code assistance, including suggestions, error correction, and refactoring tips."
             })
             print("\nEnJnDeSIgn Coder Response:\n", response)
         except Exception as e:
@@ -241,10 +254,11 @@ def handle_ask_story():
         print("Sending story query to AI for assistance...")
         try:
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
+            # AI generates story suggestions based on the query
             response = chain.invoke({
                 "context": story_elements,
                 "extra_context": f"Question: {query}",
-                "question": "Provide detailed story assistance or suggestions based on the query."
+                "question": "Provide detailed story assistance, including plot development and thematic suggestions."
             })
             print("\nEnJnDeSIgn StoryTeller Response:\n", response)
         except Exception as e:
