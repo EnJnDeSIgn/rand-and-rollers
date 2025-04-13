@@ -22,7 +22,7 @@ class Flower:
         """
         Simulates a pulse event for the flower.
         """
-        print(f"Flower Pulsed! Resonance Level: {self.resonance_level:.10f}")
+        print(f"Flower Pulsed! Resonance Level: {self.resonance_level:.60f}")
 
 
 class Chamber:
@@ -63,7 +63,7 @@ class Simulation:
         self.stability_history = []
         self.external_force_amplitude = external_force_amplitude
 
-        print(f"Initialized Simulation with {flower_count} flowers and external force amplitude: {external_force_amplitude:.5f}")
+        print(f"Initialized Simulation with {flower_count} flowers and external force amplitude: {external_force_amplitude:.64f}")
 
     def run(self, max_steps=20):
         """
@@ -85,7 +85,7 @@ class Simulation:
 
             # Print step details
             print(f"--- Step {self.steps} ---")
-            print(f"External Force: {external_force:.15f}")
+            print(f"External Force: {external_force:.90f}")
             print(f"Average Resonance Level: {avg_resonance:.15f}, Chamber Stability: {stability:.15f}")
 
             if stability < 0.1:
