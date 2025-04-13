@@ -51,12 +51,19 @@ class Chamber:
 
 
 class Simulation:
-    def __init__(self, flower_count=3, external_force_amplitude=0.05):
+    def __init__(self):
+        # Randomly select flower count (3 or 4)
+        flower_count = np.random.choice([3, 4])
+        # Randomly select external force amplitude within range 0.005 to 0.05
+        external_force_amplitude = np.random.uniform(0.005, 0.05)
+
         self.chamber = Chamber(dimensions={"length": 10, "width": 10, "height": 10}, flower_count=flower_count)
         self.steps = 0
         self.resonance_history = []
         self.stability_history = []
         self.external_force_amplitude = external_force_amplitude
+
+        print(f"Initialized Simulation with {flower_count} flowers and external force amplitude: {external_force_amplitude:.5f}")
 
     def run(self, max_steps=20):
         """
@@ -108,6 +115,5 @@ class Simulation:
 
 
 if __name__ == "__main__":
-    # Example: Simulate with 3 flowers and an external force amplitude of 0.05
-    simulation = Simulation(flower_count=3, external_force_amplitude=0.05)
+    simulation = Simulation()
     simulation.run(max_steps=20)
