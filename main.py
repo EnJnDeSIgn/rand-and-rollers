@@ -38,7 +38,7 @@ locations = ["at a remote filming location", "in a bustling city market", "on a 
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
-    "two souls within the same body", "in a library"
+    "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world"
 ]
 
 characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
@@ -53,7 +53,7 @@ characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious
     "A moonlighting house painter", "A band camp counselor", "A sharp FBI agent", "A lonly private tutor", "A old professor",
     "A salty marine biologist", "A real estate agent", "A chubby plumber", "The U.S. ambassador", "A small-town mayor", "A kind librarian",
     "A brilliant meteorologist", "An adventurous travel writer", "A flamboyant interior designer", "A dark surgeon", "A judgemental judge",
-    "A mixed martial arts fighter", "A surly secret service agent", "A nice nanny", "An organized organic farmer",
+    "A mixed martial arts fighter", "A surly secret service agent", "A nice nanny", "An organized organic farmer", "sweetie pie"
     "A forensic investigator", "A sarcastic lawyer", "An olfactorius perfume designer", "An overnight retail stocker",
     "A country club dishwasher", "A stand-up comedian", "A theme park princess", "A heroic stunt performer", "A coast guard lifeguard",
     "An E.O.D technician", "A flight attendant", "A park ranger", "A food truck owner", "An innocent fortune teller",
@@ -61,7 +61,7 @@ characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
-    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee"
+    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god"
 ]
 
 plot_points = ["discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
@@ -86,14 +86,31 @@ plot_points = ["discover a hidden treasure", "encounter unexpected challenges", 
     "there library was like an arsenal sometimes", "it absorbs all light within about a mile radius", "tries to get a second chance",
     "poisons anyone who has", "have been locked out of", "being able to weaken other's spells", "who has been rendered mute",
     "symptoms affects only one species", "there voice compels everyone else to obey", "turned out to be a terrible idea",
-    "travels easily between land of living and land of dead", "entrusting the quest to", "anyone who touches the",
+    "travels easily between land of living and land of dead", "entrusting the quest to", "anyone who touches the", "first suspects they",
     "will die of thirst, no matter how much they drink", "although the hero dosen't know it", "in run by a cadre of supernatural beings",
     "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms", "in is trouble for being disloyal",
     "item erases wearer's bad memories as they are made", "good reason to bring evil guy back to life", "falls in love... with him",
     "thunderstorms bring him power", "loses gradually over long stretches of clear weather", "bloodshed is needed to inspire the uprising",
     "statue appeared in the middle of town", "how it got there", "profound bonds between steed and rider", "they command the butterflies",
     "makes invincible for a time, will also be death of owner", "they are the spirits of the waterfalls", "once belonged to someone else",
-    "cut down a tree and freed a sprite imprisoned there"
+    "cut down a tree and freed a sprite imprisoned there", "hear another's thoughts for the rest of their lives",
+    "who kills her will inherit her power", "Giant peacocks stand guard at the gate", "walls talk, if you touch in right places",
+    "wants to poison sacred well", "severed hand wields fearsome power", "the chosen one is just a good liar", "can mask any smell",
+    "pretended to be dead to escape", "must sacrifice one of there warriors without telling them why", "forgot to take off ring",
+    "cross desert by taking form of sandstorms", "decides unworthy to inherit the throne", "no one ventures here without a mask",
+    "fool triumphs in battle over enemies", "appease a monster", "rid city of it's undesirable residents", "makes a shocking confession",
+    "waters of river make anyone drunk", "police actually know all about there secret, supernatural activities",
+    "recruits new servants among souls yet to be born", "remembers past lives...and future ones too", "gargoyles no longer stone",
+    "good witch under the impression it was a good spell", "breaks oath, was stupid oath anyway", "angel reluctant to deliver message",
+    "ancient symbol tattooed on body has unforeseen consequences", "hero's captors surprisingly polite", "myth based on a true story",
+    "who entered this cave have never emerged again", "companions that love practical jokes", "servant accidentally murders master",
+    "stranger offers to take place at executioner's block", "party in the catacombs!", "in middle of duel, embarrassing thing happens",
+    "called for all witches to be punished, not realizing his wife is one", "has survived to present day", "armor has special opening",
+    "doesn't know why they can read the runes", "curse was lifted, but wants it back", "from different warring speciesa, they're in lover",
+    "she's the princess, nobody believes her", "corporation have a necromancer on payroll", "path changes course as you walk it",
+    "indoctrinated in cult from childhood, now has doubts", "magical sword was melted down to make various objects",
+    "astounding things for sale at the goblin market", "musician can kill, heal or resurrect with there song",
+    "committing surprising acts in their sleep", "cure current plague...if it can be found"
 ]
 
 complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
@@ -173,14 +190,14 @@ def handle_code_mode():
                 print("Enter your question about the code, or press Enter to cancel:")
                 query = input("Your Question: ").strip()
                 if query:
-                    print("Sending code buffer and query to AI for assistance...")
+                    print("Sending code Buffer and Query to EnJn's AI for Sweetie Assistance...")
                     try:
                         response = chain.invoke({
                             "context": working_code_buffer,
                             "extra_context": f"Question: {query}",
-                            "question": "Provide detailed assistance based on the query and code."
+                            "question": "Provide detailed assistance based on the query and code buffer."
                         })
-                        print("\nAI Response:\n", response)
+                        print("\nEnJnDeSIgn AI Response:\n", response)
                     except Exception as e:
                         print("Error during AI assistance:", e)
                 else:
@@ -230,7 +247,7 @@ def handle_ask_code():
     print("Enter your question or context about the code, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending code buffer and query to AI for assistance...")
+        print("Sending code buffer and query to EnJn AI for Coder assistance...")
         try:
             # AI generates suggestions, error detection, and corrections based on the query
             response = chain.invoke({
@@ -240,7 +257,7 @@ def handle_ask_code():
             })
             print("\nEnJnDeSIgn Coder Response:\n", response)
         except Exception as e:
-            print("Error during AI assistance:", e)
+            print("Error during AI Coder assistance:", e)
     else:
         print("Query cancelled.")
 
@@ -251,7 +268,7 @@ def handle_ask_story():
     print("Enter your question or context for story assistance, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending story query to AI for assistance...")
+        print("Sending story query to EnJn AI for StoryTeller assistance...")
         try:
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
             # AI generates story suggestions based on the query
@@ -262,7 +279,7 @@ def handle_ask_story():
             })
             print("\nEnJnDeSIgn StoryTeller Response:\n", response)
         except Exception as e:
-            print("Error during AI assistance:", e)
+            print("Error during AI StoryTeller assistance:", e)
     else:
         print("Query cancelled.")
 
@@ -302,4 +319,4 @@ def handle_conversation():
                 print("Error during conversation:", e)
 
 if __name__ == "__main__":
-    handle_conversation()
+    handle_conversation()   # AI Response
