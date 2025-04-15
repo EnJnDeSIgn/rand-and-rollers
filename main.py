@@ -44,11 +44,11 @@ locations = ["at a remote filming location", "in a bustling city market", "on a 
 characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
     "A howling wolf", "A creative florist", "A talkative service representative", "A strict piano teacher", "A sweaty welder",
     "A fair referee", "An anxious pharmacist", "A loving veterinarian", "An artistic camera operator", "An animator of films",
-    "An architect out of work", "A over worked bank teller", "A stoic mail carrier", "A funky nightclub DJ",
+    "An architect out of work", "A over worked bank teller", "A stoic mail carrier", "A funky nightclub DJ", "an oppressive ruler or regime",
     "A scuba diving instructor", "A rich antique appraiser", "An evil ethical hacker", "A hotel concierge", "A hotel housekeeper",
     "A grim doula", "An entertainment journalist", "A rude food critic", "A refined sommelier", "A bissy event planner",
     "A clean cut helicopter pilot", "A thin truck driver", "A famous radio personality", "A caring nurse", "An injured firefighter",
-    "A political campaingn manager", "A hip microbrewery owner", "A social bartender", "An ignorant psychiatrist",
+    "A political campaingn manager", "A hip microbrewery owner", "A social bartender", "An ignorant psychiatrist", "a peasant girl",
     "A helpful physical therapist", "An usher by night", "A social media manager", "A landscape designer", "A demon",
     "A moonlighting house painter", "A band camp counselor", "A sharp FBI agent", "A lonly private tutor", "A old professor",
     "A salty marine biologist", "A real estate agent", "A chubby plumber", "The U.S. ambassador", "A small-town mayor", "A kind librarian",
@@ -63,7 +63,7 @@ characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god"
 ]
-
+# Note Turings' that plot_points are ideas' and not literal, so they can be used more broadly or similarly to what they say. An Idea of what could happen...
 plot_points = ["discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
     "learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
     "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
@@ -99,7 +99,7 @@ plot_points = ["discover a hidden treasure", "encounter unexpected challenges", 
     "pretended to be dead to escape", "must sacrifice one of there warriors without telling them why", "forgot to take off ring",
     "cross desert by taking form of sandstorms", "decides unworthy to inherit the throne", "no one ventures here without a mask",
     "fool triumphs in battle over enemies", "appease a monster", "rid city of it's undesirable residents", "makes a shocking confession",
-    "waters of river make anyone drunk", "police actually know all about there secret, supernatural activities",
+    "waters of river make anyone drunk", "police actually know all about there secret, supernatural activities", "who may be good or evil",
     "recruits new servants among souls yet to be born", "remembers past lives...and future ones too", "gargoyles no longer stone",
     "good witch under the impression it was a good spell", "breaks oath, was stupid oath anyway", "angel reluctant to deliver message",
     "ancient symbol tattooed on body has unforeseen consequences", "hero's captors surprisingly polite", "myth based on a true story",
@@ -110,7 +110,10 @@ plot_points = ["discover a hidden treasure", "encounter unexpected challenges", 
     "she's the princess, nobody believes her", "corporation have a necromancer on payroll", "path changes course as you walk it",
     "indoctrinated in cult from childhood, now has doubts", "magical sword was melted down to make various objects",
     "astounding things for sale at the goblin market", "musician can kill, heal or resurrect with there song",
-    "committing surprising acts in their sleep", "cure current plague...if it can be found"
+    "committing surprising acts in their sleep", "cure current plague...if it can be found", "who live in bottom of ocean, come to surface",
+    "attempt to rescue someone puts mission in jeopardy", "divine figure in a vision tells to lead army to victory",
+    "bring back to life by taking his/her place in underworld", "fake works of art become more valuable than the real works",
+    "defects in hope to bring war to quicker resolution", "becomes true if enough people believe it"
 ]
 
 complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
@@ -130,8 +133,8 @@ complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhea
 template = """
 Answer the question below
 
-Here is the conversation history: {context}
-{extra_context}
+Here is the conversation history or Buffer: {context}
+query or new_history: {extra_context}
 Question: {question}
 
 Answer:
@@ -247,7 +250,7 @@ def handle_ask_code():
     print("Enter your question or context about the code, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending code buffer and query to EnJn AI for Coder assistance...")
+        print("Sending code buffer and query to EnJn's AI for Coder assistance...")
         try:
             # AI generates suggestions, error detection, and corrections based on the query
             response = chain.invoke({
@@ -268,7 +271,7 @@ def handle_ask_story():
     print("Enter your question or context for story assistance, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending story query to EnJn AI for StoryTeller assistance...")
+        print("Sending story query to EnJn's AI for StoryTeller assistance...")
         try:
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
             # AI generates story suggestions based on the query
