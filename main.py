@@ -113,7 +113,9 @@ plot_points = ["discover a hidden treasure", "encounter unexpected challenges", 
     "committing surprising acts in their sleep", "cure current plague...if it can be found", "who live in bottom of ocean, come to surface",
     "attempt to rescue someone puts mission in jeopardy", "divine figure in a vision tells to lead army to victory",
     "bring back to life by taking his/her place in underworld", "fake works of art become more valuable than the real works",
-    "defects in hope to bring war to quicker resolution", "becomes true if enough people believe it"
+    "defects in hope to bring war to quicker resolution", "becomes true if enough people believe it", "turned into object by magic",
+    "to open door, they must use key whittled out of there own bones", "doesn't know why they have stopped aging",
+    "digs up an ancient treasure, but original owner shows up to take it back", "allies tricked into attacking one another"
 ]
 
 complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
@@ -139,7 +141,7 @@ Question: {question}
 
 Answer:
 """
-model = OllamaLLM(model="gemma3")
+model = OllamaLLM(model="gemma3:27b")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
@@ -172,7 +174,7 @@ def handle_code_mode():
     while True:
         user_input = input("\nCode> ").strip()
         
-        if user_input.lower() == "/exit":
+        if user_input.lower() in ["/exit", "/quit"]:
             print("Exiting code mode...")
             break
         elif user_input.lower().startswith("/save"):
@@ -190,7 +192,7 @@ def handle_code_mode():
             if not working_code_buffer.strip():
                 print("The code buffer is empty. Add some code before asking the AI for assistance.")
             else:
-                print("Enter your question about the code, or press Enter to cancel:")
+                print("Enter your question about the code buffer, or press Enter to cancel:")
                 query = input("Your Question: ").strip()
                 if query:
                     print("Sending code Buffer and Query to EnJn's AI for Sweetie Assistance...")
@@ -250,7 +252,7 @@ def handle_ask_code():
     print("Enter your question or context about the code, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending code buffer and query to EnJn's AI for Coder assistance...")
+        print("Sending code buffer and query to EnJn's AI for Coder Sweetie assistance...")
         try:
             # AI generates suggestions, error detection, and corrections based on the query
             response = chain.invoke({
@@ -271,7 +273,7 @@ def handle_ask_story():
     print("Enter your question or context for story assistance, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending story query to EnJn's AI for StoryTeller assistance...")
+        print("Sending story query to EnJn's AI for StoryTeller Sweetie assistance...")
         try:
             story_elements = select_folktale_functions() + "\n" + select_additional_elements()
             # AI generates story suggestions based on the query
