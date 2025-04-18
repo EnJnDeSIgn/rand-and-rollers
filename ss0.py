@@ -53,7 +53,7 @@ def main():
 
     # Display the result
     if delay is not None:
-        print(f"\nThe Shapiro time delay is: {delay:.6e} seconds")
+        print(f"\nThe Shapiro time delay is: {delay:.90e} seconds")
     else:
         print("\nCould not calculate the Shapiro time delay due to invalid inputs.")
 
