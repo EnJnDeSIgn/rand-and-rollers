@@ -64,7 +64,7 @@ characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god"
 ]
 # Note Turings' that plot_points are ideas' and not literal, so they can be used more broadly or similarly to what they say. An Idea of what could happen...
-plot_points = ["discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
+plot_points = [
     "learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
     "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
     "escape from a boring meeting", "pay there last repects at a funeral", "see the birth of there child", "can smell fear",
@@ -109,13 +109,17 @@ plot_points = ["discover a hidden treasure", "encounter unexpected challenges", 
     "doesn't know why they can read the runes", "curse was lifted, but wants it back", "from different warring speciesa, they're in lover",
     "she's the princess, nobody believes her", "corporation have a necromancer on payroll", "path changes course as you walk it",
     "indoctrinated in cult from childhood, now has doubts", "magical sword was melted down to make various objects",
-    "astounding things for sale at the goblin market", "musician can kill, heal or resurrect with there song",
+    "astounding things for sale at the goblin market", "musician can kill, heal or resurrect with there song", "uncover ancient secrets",
     "committing surprising acts in their sleep", "cure current plague...if it can be found", "who live in bottom of ocean, come to surface",
     "attempt to rescue someone puts mission in jeopardy", "divine figure in a vision tells to lead army to victory",
     "bring back to life by taking his/her place in underworld", "fake works of art become more valuable than the real works",
     "defects in hope to bring war to quicker resolution", "becomes true if enough people believe it", "turned into object by magic",
     "to open door, they must use key whittled out of there own bones", "doesn't know why they have stopped aging",
-    "digs up an ancient treasure, but original owner shows up to take it back", "allies tricked into attacking one another"
+    "digs up an ancient treasure, but original owner shows up to take it back", "allies tricked into attacking one another",
+    "discover stone spheres with strange markings", "takes souvenirs from their fallen enemies, which proves to be their downfall",
+    "an escape or revolt against forced marriage", "powers don't work when their drunk", "discover a hidden treasure", 
+    "flowers from this garden are the most precious commodities in the realm...for a very good reason", "form an unlikely alliance",
+    "vending machine dispenses very peculiar items instead", "encounter unexpected challenges"
 ]
 
 complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
@@ -214,6 +218,7 @@ def handle_code_mode():
 def select_folktale_functions():
     num_functions = random.randint(5, 13)
     selected_funcs = sorted(random.sample(folktale_functions, num_functions), key=lambda x: int(x.split(":")[0].split()[1]))
+    selected_funcs = sorted(selected_funcs)
     return "\n".join(selected_funcs)
 
 def select_additional_elements():
