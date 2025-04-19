@@ -31,11 +31,10 @@ def calculate_shapiro_delay(G, M, c, r1, r2, d):
         return None
 
     # Logarithm argument check
-    arg = (r1 + r2 + d) / (r1 + r2 - d)
-    if arg <= 0:
-        print("Error: Logarithm argument is not positive. Check input values (r1, r2, d).")
+    arg = (r1 + r2 + d) / (r1 + r2 - d)     # Δt = (2GM / c^3) * ln((r1 + r2 + d) / (r1 + r2 - d))
+    if arg <= 1:
+        print("Error: Logarithm argument must be greater than 1. Check input values (r1, r2, d).")
         return None
-
     # Calculation
     try:
         delay = (2 * G * M / (c**3)) * math.log(arg)
