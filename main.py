@@ -275,17 +275,26 @@ def handle_ask_story():
     """
     Handle the /askstory command to provide AI assistance for story generation.
     """
+    global working_code_buffer  # Use the same buffer for both code and story functionalities
+    if not working_code_buffer.strip():
+        print("The code buffer is empty. Adding random story elements...")
+        working_code_buffer = select_folktale_functions() + "\n" + select_additional_elements()
+
     print("Enter your question or context for story assistance, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
         print("Sending story query to EnJn's AI for StoryTeller Sweetie assistance...")
         try:
-            story_elements = select_folktale_functions() + "\n" + select_additional_elements()
-            # AI generates story suggestions based on the query
+            story_prompt = f"""
+            Create a detailed and engaging story based on the following elements:
+            {working_code_buffer}
+
+            User Query: {query}
+            """
             response = chain.invoke({
-                "context": story_elements,
+                "context": working_code_buffer,
                 "extra_context": f"Question: {query}",
-                "question": "Provide detailed story assistance, including plot development and thematic suggestions."
+                "question": story_prompt
             })
             print("\nEnJnDeSIgn StoryTeller Response:\n", response)
         except Exception as e:
