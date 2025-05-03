@@ -1714,27 +1714,65 @@ They stood in silence, the weight of the moment settling over them. And then, fo
 Together, they walked out of the cavern, leaving the obelisk—and the past—behind.
 
 
-### **Draft of the Epilogue**
-```markdown name=epilogue.md
 ## Epilogue: Echoes of the Future
 
-The rain in Neo-Veridia was different now. It still fell in calculated, precise intervals, but it felt… gentler. Less like a machine's rhythm and more like the world's quiet heartbeat. Kai stood on the balcony of his apartment, the city stretching out before him in a glittering expanse of light and shadow.
+The rain fell softly over Neo-Veridia, its rhythm slower, less precise than the calculated intervals Kai had grown used to. For the first time in years, the city felt alive—organic, unpredictable, and imperfect in a way that spoke of change. Kai stood on the balcony of his apartment, gazing out at the sprawling skyline. The neon lights reflected faintly in the raindrops, painting a kaleidoscope of colors across the glass panels of the high-rises.
 
-The obelisk was gone, its power extinguished—or perhaps merely dormant. The Serpent's Coil had been dismantled, its members scattered. But the questions it had raised lingered, unanswered and unsettling.
+The obelisk was gone. Its power had been absorbed, dispersed, or hidden away within him—Kai wasn't sure which. The cavern had collapsed after they left, burying its secrets and the remnants of the Serpent’s Coil beneath tons of rock and rubble. Yet, echoes of its presence lingered, faint but undeniable, like a whisper in the back of his mind.
 
-Kai glanced down at the ring on his finger, its surface smooth and unmarked. It felt heavier now, not in weight, but in significance. It was a reminder of what he had lost—and what he had gained.
+Kai raised his hand, inspecting the simple black ring that adorned his finger. Its surface was smooth now, devoid of the faint glow it once emitted. Yet he could feel it—its pulse, its presence. It wasn’t just a piece of technology anymore. It was a part of him, woven into his being in ways he couldn’t fully comprehend.
 
-Amelia's voice pulled him from his thoughts. "You can't stay out here forever, you know."
+Behind him, the door creaked open. Amelia stepped out onto the balcony, holding two steaming cups of tea. Her auburn hair was damp from the misty air, and a faint smile played on her lips as she handed a cup to Kai.
 
-He turned to see her standing in the doorway, a faint smile on her lips. She held a cup of tea in one hand, the other resting on the doorframe. "The world doesn't stop just because we're tired."
+“You know,” she said, leaning against the railing beside him, “standing out here in the rain won’t make the answers come any faster.”
 
-Kai chuckled softly. "No, it doesn't. But maybe that's a good thing."
+Kai chuckled softly, the sound almost foreign to his ears. “Maybe not,” he replied, “but it helps to clear my head.”
 
-They stood in silence for a moment, the rain pattering softly against the glass. "Do you think we did the right thing?" Amelia asked, her voice barely above a whisper.
+Amelia sipped her tea, her gaze fixed on the city below. “Do you think it’s really over?” she asked after a moment, her voice quiet, almost hesitant.
 
-Kai didn't answer immediately. He looked out at the city, at the lives unfolding below, and thought about all they had been through. "I think," he said finally, "that we did the best we could. And sometimes, that's all anyone can do."
+Kai didn’t answer immediately. He took a deep breath, letting the cool, rain-soaked air fill his lungs. “No,” he said finally. “It’s not over. Not entirely. The obelisk may be gone, but its echoes are still out there. And the Serpent’s Coil… they were just one part of something much larger.”
 
-The rain continued to fall, washing away the remnants of the past and carrying with it the promise of a new beginning.
+Amelia nodded, her expression thoughtful. “What do you think they were after? Power? Control?”
+
+“Maybe both,” Kai said. “Or maybe something we can’t even begin to understand. The obelisk wasn’t just a source of energy or knowledge. It was… a choice. A crossroads between what we are and what we could become.”
+
+“And what did you choose?” Amelia’s question hung in the air, heavy with meaning.
+
+Kai turned to her, his gaze steady. “I chose to leave the door open,” he said. “For better or worse, humanity deserves to make its own choices. Even if that means making mistakes.”
+
+Amelia studied him for a moment, then smiled. “You sound like someone who’s finally figured out who they are.”
+
+Kai returned her smile, though it was tinged with a hint of sadness. “I’m working on it,” he admitted. “The obelisk showed me things—memories, possibilities, fragments of a life I don’t fully remember. But it also showed me something else.”
+
+“What’s that?” Amelia asked.
+
+“That the future isn’t set in stone,” Kai said. “It’s fluid, shaped by the choices we make every day. And for the first time in a long time, I feel like I have a say in what comes next.”
+
+They stood in silence for a while, the rain a gentle backdrop to their thoughts. The chaos of the past few weeks had left scars, visible and invisible, but it had also brought clarity. Kai had spent so much of his life running—from his past, from his failures, from himself. Now, for the first time, he felt ready to face whatever came next.
+
+“Do you think we’ll ever understand what the obelisk really was?” Amelia asked, breaking the silence.
+
+Kai shook his head. “Maybe. Maybe not. Some mysteries aren’t meant to be solved. Sometimes, it’s enough to know that they exist.”
+
+Amelia looked at him, her eyes bright with curiosity and determination. “What now?” she asked. “What do we do next?”
+
+Kai smiled, a genuine, unguarded smile. “We rebuild,” he said simply. “The Coil is gone, but the damage they caused isn’t. People are scared, confused. They need hope. They need to believe that the future can be better.”
+
+“And you think we can give that to them?” Amelia asked.
+
+“I think we can try,” Kai said. “And maybe that’s enough.”
+
+Amelia nodded, her smile matching his. “Then let’s get to work.”
+
+Kai drained the last of his tea and set the cup on the railing. The rain had begun to lighten, the clouds breaking apart to reveal slivers of sky. Somewhere in the distance, the first rays of dawn were beginning to creep over the horizon, painting the city in hues of gold and pink.
+
+As they turned to go inside, Kai paused, glancing back at the skyline one last time. The city was waking up, its heartbeat steady and strong. And for the first time in years, Kai felt like he was waking up too.
+
+“Ready?” Amelia asked, holding the door open.
+
+Kai nodded, his expression resolute. “Ready.”
+
+And together, they stepped into the future.
 
  ## "Echoes of Balance" - Full Song Lyrics
 
