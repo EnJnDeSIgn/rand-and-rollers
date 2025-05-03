@@ -41,7 +41,7 @@ locations = [
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
     "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world", "on an island",
-    "in trhe middle of a lava lake", "pitiful excuse for a castle"
+    "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building"
 ]
 
 characters = [
@@ -53,7 +53,7 @@ characters = [
     "A grim doula", "An entertainment journalist", "A rude food critic", "A refined sommelier", "A bissy event planner",
     "A clean cut helicopter pilot", "A thin truck driver", "A famous radio personality", "A caring nurse", "An injured firefighter",
     "A political campaingn manager", "A hip microbrewery owner", "A social bartender", "An ignorant psychiatrist", "a peasant girl",
-    "A helpful physical therapist", "An usher by night", "A social media manager", "A landscape designer", "A demon",
+    "A helpful physical therapist", "An usher by night", "A social media manager", "A landscape designer", "A demon", "sentient bees",
     "A moonlighting house painter", "A band camp counselor", "A sharp FBI agent", "A lonly private tutor", "A old professor",
     "A salty marine biologist", "A real estate agent", "A chubby plumber", "The U.S. ambassador", "A small-town mayor", "A kind librarian",
     "A brilliant meteorologist", "An adventurous travel writer", "A flamboyant interior designer", "A dark surgeon", "A judgemental judge",
@@ -65,7 +65,8 @@ characters = [
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
-    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god"
+    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god",
+    "A keeper of bee hive's", "a particular tree in the forest"
 ]
 # Note Turings' that plot_points are ideas' and not literal, so they can be used more broadly or similarly to what they say. An Idea of what could happen...
 plot_points = [
@@ -124,7 +125,10 @@ plot_points = [
     "an escape or revolt against forced marriage", "powers don't work when their drunk", "discover a hidden treasure", 
     "flowers from this garden are the most precious commodities in the realm...for a very good reason", "form an unlikely alliance",
     "vending machine dispenses very peculiar items instead", "encounter unexpected challenges", "noble sacrifice, now resents it as ghost",
-    "has advantages and disadvantages", "battle is a religious observance", "magical object has turned out to be junk"
+    "has advantages and disadvantages", "battle is a religious observance", "magical object has turned out to be junk",
+    "unmanned ship sails itself into harbor", "so many birds or butterflies migrate across this land that for days, it darkens the skies",
+    "cursed to permanent darkness, daytime, fog, wind or lightning", "sibling rivalry is intense when it's between twin demigods",
+    "people are bidding a lot more than money", "different purpose than what they were all told", "person's spirit is connected to a"
 ]
 
 complex_chas = [
