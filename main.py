@@ -237,10 +237,17 @@ def handle_code_mode():
 
 # Other functions remain unchanged...
 def select_folktale_functions():
+    """
+    Select a random number of folktale functions from the list and return them
+    sorted by their function number in ascending order.
+    """
     num_functions = random.randint(5, 13)
-    selected_funcs = sorted(random.sample(folktale_functions, num_functions), key=lambda x: int(x.split(":")[0].split()[1]))
-    selected_funcs = sorted(selected_funcs)
-    return "\n".join(selected_funcs)
+    # Sample a random subset of functions
+    sampled_funcs = random.sample(folktale_functions, min(num_functions, len(folktale_functions)))
+    # Sort the sampled functions by extracting the number after 'Function' in each string
+    sorted_funcs = sorted(sampled_funcs, key=lambda x: int(x.split(":")[0].split()[1]))
+    # Join and return the sorted functions as a single string
+    return "\n".join(sorted_funcs)
 
 def select_additional_elements():
     selected_location = random.choice(locations)
