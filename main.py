@@ -1,6 +1,7 @@
 import os
 import random
 import subprocess
+import tempfile  # Added import for temporary file handling
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
@@ -19,7 +20,8 @@ folktale_functions = [
     "Function 11: Return with the Elixir"
 ]
 
-locations = ["at a remote filming location", "in a bustling city market", "on a serene mountain peak", "in ancient Egypt by the Nile",
+locations = [
+    "at a remote filming location", "in a bustling city market", "on a serene mountain peak", "in ancient Egypt by the Nile",
     "in a mystical forest", "in the middle of the night", "at the shopping mall", "on an old bridge", "in a penthouse suite",
     "in an enclosed elevator", "at a sidewalk cafe", "at a skateboard park", "at a neighborhood basketball court",
     "on the farmhouse porch", "in the slag heaps", "in a graffiti covered tunnel", "near a wishing well", "on a rooftop party",
@@ -38,10 +40,12 @@ locations = ["at a remote filming location", "in a bustling city market", "on a 
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
-    "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world"
+    "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world", "on an island",
+    "in trhe middle of a lava lake", "pitiful excuse for a castle"
 ]
 
-characters = ["An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
+characters = [
+    "An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
     "A howling wolf", "A creative florist", "A talkative service representative", "A strict piano teacher", "A sweaty welder",
     "A fair referee", "An anxious pharmacist", "A loving veterinarian", "An artistic camera operator", "An animator of films",
     "An architect out of work", "A over worked bank teller", "A stoic mail carrier", "A funky nightclub DJ", "an oppressive ruler or regime",
@@ -119,23 +123,29 @@ plot_points = [
     "discover stone spheres with strange markings", "takes souvenirs from their fallen enemies, which proves to be their downfall",
     "an escape or revolt against forced marriage", "powers don't work when their drunk", "discover a hidden treasure", 
     "flowers from this garden are the most precious commodities in the realm...for a very good reason", "form an unlikely alliance",
-    "vending machine dispenses very peculiar items instead", "encounter unexpected challenges"
+    "vending machine dispenses very peculiar items instead", "encounter unexpected challenges", "noble sacrifice, now resents it as ghost",
+    "has advantages and disadvantages", "battle is a religious observance", "magical object has turned out to be junk"
 ]
 
-complex_chas = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
+complex_chas = [
+    "brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
     "depressed, but determined", "pompous, but kind", "lazy, but organized", "conceited, but charming", "busy, but unproductive",
     "calm, but depairing", "rude, but funny", "neat, but a pack rat", "timid, but vindictive", "altruistic, but impersonal",
-    "over-dramatic, but persuasive", "haggard, but attractive", "quirky, but predictable", "angry, but civil",
-    "creative, but money-minded", "obsessed, but dignified", "sarcastic, but loving", "homely, but stylish",
+    "over-dramatic, but persuasive", "haggard, but attractive", "quirky, but predictable", "angry, but civil", " honest, but tactless",
+    "creative, but money-minded", "obsessed, but dignified", "sarcastic, but loving", "homely, but stylish", "confident, but insecure",
     "fun-loving, but goal-driven", "heroic, but bored", "immature, but a natural leader", "old, but youthful", "young, but crotchety",
-    "finicky, but brutish", "well-bred, but brutish", "narcissistic, but honest about it", "triumphant, but uneasy",
-    "frugal, but generous", "social, but always making faux pas", "stoic, but tenderhearted", "giggly, but wise",
+    "finicky, but brutish", "well-bred, but brutish", "narcissistic, but honest about it", "triumphant, but uneasy", "fearless, but naive",
+    "frugal, but generous", "social, but always making faux pas", "stoic, but tenderhearted", "giggly, but wise", "logical, but indecisive",
     "evil, but sentimental", "grouchy, but encouraging", "chatty, but secretive", "soft-spoken, but vulgar", "idealistic, but petty",
-    "frumpy, but dangerous", "disgusted, but amused", "exhausted, but excited", "innocent, but manipulative",
-    "suspicious, but impressed", "uncanny, but irritating"
+    "frumpy, but dangerous", "disgusted, but amused", "exhausted, but excited", "innocent, but manipulative", "manipulative, but kind",
+    "suspicious, but impressed", "uncanny, but irritating", "clever, but reckless", "gentle, but intimidating", "charming, but unreliable",
+    "humble, but attention-seeking", "passionate, but obsessive", "sarcastic, but easily hurt", "mysterious, but predictable",
+    "reserved, but deeply emotional", "optimistic, but delusional", "cunning, but sentimental", "brave, but self-destructive",
+    "patient, but passive-aggressive", "eloquent, but insincere", "resourceful, but wasteful", "diligent, but unimaginative"
 ]
 
+# Define model and prompt
 template = """
 Answer the question below
 
@@ -145,55 +155,65 @@ Question: {question}
 
 Answer:
 """
-model = OllamaLLM(model="gemma3:27b")
+model = OllamaLLM(model="gemma3:27b", server_url="http://127.0.0.1:58305")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
-# Working code buffer for `/code` functionality
-working_code_buffer = ""
+# File-backed buffer for `/code` functionality
+buffer_file = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # Temporary file
 
-def run_command(command):
-    try:
-        result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
-        return result.stdout.strip()
-    except subprocess.CalledProcessError as e:
-        print(f"Error executing '{command}':", e)
-        return ""
+def add_to_file_buffer(file, new_content):
+    """
+    Adds new content to the file-backed buffer.
+    """
+    file.write(new_content + "\n")
+    file.flush()  # Ensure content is written to disk
 
-def save_code_to_file(code, filename):
-    try:
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(code)
-        print(f"Code saved to: {filename}")
-    except Exception as e:
-        print(f"Error saving code: {e}")
+def read_file_buffer(file):
+    """
+    Reads the content of the file-backed buffer.
+    """
+    file.seek(0)  # Go to the beginning of the file
+    return file.read()
+
+def clear_file_buffer(file):
+    """
+    Clears the content of the file-backed buffer.
+    """
+    file.seek(0)
+    file.truncate()  # Delete all content in the file
 
 def handle_code_mode():
     """
     Interactive mode for writing and handling code, including AI assistance with user queries.
     """
-    global working_code_buffer
     print("Entering code mode. Type '/exit' to leave, '/save <filename>' to save, '/view' to view, '/clear' to clear, '/ask' to ask the AI, or type code directly.")
 
     while True:
         user_input = input("\nCode> ").strip()
-        
+
         if user_input.lower() in ["/exit", "/quit"]:
             print("Exiting code mode...")
             break
         elif user_input.lower().startswith("/save"):
             parts = user_input.split(" ", 1)
             if len(parts) > 1:
-                save_code_to_file(working_code_buffer, parts[1].strip())
+                try:
+                    with open(parts[1].strip(), "w", encoding="utf-8") as f:
+                        f.write(read_file_buffer(buffer_file))  # Use file buffer content
+                    print(f"Code saved to: {parts[1].strip()}")
+                except Exception as e:
+                    print(f"Error saving code: {e}")
             else:
                 print("Error: Provide a filename. Usage: /save <filename>")
         elif user_input.lower() == "/view":
-            print("\nCurrent Code Buffer:\n" + (working_code_buffer if working_code_buffer else "(Empty)"))
+            print("\nCurrent Code Buffer:\n" + (read_file_buffer(buffer_file) if read_file_buffer(buffer_file) else "(Empty)"))
         elif user_input.lower() == "/clear":
-            working_code_buffer = ""
+            clear_file_buffer(buffer_file)
             print("Code buffer cleared.")
         elif user_input.lower() == "/ask":
-            if not working_code_buffer.strip():
+            code_buffer = read_file_buffer(buffer_file)
+            if not code_buffer.strip():
                 print("The code buffer is empty. Add some code before asking the AI for assistance.")
             else:
                 print("Enter your question about the code buffer, or press Enter to cancel:")
@@ -202,7 +222,7 @@ def handle_code_mode():
                     print("Sending code Buffer and Query to EnJn's AI for Sweetie Assistance...")
                     try:
                         response = chain.invoke({
-                            "context": working_code_buffer,
+                            "context": code_buffer,
                             "extra_context": f"Question: {query}",
                             "question": "Provide detailed assistance based on the query and code buffer."
                         })
@@ -212,9 +232,10 @@ def handle_code_mode():
                 else:
                     print("Query cancelled.")
         else:
-            working_code_buffer += user_input + "\n"
+            add_to_file_buffer(buffer_file, user_input)
             print("Code added to buffer.")
 
+# Other functions remain unchanged...
 def select_folktale_functions():
     num_functions = random.randint(5, 13)
     selected_funcs = sorted(random.sample(folktale_functions, num_functions), key=lambda x: int(x.split(":")[0].split()[1]))
@@ -275,26 +296,17 @@ def handle_ask_story():
     """
     Handle the /askstory command to provide AI assistance for story generation.
     """
-    global working_code_buffer  # Use the same buffer for both code and story functionalities
-    if not working_code_buffer.strip():
-        print("The code buffer is empty. Adding random story elements...")
-        working_code_buffer = select_folktale_functions() + "\n" + select_additional_elements()
-
     print("Enter your question or context for story assistance, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
         print("Sending story query to EnJn's AI for StoryTeller Sweetie assistance...")
         try:
-            story_prompt = f"""
-            Create a detailed and engaging story based on the following elements:
-            {working_code_buffer}
-
-            User Query: {query}
-            """
+            story_elements = select_folktale_functions() + "\n" + select_additional_elements()
+            # AI generates story suggestions based on the query
             response = chain.invoke({
-                "context": working_code_buffer,
+                "context": story_elements,
                 "extra_context": f"Question: {query}",
-                "question": story_prompt
+                "question": "Provide detailed story assistance, including plot development and thematic suggestions."
             })
             print("\nEnJnDeSIgn StoryTeller Response:\n", response)
         except Exception as e:
