@@ -36,12 +36,12 @@ locations = [
     "on a sea glass covered beach", "looking down from a balcony", "on top of a water slide", "on the great wall of china",
     "looking down from a treehouse", "at a rock concert", "up in a barn hayloft", "in a opera house balcony seat",
     "wait at a auto repair shop", "near a liquor store", "in the principal's office", "in a space colony's agricultural dome",
-    "in a japanese tea garden", "at the brazil slum", "with-in a federal quarantine", "on a highway underpass",
+    "in a japanese tea garden", "at the brazil slum", "with-in a federal quarantine", "on a highway underpass", "the catacombs",
     "at an abandoned amusement park", "near a hundred stone pillars", "in a topiary garden", "near bison on a prairie",
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
     "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world", "on an island",
-    "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building"
+    "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building", "A garden of obelisks"
 ]
 
 characters = [
@@ -66,7 +66,7 @@ characters = [
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god",
-    "A keeper of bee hive's", "a particular tree in the forest"
+    "A keeper of bee hive's", "A particular tree in the forest", "A changeling", "this muse inspires", "An artist", "A musican"
 ]
 # Note Turings' that plot_points are ideas' and not literal, so they can be used more broadly or similarly to what they say. An Idea of what could happen...
 plot_points = [
@@ -128,7 +128,16 @@ plot_points = [
     "has advantages and disadvantages", "battle is a religious observance", "magical object has turned out to be junk",
     "unmanned ship sails itself into harbor", "so many birds or butterflies migrate across this land that for days, it darkens the skies",
     "cursed to permanent darkness, daytime, fog, wind or lightning", "sibling rivalry is intense when it's between twin demigods",
-    "people are bidding a lot more than money", "different purpose than what they were all told", "person's spirit is connected to a"
+    "people are bidding a lot more than money", "different purpose than what they were all told", "person's spirit is connected to a",
+    "been hiding in the catacombs for years", "find the fossil or skeleton of a mythical creature", "returned to their own kind",
+    "possesses a body, then unable to get out of it", "the river has a soul of its own", "ran away, living under assumed name",
+    "bring this new king to the throne", "totally incompetent", "inspires to great work", "when she leaves them, they become",
+    "assigned to be bodyguard to someone on whom the fate of the world depends", "can never find out that's what they are really doing",
+    "no one knows who made it", "what the stone pillars signify", "good things and bad things about having an invisible pet",
+    "leaves of this tree make great parachutes", "evil ruler is forcing to forge ancient prophecy that foretells his glorious reign",
+    "finds a century-old catalog, attempts to place an order, and succeeds", "hero killed halfway through, and sidekick takes over",
+    "suitable caretakers and providers before they are allowed to procreate", "must prove to the government",
+    "it's such a hassle that many people opt for government-arranged marriages instead", "prompts rapid mutations in the human species"
 ]
 
 complex_chas = [
