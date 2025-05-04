@@ -34,7 +34,7 @@ def encounter_friendly_npc(player):
 
 def encounter_enemy(player):
     print("You encounter an enemy! Prepare for battle!")
-    enemy_health = random.randint(20, 50)
+    enemy_health = random.randint(20, 75)
 
     while player.health > 0 and enemy_health > 0:
         attack = input("Do you want to attack? (y/n) ").lower()
@@ -42,7 +42,7 @@ def encounter_enemy(player):
             enemy_health -= player.weapon_damage
             print(f"You hit the enemy! Enemy health is now {enemy_health}.")
             if enemy_health > 0:
-                damage = random.randint(5, 15)
+                damage = random.randint(15, 35)
                 player.take_damage(damage)
                 print(f"The enemy hits back! Your health is now {player.health}.")
         elif attack == "n":
@@ -65,7 +65,7 @@ def encounter_treasure(player):
 
 def encounter_trap(player):
     print("You encounter a trap! You lose some health.")
-    damage = random.randint(10, 33)
+    damage = random.randint(33, 50)
     player.take_damage(damage)
 
 def random_encounter(player):
