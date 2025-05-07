@@ -1,5 +1,6 @@
 import os
 import random
+import json
 import subprocess
 import tempfile  # Added import for temporary file handling
 from langchain_ollama import OllamaLLM
@@ -137,7 +138,9 @@ plot_points = [
     "leaves of this tree make great parachutes", "evil ruler is forcing to forge ancient prophecy that foretells his glorious reign",
     "finds a century-old catalog, attempts to place an order, and succeeds", "hero killed halfway through, and sidekick takes over",
     "suitable caretakers and providers before they are allowed to procreate", "must prove to the government",
-    "it's such a hassle that many people opt for government-arranged marriages instead", "prompts rapid mutations in the human species"
+    "it's such a hassle that many people opt for government-arranged marriages instead", "prompts rapid mutations in the human species",
+    "must be approved by a department of the government", "broker a deal that many see as unfair",
+    "discovered a way to communicate directly with", "is now lab-created"
 ]
 
 complex_chas = [
@@ -174,6 +177,25 @@ chain = prompt | model
 
 # File-backed buffer for `/code` functionality
 buffer_file = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # Temporary file
+
+def add_to_memory(data, memory_file="memory.json"):
+    """
+    Save structured memory data to a JSON file.
+    """
+    try:
+        if os.path.exists(memory_file):
+            with open(memory_file, "r", encoding="utf-8") as f:
+                memory = json.load(f)
+        else:
+            memory = []
+
+        memory.append(data)
+        with open(memory_file, "w", encoding="utf-8") as f:
+            json.dump(memory, f, indent=4)
+        
+        print("Memory updated successfully.")
+    except Exception as e:
+        print(f"Error updating memory: {e}")
 
 def add_to_file_buffer(file, new_content):
     """
