@@ -1,3 +1,35 @@
+"""
+! new, a step0. its for making just a theme for a story
+word formula0:
+Choose 'T to Create a compelling theme for a story that involves several key steps. Here’s a simplified guide to help you craft a theme and contradiction theme that resonates:
+Identify the Main Topics: Start by determining the central two subjects or ideas of your story. This could be love, justice, freedom, etc.
+Determine the Messages: Decide what you want to say about the main topics. What is your perspectives or messages that you want to convey through the story?
+Develop a Theme Statement: Formulate a clear and concise theme statement and contradiction theme that encapsulates your messages. This will serve as a guiding principle or principles for your narrative.
+Weave the Themes into the Story: Use characters, settings, conflicts, and resolutions to reflect and reinforce the themes and if or why. The theme and contradiction theme should be present throughout the story, influencing the actions and growth of the characters, if and or why, contradiction theme for balance.     
+Reinforce Through Repetition: Subtly remind the reader of the themes and there connections through recurring motifs, symbols, or dialogues.
+Show, Don’t Tell: Instead of explicitly stating the themes, demonstrate them through the experiences and transformations of your characters and even other elements of the story if used creatively.
+Revise and Refine: After completing your first draft, review your story to ensure the themes are consistently and effectively integrated with some creativity. Make adjustments as needed to clarify and strengthen the thematic messages.
+Remember, the themes are more than just a moral or a lesson; it’s the underlying current that ties your story together and gives it some depth and some creativity. Happy writing! 📝✨
+if you can please
+
+! new, a step1. its turing the themes into a outline
+word formula1:
+Choose 'T To turn the thematic framework into an outline for our story, we will follow these steps:
+Introduction: Introduce the protagonist and their world. Establish the central conflicts related to the central two subjects or ideas of your story. Present the antagonist’s contrasting viewpoint or viewpoints.
+Rising Action: Develop the protagonist ’S journey towards one of the central two subjects or ideas of your story. Show the antagonist’s efforts to maintain order. Introduce secondary characters who embody various aspects of the central two subjects or ideas of your story.
+Climax: Create a pivotal moment where the protagonist ’S desire for one of the central two subjects or ideas of your story clashes with the antagonist ’S vision. Highlight the themes and contradiction themes through this central conflict.
+Falling Action: Explore the consequences of the climax. Show how the characters deal with the aftermath of their choices. Reinforce the themes through the character S’ realizations and changes.
+Resolution: Conclude the protagonist ’S arc in a way that reflects the both themes statement. Resolve the antagonist ’S storyline by addressing the contradiction theme. Tie up loose ends with secondary characters and subplots.
+Theme Integration: Ensure each scene and chapter reflects the central two subjects or ideas of your story. Use motifs and symbols consistently to remind the reader of the themes.
+Review and Refine: After drafting the outline, review it to ensure thematic consistency. Make adjustments to strengthen the presence of the theme and contradiction theme. This outline serves as a blueprint for your story, ensuring that the themes of the central two subjects or ideas of your story are interwoven throughout the narrative structure
+if you can please
+
+! new, a step2. for turning outline into a story
+word formula2:
+“Let’s embark on a creative journey to craft a story using Vladimir Propp’s narrative functions. We’ll infuse randomness into our tale by employing a Random Number Generator RNG ((or a High-Resolution Random Number Generator HRNG)AI only) to select from Propp’s 31 functions. To determine the length of our story, we’ll first use RNG to decide whether to include 5, 8, or 13 functions. Then, we’ll randomly select the corresponding number of functions from Propp’s list, ensuring they form a coherent sequence that enhances our narrative. If a function doesn’t fit or we need to replace it, we’ll draw another at random. Additionally, we’ll introduce unexpected elements by generating random concepts or items to include or exclude from our story, using a Dadaist approach to ensure creativity while avoiding any mature content. This method will ensure a fresh and unique storyline, woven with the threads of chance and imagination.”
+if you can please
+then, can now turn this into a short story? Thank you!
+"""
 import os
 import random
 import json
