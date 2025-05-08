@@ -139,8 +139,9 @@ plot_points = [
     "finds a century-old catalog, attempts to place an order, and succeeds", "hero killed halfway through, and sidekick takes over",
     "suitable caretakers and providers before they are allowed to procreate", "must prove to the government",
     "it's such a hassle that many people opt for government-arranged marriages instead", "prompts rapid mutations in the human species",
-    "must be approved by a department of the government", "broker a deal that many see as unfair",
-    "discovered a way to communicate directly with", "is now lab-created"
+    "must be approved by a department of the government", "broker a deal that many see as unfair", "added to public water supply",
+    "discovered a way to communicate directly with", "is now lab-created", "history is changeing, like WWI and II didn't happen now",
+    "undergo modifications including extra limbs, cartoon-like features, and so on", "believing s/he will fit in better there"
 ]
 
 complex_chas = [
@@ -158,7 +159,14 @@ complex_chas = [
     "suspicious, but impressed", "uncanny, but irritating", "clever, but reckless", "gentle, but intimidating", "charming, but unreliable",
     "humble, but attention-seeking", "passionate, but obsessive", "sarcastic, but easily hurt", "mysterious, but predictable",
     "reserved, but deeply emotional", "optimistic, but delusional", "cunning, but sentimental", "brave, but self-destructive",
-    "patient, but passive-aggressive", "eloquent, but insincere", "resourceful, but wasteful", "diligent, but unimaginative"
+    "patient, but passive-aggressive", "eloquent, but insincere", "resourceful, but wasteful", "diligent, but unimaginative",
+    "witty, but cynical", "elegant, but clumsy", "powerful, but insecure", "strict, but fair", "gregarious, but lonely",
+    "conventional, but rebellious", "optimistic, but anxious", "introverted, but charismatic", "restless, but complacent",
+    "vigilant, but trusting", "refined, but uncouth", "spontaneous, but cautious", "sensitive, but callous", "generous, but envious",
+    "realistic, but dreamy", "formal, but playful", "stubborn, but yielding", "determined, but easily distracted", "critical, but supportive",
+    "competitive, but collaborative", "vulnerable, but guarded", "principled, but pragmatic", "romantic, but detached",
+    "observant, but oblivious", "scholarly, but unlearned", "pessimistic, but hopeful", "authoritative, but indecisive",
+    "pensive, but frivolous", "courageous, but fearful", "graceful, but awkward", "traditional, but innovative", "independent, but needy"
 ]
 
 # Define model and prompt
@@ -178,7 +186,7 @@ chain = prompt | model
 # File-backed buffer for `/code` functionality
 buffer_file = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # Temporary file
 
-def add_to_memory(data, memory_file="memory.json"):
+def add_to_memory(data, memory_file="memory.json"):     #!# This is not really nessasary, just trying to improve
     """
     Save structured memory data to a JSON file.
     """
