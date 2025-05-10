@@ -24,6 +24,7 @@ import json
 import tempfile
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
+import hashlib
 
 # Define constants and reusable variables
 MEMORY_FILE = "memory.json"
@@ -256,6 +257,63 @@ def generate_story_elements():
     Plot Point: {elements['plot_point']}
     Complex Characteristic: {elements['complex_characteristic']}
     """
+
+
+def tokenize_content(content):
+    """
+    Tokenize the given content into a list of words or symbols.
+    """
+    return content.split()  # Simple tokenization by splitting on whitespace
+
+def is_duplicate(memory, content):
+    """
+    Check if the content already exists in memory.
+    """
+    content_hash = hashlib.sha256(content.encode()).hexdigest()
+    for entry in memory:
+        if entry.get("hash") == content_hash:
+            return True
+    return False
+
+def handle_train_command():
+    """
+    Enhanced /train command to save tokens and improve model learning.
+    """
+    # Read the buffer content
+    buffer_content = handle_file_buffer("read").strip()
+
+    if not buffer_content:
+        print("The buffer is empty. Add content before using /train.")
+        return
+
+    try:
+        # Load existing memory
+        memory = load_memory()
+
+        # Check for duplication
+        if is_duplicate(memory, buffer_content):
+            print("The buffer content is already saved in memory. No new data added.")
+            return
+
+        # Tokenize the content
+        tokens = tokenize_content(buffer_content)
+
+        # Create a new entry
+        new_entry = {
+            "timestamp": time.ctime(),
+            "type": "code" if buffer_content.startswith("def") else "text",  # Guess type based on content
+            "content": buffer_content,
+            "tokens": tokens,
+            "hash": hashlib.sha256(buffer_content.encode()).hexdigest(),
+            "token_count": len(tokens)
+        }
+
+        # Add to memory
+        add_to_memory(new_entry)
+        print(f"Buffer content saved to memory successfully. Token count: {len(tokens)}")
+
+    except Exception as e:
+        print(f"Error during /train operation: {e}")
 
 def handle_code_mode():
     """Interactive mode for writing and handling code."""
