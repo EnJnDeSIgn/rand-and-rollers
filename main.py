@@ -512,11 +512,12 @@ def handle_ask_code():
         print("The code buffer is empty. Add some code before asking the AI for assistance.")
         return
 
+    long_prompt = "Provide detailed assistance based on the query and code buffer."
     query = input("Your Question: ").strip()
     if query:
         print("Sending code buffer and query to the AI...")
         try:
-            response = CHAIN.invoke({"context": code_buffer, "extra_context": f"Question: {query}", "question": "Provide assistance of code_buffer."})
+            response = CHAIN.invoke({"context": code_buffer, "extra_context": f"Question: {query}", "question": {long_prompt}})
             print("\nAI Response:\n", response)
         except Exception as e:
             print("Error during AI assistance:", e)
@@ -530,7 +531,7 @@ def handle_ask_story():
         story_elements = generate_story_elements()
         try:
             response = CHAIN.invoke({"context": story_elements, "extra_context": query, "question": generate_propp_story()})
-            print("\nGenerated Story:\n", response)
+            print("\nEnJN Design StoryTeller:\n", response)
         except Exception as e:
             print("Error generating story:", e)
     else:
