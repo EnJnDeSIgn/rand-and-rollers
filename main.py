@@ -304,7 +304,7 @@ def handle_ask_code():
     if query:
         print("Sending code buffer and query to the AI...")
         try:
-            response = CHAIN.invoke({"context": code_buffer, "extra_context": f"Question: {query}", "question": "Provide code assistance."})
+            response = CHAIN.invoke({"context": code_buffer, "extra_context": f"Question: {query}", "question": "Provide assistance of code_buffer."})
             print("\nAI Response:\n", response)
         except Exception as e:
             print("Error during AI assistance:", e)
