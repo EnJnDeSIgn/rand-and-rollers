@@ -265,14 +265,16 @@ def tokenize_content(content):
     """
     return content.split()  # Simple tokenization by splitting on whitespace
 
+import hashlib
+
 def is_duplicate(memory, content):
     """
-    Check if the content already exists in memory.
+    Check if the content already exists in memory by comparing hashes.
     """
     content_hash = hashlib.sha256(content.encode()).hexdigest()
     for entry in memory:
         if entry.get("hash") == content_hash:
-            return True
+            return True  # Content already exists
     return False
 
 def handle_train_command():
@@ -342,6 +344,7 @@ def handle_code_mode():
             handle_ask_code()
         elif user_input == "/train":
             code_buffer = handle_file_buffer("read")
+            handle_train_command()
             if code_buffer.strip():
                 add_to_memory({"timestamp": time.ctime(), "content": code_buffer, "type": "code"})
                 print("Buffer content saved to memory.")
