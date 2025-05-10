@@ -201,6 +201,137 @@ COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhea
     "pensive, but frivolous", "courageous, but fearful", "graceful, but awkward", "traditional, but innovative", "independent, but needy"
 ]
 
+PROPP_FUNCTIONS = {
+    "1. Absentation": {
+        "description": "A family member leaves the home or is absent.",
+        "example_token": "The hero's parents leave the house for the day."
+    },
+    "2. Interdiction": {
+        "description": "The hero is warned against doing something.",
+        "example_token": "The hero is told not to touch the magical artifact."
+    },
+    "3. Violation": {
+        "description": "The interdiction is violated.",
+        "example_token": "The hero touches the artifact despite the warning."
+    },
+    "4. Reconnaissance": {
+        "description": "The villain seeks information about the hero.",
+        "example_token": "The villain sends a spy to learn about the hero's weaknesses."
+    },
+    "5. Delivery": {
+        "description": "The villain receives information about the hero.",
+        "example_token": "The spy informs the villain about the hero's secret weapon."
+    },
+    "6. Trickery": {
+        "description": "The villain attempts to deceive the hero.",
+        "example_token": "The villain disguises themselves as a friend to trick the hero."
+    },
+    "7. Complicity": {
+        "description": "The hero is deceived and unwittingly helps the villain.",
+        "example_token": "The hero reveals their secret to the disguised villain."
+    },
+    "8. Villainy": {
+        "description": "The villain causes harm or injury to someone.",
+        "example_token": "The villain destroys the hero's village."
+    },
+    "9. Lack": {
+        "description": "A need or desire is identified (e.g., the hero lacks something).",
+        "example_token": "The hero realizes they need the magical sword to defeat the villain."
+    },
+    "10. Mediation": {
+        "description": "The hero is made aware of the lack or villainy.",
+        "example_token": "A wise elder informs the hero about the missing sword."
+    },
+    "11. Counteraction": {
+        "description": "The hero decides to act against the villain or fulfill the lack.",
+        "example_token": "The hero vows to retrieve the magical sword."
+    },
+    "12. Departure": {
+        "description": "The hero leaves home to begin their quest.",
+        "example_token": "The hero sets out on a journey to find the magical sword."
+    },
+    "13. First Function of the Donor": {
+        "description": "The hero is tested, attacked, or interrogated by a magical helper.",
+        "example_token": "The hero encounters a troll who tests their courage."
+    },
+    "14. Hero’s Reaction": {
+        "description": "The hero responds to the test or interrogation.",
+        "example_token": "The hero answers the troll's riddle and gains their trust."
+    },
+    "15. Receipt of a Magical Agent": {
+        "description": "The hero acquires a magical item or power.",
+        "example_token": "The troll gives the hero a map to the hidden sword."
+    },
+    "16. Guidance": {
+        "description": "The hero is led to the location of their quest.",
+        "example_token": "The troll guides the hero to the enchanted forest."
+    },
+    "17. Struggle": {
+        "description": "The hero and villain engage in direct combat.",
+        "example_token": "The hero battles the villain's minions in the forest."
+    },
+    "18. Branding": {
+        "description": "The hero is marked or injured during the struggle.",
+        "example_token": "The hero is scarred by the villain's blade."
+    },
+    "19. Victory": {
+        "description": "The villain is defeated.",
+        "example_token": "The hero slays the villain's minions."
+    },
+    "20. Liquidation": {
+        "description": "The original lack or villainy is resolved.",
+        "example_token": "The hero retrieves the magical sword."
+    },
+    "21. Return": {
+        "description": "The hero begins their journey back home.",
+        "example_token": "The hero starts their trek back to the village."
+    },
+    "22. Pursuit": {
+        "description": "The hero is pursued by the villain or their allies.",
+        "example_token": "The villain's minions chase the hero through the forest."
+    },
+    "23. Rescue": {
+        "description": "The hero is saved from pursuit.",
+        "example_token": "A friendly dragon helps the hero escape the minions."
+    },
+    "24. Unrecognized Arrival": {
+        "description": "The hero returns home unrecognized.",
+        "example_token": "The hero returns to the village in disguise."
+    },
+    "25. False Claim": {
+        "description": "A false hero claims the hero's achievements.",
+        "example_token": "An imposter claims they retrieved the magical sword."
+    },
+    "26. Difficult Task": {
+        "description": "The hero is given a challenge to prove themselves.",
+        "example_token": "The hero must solve a puzzle to prove their identity."
+    },
+    "27. Solution": {
+        "description": "The hero successfully completes the challenge.",
+        "example_token": "The hero solves the puzzle and proves their identity."
+    },
+    "28. Recognition": {
+        "description": "The hero is recognized for their achievements.",
+        "example_token": "The villagers recognize the hero as the true savior."
+    },
+    "29. Exposure": {
+        "description": "The false hero is exposed.",
+        "example_token": "The imposter is revealed as a fraud."
+    },
+    "30. Transfiguration": {
+        "description": "The hero is given a new appearance or status.",
+        "example_token": "The hero is crowned as the new ruler of the village."
+    },
+    "31. Punishment": {
+        "description": "The villain is punished for their actions.",
+        "example_token": "The villain is banished from the kingdom."
+    },
+    "32. Wedding": {
+        "description": "The hero is rewarded, often through marriage or celebration.",
+        "example_token": "The hero marries the prince/princess and they celebrate their victory."
+    }
+}
+
 # Utility Functions
 def load_memory():
     """Load memory from the memory file."""
@@ -251,7 +382,6 @@ def generate_story_elements():
     """Generate formatted story elements."""
     elements = select_random_elements()
     return f"""
-    Folktale Function: {elements['folktale_function']}
     Location: {elements['location']}
     Character: {elements['character']}
     Plot Point: {elements['plot_point']}
@@ -317,6 +447,27 @@ def handle_train_command():
     except Exception as e:
         print(f"Error during /train operation: {e}")
 
+def generate_propp_story():
+    """Generate a story using Propp's 31 functions."""
+    story = []
+    
+    # Select a random number of functions between 5 and 13
+    num_functions = random.randint(5, 13)
+    selected_functions = random.sample(list(PROPP_FUNCTIONS.keys()), num_functions)
+    
+    # Sort the selected functions by their numeric order
+    sorted_funcs = sorted(selected_functions, key=lambda x: int(x.split(".")[0]))
+
+    # Create the story using the sorted functions
+    for func in sorted_funcs:
+        data = PROPP_FUNCTIONS[func]
+        story.append(f"{func}: {data['example_token']}")
+
+    return "\n".join(story)
+
+# Example usage
+#print(generate_propp_story())
+
 def handle_code_mode():
     """Interactive mode for writing and handling code."""
     print("Entering code mode. Available commands: '/exit', '/save <filename>', '/view', '/clear', '/ask', '/train'.")
@@ -373,12 +524,12 @@ def handle_ask_code():
         print("Query cancelled.")
 
 def handle_ask_story():
-    """Handle the /askstory command to query the AI for a story."""
+    """Handle the /story command to query the AI for a story."""
     query = input("Your Story Prompt: ").strip()
     if query:
         story_elements = generate_story_elements()
         try:
-            response = CHAIN.invoke({"context": story_elements, "extra_context": query, "question": "Generate a story based on the elements."})
+            response = CHAIN.invoke({"context": story_elements, "extra_context": query, "question": generate_propp_story()})
             print("\nGenerated Story:\n", response)
         except Exception as e:
             print("Error generating story:", e)
@@ -395,7 +546,7 @@ def handle_conversation():
             break
         elif user_input.lower() == "/code":
             handle_code_mode()
-        elif user_input.lower() == "/askstory":
+        elif user_input.lower() == "/story":
             handle_ask_story()
         else:
             try:
