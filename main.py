@@ -19,14 +19,32 @@ Step 1: Turning Themes into an Outline
 """
 import os
 import random
+import time
 import json
-import subprocess
-import tempfile  # Added import for temporary file handling
+import tempfile
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
-# Folktale elements
-folktale_functions = [
+# Define constants and reusable variables
+MEMORY_FILE = "memory.json"
+BUFFER_FILE = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # File buffer for /code functionality
+
+# Templates for AI interaction
+TEMPLATE = """
+Answer the question below
+
+Here is the conversation history or Buffer: {context}
+query or new_history: {extra_context}
+Question: {question}
+
+Answer:
+"""
+MODEL = OllamaLLM(model="gemma3:27b", server_url="http://127.0.0.1:58305")
+PROMPT = ChatPromptTemplate.from_template(TEMPLATE)
+CHAIN = PROMPT | MODEL
+
+# Story elements
+FOLKTALE_FUNCTIONS = [
     "Function 27: The Miracle", "Function 14: The Prophecy", "Function 5: Tests, Allies, Enemies",
     "Function 19: The Sacrifice", "Function 9: The Road Back", "Function 6: Approach",
     "Function 1: The Call to Adventure", "Function 25: The Magic of Nature", "Function 13: The Quest",
@@ -39,9 +57,8 @@ folktale_functions = [
     "Function 28: The Encounter", "Function 22: The Challenge", "Function 29: The Transformation",
     "Function 11: Return with the Elixir"
 ]
-
-locations = [
-    "at a remote filming location", "in a bustling city market", "on a serene mountain peak", "in ancient Egypt by the Nile",
+LOCATIONS = [
+	"at a remote filming location", "in a bustling city market", "on a serene mountain peak", "in ancient Egypt by the Nile",
     "in a mystical forest", "in the middle of the night", "at the shopping mall", "on an old bridge", "in a penthouse suite",
     "in an enclosed elevator", "at a sidewalk cafe", "at a skateboard park", "at a neighborhood basketball court",
     "on the farmhouse porch", "in the slag heaps", "in a graffiti covered tunnel", "near a wishing well", "on a rooftop party",
@@ -63,9 +80,8 @@ locations = [
     "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world", "on an island",
     "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building", "A garden of obelisks"
 ]
-
-characters = [
-    "An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
+CHARACTERS = [
+	"An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
     "A howling wolf", "A creative florist", "A talkative service representative", "A strict piano teacher", "A sweaty welder",
     "A fair referee", "An anxious pharmacist", "A loving veterinarian", "An artistic camera operator", "An animator of films",
     "An architect out of work", "A over worked bank teller", "A stoic mail carrier", "A funky nightclub DJ", "an oppressive ruler or regime",
@@ -88,9 +104,7 @@ characters = [
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god",
     "A keeper of bee hive's", "A particular tree in the forest", "A changeling", "this muse inspires", "An artist", "A musican"
 ]
-# Note Turings' that plot_points are ideas' and not literal, so they can be used more broadly or similarly to what they say. An Idea of what could happen...
-plot_points = [
-    "learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
+PLOT_POINTS = ["learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
     "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
     "escape from a boring meeting", "pay there last repects at a funeral", "see the birth of there child", "can smell fear",
     "excape the beginning of a disaster", "see the aftermath of a disaster", "poison someones wine", "play a game of hide and seak",
@@ -162,9 +176,7 @@ plot_points = [
     "discovered a way to communicate directly with", "is now lab-created", "history is changeing, like WWI and II didn't happen now",
     "undergo modifications including extra limbs, cartoon-like features, and so on", "believing s/he will fit in better there"
 ]
-
-complex_chas = [
-    "brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
+COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
     "depressed, but determined", "pompous, but kind", "lazy, but organized", "conceited, but charming", "busy, but unproductive",
     "calm, but depairing", "rude, but funny", "neat, but a pack rat", "timid, but vindictive", "altruistic, but impersonal",
@@ -188,68 +200,66 @@ complex_chas = [
     "pensive, but frivolous", "courageous, but fearful", "graceful, but awkward", "traditional, but innovative", "independent, but needy"
 ]
 
-# Define model and prompt
-template = """
-Answer the question below
+# Utility Functions
+def load_memory():
+    """Load memory from the memory file."""
+    if os.path.exists(MEMORY_FILE):
+        with open(MEMORY_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
 
-Here is the conversation history or Buffer: {context}
-query or new_history: {extra_context}
-Question: {question}
+def save_memory(memory):
+    """Save memory to the memory file."""
+    with open(MEMORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(memory, f, indent=4)
 
-Answer:
-"""
-model = OllamaLLM(model="gemma3:27b", server_url="http://127.0.0.1:58305")
-prompt = ChatPromptTemplate.from_template(template)
-chain = prompt | model
-
-# File-backed buffer for `/code` functionality
-buffer_file = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # Temporary file
-
-def add_to_memory(data, memory_file="memory.json"):     #!# This is not really nessasary, just trying to improve
-    """
-    Save structured memory data to a JSON file.
-    """
+def add_to_memory(data):
+    """Add structured data to memory."""
     try:
-        if os.path.exists(memory_file):
-            with open(memory_file, "r", encoding="utf-8") as f:
-                memory = json.load(f)
-        else:
-            memory = []
-
+        memory = load_memory()
         memory.append(data)
-        with open(memory_file, "w", encoding="utf-8") as f:
-            json.dump(memory, f, indent=4)
-        
+        save_memory(memory)
         print("Memory updated successfully.")
     except Exception as e:
         print(f"Error updating memory: {e}")
 
-def add_to_file_buffer(file, new_content):
-    """
-    Adds new content to the file-backed buffer.
-    """
-    file.write(new_content + "\n")
-    file.flush()  # Ensure content is written to disk
+def handle_file_buffer(action, content=None):
+    """Handle operations on the file buffer."""
+    if action == "read":
+        BUFFER_FILE.seek(0)
+        return BUFFER_FILE.read()
+    elif action == "write" and content:
+        BUFFER_FILE.write(content + "\n")
+        BUFFER_FILE.flush()
+    elif action == "clear":
+        BUFFER_FILE.seek(0)
+        BUFFER_FILE.truncate()
 
-def read_file_buffer(file):
-    """
-    Reads the content of the file-backed buffer.
-    """
-    file.seek(0)  # Go to the beginning of the file
-    return file.read()
+# Core Functions
+def select_random_elements():
+    """Select random elements for story generation."""
+    return {
+        "folktale_function": random.choice(FOLKTALE_FUNCTIONS),
+        "location": random.choice(LOCATIONS),
+        "character": random.choice(CHARACTERS),
+        "plot_point": random.choice(PLOT_POINTS),
+        "complex_characteristic": random.choice(COMPLEX_CHAS)
+    }
 
-def clear_file_buffer(file):
+def generate_story_elements():
+    """Generate formatted story elements."""
+    elements = select_random_elements()
+    return f"""
+    Folktale Function: {elements['folktale_function']}
+    Location: {elements['location']}
+    Character: {elements['character']}
+    Plot Point: {elements['plot_point']}
+    Complex Characteristic: {elements['complex_characteristic']}
     """
-    Clears the content of the file-backed buffer.
-    """
-    file.seek(0)
-    file.truncate()  # Delete all content in the file
 
 def handle_code_mode():
-    """
-    Interactive mode for writing and handling code, including AI assistance with user queries.
-    """
-    print("Entering code mode. Type '/exit' to leave, '/save <filename>' to save, '/view' to view, '/clear' to clear, '/ask' to ask the AI, or type code directly.")
+    """Interactive mode for writing and handling code."""
+    print("Entering code mode. Available commands: '/exit', '/save <filename>', '/view', '/clear', '/ask', '/train'.")
 
     while True:
         user_input = input("\nCode> ").strip()
@@ -257,166 +267,82 @@ def handle_code_mode():
         if user_input.lower() in ["/exit", "/quit"]:
             print("Exiting code mode...")
             break
-        elif user_input.lower().startswith("/save"):
-            parts = user_input.split(" ", 1)
-            if len(parts) > 1:
-                try:
-                    with open(parts[1].strip(), "w", encoding="utf-8") as f:
-                        f.write(read_file_buffer(buffer_file))  # Use file buffer content
-                    print(f"Code saved to: {parts[1].strip()}")
-                except Exception as e:
-                    print(f"Error saving code: {e}")
-            else:
-                print("Error: Provide a filename. Usage: /save <filename>")
-        elif user_input.lower() == "/view":
-            print("\nCurrent Code Buffer:\n" + (read_file_buffer(buffer_file) if read_file_buffer(buffer_file) else "(Empty)"))
-        elif user_input.lower() == "/clear":
-            clear_file_buffer(buffer_file)
+        elif user_input.startswith("/save"):
+            _, filename = user_input.split(" ", 1)
+            try:
+                with open(filename.strip(), "w", encoding="utf-8") as f:
+                    f.write(handle_file_buffer("read"))
+                print(f"Code saved to: {filename.strip()}")
+            except Exception as e:
+                print(f"Error saving code: {e}")
+        elif user_input == "/view":
+            print("\nCurrent Code Buffer:\n" + (handle_file_buffer("read") or "(Empty)"))
+        elif user_input == "/clear":
+            handle_file_buffer("clear")
             print("Code buffer cleared.")
-        elif user_input.lower() == "/ask":
-            code_buffer = read_file_buffer(buffer_file)
-            if not code_buffer.strip():
-                print("The code buffer is empty. Add some code before asking the AI for assistance.")
+        elif user_input == "/ask":
+            handle_ask_code()
+        elif user_input == "/train":
+            code_buffer = handle_file_buffer("read")
+            if code_buffer.strip():
+                add_to_memory({"timestamp": time.ctime(), "content": code_buffer, "type": "code"})
+                print("Buffer content saved to memory.")
             else:
-                print("Enter your question about the code buffer, or press Enter to cancel:")
-                query = input("Your Question: ").strip()
-                if query:
-                    print("Sending code Buffer and Query to EnJn's AI for Sweetie Assistance...")
-                    try:
-                        response = chain.invoke({
-                            "context": code_buffer,
-                            "extra_context": f"Question: {query}",
-                            "question": "Provide detailed assistance based on the query and code buffer."
-                        })
-                        print("\nEnJnDeSIgn AI Response:\n", response)
-                    except Exception as e:
-                        print("Error during AI assistance:", e)
-                else:
-                    print("Query cancelled.")
+                print("Code buffer is empty. Nothing to train.")
         else:
-            add_to_file_buffer(buffer_file, user_input)
+            handle_file_buffer("write", user_input)
             print("Code added to buffer.")
 
-# Other functions remain unchanged...
-def select_folktale_functions():
-    """
-    Select a random number of folktale functions from the list and return them
-    sorted by their function number in ascending order.
-    """
-    num_functions = random.randint(5, 13)
-    # Sample a random subset of functions
-    sampled_funcs = random.sample(folktale_functions, min(num_functions, len(folktale_functions)))
-    # Sort the sampled functions by extracting the number after 'Function' in each string
-    sorted_funcs = sorted(sampled_funcs, key=lambda x: int(x.split(":")[0].split()[1]))
-    # Join and return the sorted functions as a single string
-    return "\n".join(sorted_funcs)
-
-def select_additional_elements():
-    selected_location = random.choice(locations)
-    selected_character = random.choice(characters)
-    selected_plot_point = random.choice(plot_points)
-    selected_complex_cha = random.choice(complex_chas)
-    return f"Location: {selected_location}\nCharacter: {selected_character}\nPlot Point: {selected_plot_point}\nComplex Characteristic: {selected_complex_cha}"
-
-def generate_unique_filename(base_name="story", extension=".txt"):
-    counter = 0
-    while True:
-        filename = f"{base_name}{counter}{extension}"
-        if not os.path.exists(filename):
-            return filename
-        counter += 1
-
-def save_story_to_file(story_text):
-    filename = generate_unique_filename()
-    try:
-        with open(filename, "w", encoding="utf-8") as f:
-            f.write(story_text)
-        print(f"Story saved to: {filename}")
-    except Exception as e:
-        print(f"Error saving story to file: {e}")
-
 def handle_ask_code():
-    """
-    Handle the /askcode command to provide AI assistance for code in the buffer.
-    """
-    global working_code_buffer
-    if not working_code_buffer.strip():
+    """Handle the /ask command to query the AI about the code buffer."""
+    code_buffer = handle_file_buffer("read")
+    if not code_buffer.strip():
         print("The code buffer is empty. Add some code before asking the AI for assistance.")
         return
 
-    print("Enter your question or context about the code, or press Enter to cancel:")
     query = input("Your Question: ").strip()
     if query:
-        print("Sending code buffer and query to EnJn's AI for Coder Sweetie assistance...")
+        print("Sending code buffer and query to the AI...")
         try:
-            # AI generates suggestions, error detection, and corrections based on the query
-            response = chain.invoke({
-                "context": working_code_buffer,
-                "extra_context": f"Question: {query}",
-                "question": "Provide detailed code assistance, including suggestions, error correction, and refactoring tips."
-            })
-            print("\nEnJnDeSIgn Coder Response:\n", response)
+            response = CHAIN.invoke({"context": code_buffer, "extra_context": f"Question: {query}", "question": "Provide code assistance."})
+            print("\nAI Response:\n", response)
         except Exception as e:
-            print("Error during AI Coder assistance:", e)
+            print("Error during AI assistance:", e)
     else:
         print("Query cancelled.")
 
 def handle_ask_story():
-    """
-    Handle the /askstory command to provide AI assistance for story generation.
-    """
-    print("Enter your question or context for story assistance, or press Enter to cancel:")
-    query = input("Your Question: ").strip()
+    """Handle the /askstory command to query the AI for a story."""
+    query = input("Your Story Prompt: ").strip()
     if query:
-        print("Sending story query to EnJn's AI for StoryTeller Sweetie assistance...")
+        story_elements = generate_story_elements()
         try:
-            story_elements = select_folktale_functions() + "\n" + select_additional_elements()
-            # AI generates story suggestions based on the query
-            response = chain.invoke({
-                "context": story_elements,
-                "extra_context": f"Question: {query}",
-                "question": "Provide detailed story assistance, including plot development and thematic suggestions."
-            })
-            print("\nEnJnDeSIgn StoryTeller Response:\n", response)
+            response = CHAIN.invoke({"context": story_elements, "extra_context": query, "question": "Generate a story based on the elements."})
+            print("\nGenerated Story:\n", response)
         except Exception as e:
-            print("Error during AI StoryTeller assistance:", e)
+            print("Error generating story:", e)
     else:
-        print("Query cancelled.")
+        print("Story generation cancelled.")
 
 def handle_conversation():
-    """
-    Enhanced conversation loop for generating stories and managing code functionality.
-    """
-    context = ""
-    extra_context = "Story generation initiated..."
-
+    """Conversation loop for interactive storytelling and code management."""
+    print("Entering conversation mode. Type '/exit' to quit or '/code' to switch to code mode.")
     while True:
         user_input = input("\nYou: ").strip()
         if user_input.lower() in ["/exit", "/quit"]:
-            print("Exiting conversation...")
+            print("Exiting conversation mode...")
             break
         elif user_input.lower() == "/code":
             handle_code_mode()
-        elif user_input.lower() == "/askcode":
-            handle_ask_code()
         elif user_input.lower() == "/askstory":
             handle_ask_story()
-        elif "/story" in user_input.lower():
-            story_elements = select_folktale_functions() + "\n" + select_additional_elements()
-            long_prompt = f"Create a very long and detailed story based on the following elements:\n{story_elements}"
-            try:
-                result = chain.invoke({"context": context, "extra_context": extra_context, "question": long_prompt})
-                print("\nEnJnDeSIgn StoryTeller:\n", result)
-                save_story_to_file(result)
-            except Exception as e:
-                print("Error generating story:", e)
         else:
             try:
-                result = chain.invoke({"context": context, "extra_context": extra_context, "question": user_input})
-                print("\nEnJnDeSIgn StoryTeller:", result)
-                context += f"\nUser: {user_input}\nAI: {result}"
+                response = CHAIN.invoke({"context": "", "extra_context": user_input, "question": user_input})
+                print("\nAI Response:\n", response)
             except Exception as e:
                 print("Error during conversation:", e)
 
+# Main Execution
 if __name__ == "__main__":
-    handle_conversation()   # AI Response
+    handle_conversation()
