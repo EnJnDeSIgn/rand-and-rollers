@@ -495,7 +495,7 @@ def handle_code_mode():
             handle_ask_code()
         elif user_input == "/train":
             code_buffer = handle_file_buffer("read")
-            handle_train_command()
+            #handle_train_command()
             if code_buffer.strip():
                 add_to_memory({"timestamp": time.ctime(), "content": code_buffer, "type": "code"})
                 print("Buffer content saved to memory.")
