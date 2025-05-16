@@ -1220,11 +1220,15 @@ def handle_file_buffer(action, content=None):
 # Core Functions
 def select_random_elements():
     """Select random elements for story generation."""
+    plot_key = random.choice(list(PLOT_POINTS.keys()))
+    plot_point = PLOT_POINTS[plot_key]
     return {
         "folktale_function": random.choice(FOLKTALE_FUNCTIONS),
         "location": random.choice(LOCATIONS),
         "character": random.choice(CHARACTERS),
-        "plot_point": random.choice(PLOT_POINTS),
+        "plot_point_title": plot_point["title"],
+        "plot_point_description": plot_point["description"],
+        "plot_point_key": plot_key,
         "complex_characteristic": random.choice(COMPLEX_CHAS)
     }
 
@@ -1234,10 +1238,9 @@ def generate_story_elements():
     return f"""
     Location: {elements['location']}
     Character: {elements['character']}
-    Plot Point: {elements['plot_point']}
+    Plot Point: {elements['plot_point_title']} - {elements['plot_point_description']}
     Complex Characteristic: {elements['complex_characteristic']}
     """
-
 
 def tokenize_content(content):
     """
