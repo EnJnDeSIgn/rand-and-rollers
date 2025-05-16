@@ -16,6 +16,8 @@ Step 1: Turning Themes into an Outline
 5. Resolution: Conclude the protagonist's arc in a satisfying way.
 6. Theme Integration: Ensure each scene and chapter reflects the central themes.
 7. Review and Refine: Review the outline to ensure coherence and alignment with the themes.
+
+#!# Gl(A)ss . Intell(I)gence. LLM Story Teller interaction Software #!#
 """
 import os
 import random
@@ -27,7 +29,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import hashlib
 
 # Define constants and reusable variables
-MEMORY_FILE = "memory.json"
+MEMORY_FILE = "memory.json"     # File for /train fuctionality, Must be opened and deleted for next use... for re-writing code tokens
 BUFFER_FILE = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # File buffer for /code functionality
 
 # Templates for AI interaction
@@ -175,7 +177,8 @@ PLOT_POINTS = ["learn the importance of timeliness", "set out on a grand quest",
     "it's such a hassle that many people opt for government-arranged marriages instead", "prompts rapid mutations in the human species",
     "must be approved by a department of the government", "broker a deal that many see as unfair", "added to public water supply",
     "discovered a way to communicate directly with", "is now lab-created", "history is changeing, like WWI and II didn't happen now",
-    "undergo modifications including extra limbs, cartoon-like features, and so on", "believing s/he will fit in better there"
+    "undergo modifications including extra limbs, cartoon-like features, and so on", "believing s/he will fit in better there",
+    "causing an interplanetary crisis", "doesn't know how to tell, even though they will find out soon enough"
 ]
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
@@ -448,7 +451,7 @@ def handle_train_command():
         print(f"Error during /train operation: {e}")
 
 def generate_propp_story():
-    """Generate a story using Propp's 31 functions."""
+    """Generate a story using Propp's 31/32 total functions."""
     story = []
     
     # Select a random number of functions between 5 and 13
@@ -466,7 +469,7 @@ def generate_propp_story():
     return "\n".join(story)
 
 # Example usage
-#print(generate_propp_story())
+print(generate_propp_story())
 
 def handle_code_mode():
     """Interactive mode for writing and handling code."""
@@ -495,7 +498,7 @@ def handle_code_mode():
             handle_ask_code()
         elif user_input == "/train":
             code_buffer = handle_file_buffer("read")
-            #handle_train_command()
+            handle_train_command()
             if code_buffer.strip():
                 add_to_memory({"timestamp": time.ctime(), "content": code_buffer, "type": "code"})
                 print("Buffer content saved to memory.")
