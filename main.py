@@ -107,79 +107,926 @@ CHARACTERS = [
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god",
     "A keeper of bee hive's", "A particular tree in the forest", "A changeling", "this muse inspires", "An artist", "A musican"
 ]
-PLOT_POINTS = ["learn the importance of timeliness", "set out on a grand quest", "join a knitting circle", "discover a dead body",
-    "repond to a letter", "exept an invitation", "leave a frustrating situation", "exit an awkward situation", "no one remembers it now",
-    "escape from a boring meeting", "pay there last repects at a funeral", "see the birth of there child", "can smell fear",
-    "excape the beginning of a disaster", "see the aftermath of a disaster", "poison someones wine", "play a game of hide and seak",
-    "kiss there lover", "see a performance", "rescue there freind", "declare that they are in big trouble", "bet on a fight",
-    "to find a new place to live", "arrest a perp", "see a courtroom trial", "get a job", "get away from a chaser", "wait for someone",
-    "commit a crime", "teach another how to do something", "prepare to eat a meal", "attend a class", "attend a church service",
-    "accept an award", "attend a birthday party", "brothers sell them into slavery", "prophecy tells a army to attack",
-    "a nobody slays a supposedly unbeatable enemy", "father the king is jealous", "banished from a paradise", "can smell jealousy",
-    "series of terrible plagues", "squandered there inheritance", "arrival of a letter", "an escape from a prison",
-    "a game or contest", "rescues another", "clearly is in big trouble", "an all-out battle scene", "someone is arrested",
-    "gets fired from a job", "a chase scene", "a busy street scene", "in a triumphant situation", "comes across a significant object",
-    "a fae, a giant, and a gnome walk into a tavern", "survives being struck by lightning", "map burned onto there back",
-    "hard to resist the urge to sing about the desires of any nearby", "hideous monster is nice when you get to know them",
-    "considered bad luck in their country", "magical spell transforms", "man is sent to kidnap", "things don't go according to plan",
-    "arrives at the school for priests", "usually a happy occasion", "there plays predicted future", "now she's the only one",
-    "expecting that the hero would get killed", "she commands the fireflies", "school for wizards is a scam", "can smell embarrassment",
-    "prevent civil war by betraying friend or king", "who were turned into wolves", "he commands the dragonflies",
-    "there library was like an arsenal sometimes", "it absorbs all light within about a mile radius", "tries to get a second chance",
-    "poisons anyone who has", "have been locked out of", "being able to weaken other's spells", "who has been rendered mute",
-    "symptoms affects only one species", "there voice compels everyone else to obey", "turned out to be a terrible idea",
-    "travels easily between land of living and land of dead", "entrusting the quest to", "anyone who touches the", "first suspects they",
-    "will die of thirst, no matter how much they drink", "although the hero dosen't know it", "in run by a cadre of supernatural beings",
-    "all emotions have specific scents to him", "desperately wishes to avoid", "four long-lost kingdoms", "in is trouble for being disloyal",
-    "item erases wearer's bad memories as they are made", "good reason to bring evil guy back to life", "falls in love... with him",
-    "thunderstorms bring him power", "loses gradually over long stretches of clear weather", "bloodshed is needed to inspire the uprising",
-    "statue appeared in the middle of town", "how it got there", "profound bonds between steed and rider", "they command the butterflies",
-    "makes invincible for a time, will also be death of owner", "they are the spirits of the waterfalls", "once belonged to someone else",
-    "cut down a tree and freed a sprite imprisoned there", "hear another's thoughts for the rest of their lives",
-    "who kills her will inherit her power", "Giant peacocks stand guard at the gate", "walls talk, if you touch in right places",
-    "wants to poison sacred well", "severed hand wields fearsome power", "the chosen one is just a good liar", "can mask any smell",
-    "pretended to be dead to escape", "must sacrifice one of there warriors without telling them why", "forgot to take off ring",
-    "cross desert by taking form of sandstorms", "decides unworthy to inherit the throne", "no one ventures here without a mask",
-    "fool triumphs in battle over enemies", "appease a monster", "rid city of it's undesirable residents", "makes a shocking confession",
-    "waters of river make anyone drunk", "police actually know all about there secret, supernatural activities", "who may be good or evil",
-    "recruits new servants among souls yet to be born", "remembers past lives...and future ones too", "gargoyles no longer stone",
-    "good witch under the impression it was a good spell", "breaks oath, was stupid oath anyway", "angel reluctant to deliver message",
-    "ancient symbol tattooed on body has unforeseen consequences", "hero's captors surprisingly polite", "myth based on a true story",
-    "who entered this cave have never emerged again", "companions that love practical jokes", "servant accidentally murders master",
-    "stranger offers to take place at executioner's block", "party in the catacombs!", "in middle of duel, embarrassing thing happens",
-    "called for all witches to be punished, not realizing his wife is one", "has survived to present day", "armor has special opening",
-    "doesn't know why they can read the runes", "curse was lifted, but wants it back", "from different warring speciesa, they're in lover",
-    "she's the princess, nobody believes her", "corporation have a necromancer on payroll", "path changes course as you walk it",
-    "indoctrinated in cult from childhood, now has doubts", "magical sword was melted down to make various objects",
-    "astounding things for sale at the goblin market", "musician can kill, heal or resurrect with there song", "uncover ancient secrets",
-    "committing surprising acts in their sleep", "cure current plague...if it can be found", "who live in bottom of ocean, come to surface",
-    "attempt to rescue someone puts mission in jeopardy", "divine figure in a vision tells to lead army to victory",
-    "bring back to life by taking his/her place in underworld", "fake works of art become more valuable than the real works",
-    "defects in hope to bring war to quicker resolution", "becomes true if enough people believe it", "turned into object by magic",
-    "to open door, they must use key whittled out of there own bones", "doesn't know why they have stopped aging",
-    "digs up an ancient treasure, but original owner shows up to take it back", "allies tricked into attacking one another",
-    "discover stone spheres with strange markings", "takes souvenirs from their fallen enemies, which proves to be their downfall",
-    "an escape or revolt against forced marriage", "powers don't work when their drunk", "discover a hidden treasure", 
-    "flowers from this garden are the most precious commodities in the realm...for a very good reason", "form an unlikely alliance",
-    "vending machine dispenses very peculiar items instead", "encounter unexpected challenges", "noble sacrifice, now resents it as ghost",
-    "has advantages and disadvantages", "battle is a religious observance", "magical object has turned out to be junk",
-    "unmanned ship sails itself into harbor", "so many birds or butterflies migrate across this land that for days, it darkens the skies",
-    "cursed to permanent darkness, daytime, fog, wind or lightning", "sibling rivalry is intense when it's between twin demigods",
-    "people are bidding a lot more than money", "different purpose than what they were all told", "person's spirit is connected to a",
-    "been hiding in the catacombs for years", "find the fossil or skeleton of a mythical creature", "returned to their own kind",
-    "possesses a body, then unable to get out of it", "the river has a soul of its own", "ran away, living under assumed name",
-    "bring this new king to the throne", "totally incompetent", "inspires to great work", "when she leaves them, they become",
-    "assigned to be bodyguard to someone on whom the fate of the world depends", "can never find out that's what they are really doing",
-    "no one knows who made it", "what the stone pillars signify", "good things and bad things about having an invisible pet",
-    "leaves of this tree make great parachutes", "evil ruler is forcing to forge ancient prophecy that foretells his glorious reign",
-    "finds a century-old catalog, attempts to place an order, and succeeds", "hero killed halfway through, and sidekick takes over",
-    "suitable caretakers and providers before they are allowed to procreate", "must prove to the government",
-    "it's such a hassle that many people opt for government-arranged marriages instead", "prompts rapid mutations in the human species",
-    "must be approved by a department of the government", "broker a deal that many see as unfair", "added to public water supply",
-    "discovered a way to communicate directly with", "is now lab-created", "history is changeing, like WWI and II didn't happen now",
-    "undergo modifications including extra limbs, cartoon-like features, and so on", "believing s/he will fit in better there",
-    "causing an interplanetary crisis", "doesn't know how to tell, even though they will find out soon enough"
-]
+PLOT_POINTS = {
+    "learn_timeliness": {
+        "title": "Learn Timeliness",
+        "description": "The protagonist discovers the importance of acting at the right time."
+    },
+    "begin_quest": {
+        "title": "Begin Quest",
+        "description": "The protagonist sets out on a significant journey or mission."
+    },
+    "join_knitting_circle": {
+        "title": "Join a Knitting Circle",
+        "description": "The protagonist becomes part of a close-knit group, fostering new connections."
+    },
+    "discover_dead_body": {
+        "title": "Discover a Dead Body",
+        "description": "The protagonist stumbles upon a mysterious or shocking death."
+    },
+    "respond_to_letter": {
+        "title": "Respond to a Letter",
+        "description": "The protagonist receives and reacts to a crucial message."
+    },
+    "accept_invitation": {
+        "title": "Accept Invitation",
+        "description": "The protagonist agrees to attend an important meeting or event."
+    },
+    "leave_frustrating_situation": {
+        "title": "Leave Frustrating Situation",
+        "description": "The protagonist escapes from a stressful or unfulfilling scenario."
+    },
+    "exit_awkward_situation": {
+        "title": "Exit Awkward Situation",
+        "description": "The protagonist finds a way out of an embarrassing or uncomfortable moment."
+    },
+    "forgotten_event": {
+        "title": "Forgotten Event",
+        "description": "Something important is forgotten by everyone but holds hidden significance."
+    },
+    "escape_boring_meeting": {
+        "title": "Escape Boring Meeting",
+        "description": "The protagonist flees from a tedious or unproductive gathering."
+    },
+    "attend_funeral": {
+        "title": "Attend Funeral",
+        "description": "The protagonist pays respects at a significant loss or ending."
+    },
+    "witness_birth": {
+        "title": "Witness Birth",
+        "description": "The protagonist experiences the beginning of new life or hope."
+    },
+    "sense_fear": {
+        "title": "Sense Fear",
+        "description": "The protagonist detects fear in themselves or others, influencing their actions."
+    },
+    "escape_disaster_start": {
+        "title": "Escape Disaster Start",
+        "description": "The protagonist avoids the initial impact of a catastrophe."
+    },
+    "see_disaster_aftermath": {
+        "title": "See Disaster Aftermath",
+        "description": "The protagonist surveys the consequences of a major calamity."
+    },
+    "poison_wine": {
+        "title": "Poison Wine",
+        "description": "Someone introduces danger or betrayal through a poisoned drink."
+    },
+    "play_hide_and_seek": {
+        "title": "Play Hide and Seek",
+        "description": "A game of hiding and searching leads to unexpected discoveries."
+    },
+    "kiss_lover": {
+        "title": "Kiss Lover",
+        "description": "A romantic or pivotal connection is made through a kiss."
+    },
+    "see_performance": {
+        "title": "See a Performance",
+        "description": "The protagonist attends or witnesses a notable show or act."
+    },
+    "rescue_friend": {
+        "title": "Rescue a Friend",
+        "description": "The protagonist saves someone close to them from danger or trouble."
+    },
+    "declare_big_trouble": {
+        "title": "Declare Big Trouble",
+        "description": "The protagonist realizes and announces that the situation is dire."
+    },
+    "bet_on_fight": {
+        "title": "Bet on a Fight",
+        "description": "A wager is placed on the outcome of a conflict or competition."
+    },
+    "find_new_home": {
+        "title": "Find a New Home",
+        "description": "The protagonist searches for and discovers a place to belong."
+    },
+    "arrest_perpetrator": {
+        "title": "Arrest Perpetrator",
+        "description": "A wrongdoer is captured or justice begins to be served."
+    },
+    "see_courtroom_trial": {
+        "title": "See Courtroom Trial",
+        "description": "The protagonist witnesses or participates in a legal battle."
+    },
+    "get_job": {
+        "title": "Get a Job",
+        "description": "The protagonist secures new employment or responsibility."
+    },
+    "flee_chaser": {
+        "title": "Flee a Chaser",
+        "description": "A pursuit begins as the protagonist tries to escape."
+    },
+    "wait_for_someone": {
+        "title": "Wait for Someone",
+        "description": "Patience and anticipation shape the protagonist's next move."
+    },
+    "commit_crime": {
+        "title": "Commit a Crime",
+        "description": "The protagonist or another character breaks the law or moral code."
+    },
+    "teach_skill": {
+        "title": "Teach a Skill",
+        "description": "Knowledge or abilities are passed from one character to another."
+    },
+    "prepare_meal": {
+        "title": "Prepare a Meal",
+        "description": "Cooking or sharing food brings characters together or sets the scene."
+    },
+    "attend_class": {
+        "title": "Attend Class",
+        "description": "Learning or training advances the protagonist's growth."
+    },
+    "attend_church_service": {
+        "title": "Attend Church Service",
+        "description": "A moment of reflection or spiritual gathering influences the story."
+    },
+    "accept_award": {
+        "title": "Accept Award",
+        "description": "Recognition is given for achievement or valor."
+    },
+    "attend_birthday_party": {
+        "title": "Attend Birthday Party",
+        "description": "A celebration that can reveal secrets or turn the plot."
+    },
+    #!# ...continue adding any more in this style...
+    "sold_into_slavery": {
+        "title": "Sold into Slavery",
+        "description": "The protagonist is betrayed by family and sold into captivity."
+    },
+    "prophecy_spurs_attack": {
+        "title": "Prophecy Spurs Attack",
+        "description": "A prophecy inspires an army to launch an assault."
+    },
+    "underdog_defeats_enemy": {
+        "title": "Underdog Defeats Enemy",
+        "description": "A seemingly insignificant character overcomes an unbeatable foe."
+    },
+    "king_jealous_of_child": {
+        "title": "King's Jealousy",
+        "description": "A ruler’s envy of their own child or heir sets the conflict in motion."
+    },
+    "banished_from_paradise": {
+        "title": "Banished from Paradise",
+        "description": "The protagonist is cast out from an ideal place or state."
+    },
+    "sense_jealousy": {
+        "title": "Sense Jealousy",
+        "description": "The protagonist perceives jealousy in themselves or others, changing the story’s course."
+    },
+    "plagues_strike_land": {
+        "title": "Plagues Strike the Land",
+        "description": "A series of disasters or plagues brings suffering to many."
+    },
+    "squander_inheritance": {
+        "title": "Squander Inheritance",
+        "description": "A character wastes their fortune or resources, causing hardship."
+    },
+    "letter_arrives": {
+        "title": "Letter Arrives",
+        "description": "A crucial letter is received, altering the protagonist’s direction."
+    },
+    "prison_escape": {
+        "title": "Prison Escape",
+        "description": "The protagonist or another character breaks out of captivity."
+    },
+    "game_or_contest": {
+        "title": "Game or Contest",
+        "description": "A competition is held, with stakes that impact the story."
+    },
+    "rescue_another": {
+        "title": "Rescue Another",
+        "description": "The protagonist saves someone else from peril or danger."
+    },
+    "in_big_trouble": {
+        "title": "Clearly in Big Trouble",
+        "description": "The protagonist faces obvious and immediate danger."
+    },
+    "all_out_battle": {
+        "title": "All-Out Battle",
+        "description": "A large, climactic battle erupts, involving many sides."
+    },
+    "arrest_occurs": {
+        "title": "Arrest Occurs",
+        "description": "A character is apprehended by authorities or others."
+    },
+    "fired_from_job": {
+        "title": "Fired from Job",
+        "description": "The protagonist or another character loses their employment."
+    },
+    "chase_scene": {
+        "title": "Chase Scene",
+        "description": "A thrilling pursuit unfolds, with high stakes."
+    },
+    "busy_street_scene": {
+        "title": "Busy Street Scene",
+        "description": "Events unfold in a chaotic, bustling public space."
+    },
+    "triumphant_situation": {
+        "title": "Triumphant Situation",
+        "description": "The protagonist experiences a moment of victory or celebration."
+    },
+    "finds_significant_object": {
+        "title": "Finds Significant Object",
+        "description": "A meaningful or mysterious object is discovered, shifting the plot."
+    },
+    "tavern_meeting": {
+        "title": "Tavern Meeting",
+        "description": "Unlikely characters meet in a tavern, sparking a new adventure."
+    },
+    "survives_lightning": {
+        "title": "Survives Lightning Strike",
+        "description": "A character miraculously survives being struck by lightning."
+    },
+    "map_burned_on_back": {
+        "title": "Map Burned on Back",
+        "description": "A vital map or clue is permanently marked on a character’s body."
+    },
+    "irresistible_song_urge": {
+        "title": "Irresistible Urge to Sing",
+        "description": "Characters are compelled to sing about their desires, revealing secrets."
+    },
+    "nice_monster": {
+        "title": "Nice Monster",
+        "description": "A seemingly frightening creature turns out to be kind upon closer acquaintance."
+    },
+    "bad_luck_culture": {
+        "title": "Considered Bad Luck",
+        "description": "Something or someone is viewed as bad luck in the culture, complicating matters."
+    },
+    #!# ...continue adding any more in this style...
+    "magical_spell_transforms": {
+        "title": "Magical Spell Transforms",
+        "description": "A magical spell causes an unexpected transformation in a character or object."
+    },
+    "kidnapping_mission": {
+        "title": "Kidnapping Mission",
+        "description": "A character is sent on a mission to kidnap someone, leading to conflict."
+    },
+    "plans_go_awry": {
+        "title": "Plans Go Awry",
+        "description": "Things do not go according to plan, forcing characters to improvise."
+    },
+    "arrive_at_priest_school": {
+        "title": "Arrive at School for Priests",
+        "description": "The protagonist enters a place of religious training, facing new challenges."
+    },
+    "happy_occasion": {
+        "title": "Usually a Happy Occasion",
+        "description": "The story features an event that is typically joyful or festive."
+    },
+    "play_predicts_future": {
+        "title": "Play Predicts Future",
+        "description": "A performance or play reveals clues about upcoming events."
+    },
+    "last_one_left": {
+        "title": "Now She's the Only One",
+        "description": "The protagonist finds herself as the sole survivor or remaining member of a group."
+    },
+    "hero_expected_to_die": {
+        "title": "Hero Expected to Die",
+        "description": "It is widely believed that the hero will not survive the ordeal."
+    },
+    "commands_fireflies": {
+        "title": "Commands the Fireflies",
+        "description": "A character has power over fireflies, possibly using them for guidance or magic."
+    },
+    "wizard_school_scam": {
+        "title": "Wizard School is a Scam",
+        "description": "A place of magical learning is revealed to be fraudulent or deceptive."
+    },
+    "sense_embarrassment": {
+        "title": "Sense Embarrassment",
+        "description": "A character detects embarrassment in others, affecting social dynamics."
+    },
+    "betray_to_prevent_civil_war": {
+        "title": "Betrayal to Prevent Civil War",
+        "description": "A difficult betrayal is undertaken to avert a greater conflict."
+    },
+    "turned_into_wolves": {
+        "title": "Turned into Wolves",
+        "description": "Characters are transformed into wolves, changing their fate."
+    },
+    "commands_dragonflies": {
+        "title": "Commands the Dragonflies",
+        "description": "A character can control dragonflies for magical or practical reasons."
+    },
+    "library_like_arsenal": {
+        "title": "Library Like an Arsenal",
+        "description": "A library is described as being filled with powerful or dangerous resources."
+    },
+    "light_absorbing_artifact": {
+        "title": "Light-Absorbing Artifact",
+        "description": "An object or area absorbs all light, creating an unnatural darkness."
+    },
+    "second_chance_attempt": {
+        "title": "Tries to Get a Second Chance",
+        "description": "A character strives to redeem themselves or reverse past mistakes."
+    },
+    "poisonous_touch": {
+        "title": "Poisonous Touch",
+        "description": "A character’s touch or action is lethal, poisoning whoever they contact."
+    },
+    "locked_out": {
+        "title": "Locked Out",
+        "description": "A character is unable to gain access to an important place or resource."
+    },
+    "weaken_others_spells": {
+        "title": "Weaken Others' Spells",
+        "description": "A character has the ability to diminish the power of others’ magic."
+    },
+    "rendered_mute": {
+        "title": "Rendered Mute",
+        "description": "A character loses the ability to speak, affecting communication."
+    },
+    "species_specific_symptoms": {
+        "title": "Species-Specific Symptoms",
+        "description": "A mysterious condition affects only one species, creating tension."
+    },
+    "compelling_voice": {
+        "title": "Compelling Voice",
+        "description": "A character’s voice exerts irresistible influence over others."
+    },
+    "terrible_idea_revealed": {
+        "title": "Turned Out to Be a Terrible Idea",
+        "description": "An action or plan is revealed to have disastrous consequences."
+    },
+    #!# ...continue adding any more in this style...
+    "travel_between_worlds": {
+        "title": "Travel Between Worlds",
+        "description": "A character moves effortlessly between the land of the living and the land of the dead."
+    },
+    "entrust_quest": {
+        "title": "Entrust the Quest",
+        "description": "A quest or important mission is handed over to another character."
+    },
+    "touches_object_effect": {
+        "title": "Touch Triggers Effect",
+        "description": "Whoever touches a particular object experiences a significant or magical consequence."
+    },
+    "first_suspects": {
+        "title": "First Suspects",
+        "description": "A character is the initial suspect in a mystery or crime."
+    },
+    "endless_thirst": {
+        "title": "Endless Thirst",
+        "description": "A character will die of thirst no matter how much they drink."
+    },
+    "hidden_truth_hero": {
+        "title": "Hidden Truth from Hero",
+        "description": "There is crucial information unknown to the hero but clear to others."
+    },
+    "supernatural_beings_rule": {
+        "title": "Supernatural Cadre in Charge",
+        "description": "A powerful group of supernatural beings secretly runs the setting."
+    },
+    "emotions_have_scents": {
+        "title": "Emotions Have Scents",
+        "description": "A character perceives each emotion as having a distinct and recognizable scent."
+    },
+    "desperate_to_avoid": {
+        "title": "Desperately Wishes to Avoid",
+        "description": "A character goes to great lengths to avoid a person, place, or event."
+    },
+    "four_lost_kingdoms": {
+        "title": "Four Lost Kingdoms",
+        "description": "The existence or rediscovery of four long-lost kingdoms shapes the story."
+    },
+    "trouble_for_disloyalty": {
+        "title": "Trouble for Being Disloyal",
+        "description": "A character faces serious consequences for their perceived or actual disloyalty."
+    },
+    "memory_erasing_item": {
+        "title": "Memory-Erasing Item",
+        "description": "An artifact erases the wearer’s bad memories as they are made."
+    },
+    "resurrect_evil_for_good": {
+        "title": "Resurrect Evil for Good",
+        "description": "There is a compelling reason to bring a villain back to life."
+    },
+    "falls_in_love_with_him": {
+        "title": "Falls in Love with Him",
+        "description": "A character unexpectedly falls deeply in love, affecting their choices."
+    },
+    "thunderstorms_give_power": {
+        "title": "Thunderstorms Grant Power",
+        "description": "A character draws strength or magical ability from thunderstorms."
+    },
+    "loses_strength_without_storms": {
+        "title": "Loses Strength Without Storms",
+        "description": "A character’s power fades during long periods of clear weather."
+    },
+    "bloodshed_inspires_uprising": {
+        "title": "Bloodshed Inspires Uprising",
+        "description": "Violence or sacrifice becomes the catalyst for rebellion."
+    },
+    "statue_appears_in_town": {
+        "title": "Statue Appears in Town",
+        "description": "A mysterious statue suddenly appears in the center of town, stirring curiosity."
+    },
+    "how_statue_got_there": {
+        "title": "How Statue Arrived",
+        "description": "The story delves into the origins and journey of a mysterious statue."
+    },
+    "steed_rider_bond": {
+        "title": "Profound Steed-Rider Bond",
+        "description": "An extraordinary and mystical bond exists between a rider and their steed."
+    },
+    "commands_butterflies": {
+        "title": "Commands Butterflies",
+        "description": "A character possesses the magical ability to control butterflies."
+    },
+    "temporary_invincibility_with_cost": {
+        "title": "Temporary Invincibility with Cost",
+        "description": "A character becomes invincible for a time, but the power will eventually lead to their demise."
+    },
+    "spirits_of_waterfalls": {
+        "title": "Spirits of the Waterfalls",
+        "description": "Characters discover or interact with mystical beings who are the spirits of waterfalls."
+    },
+    "object_has_past_owner": {
+        "title": "Object's Past Owner",
+        "description": "A significant object once belonged to someone else, and its history influences current events."
+    },
+    #!# ...continue adding any more in this style...
+    "free_sprite_from_tree": {
+        "title": "Free Sprite from Tree",
+        "description": "Cutting down a tree releases a magical sprite that was imprisoned inside."
+    },
+    "permanent_mind_link": {
+        "title": "Permanent Mind Link",
+        "description": "A character gains the ability to hear another's thoughts for the rest of their lives."
+    },
+    "inherit_power_by_killing": {
+        "title": "Inherit Power by Killing",
+        "description": "Whoever kills a specific character will inherit her power."
+    },
+    "giant_peacocks_guard_gate": {
+        "title": "Giant Peacocks Guard Gate",
+        "description": "Enormous peacocks stand sentry at an important entrance or threshold."
+    },
+    "talking_walls": {
+        "title": "Talking Walls",
+        "description": "Walls communicate secrets to those who know how to touch them properly."
+    },
+    "poison_sacred_well": {
+        "title": "Poison Sacred Well",
+        "description": "A character schemes to contaminate a revered or magical water source."
+    },
+    "severed_hand_power": {
+        "title": "Severed Hand Wields Power",
+        "description": "A dismembered hand possesses and conveys fearsome magical abilities."
+    },
+    "chosen_one_is_liar": {
+        "title": "Chosen One is a Liar",
+        "description": "The prophesied 'chosen one' is deceptive or manipulates the truth."
+    },
+    "mask_any_smell": {
+        "title": "Mask Any Smell",
+        "description": "A character has the power or device to conceal any scent, for good or ill."
+    },
+    "faked_death_to_escape": {
+        "title": "Faked Death to Escape",
+        "description": "A character pretends to be dead in order to avoid danger or pursuit."
+    },
+    "sacrifice_warrior_secretly": {
+        "title": "Sacrifice Warrior Secretly",
+        "description": "A leader must sacrifice one of their warriors without revealing the reason."
+    },
+    "forgot_remove_ring": {
+        "title": "Forgot to Remove Ring",
+        "description": "A character's forgetfulness about a ring leads to magical or dangerous consequences."
+    },
+    "sandstorm_travel": {
+        "title": "Sandstorm Travel",
+        "description": "A character crosses a desert by transforming into or riding a sandstorm."
+    },
+    "unworthy_to_inherit": {
+        "title": "Unworthy to Inherit",
+        "description": "A character is deemed unfit to receive a throne, legacy, or power."
+    },
+    "mask_required_to_enter": {
+        "title": "Mask Required to Enter",
+        "description": "No one dares to enter a place unless they wear a mask, for reasons mysterious or cultural."
+    },
+    "fool_victorious_in_battle": {
+        "title": "Fool Triumphs in Battle",
+        "description": "An underestimated or foolish character wins a significant battle."
+    },
+    "appease_monster": {
+        "title": "Appease the Monster",
+        "description": "Characters must placate or befriend a monster to avoid disaster."
+    },
+    "rid_city_of_undesirables": {
+        "title": "Rid City of Undesirables",
+        "description": "An effort is made to expel or exile unwanted inhabitants from a city."
+    },
+    "shocking_confession": {
+        "title": "Shocking Confession",
+        "description": "A character reveals a secret that dramatically alters the situation."
+    },
+    "river_water_causes_drunkenness": {
+        "title": "River Water Causes Drunkenness",
+        "description": "Drinking from a certain river inexplicably causes intoxication."
+    },
+    "police_know_supernatural": {
+        "title": "Police Know the Supernatural",
+        "description": "Authorities are aware of—and possibly complicit in—magical or supernatural activities."
+    },
+    "ambiguous_morality": {
+        "title": "Ambiguous Morality",
+        "description": "A character's true alignment or intentions remain unclear; they may be good or evil."
+    },
+    #!# ...continue adding any more in this style...
+    "recruit_unborn_servants": {
+        "title": "Recruit Unborn Servants",
+        "description": "A character gathers followers from among souls yet to be born."
+    },
+    "remembers_past_and_future_lives": {
+        "title": "Remembers Past and Future Lives",
+        "description": "A character recalls not only their previous existences, but their future ones too."
+    },
+    "gargoyles_come_to_life": {
+        "title": "Gargoyles No Longer Stone",
+        "description": "Gargoyles awaken and move, no longer fixed as stone statues."
+    },
+    "well_intentioned_witch_magic": {
+        "title": "Good Witch, Bad Spell",
+        "description": "A well-meaning witch believes they cast a helpful spell, but unintended consequences arise."
+    },
+    "breaks_oath_foolishly": {
+        "title": "Breaks Oath, Foolishly",
+        "description": "A character breaks an oath, though it was an unwise promise to begin with."
+    },
+    "reluctant_angel_messenger": {
+        "title": "Reluctant Angel Messenger",
+        "description": "An angel hesitates or struggles with delivering an important message."
+    },
+    "symbol_tattoo_consequences": {
+        "title": "Ancient Symbol Tattoo Consequences",
+        "description": "A mysterious tattoo brings unforeseen results to the character bearing it."
+    },
+    "polite_captors": {
+        "title": "Polite Captors",
+        "description": "The hero's captors treat them with unexpected kindness or courtesy."
+    },
+    "myth_true_story": {
+        "title": "Myth Based on True Story",
+        "description": "A myth within the story is revealed to have a basis in real events."
+    },
+    "cave_of_no_return": {
+        "title": "Cave of No Return",
+        "description": "Anyone who enters a certain cave is said to never return."
+    },
+    "prankster_companions": {
+        "title": "Prankster Companions",
+        "description": "The protagonist's allies are fond of playing practical jokes."
+    },
+    "servant_kills_master": {
+        "title": "Servant Accidentally Kills Master",
+        "description": "A servant unintentionally causes the death of their employer."
+    },
+    "stranger_takes_execution_spot": {
+        "title": "Stranger Takes Place at Execution",
+        "description": "A mysterious outsider offers to take someone else's place at an execution."
+    },
+    "catacombs_party": {
+        "title": "Party in the Catacombs",
+        "description": "A celebration or gathering occurs in eerie underground tunnels."
+    },
+    "duel_embarrassment": {
+        "title": "Duel Embarrassment",
+        "description": "Something humiliating happens in the midst of a dramatic duel."
+    },
+    "witch_hunt_family_reveal": {
+        "title": "Witch Hunt, Family Reveal",
+        "description": "A witch hunt is called for, not realizing that the instigator’s own spouse is a witch."
+    },
+    "survived_to_present": {
+        "title": "Survived to Present Day",
+        "description": "A character or artifact has persisted or survived from the distant past to now."
+    },
+    "special_armor_opening": {
+        "title": "Special Armor Opening",
+        "description": "A suit of armor has a unique or secretive opening, important to the plot."
+    },
+    "read_runes_without_reason": {
+        "title": "Reads Runes Without Reason",
+        "description": "A character can interpret ancient runes, though they do not know why."
+    },
+    "wants_curse_restored": {
+        "title": "Wants Curse Restored",
+        "description": "After a curse is lifted, a character desires its return."
+    },
+    "forbidden_cross_species_love": {
+        "title": "Forbidden Cross-Species Love",
+        "description": "Characters from warring or incompatible species fall in love."
+    },
+    #!# ...continue adding any more in this style...
+    "unbelieved_princess": {
+        "title": "Unbelieved Princess",
+        "description": "A true princess is not believed by anyone, complicating her journey."
+    },
+    "corporate_necromancer": {
+        "title": "Corporate Necromancer",
+        "description": "A corporation employs a necromancer to manage supernatural affairs."
+    },
+    "shifting_path": {
+        "title": "Shifting Path",
+        "description": "A path changes its course as one walks it, making navigation unpredictable."
+    },
+    "cult_doubts": {
+        "title": "Cult Indoctrination and Doubt",
+        "description": "Raised in a cult, a character begins to question their beliefs."
+    },
+    "sword_melted_for_objects": {
+        "title": "Sword Melted for Objects",
+        "description": "A magical sword is destroyed and its material used to create various items."
+    },
+    "goblin_market_goods": {
+        "title": "Goblin Market Wonders",
+        "description": "Bizarre and astounding things are for sale at the goblin market."
+    },
+    "musician_song_power": {
+        "title": "Musician's Deadly Song",
+        "description": "A musician’s song can kill, heal, or resurrect those who hear it."
+    },
+    "uncover_ancient_secrets": {
+        "title": "Uncover Ancient Secrets",
+        "description": "Hidden truths from ages past are discovered, altering the present."
+    },
+    "sleep_acts": {
+        "title": "Surprising Acts in Sleep",
+        "description": "A character commits astonishing or risky acts while asleep."
+    },
+    "cure_current_plague": {
+        "title": "Cure the Plague",
+        "description": "A cure must be found to stop a devastating plague."
+    },
+    "sea_people_surface": {
+        "title": "Sea People Surface",
+        "description": "Beings who live at the bottom of the ocean rise to the surface world."
+    },
+    "rescue_jeopardizes_mission": {
+        "title": "Rescue Jeopardizes Mission",
+        "description": "An attempt to save someone puts the entire mission at risk."
+    },
+    "visionary_leadership": {
+        "title": "Visionary Leadership",
+        "description": "A divine figure in a vision instructs a character to lead an army to victory."
+    },
+    "underworld_sacrifice": {
+        "title": "Underworld Sacrifice",
+        "description": "One must take another's place in the underworld to bring them back to life."
+    },
+    "fake_art_more_valuable": {
+        "title": "Fake Art More Valuable",
+        "description": "Counterfeit works of art become more prized than the originals."
+    },
+    "defection_for_peace": {
+        "title": "Defection for Peace",
+        "description": "A character defects from their side in hopes of ending a war sooner."
+    },
+    "belief_becomes_reality": {
+        "title": "Belief Becomes Reality",
+        "description": "Something becomes true simply because enough people believe in it."
+    },
+    "turned_to_object_by_magic": {
+        "title": "Turned Into Object by Magic",
+        "description": "A character is magically transformed into an object."
+    },
+    #!# ...continue adding any more in this style...
+    "bone_key_opens_door": {
+        "title": "Bone Key Opens Door",
+        "description": "To unlock a door, a character must use a key carved from their own bones."
+    },
+    "mysterious_agelessness": {
+        "title": "Mysterious Agelessness",
+        "description": "A character stops aging and cannot explain why."
+    },
+    "treasure_claimed_by_owner": {
+        "title": "Ancient Owner Claims Treasure",
+        "description": "After digging up a buried treasure, the original owner returns to reclaim it."
+    },
+    "allies_tricked_into_conflict": {
+        "title": "Allies Tricked Into Conflict",
+        "description": "Allies are deceived and end up fighting each other."
+    },
+    "stone_spheres_discovered": {
+        "title": "Stone Spheres Discovered",
+        "description": "Characters find stone spheres carved with strange, possibly magical markings."
+    },
+    "souvenirs_lead_to_downfall": {
+        "title": "Souvenirs Lead to Downfall",
+        "description": "Taking mementos from fallen foes ultimately brings disaster."
+    },
+    "escape_forced_marriage": {
+        "title": "Escape Forced Marriage",
+        "description": "A character escapes or leads a revolt against an unwanted marriage."
+    },
+    "powers_fail_when_drunk": {
+        "title": "Powers Fail When Drunk",
+        "description": "A character's supernatural abilities stop working when they are intoxicated."
+    },
+    "hidden_treasure_found": {
+        "title": "Hidden Treasure Found",
+        "description": "A long-lost or concealed treasure is discovered, changing the story."
+    },
+    "precious_garden_flowers": {
+        "title": "Precious Garden Flowers",
+        "description": "Flowers from a particular garden are the realm's most valuable commodity, for a mysterious reason."
+    },
+    "unlikely_alliance": {
+        "title": "Unlikely Alliance",
+        "description": "Characters form a partnership or alliance that no one expected."
+    },
+    "peculiar_vending_machine": {
+        "title": "Peculiar Vending Machine",
+        "description": "A vending machine dispenses strange or magical items instead of what’s expected."
+    },
+    "unexpected_challenges": {
+        "title": "Unexpected Challenges",
+        "description": "Characters face sudden and unforeseen obstacles."
+    },
+    "noble_ghost_resentment": {
+        "title": "Noble Ghost's Resentment",
+        "description": "A ghost who made a noble sacrifice now resents their fate."
+    },
+    "has_advantages_and_disadvantages": {
+        "title": "Has Advantages and Disadvantages",
+        "description": "A character, item, or situation provides both benefits and drawbacks."
+    },
+    "battle_as_religion": {
+        "title": "Battle as Religious Observance",
+        "description": "A battle is fought as a sacred or ceremonial act."
+    },
+    "magical_object_is_junk": {
+        "title": "Magical Object Is Junk",
+        "description": "An item thought to be magical turns out to be useless or broken."
+    },
+    #!# ...continue adding any more in this style...
+    "unmanned_ship_arrives": {
+        "title": "Unmanned Ship Arrives",
+        "description": "A ship with no crew sails itself into the harbor, raising questions and fears."
+    },
+    "migration_darkens_skies": {
+        "title": "Migration Darkens Skies",
+        "description": "Mass migration of birds or butterflies is so vast it blocks the sun for days."
+    },
+    "permanent_weather_curse": {
+        "title": "Permanent Weather Curse",
+        "description": "A curse traps a place or person in unending darkness, daylight, fog, wind, or lightning."
+    },
+    "twin_demigod_rivalry": {
+        "title": "Twin Demigod Rivalry",
+        "description": "Intense competition or conflict erupts between sibling demigods."
+    },
+    "bidding_more_than_money": {
+        "title": "Bidding More Than Money",
+        "description": "People are willing to offer more than money—perhaps memories, years, or secrets—for something valuable."
+    },
+    "unexpected_purpose": {
+        "title": "Unexpected Purpose",
+        "description": "The real purpose of a place, event, or object is completely different from what everyone was told."
+    },
+    "spirit_connected_to_object": {
+        "title": "Spirit Connected to Object",
+        "description": "A person's spirit or life force is mysteriously tied to a particular object, place, or animal."
+    },
+    "catacombs_hiding": {
+        "title": "Hiding in Catacombs",
+        "description": "A character has been concealed in underground catacombs for years, evading detection."
+    },
+    "mythical_creature_fossil": {
+        "title": "Mythical Creature Fossil",
+        "description": "Discovery of a fossil or skeleton proves the existence of a legendary creature."
+    },
+    "returned_to_own_kind": {
+        "title": "Returned to Own Kind",
+        "description": "A character or creature finally reunites with others of their own kind."
+    },
+    "body_possession_trap": {
+        "title": "Body Possession Trap",
+        "description": "A character possesses another's body but becomes unable to leave it, causing distress."
+    },
+    "river_has_soul": {
+        "title": "River Has a Soul",
+        "description": "A river is revealed to have its own sentience or spirit."
+    },
+    "living_under_assumed_name": {
+        "title": "Living Under Assumed Name",
+        "description": "A character has run away and started a new life under a false identity."
+    },
+    "bring_new_king_to_throne": {
+        "title": "Bring New King to Throne",
+        "description": "A movement or plot is underway to place a new ruler on the throne."
+    },
+    "totally_incompetent": {
+        "title": "Totally Incompetent",
+        "description": "A key character is completely unqualified or inept at their role, with unexpected consequences."
+    },
+    "inspires_great_work": {
+        "title": "Inspires Great Work",
+        "description": "Someone or something motivates others to achieve greatness or create masterpieces."
+    },
+    "transforms_when_left": {
+        "title": "Transforms When Left",
+        "description": "When a character leaves, those they leave behind undergo a transformation, either emotional or physical."
+    },
+    "bodyguard_fate_of_world": {
+        "title": "Bodyguard to the Chosen",
+        "description": "A character is assigned to protect someone whose fate will determine the world's destiny."
+    },
+    "secret_purpose_unknown": {
+        "title": "Secret Purpose Unknown",
+        "description": "A character is doing something critical but can never learn the true reason behind it."
+    },
+    #!# ...continue adding any more in this style...
+    "unknown_creator": {
+        "title": "Unknown Creator",
+        "description": "No one knows who created a particular object, place, or phenomenon."
+    },
+    "stone_pillars_significance": {
+        "title": "Stone Pillars' Significance",
+        "description": "The meaning or purpose of mysterious stone pillars is a central question."
+    },
+    "invisible_pet_pros_cons": {
+        "title": "Invisible Pet Pros and Cons",
+        "description": "Having an invisible pet brings both helpful and troublesome consequences."
+    },
+    "parachute_tree_leaves": {
+        "title": "Parachute Tree Leaves",
+        "description": "The leaves of a special tree are used as effective parachutes."
+    },
+    "evil_ruler_forges_prophecy": {
+        "title": "Evil Ruler Forges Prophecy",
+        "description": "A tyrant forces others to create a false prophecy about his destined reign."
+    },
+    "century_old_catalog_order": {
+        "title": "Century-Old Catalog Order",
+        "description": "A character finds an ancient catalog, places an order, and astonishingly receives a reply."
+    },
+    "sidekick_takes_over": {
+        "title": "Sidekick Takes Over",
+        "description": "The hero is killed halfway through, forcing the sidekick to become the new protagonist."
+    },
+    "caretaker_requirement_for_procreation": {
+        "title": "Caretaker Requirement for Procreation",
+        "description": "Characters must prove they are suitable caregivers before being allowed to have children."
+    },
+    "must_prove_to_government": {
+        "title": "Must Prove to Government",
+        "description": "A character or group must demonstrate something to the government to gain approval or rights."
+    },
+    "government_arranged_marriages": {
+        "title": "Government-Arranged Marriages",
+        "description": "Due to excessive bureaucracy, many people opt for marriages arranged by the state."
+    },
+    "rapid_human_mutations": {
+        "title": "Rapid Human Mutations",
+        "description": "A mysterious phenomenon or event causes quick and unpredictable mutations in humans."
+    },
+    "department_approval_required": {
+        "title": "Department Approval Required",
+        "description": "A government department must approve an action, relationship, or possession."
+    },
+    "unfair_deal_brokered": {
+        "title": "Unfair Deal Brokered",
+        "description": "A character brokers a deal widely seen as unjust or exploitative."
+    },
+    "public_water_supply_additive": {
+        "title": "Additive in Public Water Supply",
+        "description": "Something is deliberately added to the public water supply, causing widespread effects."
+    },
+    #!# ...continue adding any more in this style...
+    "direct_communication_discovered": {
+        "title": "Direct Communication Discovered",
+        "description": "Someone discovers a way to communicate directly with a species, entity, or technology previously unreachable."
+    },
+    "lab_created_entity": {
+        "title": "Lab-Created Entity",
+        "description": "A person, creature, or phenomenon now exists only because it was engineered in a laboratory."
+    },
+    "history_is_changing": {
+        "title": "History Is Changing",
+        "description": "Historical events are shifting—major wars or milestones from the past now never happened."
+    },
+    "modifications_extra_limbs": {
+        "title": "Modifications & Extra Limbs",
+        "description": "Characters undergo physical modifications such as extra limbs or cartoon-like features."
+    },
+    "believes_they_fit_in": {
+        "title": "Believes They'll Fit In",
+        "description": "A character is convinced they will belong in a new place, group, or society—possibly mistakenly."
+    },
+    "interplanetary_crisis": {
+        "title": "Interplanetary Crisis",
+        "description": "A situation or action triggers a crisis that affects multiple planets or worlds."
+    },
+    "reluctant_to_reveal_truth": {
+        "title": "Reluctant to Reveal Truth",
+        "description": "A character hesitates to share important information, even though the truth will emerge soon."
+    }
+}
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
     "depressed, but determined", "pompous, but kind", "lazy, but organized", "conceited, but charming", "busy, but unproductive",
