@@ -81,7 +81,8 @@ LOCATIONS = [
     "in a bel air swimming pool", "at the reindeer training grounds", "near pink dolphins in the ocean", "in the town square with cats",
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
     "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world", "on an island",
-    "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building", "A garden of obelisks"
+    "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building", "A garden of obelisks",
+    "at a underwater amusement park"
 ]
 CHARACTERS = [
 	"An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
@@ -97,7 +98,7 @@ CHARACTERS = [
     "A salty marine biologist", "A real estate agent", "A chubby plumber", "The U.S. ambassador", "A small-town mayor", "A kind librarian",
     "A brilliant meteorologist", "An adventurous travel writer", "A flamboyant interior designer", "A dark surgeon", "A judgemental judge",
     "A mixed martial arts fighter", "A surly secret service agent", "A nice nanny", "An organized organic farmer", "sweetie pie"
-    "A forensic investigator", "A sarcastic lawyer", "An olfactorius perfume designer", "An overnight retail stocker",
+    "A forensic investigator", "A sarcastic lawyer", "An olfactorius perfume designer", "An overnight retail stocker", "A smart ring",
     "A country club dishwasher", "A stand-up comedian", "A theme park princess", "A heroic stunt performer", "A coast guard lifeguard",
     "An E.O.D technician", "A flight attendant", "A park ranger", "A food truck owner", "An innocent fortune teller",
     "A hedge fund trader", "A casino dealer", "A corporate recruiter", "A fast food worker", "A personal trainer", "The local mortician",
@@ -1025,6 +1026,34 @@ PLOT_POINTS = {
     "reluctant_to_reveal_truth": {
         "title": "Reluctant to Reveal Truth",
         "description": "A character hesitates to share important information, even though the truth will emerge soon."
+    },
+    "high_speed_robotic_horses_trendy": {
+        "title": "High-Speed Robotic Horses Trendy",
+        "description": "Robotic horses have become a trendy alternative to cars, reshaping transportation and leisure."
+    },
+    "track_down_fugitives_vaccination_resistance": {
+        "title": "Track Down Fugitives - Vaccination Resistance",
+        "description": "Authorities are actively seeking individuals who resisted mandatory vaccinations or implants, raising ethical and societal questions."
+    },
+    "personal_information_easy_to_obtain": {
+        "title": "Personal Information Easy to Obtain",
+        "description": "Access to personal information, including behavioral patterns and psychological triggers, has become remarkably easy, impacting privacy and security."
+    },
+    "corporations_sell_algorithms_consumers": {
+        "title": "Corporations Sell Algorithms - Consumers",
+        "description": "Corporations synthesize and sell algorithms about consumers to tailor goods and services, raising concerns about manipulation and data exploitation."
+    },
+    "mars_terraformed": {
+        "title": "Mars Has Been Terraformed",
+        "description": "Mars has been successfully terraformed, allowing for human colonization and a new chapter in space exploration."
+    },
+    "colonists_assured_radiation_gone": {
+        "title": "Colonists Assured Radiation Gone",
+        "description": "Colonists on Mars have been assured that most of the radiation has been eliminated, but lingering doubts and hidden dangers remain."
+    },
+    "attempt_save_honeybees_consequences": {
+        "title": "Attempt to Save Honeybees - Surprising Consequences",
+        "description": "An attempt to save the honeybees has unforeseen and surprising consequences, altering ecosystems and raising ethical dilemmas."
     }
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
@@ -1319,7 +1348,7 @@ def generate_propp_story():
     return "\n".join(story)
 
 # Example usage
-print(generate_propp_story())
+#print(generate_propp_story())
 
 def handle_code_mode():
     """Interactive mode for writing and handling code."""
