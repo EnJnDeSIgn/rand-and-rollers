@@ -18,6 +18,7 @@ Step 1: Turning Themes into an Outline
 7. Review and Refine: Review the outline to ensure coherence and alignment with the themes.
 
 #!# Gl(A)ss . Intell(I)gence. LLM Story Teller interaction Software #!#
+Dedecated to rachel, dean and luke for there lies and storys about me!
 """
 import os
 import random
