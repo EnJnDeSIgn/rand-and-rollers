@@ -109,7 +109,7 @@ CHARACTERS = [
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god",
     "A keeper of bee hive's", "A particular tree in the forest", "A changeling", "this muse inspires", "An artist", "A musican"
 ]
-PLOT_POINTS = {
+PLOT_POINTS = {Birthday
     "learn_timeliness": {
         "title": "Learn Timeliness",
         "description": "The protagonist discovers the importance of acting at the right time."
@@ -250,7 +250,6 @@ PLOT_POINTS = {
         "title": "Attend Birthday Party",
         "description": "A celebration that can reveal secrets or turn the plot."
     },
-    #!# ...continue adding any more in this style...
     "sold_into_slavery": {
         "title": "Sold into Slavery",
         "description": "The protagonist is betrayed by family and sold into captivity."
@@ -355,7 +354,6 @@ PLOT_POINTS = {
         "title": "Considered Bad Luck",
         "description": "Something or someone is viewed as bad luck in the culture, complicating matters."
     },
-    #!# ...continue adding any more in this style...
     "magical_spell_transforms": {
         "title": "Magical Spell Transforms",
         "description": "A magical spell causes an unexpected transformation in a character or object."
@@ -452,7 +450,6 @@ PLOT_POINTS = {
         "title": "Turned Out to Be a Terrible Idea",
         "description": "An action or plan is revealed to have disastrous consequences."
     },
-    #!# ...continue adding any more in this style...
     "travel_between_worlds": {
         "title": "Travel Between Worlds",
         "description": "A character moves effortlessly between the land of the living and the land of the dead."
@@ -549,7 +546,6 @@ PLOT_POINTS = {
         "title": "Object's Past Owner",
         "description": "A significant object once belonged to someone else, and its history influences current events."
     },
-    #!# ...continue adding any more in this style...
     "free_sprite_from_tree": {
         "title": "Free Sprite from Tree",
         "description": "Cutting down a tree releases a magical sprite that was imprisoned inside."
@@ -638,7 +634,6 @@ PLOT_POINTS = {
         "title": "Ambiguous Morality",
         "description": "A character's true alignment or intentions remain unclear; they may be good or evil."
     },
-    #!# ...continue adding any more in this style...
     "recruit_unborn_servants": {
         "title": "Recruit Unborn Servants",
         "description": "A character gathers followers from among souls yet to be born."
@@ -723,7 +718,6 @@ PLOT_POINTS = {
         "title": "Forbidden Cross-Species Love",
         "description": "Characters from warring or incompatible species fall in love."
     },
-    #!# ...continue adding any more in this style...
     "unbelieved_princess": {
         "title": "Unbelieved Princess",
         "description": "A true princess is not believed by anyone, complicating her journey."
@@ -796,7 +790,6 @@ PLOT_POINTS = {
         "title": "Turned Into Object by Magic",
         "description": "A character is magically transformed into an object."
     },
-    #!# ...continue adding any more in this style...
     "bone_key_opens_door": {
         "title": "Bone Key Opens Door",
         "description": "To unlock a door, a character must use a key carved from their own bones."
@@ -865,7 +858,6 @@ PLOT_POINTS = {
         "title": "Magical Object Is Junk",
         "description": "An item thought to be magical turns out to be useless or broken."
     },
-    #!# ...continue adding any more in this style...
     "unmanned_ship_arrives": {
         "title": "Unmanned Ship Arrives",
         "description": "A ship with no crew sails itself into the harbor, raising questions and fears."
@@ -942,7 +934,6 @@ PLOT_POINTS = {
         "title": "Secret Purpose Unknown",
         "description": "A character is doing something critical but can never learn the true reason behind it."
     },
-    #!# ...continue adding any more in this style...
     "unknown_creator": {
         "title": "Unknown Creator",
         "description": "No one knows who created a particular object, place, or phenomenon."
@@ -999,7 +990,6 @@ PLOT_POINTS = {
         "title": "Additive in Public Water Supply",
         "description": "Something is deliberately added to the public water supply, causing widespread effects."
     },
-    #!# ...continue adding any more in this style...
     "direct_communication_discovered": {
         "title": "Direct Communication Discovered",
         "description": "Someone discovers a way to communicate directly with a species, entity, or technology previously unreachable."
