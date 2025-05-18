@@ -18,7 +18,7 @@ Step 1: Turning Themes into an Outline
 7. Review and Refine: Review the outline to ensure coherence and alignment with the themes.
 
 #!# Gl(A)ss . Intell(I)gence. LLM Story Teller interaction Software #!#
-Dedecated to rachel, dean and luke for there lies and storys about me!
+Dedicated to rachel, dean and luke for their lies and stories about me!
 """
 import os
 import random
@@ -30,7 +30,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import hashlib
 
 # Define constants and reusable variables
-MEMORY_FILE = "memory.json"     # File for /train fuctionality, Must be opened and deleted for next use... for re-writing code tokens
+MEMORY_FILE = "memory.json"     # File for /train functionality, Must be opened and deleted for next use... for re-writing code tokens
 BUFFER_FILE = tempfile.NamedTemporaryFile(delete=False, mode='w+', encoding='utf-8')  # File buffer for /code functionality
 
 # Templates for AI interaction
@@ -91,7 +91,7 @@ CHARACTERS = [
     "A fair referee", "An anxious pharmacist", "A loving veterinarian", "An artistic camera operator", "An animator of films",
     "An architect out of work", "A over worked bank teller", "A stoic mail carrier", "A funky nightclub DJ", "an oppressive ruler or regime",
     "A scuba diving instructor", "A rich antique appraiser", "An evil ethical hacker", "A hotel concierge", "A hotel housekeeper",
-    "A grim doula", "An entertainment journalist", "A rude food critic", "A refined sommelier", "A bissy event planner", "Two spies",
+    "A grim doula", "An entertainment journalist", "A rude food critic", "A refined sommelier", "A busy event planner", "Two spies",
     "A clean cut helicopter pilot", "A thin truck driver", "A famous radio personality", "A caring nurse", "An injured firefighter",
     "A political campaingn manager", "A hip microbrewery owner", "A social bartender", "An ignorant psychiatrist", "a peasant girl",
     "A helpful physical therapist", "An usher by night", "A social media manager", "A landscape designer", "A demon", "sentient bees",
@@ -107,9 +107,9 @@ CHARACTERS = [
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "A banshee", "incarnation of a god",
-    "A keeper of bee hive's", "A particular tree in the forest", "A changeling", "this muse inspires", "An artist", "A musican"
+    "A keeper of beehives", "A particular tree in the forest", "A changeling", "this muse inspires", "An artist", "A musican"
 ]
-PLOT_POINTS = {Birthday
+PLOT_POINTS = {
     "learn_timeliness": {
         "title": "Learn Timeliness",
         "description": "The protagonist discovers the importance of acting at the right time."
@@ -1267,8 +1267,6 @@ def tokenize_content(content):
     Tokenize the given content into a list of words or symbols.
     """
     return content.split()  # Simple tokenization by splitting on whitespace
-
-import hashlib
 
 def is_duplicate(memory, content):
     """
