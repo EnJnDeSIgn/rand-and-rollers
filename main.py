@@ -101,7 +101,7 @@ CHARACTERS = [
     "A mixed martial arts fighter", "A surly secret service agent", "A nice nanny", "An organized organic farmer", "sweetie pie",
     "A forensic investigator", "A sarcastic lawyer", "An olfactorius perfume designer", "An overnight retail stocker", "A smart ring",
     "A country club dishwasher", "A stand-up comedian", "A theme park princess", "A heroic stunt performer", "A coast guard lifeguard",
-    "An E.O.D technician", "A flight attendant", "A park ranger", "A food truck owner", "An innocent fortune teller",
+    "An E.O.D technician", "A flight attendant", "A park ranger", "A food truck owner", "An innocent fortune teller", "Astronauts",
     "A hedge fund trader", "A casino dealer", "A corporate recruiter", "A fast food worker", "A personal trainer", "The local mortician",
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
@@ -1045,6 +1045,38 @@ PLOT_POINTS = {
     "attempt_save_honeybees_consequences": {
         "title": "Attempt to Save Honeybees - Surprising Consequences",
         "description": "An attempt to save the honeybees has unforeseen and surprising consequences, altering ecosystems and raising ethical dilemmas."
+    },
+    "online_bullying_is_made_a_felony_which_leads_to_unforeseen_complications": {
+        "title": "Online Bullying Is Made a Felony",
+        "description": "Online bullying is now a felony offense, but the law's broad definition and aggressive enforcement lead to numerous false accusations, censorship concerns, and the suppression of legitimate dissent."
+    },
+    "the_guests_face_an_unforeseen_threat": {
+        "title": "The Guests Face an Unforeseen Threat",
+        "description": "A seemingly idyllic gathering of guests is disrupted by an unexpected and escalating threat, forcing them to confront hidden dangers and rely on each other for survival. The threat could be natural, technological, or from within their group."
+    },
+    "use_tiny_implants_in_the_retina_that_record_and_transmit_everything_to": {
+        "title": "Use Tiny Implants in the Retina That Record and Transmit Everything",
+        "description": "Tiny retinal implants become commonplace, recording and transmitting visual data to various entities (corporations, governments, healthcare providers). This raises serious privacy concerns, potential for manipulation, and the blurring of reality."
+    },
+    "fitness_devices_track_movement_eating_habits": {
+        "title": "Fitness Devices Track Movement and Eating Habits",
+        "description": "Ubiquitous fitness devices meticulously track every movement and eating habit. This data is analyzed and used for personalized advertising, insurance pricing, and even social scoring, influencing people's choices and lifestyles."
+    },
+    "time_travelers_search_for_a_way_to_really_alter_the_timeline_but_the_people_just_change_not_the_events": {
+        "title": "Time Travelers Search for a Way to Really Alter the Timeline, but the People Just Change, Not the Events",
+        "description": "Time travelers repeatedly attempt to alter key historical events, but find that the timeline resists direct change. Instead, the people involved subtly adapt, ensuring the overall outcome remains largely the same, leading to a frustrating paradox."
+    },
+    "develop_strange_unexpected_symptoms_in_response_to_example_traveling_at_light_speed": {
+        "title": "Develop Strange/Unexpected Symptoms in Response To, Example: Traveling at Light Speed",
+        "description": "Characters who attempt to travel at or near the speed of light develop bizarre and unpredictable physical or psychological symptoms, challenging our understanding of physics and the limits of human endurance."
+    },
+    "easy_to_look_up_exactly_where_any_person_is_at_any_given_time_you_want": {
+        "title": "Easy to Look Up Exactly Where Any Person Is at Any Given Time You Want",
+        "description": "A ubiquitous tracking system allows anyone to instantly determine the location of any other person, eroding privacy and leading to a society of constant surveillance and potential stalking."
+    },
+    "tracks_your_mood_levels_and_emotions": {
+        "title": "Tracks Your Mood Levels and Emotions",
+        "description": "Devices constantly monitor and analyze mood levels and emotions, providing personalized recommendations or interventions. This raises concerns about emotional manipulation, social control, and the commodification of feelings."
     }
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
