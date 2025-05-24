@@ -6,11 +6,12 @@ class Player:
         self.player_class = player_class
         if player_class == "swordman":
             self.max_health = 150
-            self.energy = 100
+            self.max_energy = 100
         else:  # wizard
             self.max_health = 100
-            self.energy = 150
+            self.max_energy = 150
         self.health = self.max_health
+        self.energy = self.max_energy
         self.inventory = []
         self.gold = 0
         self.weapon_damage = 0.0
@@ -25,6 +26,14 @@ class Player:
     def heal(self, amount):
         self.health = min(self.max_health, self.health + amount)
         print(f"You heal {amount} health. Your health is now {self.health}.")
+
+    def lose_energy(self, amount):
+        self.energy = max(0, self.energy - amount)
+        print(f"You use {amount} energy. Your energy is now {self.energy}.")
+
+    def replenish_energy(self, amount):
+        self.energy = min(self.max_energy, self.energy + amount)
+        print(f"You recover {amount} energy. Your energy is now {self.energy}.")
 
 # Random encounters
 def encounter_friendly_npc(player):
@@ -121,6 +130,7 @@ def main():
             rest = input().lower()
             if rest == "y":
                 player.health = player.max_health
+                player.energy = player.max_energy
                 print(f"You rest and recover. Health: {player.health}, Energy: {player.energy}")
             elif rest == "n":
                 print("You leave the inn.")
@@ -129,14 +139,22 @@ def main():
         elif action == "gate":
             print("You leave the city! What direction would you like to go? (a, b, c) or 'town' to return.")
             while True:
-                direction = input("Direction (a, b, c) or 'town': ").lower()
-                if direction in ["a", "b", "c"]:
-                    random_encounter(player)
-                elif direction == "town":
-                    print("Returning to town.")
+                if player.energy == 0:
+                    print("You're too tired! Returning to town.")
                     break
                 else:
-                    print("Invalid input. Please choose a direction (a, b, c) or 'town'.")
+                    direction = input("Direction (a, b, c) or 'town': ").lower()
+                    if direction in ["a", "b", "c"]:
+                        player.lose_energy(10)
+                        random_encounter(player)
+                        if player.energy == 0:
+                            print("You're out of energy! Returning to town.")
+                            break
+                    elif direction == "town":
+                        print("Returning to town.")
+                        break
+                    else:
+                        print("Invalid input. Please choose a direction (a, b, c) or 'town'.")
         else:
             print("Invalid input.")
 
