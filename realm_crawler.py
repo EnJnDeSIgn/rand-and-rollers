@@ -90,15 +90,30 @@ def main():
             print("Goodbye!")
             break
         elif action == "shop":
-            print("Welcome to the shop! Type 'buy 0' to purchase a weapon.")
-            buy = input("rusty sword or wand. 0 gold. buy 0 ").lower()
+            print(f"Gold: {player.gold}")
+            print("rusty sword or wand: 0    gold. command: buy 0.")
+            print("woody sword or wand: 100  gold. command: buy 1.")
+            buy = input("Welcome to the shop! Type 'buy 0' to purchase a weapon: ").lower()
             if buy == "buy 0":
                 if player.player_class == "swordman":
                     player.weapon_damage = player.max_health * 0.1
                     print("You buy the rusty sword!")
                 elif player.player_class == "wizard":
-                    player.weapon_damage = player.energy * 0.1
+                    player.weapon_damage = player.energy * 0.2
                     print("You buy the rusty wand!")
+            elif buy == "buy 1":
+                if player.gold < 100:
+                    print("You Don't Have 100 Gold")
+                    continue
+                else:
+                    gold = 100
+                    player.gold -= gold
+                    if player.player_class == "swordman":
+                        player.weapon_damage = player.max_health * 0.2
+                        print(f"You buy the woody sword! You pay {gold} gold. Total gold: {player.gold}")
+                    elif player.player_class == "wizard":
+                        player.weapon_damage = player.energy * 0.3
+                        print(f"You buy the woody wand! You pay {gold} gold. Total gold: {player.gold}")
             else:
                 print("Invalid input.")
         elif action == "inn":
