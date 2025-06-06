@@ -124,8 +124,14 @@ def encounter_trap(player):
     damage = random.randint(33, 50)
     player.take_damage(damage)
 
+def encounter_lost(player):
+    print("You lose your way! You lose some energy.")
+    drain = (10, 20, 30)
+    apply = random.choice(drain)
+    player.lose_energy(apply)
+
 def random_encounter(player):
-    encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap]
+    encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap, encounter_lost]
     encounter = random.choice(encounters)
     encounter(player)
 
