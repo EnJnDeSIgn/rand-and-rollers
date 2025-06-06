@@ -146,7 +146,7 @@ def main():
                     health_token = 10
                     player.max_health += health_token
                     print(f"You buy the health token! You pay {gold} gold. Total gold: {player.gold}")
-                    print(f"energy : {player.health} / {player.max_health}")
+                    print(f"health : {player.health} / {player.max_health}")
             else:
                 print("Invalid input.")
         elif action == "inn":
