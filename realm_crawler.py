@@ -102,6 +102,8 @@ def main():
             print(f"Gold: {player.gold}")
             print("rusty sword or wand: 0    gold. command: buy 0.")
             print("woody sword or wand: 100  gold. command: buy 1.")
+            print("Energy Token       : 500  gold. command: buy 2.")
+            print("Health Token       : 500  gold. command: buy 3.")
             buy = input("Welcome to the shop! Type 'buy 0' to purchase a weapon: ").lower()
             if buy == "buy 0":
                 if player.player_class == "swordman":
@@ -123,6 +125,28 @@ def main():
                     elif player.player_class == "wizard":
                         player.weapon_damage = player.energy * 0.3
                         print(f"You buy the woody wand! You pay {gold} gold. Total gold: {player.gold}")
+            elif buy == "buy 2":
+                if player.gold < 500:
+                    print("You Don't Have 500 Gold")
+                    continue
+                else:
+                    gold = 500
+                    player.gold -= gold
+                    energy_token = 10
+                    player.max_energy += energy_token
+                    print(f"You buy the energy token! You pay {gold} gold. Total gold: {player.gold}")
+                    print(f"energy : {player.energy} / {player.max_energy}")
+            elif buy == "buy 3":
+                if player.gold < 500:
+                    print("You Don't Have 500 Gold")
+                    continue
+                else:
+                    gold = 500
+                    player.gold -= gold
+                    health_token = 10
+                    player.max_health += health_token
+                    print(f"You buy the health token! You pay {gold} gold. Total gold: {player.gold}")
+                    print(f"energy : {player.health} / {player.max_health}")
             else:
                 print("Invalid input.")
         elif action == "inn":
