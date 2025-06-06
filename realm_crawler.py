@@ -166,7 +166,7 @@ def main():
                     player.weapon_damage = player.max_health * 0.1
                     print("You buy the rusty sword!")
                 elif player.player_class == "wizard":
-                    player.weapon_damage = player.max_energy * 0.2
+                    player.weapon_damage = player.energy * 0.2
                     print("You buy the rusty wand!")
             elif buy == "buy 1":
                 if player.gold < 100:
@@ -177,7 +177,7 @@ def main():
                     player.weapon_damage = player.max_health * 0.2
                     print(f"You buy the woody sword! You pay 100 gold. Total gold: {player.gold}")
                 elif player.player_class == "wizard":
-                    player.weapon_damage = player.max_energy * 0.3
+                    player.weapon_damage = player.energy * 0.3
                     print(f"You buy the woody wand! You pay 100 gold. Total gold: {player.gold}")
             elif buy == "buy 2":
                 if player.gold < 500:
