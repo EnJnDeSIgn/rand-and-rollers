@@ -130,8 +130,34 @@ def encounter_lost(player):
     apply = random.choice(drain)
     player.lose_energy(apply)
 
+def encounter_dragon(player):
+    print("You encounter an enemy! Prepare for battle!")
+    enemy_health = random.randint(125, 275)
+
+    while player.health > 0 and enemy_health > 0:
+        attack = input("Do you want to attack? (y/n) ").lower()
+        if attack == "y":
+            print("The enemy is a dragon, oh no!")
+            enemy_health -= player.weapon_damage
+            print(f"You hit the dragon! Enemy health is now {enemy_health}.")
+            if enemy_health > 0:
+                damage = random.randint(10, 20)
+                player.take_damage(damage)
+                print(f"The dragon hits back! Your health is now {player.health}.")
+        elif attack == "n":
+            print("You fled the battle!")
+            break
+        else:
+            print("Incorrect input. Please type 'y' or 'n'.")
+
+    if enemy_health <= 0:
+        print("You defeated the dragon!")
+        gold = random.randint(100, 500)
+        player.gold += gold
+        print(f"You receive {gold} gold. Total gold: {player.gold}")
+
 def random_encounter(player):
-    encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap, encounter_lost]
+    encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap, encounter_lost, encounter_dragon]
     encounter = random.choice(encounters)
     encounter(player)
 
