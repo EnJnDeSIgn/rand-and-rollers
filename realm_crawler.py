@@ -1,31 +1,30 @@
 import random
+import json
+import os
 
 # Define the Player class
 class Player:
-    def __init__(self, player_class):
+    def __init__(self, player_class, health_tokens=0, energy_tokens=0, gold=0, weapon_damage=0.0):
         self.player_class = player_class
-        if player_class == "swordman":
-            self.max_health = 150
-            self.max_energy = 100
-        else:  # wizard
-            self.max_health = 100
-            self.max_energy = 150
+        self.base_health = 150 if player_class == "swordman" else 100
+        self.base_energy = 100 if player_class == "swordman" else 150
+        self.health_tokens = health_tokens
+        self.energy_tokens = energy_tokens
+        self.max_health = self.base_health + 10 * self.health_tokens
+        self.max_energy = self.base_energy + 10 * self.energy_tokens
         self.health = self.max_health
         self.energy = self.max_energy
         self.inventory = []
-        self.gold = 0
-        self.weapon_damage = 0.0
+        self.gold = gold
+        self.weapon_damage = weapon_damage
 
-    def take_damage(self, amount):
-        self.health = max(0, self.health - amount)
-        print(f"You take {amount} damage. Your health is now {self.health}.")
-        if self.health <= 0:
-            print("You have been defeated! Game Over!")
-            exit()
+    def add_health_token(self, count=1):
+        self.health_tokens += count
+        self.max_health = self.base_health + 10 * self.health_tokens
 
-    def heal(self, amount):
-        self.health = min(self.max_health, self.health + amount)
-        print(f"You heal {amount} health. Your health is now {self.health}.")
+    def add_energy_token(self, count=1):
+        self.energy_tokens += count
+        self.max_energy = self.base_energy + 10 * self.energy_tokens
 
     def lose_energy(self, amount):
         self.energy = max(0, self.energy - amount)
@@ -34,6 +33,54 @@ class Player:
     def replenish_energy(self, amount):
         self.energy = min(self.max_energy, self.energy + amount)
         print(f"You recover {amount} energy. Your energy is now {self.energy}.")
+
+    def heal(self, amount):
+        self.health = min(self.max_health, self.health + amount)
+        print(f"You heal {amount} health. Your health is now {self.health}.")
+
+    def take_damage(self, amount):
+        self.health = max(0, self.health - amount)
+        print(f"You take {amount} damage. Your health is now {self.health}.")
+        if self.health <= 0:
+            print("You have been defeated! Game Over!")
+            exit()
+
+    # ... rest of your methods, e.g. take_damage, heal, etc. ...
+
+    def to_dict(self):
+        return {
+            "player_class": self.player_class,
+            "health_tokens": self.health_tokens,
+            "energy_tokens": self.energy_tokens,
+            "gold": self.gold,
+            "weapon_damage": self.weapon_damage
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            player_class=data.get("player_class", "swordman"),
+            health_tokens=data.get("health_tokens", 0),
+            energy_tokens=data.get("energy_tokens", 0),
+            gold=data.get("gold", 0),
+            weapon_damage=data.get("weapon_damage", 0.0)
+        )
+
+SAVE_FILE = "savegame.json"
+
+def save_game(player):
+    with open(SAVE_FILE, "w") as f:
+        json.dump(player.to_dict(), f)
+    print("Game saved!")
+
+def load_game():
+    if not os.path.exists(SAVE_FILE):
+        return None
+    with open(SAVE_FILE, "r") as f:
+        data = json.load(f)
+    player = Player.from_dict(data)
+    print("Game loaded!")
+    return player
 
 # Random encounters
 def encounter_friendly_npc(player):
@@ -84,69 +131,70 @@ def random_encounter(player):
 
 # Main game loop
 def main():
-    player_class = input("Would you like to play a swordman or wizard? ").lower()
-    if player_class not in ["swordman", "wizard"]:
-        print("Invalid class. Please restart the game.")
-        return
-
-    player = Player(player_class)
-    print(f"You are a {player_class}. Health: {player.health}, Energy: {player.energy}, Gold: {player.gold}")
+    player = None
+    if os.path.exists(SAVE_FILE):
+        load = input("Saved game found. Load it? (y/n): ").lower()
+        if load == "y":
+            player = load_game()
+    if not player:
+        player_class = input("Would you like to play a swordman or wizard? ").lower()
+        if player_class not in ["swordman", "wizard"]:
+            print("Invalid class. Please restart the game.")
+            return
+        player = Player(player_class)
+    print(f"You are a {player.player_class}. Health: {player.health}, Energy: {player.energy}, Gold: {player.gold}")
 
     while True:
         action = input("Where would you like to go? (shop, inn, gate, quit): ").lower()
 
         if action == "quit":
+            save = input("Do you want to save your game? (y/n): ").lower()
+            if save == "y":
+                save_game(player)
             print("Goodbye!")
             break
         elif action == "shop":
+            # ... rest of your shop logic, see below for updated tokens ...
             print(f"Gold: {player.gold}")
             print("rusty sword or wand: 0    gold. command: buy 0.")
             print("woody sword or wand: 100  gold. command: buy 1.")
             print("Energy Token       : 500  gold. command: buy 2.")
             print("Health Token       : 500  gold. command: buy 3.")
-            buy = input("Welcome to the shop! Type 'buy 0' to purchase a weapon: ").lower()
+            buy = input("Welcome to the shop! Type your command: ").lower()
             if buy == "buy 0":
                 if player.player_class == "swordman":
                     player.weapon_damage = player.max_health * 0.1
                     print("You buy the rusty sword!")
                 elif player.player_class == "wizard":
-                    player.weapon_damage = player.energy * 0.2
+                    player.weapon_damage = player.max_energy * 0.2
                     print("You buy the rusty wand!")
             elif buy == "buy 1":
                 if player.gold < 100:
                     print("You Don't Have 100 Gold")
                     continue
-                else:
-                    gold = 100
-                    player.gold -= gold
-                    if player.player_class == "swordman":
-                        player.weapon_damage = player.max_health * 0.2
-                        print(f"You buy the woody sword! You pay {gold} gold. Total gold: {player.gold}")
-                    elif player.player_class == "wizard":
-                        player.weapon_damage = player.energy * 0.3
-                        print(f"You buy the woody wand! You pay {gold} gold. Total gold: {player.gold}")
+                player.gold -= 100
+                if player.player_class == "swordman":
+                    player.weapon_damage = player.max_health * 0.2
+                    print(f"You buy the woody sword! You pay 100 gold. Total gold: {player.gold}")
+                elif player.player_class == "wizard":
+                    player.weapon_damage = player.max_energy * 0.3
+                    print(f"You buy the woody wand! You pay 100 gold. Total gold: {player.gold}")
             elif buy == "buy 2":
                 if player.gold < 500:
                     print("You Don't Have 500 Gold")
                     continue
-                else:
-                    gold = 500
-                    player.gold -= gold
-                    energy_token = 10
-                    player.max_energy += energy_token
-                    print(f"You buy the energy token! You pay {gold} gold. Total gold: {player.gold}")
-                    print(f"energy : {player.energy} / {player.max_energy}")
+                player.gold -= 500
+                player.add_energy_token(1)
+                print(f"You buy an energy token! You pay 500 gold. Total gold: {player.gold}")
+                print(f"Energy tokens: {player.energy_tokens}. Max energy: {player.max_energy}")
             elif buy == "buy 3":
                 if player.gold < 500:
                     print("You Don't Have 500 Gold")
                     continue
-                else:
-                    gold = 500
-                    player.gold -= gold
-                    health_token = 10
-                    player.max_health += health_token
-                    print(f"You buy the health token! You pay {gold} gold. Total gold: {player.gold}")
-                    print(f"health : {player.health} / {player.max_health}")
+                player.gold -= 500
+                player.add_health_token(1)
+                print(f"You buy a health token! You pay 500 gold. Total gold: {player.gold}")
+                print(f"Health tokens: {player.health_tokens}. Max health: {player.max_health}")
             else:
                 print("Invalid input.")
         elif action == "inn":
