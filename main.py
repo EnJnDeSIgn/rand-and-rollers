@@ -1066,8 +1066,8 @@ PLOT_POINTS = {
         "title": "Time Travelers Search for a Way to Really Alter the Timeline, but the People Just Change, Not the Events",
         "description": "Time travelers repeatedly attempt to alter key historical events, but find that the timeline resists direct change. Instead, the people involved subtly adapt, ensuring the overall outcome remains largely the same, leading to a frustrating paradox."
     },
-    "develop_strange_unexpected_symptoms_in_response_to_example_traveling_at_light_speed": {
-        "title": "Develop Strange/Unexpected Symptoms in Response To, Example: Traveling at Light Speed",
+    "develop_strange_unexpected_symptoms_in_response_to_traveling_at_light_speed": {
+        "title": "Develop Strange/Unexpected Symptoms in Response To Traveling at Light Speed",
         "description": "Characters who attempt to travel at or near the speed of light develop bizarre and unpredictable physical or psychological symptoms, challenging our understanding of physics and the limits of human endurance."
     },
     "easy_to_look_up_exactly_where_any_person_is_at_any_given_time_you_want": {
@@ -1077,6 +1077,62 @@ PLOT_POINTS = {
     "tracks_your_mood_levels_and_emotions": {
         "title": "Tracks Your Mood Levels and Emotions",
         "description": "Devices constantly monitor and analyze mood levels and emotions, providing personalized recommendations or interventions. This raises concerns about emotional manipulation, social control, and the commodification of feelings."
+    },
+    "illegal_genetic_therapy": {
+        "title": "Illegal Genetic Therapy",
+        "description": "Criminals and dissidents undergo illegal genetic therapy to change their DNA, making them untraceable by the government."
+    },
+    "euthanasia_murder_detective": {
+        "title": "Euthanasia or Murder?",
+        "description": "A detective specializes in suspicious cases of euthanasia that may actually be murders."
+    },
+    "virtual_worlds_replace_media": {
+        "title": "Virtual Worlds Replace Media",
+        "description": "Books and videogames have been replaced by interactive virtual worlds filled with fascinating characters."
+    },
+    "colonist_rebellion": {
+        "title": "Colonist Rebellion",
+        "description": "Colonists seek independence from their home country and lead a rebellion to become their own nation."
+    },
+    "lost_civilization_returns": {
+        "title": "Lost Civilization Returns",
+        "description": "People from a civilization that mysteriously disappeared centuries ago suddenly return to the world."
+    },
+    "alien_city_planning_game": {
+        "title": "Alien City Planning Game",
+        "description": "On an alien planet, city planning is outsourced by creating a complex, engrossing city-building videogame that becomes popular with humans."
+    },
+    "time_traveler_mission": {
+        "title": "Time Traveler's Mission",
+        "description": "A time traveler enlists someone's help to carry out a critical mission in the past, present, or future."
+    },
+        "virus_from_machines_to_bionics": {
+        "title": "Virus Transmits Machine-to-Human",
+        "description": "A virus can be transmitted from machines to humans with bionic upgrades, blurring the boundaries between biological and technological vulnerabilities."
+    },
+    "air_advertisements": {
+        "title": "Airborne Advertisements",
+        "description": "Advertisements appear randomly in thin air in front of a person; media without these disruptive ads is prohibitively expensive."
+    },
+    "genetic_alteration_for_planet": {
+        "title": "Genetic Alteration for Planet Adaptation",
+        "description": "Scientists attempt to genetically alter a human so they can adapt to another planet's terrain or even outer space."
+    },
+    "telepathy_implants": {
+        "title": "Telepathic Implants",
+        "description": "Implants make telepathy possible—but only between the humans who opt for them."
+    },
+    "air_force_invisibility_morality": {
+        "title": "First Invisibility Mission's Moral Dilemma",
+        "description": "The air force uses invisibility technology for the first time, but the pilot realizes their mission is morally reprehensible."
+    },
+    "nostalgic_artificial_snow": {
+        "title": "Artificial Snowstorms",
+        "description": "People are so nostalgic for snow that they create artificial snowstorms to relive the sensation."
+    },
+    "pay_for_negative_sensations": {
+        "title": "Pay to Feel Pain",
+        "description": "In a world where pain and suffering have been eliminated, people pay to experience negative sensations."
     }
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
