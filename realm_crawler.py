@@ -167,14 +167,16 @@ def encounter_test(player):
     if pick == answer:
         prize = (0, 1)
         give = random.choice(prize)
-        if prize == 0:
+        if give == 0:
             player.add_energy_token(1)
             print("Correct!")
             print(f"Energy tokens: {player.energy_tokens}. Max energy: {player.max_energy}")
-        else:
+        elif give == 1:
             player.add_health_token(1)
             print("Correct!")
             print(f"Health tokens: {player.health_tokens}. Max health: {player.max_health}")
+        else:
+            print("Error")
     else:
         print("Your Answer Was Wrong, Sorry!")
 
