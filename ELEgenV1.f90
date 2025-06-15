@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element, i, roll_count
-    character(len=180), dimension(0:556, 0:5) :: groups
+    character(len=180), dimension(0:563, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -66,7 +66,8 @@ program story_element_generator_EnJnDeSIgn2024
 										group522, group523, group524, group525, group526, group527, group528, group529, group530, &
 										group531, group532, group533, group534, group535, group536, group537, group538, group539, &
 										group540, group541, group542, group543, group544, group545, group546, group547, group548, &
-										group549, group550, group551, group552, group553, group554, group555, group556
+										group549, group550, group551, group552, group553, group554, group555, group556, group557, &
+										group558, group559, group560, group561, group562, group563
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -88,10 +89,10 @@ program story_element_generator_EnJnDeSIgn2024
                 "scary tower                   ", "though their lifespan         ", "hand mirror                   " /)
     ! Initialize group2
     group2 = (/ "the room had a door when she  ", "old traveling person          ", "running away                  ", &
-                "of their own                  ", "cat                           ", "it has advantages and not     " /)
+                "of their own                  ", "old cat                       ", "it has advantages and not     " /)
     ! Initialize group3
     group3 = (/ "blind exploration             ", "change of directions          ", "killed in the train wreck     ", &
-                "soldier,but unfortunately, his", "wondering, whats inside a gift", "sorcerer                      " /)
+                "soldier,but unfortunately, his", "wondering, whats inside a gift", "nouveau sorcerer              " /)
     ! Initialize group4
     group4 = (/ "eating                        ", "average ratings have no luck  ", "u.s.s.r. joined together to   ", &
                 "it's easy to look up exactly  ", "deciding what to bet          ", ",make off with all the embryos" /)
@@ -102,7 +103,7 @@ program story_element_generator_EnJnDeSIgn2024
     group6 = (/ "castle tower                  ", "their diseases have been      ", "she thought she'd be in outer ", &
                 "eye                           ", "suitable caretakers and       ", "the pay is very good          " /)
     ! Initialize group7
-    group7 = (/ "blood drips and spatters on   ", "bridge                        ", "adapt to another planet's     ", &
+    group7 = (/ "blood drips and spatters on   ", "new bridge                    ", "adapt to another planet's     ", &
                 "to permanent daytime          ", "undergo creative modifications", "magician's wand               " /)
     ! Initialize group8
     group8 = (/ "lab-created                   ", "after a massive hack, the     ", "herself on her cell phone that", &
@@ -118,12 +119,12 @@ program story_element_generator_EnJnDeSIgn2024
                 "Wild West, but the outlaw they", "are a delusion                ", "large amounts of neanderthal  " /)
     ! Initialize group12
    group12 = (/ "people with a variety of      ", "falling apart tower           ", "radiation during space travel ", &
-                "arguing                       ", "window                        ", "prophecy fulfilled            " /)
+                "quietly arguing               ", "open window                   ", "prophecy fulfilled            " /)
     ! Initialize group13
    group13 = (/ "circumstances is part of a    ", "ugly                          ", "cook                          ", &
                 "and crooked shapes            ", "create a TV show that's       ", "could or may, never be removed" /)
     ! Initialize group14
-   group14 = (/ "therapy to change their DNA   ", "in the sky                    ", "child                         ", &
+   group14 = (/ "therapy to change their DNA   ", "in the sky                    ", "homeless child                ", &
                 "is revealed                   ", "believe the planet is deserted", "the monster destroyed         " /)
     ! Initialize group15
    group15 = (/ "at a new underwater amusement ", "shackled prisoner             ", "shuttered the windows; it came", &
@@ -153,25 +154,25 @@ program story_element_generator_EnJnDeSIgn2024
    group23 = (/ "japanese shrine gate          ", "it, or even being near it     ", "anamal bones                  ", &
                 "cave down                     ", "commanders in another country ", "france took control of most of" /)
     ! Initialize group24
-   group24 = (/ "people opt for gov-arranged   ", "home                          ", "witch                         ", &
+   group24 = (/ "people opt for gov-arranged   ", "home                          ", "friend being at the party     ", &
                 "chasing                       ", "a water well                  ", "blind for their falsehood     " /)
     ! Initialize group25
-   group25 = (/ "wicked                        ", "road                          ", "parent                        ", &
+   group25 = (/ "wicked                        ", "technology existed to record  ", "parent                        ", &
                 "falling in love               ", "they find the fossil of a     ", "promised never to fight       " /)
     ! Initialize group26
-   group26 = (/ "by                            ", "garden                        ", "princess                      ", &
+   group26 = (/ "by                            ", "on ceres, a large asteroid,   ", "princess                      ", &
                 "making mischief               ", "stairs up                     ", "returned stolen to owner      " /)
     ! Initialize group27
-   group27 = (/ "bow and arrows                ", "mace                          ", "at nursing homes for the      ", &
+   group27 = (/ "bow and arrows                ", "a spirit possesses a          ", "at nursing homes for the      ", &
                 "house                         ", "glass of beer                 ", "wheelbarrow                   " /)
     ! Initialize group28
    group28 = (/ "and for all I know            ", "dancing in the                ", "so it was                     ", &
                 "transformed back into         ", "saw error of there ways       ", "lived a good life             " /)
     ! Initialize group29
-   group29 = (/ "priest                        ", "a fool                        ", "pig roast                     ", &
+   group29 = (/ "priest                        ", "countries with elephants won  ", "pig roast                     ", &
                 "merchant stall                ", "warring royalty               ", "ink well and fountain pen     " /)
     ! Initialize group30
-   group30 = (/ "secret                        ", "kitchen                       ", "prince                        ", &
+   group30 = (/ "remote area begins having the ", "kitchen                       ", "prince                        ", &
                 "they are drunk                ", "a trap                        ", "restored to prosperity        " /)
     ! Initialize group31
    group31 = (/ "a glacier melts and the       ", "swamp                         ", "queen                         ", &
@@ -654,7 +655,7 @@ program story_element_generator_EnJnDeSIgn2024
   group190 = (/ "skeleton                      ", "heavenly spear of the duat    ", "witches punished, but wife one", &
 				"to use                        ", "rod of Aaron,survived present ", "Crackle:popping fire or static" /)
 	! Initialize group191
-  group191 = (/ "how can he can read the runes?", "green                         ", "to make                       ", &
+  group191 = (/ "how can he read the runes ?   ", "green                         ", "to make                       ", &
 				"charlatan                     ", "zombie                        ", "android                       " /)
 	! Initialize group192
   group192 = (/ "criminal                      ", "curse lifted,but wants it back", "robot                         ", &
@@ -1750,13 +1751,34 @@ program story_element_generator_EnJnDeSIgn2024
 				"why did miners abandon the    ", "he's an empathy instructor,   ", "for, shadow world government  " /)
   ! ! Initialize group556
   group556 = (/ "appearance and communication  ", "spaceships                    ", "after a virus wipes out about ", &
-				"and he is somehow getting     ", "wants to look - a mirror again", "beans                         "/)
-	! ... (Initialize all groups similarly)
+				"and he is somehow getting     ", "wants to look - a mirror again", "beans                         " /)
+  ! ! Initialize group557
+  group557 = (/ "loudly arguing                ", "there are ways to fix it      ", "old bridge                    ", &
+				"that no one taught him        ", "Mnevis:bellow of bull,echoing ", "centuries-old beauty secret is" /)
+  ! ! Initialize group558
+  group558 = (/ "cream truck for a nefarious   ", "always a bridesmaid,even after", "package from another country  ", &
+				"dedicate                      ", "witch                         ", "gold in it                    " /)
+  ! ! Initialize group559
+  group559 = (/ "twisting road                 ", "the tricky part is,           ", "leads to an unfortunate       ", &
+				"they can't get any decent     ", "if he says yes to the space   ", "grip                          " /)
+  ! ! Initialize group560
+  group560 = (/ "simple treatment              ", "a couple vacationing in a     ", "erased                        ", &
+				"the toddler is using words    ", "large garden                  ", "victorian mourning jewelry    " /)
+  ! ! Initialize group561
+  group561 = (/ "they search for, way to really", "she can't remember anything   ", "mace                          ", &
+				"counteract the effects of     ", "permit                        ", "fraternity hazing             " /)
+  ! ! Initialize group562
+  group562 = (/ "reasonably coherent books and ", "late wife is insanely jealous ", "a fool                        ", &
+				"choose                        ", "has been hijacked             ", "Heqet:croak/frogs-Nile,fertile" /)
+  ! ! Initialize group563
+  group563 = (/ "secret                        ", "an evil demon causes several  ", "tour                          ", &
+				"random details and lines of   ", "another station of its own    ", "long ago when he was a baby, a"/)
+	! ... (Initialize all groups similarly) runes
 
 do i = 1, roll_count
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 557)	! Note to Ian, change this last...
+    selected_group = int(rand * 564)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group commands
     call random_number(rand)
@@ -1874,7 +1896,8 @@ do i = 1, roll_count
 	groups(540, :) = group540; groups(541, :) = group541; groups(542, :) = group542; groups(543, :) = group543; groups(544, :) = group544
 	groups(545, :) = group545; groups(546, :) = group546; groups(547, :) = group547; groups(548, :) = group548; groups(549, :) = group549
 	groups(550, :) = group550; groups(551, :) = group551; groups(552, :) = group552; groups(553, :) = group553; groups(554, :) = group554
-	groups(555, :) = group555; groups(556, :) = group556
+	groups(555, :) = group555; groups(556, :) = group556; groups(557, :) = group557; groups(558, :) = group558; groups(559, :) = group559
+	groups(560, :) = group560; groups(561, :) = group561; groups(562, :) = group562; groups(563, :) = group563
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
