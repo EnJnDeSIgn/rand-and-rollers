@@ -163,7 +163,7 @@ def encounter_test(player):
     test_num = ("a, b, c")
     pick = random.choice(test_num)
     print()
-    answer = input("You Encounter A Riddle, Guess a or b or c").lower()
+    answer = input("You Encounter A Riddle, Guess a or b or c: ").lower()
     if pick == answer:
         prize = (0, 1)
         give = random.choice(prize)
