@@ -93,6 +93,7 @@ def encounter_enemy(player):
     enemy_health = random.randint(20, 75)
 
     while player.health > 0 and enemy_health > 0:
+        print()
         attack = input("Do you want to attack? (y/n) ").lower()
         if attack == "y":
             enemy_health -= player.weapon_damage
@@ -135,8 +136,10 @@ def encounter_dragon(player):
     enemy_health = random.randint(125, 275)
 
     while player.health > 0 and enemy_health > 0:
+        print()
         attack = input("Do you want to attack? (y/n) ").lower()
         if attack == "y":
+            print()
             print("The enemy is a dragon, oh no!")
             enemy_health -= player.weapon_damage
             print(f"You hit the dragon! Enemy health is now {enemy_health}.")
@@ -156,8 +159,29 @@ def encounter_dragon(player):
         player.gold += gold
         print(f"You receive {gold} gold. Total gold: {player.gold}")
 
+def encounter_test(player):
+    test_num = ("a, b, c")
+    pick = random.choice(test_num)
+    print()
+    answer = input("You Encounter A Riddle, Guess a or b or c").lower()
+    if pick == answer:
+        prize = (0, 1)
+        give = random.choice(prize)
+        if prize == 0:
+            player.add_energy_token(1)
+            print("Correct!")
+            print(f"Energy tokens: {player.energy_tokens}. Max energy: {player.max_energy}")
+        else:
+            player.add_health_token(1)
+            print("Correct!")
+            print(f"Health tokens: {player.health_tokens}. Max health: {player.max_health}")
+    else:
+        print("Your Answer Was Wrong, Sorry!")
+
 def random_encounter(player):
-    encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap, encounter_lost, encounter_dragon]
+    encounters = [encounter_friendly_npc, encounter_enemy, encounter_treasure, encounter_trap, encounter_lost, encounter_dragon,
+    encounter_test
+]
     encounter = random.choice(encounters)
     encounter(player)
 
@@ -242,12 +266,14 @@ def main():
                 print("Invalid input.")
         elif action == "gate":
             print("You leave the city! What direction would you like to go? (a, b, c) or 'town' to return.")
+            print()
             while True:
                 if player.energy == 0:
                     print("You're too tired! Returning to town.")
                     break
                 else:
                     direction = input("Direction (a, b, c) or 'town': ").lower()
+                    print()
                     if direction in ["a", "b", "c"]:
                         player.lose_energy(10)
                         random_encounter(player)
