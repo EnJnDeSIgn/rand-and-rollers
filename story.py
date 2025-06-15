@@ -230,7 +230,17 @@ sound_words = [
     "Serqet: The clink of scales and the silent strike of the scorpion",
     "Mnevis: The bellow of a sacred bull, echoing through the temple halls",
     "Heqet: The croak of frogs along the Nile, heralding fertility",
-    "Aten: The hum of the sun disk, a hymn of light and life"
+    "Aten: The hum of the sun disk, a hymn of light and life",
+    "Bennu: The soft whoosh of wings reborn in flame, the phoenix’s ascent",
+    "Duat: The muffled hush of footsteps in the underworld’s sand",
+    "Shai: The whisper of fate being written on the wind",
+    "Ren: The echo of one’s name spoken in reverence across eternity",
+    "Tawy: The gentle lap of water where Upper and Lower Egypt meet",
+    "Kemet: The squelch of fertile black soil under bare feet",
+    "Sekhem: The resonant hum of power vibrating through temple stones",
+    "Aset: The soothing lullaby of a mother’s voice in the moonlight",
+    "Bes: The jingle and stomp of a protective dance warding off evil",
+    "Tjet: The faint clink of amulets brushing against linen wrappings"
 ]
 
 # Randomly select elements
