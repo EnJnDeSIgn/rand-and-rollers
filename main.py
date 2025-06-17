@@ -43,7 +43,7 @@ Question: {question}
 
 Answer:
 """
-MODEL = OllamaLLM(model="gemma3:27b", server_url="http://127.0.0.1:58305")
+MODEL = OllamaLLM(model="gemma3:27b-it-qat", server_url="http://127.0.0.1:58305")
 PROMPT = ChatPromptTemplate.from_template(TEMPLATE)
 CHAIN = PROMPT | MODEL
 
