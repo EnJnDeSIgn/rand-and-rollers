@@ -4,7 +4,7 @@ program story_element_generator_EnJnDeSIgn2024
     ! Declare user_input as a character of length 1
     !character(len=1) :: user_input
     integer :: selected_group, selected_element, i, roll_count
-    character(len=180), dimension(0:563, 0:5) :: groups
+    character(len=180), dimension(0:572, 0:5) :: groups
     character(len=180), dimension(6) :: group0, group1, group2, group3, group4, group5, group6, group7, group8, &
 										group9, group10, group11, group12, group13, group14, group15, group16, group17, &
 										group18, group19, group20, group21, group22, group23, group24, group25, group26, &
@@ -67,7 +67,8 @@ program story_element_generator_EnJnDeSIgn2024
 										group531, group532, group533, group534, group535, group536, group537, group538, group539, &
 										group540, group541, group542, group543, group544, group545, group546, group547, group548, &
 										group549, group550, group551, group552, group553, group554, group555, group556, group557, &
-										group558, group559, group560, group561, group562, group563
+										group558, group559, group560, group561, group562, group563, group564, group565, group566, &
+										group567, group568, group569, group570, group571, group572
     ! Initialize additional groups below as needed
     real :: rand
 
@@ -172,17 +173,17 @@ program story_element_generator_EnJnDeSIgn2024
    group29 = (/ "priest                        ", "countries with elephants won  ", "pig roast                     ", &
                 "merchant stall                ", "warring royalty               ", "ink well and fountain pen     " /)
     ! Initialize group30
-   group30 = (/ "remote area begins having the ", "kitchen                       ", "prince                        ", &
-                "they are drunk                ", "a trap                        ", "restored to prosperity        " /)
+   group30 = (/ "remote area begins having the ", "kitchen                       ", "something he wanted?          ", &
+                "they are drunk                ", "arrival of a hypnotist in     ", "restored to prosperity        " /)
     ! Initialize group31
-   group31 = (/ "a glacier melts and the       ", "swamp                         ", "queen                         ", &
-                "returned event                ", "crown vase                    ", "knew monster all along        " /)
+   group31 = (/ "a glacier melts and the       ", "this person seems like his    ", "queen                         ", &
+                "returned event                ", "dialogue from his nightmares  ", "knew monster all along        " /)
     ! Initialize group32
-   group32 = (/ "wise                          ", "alien invasion and for a      ", "wolf                          ", &
-                "planning                      ", "old tree                      ", "passed it on                  " /)
+   group32 = (/ "wise                          ", "alien invasion and for a      ", "felony, which leads to        ", &
+                "her husband secretly sold the ", "their fallen enemies, which   ", "passed it on                  " /)
     ! Initialize group33
    group33 = (/ "king of the hill              ", "minotaur                      ", "elevated temple               ", &
-                "of intersex babies has led to ", "long ship                     ", "digging                       " /)
+                "of intersex babies has led to ", "long ship                     ", "that mysteriously disappeared " /)
     ! Initialize group34
    group34 = (/ "realized there loyalty        ", "sister had been               ", "proves you should always      ", &
                 "choosing your companions      ", "become king or queen in time  ", "which meant                   " /)
@@ -1772,13 +1773,40 @@ program story_element_generator_EnJnDeSIgn2024
 				"choose                        ", "has been hijacked             ", "Heqet:croak/frogs-Nile,fertile" /)
   ! ! Initialize group563
   group563 = (/ "secret                        ", "an evil demon causes several  ", "tour                          ", &
-				"random details and lines of   ", "another station of its own    ", "long ago when he was a baby, a"/)
+				"random details and lines of   ", "another station of its own    ", "long ago when he was a baby, a" /)
+  ! ! Initialize group564
+  group564 = (/ "office building alone         ", "prince                        ", "secret services               ", &
+				"his computer is filled with   ", "even the sound of an ant      ", "long-lost soulmate, but other " /)
+  ! ! Initialize group565
+  group565 = (/ "getting media without this    ", "new life form                 ", "a trap                        ", &
+				"no one else remembers her     ", "or two small facts of his life", "therapy and become actual     " /)
+  ! ! Initialize group566
+  group566 = (/ "humans consume now            ", "labors to make medical        ", "the feeling of being watched  ", &
+				"swamp                         ", "every day, he notices that one", "war,and humans conquer planets" /)
+  ! ! Initialize group567
+  group567 = (/ "crown vase                    ", "creature they'd assumed to be ", "Aten:hum/sun disk,light & life", &
+				"DNA                           ", "city-building videogame       ", "something terrible...         " /)
+  ! ! Initialize group568
+  group568 = (/ "the plastic surgeon is        ", "wolf                          ", "tattoo happens to be a symbol ", &
+				"results                       ", "wedding at a beautiful        ", "serial murders in cities in   " /)
+  ! ! Initialize group569
+  group569 = (/ "with unusual specimens        ", "scientific discovery          ", "visited last night. He didn't ", &
+				"planning                      ", "Bennu:whoosh/wing reborn-flame", "thief who stole something that" /)
+  ! ! Initialize group570
+  group570 = (/ "susceptible to glitches and   ", "old tree                      ", "lives alone in a rural area,  ", &
+				"shocking or mysterious        ", "foundation; the branches break", "person gets an abstract tattoo" /)
+  ! ! Initialize group571
+  group571 = (/ "and an x-ray reveals something", "descend                       ", "death                         ", &
+				"notes and gifts from her      ", "been isolated for decades and ", "contact lens solution         " /)
+  ! ! Initialize group572
+  group572 = (/ "digging                       ", "world hires young women to    ", "to many                       ", &
+				"industry has gone missing     ", "little too convenient         ", "the body goes missing from its"/)
 	! ... (Initialize all groups similarly) runes
 
 do i = 1, roll_count
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 564)	! Note to Ian, change this last...
+    selected_group = int(rand * 573)	! Note to Ian, change this last...
 
     ! Randomly select an element from the chosen group commands
     call random_number(rand)
@@ -1897,7 +1925,9 @@ do i = 1, roll_count
 	groups(545, :) = group545; groups(546, :) = group546; groups(547, :) = group547; groups(548, :) = group548; groups(549, :) = group549
 	groups(550, :) = group550; groups(551, :) = group551; groups(552, :) = group552; groups(553, :) = group553; groups(554, :) = group554
 	groups(555, :) = group555; groups(556, :) = group556; groups(557, :) = group557; groups(558, :) = group558; groups(559, :) = group559
-	groups(560, :) = group560; groups(561, :) = group561; groups(562, :) = group562; groups(563, :) = group563
+	groups(560, :) = group560; groups(561, :) = group561; groups(562, :) = group562; groups(563, :) = group563; groups(564, :) = group564
+	groups(565, :) = group565; groups(566, :) = group566; groups(567, :) = group567; groups(568, :) = group568; groups(569, :) = group569
+	groups(570, :) = group570; groups(571, :) = group571; groups(572, :) = group572
 	! ... (assign all other groups similarly)
 
     ! Display the selected element
