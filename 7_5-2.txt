@@ -8,3 +8,39 @@ Chunks: The Building Blocks of Memory
 - Simon and Chase’s chunking strategy shows how reorganizing information into meaningful patterns can dramatically boost recall.
 Beyond Miller’s Rule
 Subsequent research suggests true working memory capacity often hovers closer to four chunks in many experimental tasks. Factors such as domain expertise, rehearsal strategies, and cognitive load all influence how much we can hold in mind at once.
+
+Toward a Mathematical Model of “7 ± 2”
+We can translate Miller’s rule into a bit‐based capacity constraint and then express how many chunks fit into working memory.
+
+1. Total‐Bits Constraint
+Short-term (working) memory seems to hold a nearly fixed amount of information, often estimated around B ≃ 25 bits.  If you parcel that into N chunks, each of average size hᵢ (in bits), you get:
+\sum_{i=1}^{N} h_i \;\le\; B
+When all chunks are roughly the same size (hᵢ = h), this simplifies to:
+N \;\le\; \frac{B}{h}
+
+2. Relating to “7 ± 2”
+Miller’s “7” arises when you assume a typical chunk is about h ≈ 3.5 bits:
+- If B=25 bits and h=3.5 bits, then
+N = \frac{25}{3.5} \approx 7.1
+- The ±2 spread reflects natural variability in B and h across tasks and individuals.
+
+3. A Probabilistic Retrieval Function
+Actual recall isn’t a hard cutoff at N = 7; accuracy gradually falls off.  A convenient sigmoid form is:
+P_{\text{correct}}(N)\;=\; \frac{1}{1 \;+\;\exp\!\bigl(\tfrac{N - \mu}{\lambda}\bigr)}
+- μ ≈ 7 is the inflection point
+- λ controls how steeply performance drops (λ ≈ 1 gives ±2 as the 5–95 % bounds)
+Or, equivalently, a Gaussian‐like model:
+P_{\text{correct}}(N)\;=\;\exp\!\Bigl(-\tfrac{(N-\mu)^2}{2\sigma^2}\Bigr)
+with σ ≈ 2.
+
+4. Putting It All Together
+- Define your chunks: estimate h (bits) per item (e.g. digits ≈ 3.3 bits, letters ≈ 4.7 bits, words ≈ 10+ bits).
+- Compute theoretical N-max:
+N_{\max} = \bigl\lfloor B/h\bigr\rfloor
+- Predict recall probability: plug N into one of the functions above to see how accuracy decays beyond the mean.
+
+What’s Next?
+- Dynamic chunking: let h shrink as you group items into hierarchies—models of expertise.
+- Time‐dependent decay: introduce a time‐constant τ so bits leak out, adding e^{-t/τ} factors.
+- Neural implementation: map B to neural firing‐rate limits or synaptic states.
+Which direction sounds most intriguing to you?
