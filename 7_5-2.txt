@@ -1,0 +1,10 @@
+The Magical Number Seven, Plus or Minus Two
+George A. Miller’s landmark 1956 paper proposed that the capacity of short-term (working) memory is about seven “chunks” of information, give or take two.
+Information Capacity in Bits
+Miller observed a parallel with one-dimensional absolute-judgment tasks, where people can distinguish roughly four to eight levels of a stimulus—about 2 to 3 bits of information per decision.
+Chunks: The Building Blocks of Memory
+- A chunk is the largest meaningful unit recognizable to the individual.
+- Chunks vary in complexity: binary digits (1 bit each), decimal digits (~3.32 bits each), words (~10 bits each).
+- Simon and Chase’s chunking strategy shows how reorganizing information into meaningful patterns can dramatically boost recall.
+Beyond Miller’s Rule
+Subsequent research suggests true working memory capacity often hovers closer to four chunks in many experimental tasks. Factors such as domain expertise, rehearsal strategies, and cognitive load all influence how much we can hold in mind at once.
