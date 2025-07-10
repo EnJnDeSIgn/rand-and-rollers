@@ -44,3 +44,66 @@ What’s Next?
 - Time‐dependent decay: introduce a time‐constant τ so bits leak out, adding e^{-t/τ} factors.
 - Neural implementation: map B to neural firing‐rate limits or synaptic states.
 Which direction sounds most intriguing to you?
+
+A Compact Formula for “7 ± 2” in Bits-Based Memory
+Below is a streamlined mathematical translation of Miller’s rule. It treats working‐memory capacity as a finite bit-resource and shows how variability in that resource yields the familiar ±2 spread.
+
+1. Core Capacity Equation
+Let
+• B = total working-memory capacity in bits (mean ≈ 25 bits)
+• h = average size of one chunk in bits
+Then the mean number of chunks you can hold is
+\mu_N = \frac{B}{\mu_h}
+If you assume fixed-size chunks (hᵢ = h), this reduces to
+N_{\max} \;=\;\bigl\lfloor \tfrac{B}{h}\bigr\rfloor
+
+2. Modeling Variability: Why “±2”?
+Memory capacity and chunk‐size both vary from person to person and task to task.  If B and h are random variables with standard deviations σ_B and σ_h, then by propagation of uncertainty, the standard deviation of N is approximately:
+\sigma_N \approx
+
+
+\sqrt{\!\bigl(\tfrac{\sigma_B}{\mu_h}\bigr)^2
+
+
+\;+\;\bigl(\tfrac{\mu_B\,\sigma_h}{\mu_h^2}\bigr)^2}
+Plugging in typical values
+• μ_B ≈ 25 bits, σ_B ≈ 3 bits
+• μ_h ≈ 3.5 bits, σ_h ≈ 0.5 bits
+gives
+\sigma_N \approx
+
+
+\sqrt{\!(3/3.5)^2 + (25·0.5/3.5^2)^2}
+
+
+\;\approx\;2
+hence the familiar “7 ± 2.”
+
+3. Putting It All Together
+- Estimate chunk-size
+| Item           | h (bits)  | |----------------|-----------| | Binary digit   | 1         | | Decimal digit  | 3.32      | | Letter (A–Z)   | 4.7       | | Common word    | 10–12     |
+- Compute μ_N and σ_N via the formulas above.
+- Predict recall with a Gaussian approximation:
+P_{\text{correct}}(n)
+
+
+= \exp\!\Bigl(-\tfrac{(n-\mu_N)^2}{2\,\sigma_N^2}\Bigr)
+
+4. Extensions to Explore Next
+- Time-Decay: let B→B·e⁻ᵗ/τ and see how μ_N falls off with retention interval.
+- Hierarchical Chunking: model h as a function of expertise (h↓ with practice).
+- Neural Noise: link B to signal-to-noise constraints in spiking‐rate models.
+Which of these extensions would you like to dive into?
+
+Choosing an Extension to Explore
+Which of the following directions should we dive into next?
+- Time-Decay Model
+Introduce a retention-interval τ so that capacity B(t)=B·e⁻ᵗ/τ, then derive how μ_N and recall curves change over time.
+- Hierarchical Chunking
+Let practice shrink average chunk-size h as expertise grows—model h(k)=h₀·k^–α—and predict how N_max increases with learning.
+- Neural-Noise Constraints
+Link total bits B to biophysical limits (e.g., signal-to-noise in spiking neurons) and see how synaptic noise shapes σ_N.
+
+Bonus Idea: Context-Dependent Capacity
+We could also factor in arousal or multitasking by making B a function of cognitive load L, e.g. B(L)=B₀·(1–βL), to predict when memory collapses under distraction.
+
