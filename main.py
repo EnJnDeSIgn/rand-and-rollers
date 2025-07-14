@@ -1133,6 +1133,34 @@ PLOT_POINTS = {
     "pay_for_negative_sensations": {
         "title": "Pay to Feel Pain",
         "description": "In a world where pain and suffering have been eliminated, people pay to experience negative sensations."
+    },
+    "secret_scientist_society_outlawed": {
+        "title": "Secret Scientist Society Outlawed",
+        "description": "A clandestine group of scientists strives to make groundbreaking discoveries, but their work is prohibited by the government."
+    },
+    "resurrection_research_side_effects": {
+        "title": "Resurrection Research and Side Effects",
+        "description": "Researchers attempt to revive people within one hour of death, but the process leads to strange and unpredictable side effects."
+    },
+    "miniaturized_for_impossible_procedure": {
+        "title": "Miniaturized for Impossible Procedure",
+        "description": "Someone is shrunk to a tiny size to perform a procedure that would be impossible at normal scale."
+    },
+    "parallel_universe_loved_one": {
+        "title": "Loved One Alive in Parallel Universe",
+        "description": "A loved one has died, but clues reveal she is alive in a parallel universe, sparking a search for more information."
+    },
+    "videogame_competition_cheating": {
+        "title": "Videogame Competition & Cheating",
+        "description": "Videogame tournaments are more popular than the Olympics, but rampant cheating threatens their integrity."
+    },
+    "legalize_drug_use_in_sports": {
+        "title": "Drug Use Legalized in Sports",
+        "description": "Drug screening in sports becomes too difficult, so performance-enhancing substances are made legal, changing the nature of competition."
+    },
+    "recording_dreams_consequences": {
+        "title": "Recording Dreams Has Consequences",
+        "description": "The ability to visually record dreams leads to unforeseen consequences for individuals and society."
     }
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
