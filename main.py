@@ -1161,6 +1161,34 @@ PLOT_POINTS = {
     "recording_dreams_consequences": {
         "title": "Recording Dreams Has Consequences",
         "description": "The ability to visually record dreams leads to unforeseen consequences for individuals and society."
+    },
+    "personalized_medical_treatment": {
+        "title": "Personalized Medical Treatment",
+        "description": "Drugs and medical therapies are custom-tailored to each patient's body, taking into account their age, medical history, and genetics."
+    },
+    "hibernation_cures": {
+        "title": "Hibernation Until Cure",
+        "description": "Patients are placed in hibernation and only awakened when a cure for their disease or condition has been discovered."
+    },
+    "subliminal_coded_messages": {
+        "title": "Subliminal Coded Messages",
+        "description": "A person begins to notice hidden, coded messages embedded in media, books, public signs, and more."
+    },
+    "robot_nursing_home": {
+        "title": "Robots in Nursing Homes",
+        "description": "Elderly care facilities are now staffed entirely by robot workers, replacing their human predecessors."
+    },
+    "robot_companion_pets": {
+        "title": "Robot Companion Pets",
+        "description": "Cuddly robot kittens and puppies keep the residents of nursing homes company, providing comfort and companionship."
+    },
+    "discovered_revolutionary_text": {
+        "title": "Discovered Revolutionary Text",
+        "description": "A newly unearthed ancient manuscript contains a formula that could revolutionize science, medicine, or society."
+    },
+    "ai_surrealist_writer": {
+        "title": "AI Surrealist Writer",
+        "description": "Artificial intelligence is now capable of writing coherent books and movie scripts with a surrealist twist."
     }
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
