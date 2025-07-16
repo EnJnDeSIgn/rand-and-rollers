@@ -83,7 +83,18 @@ LOCATIONS = [
     "near a abandoned railroad track", "near a rocket launch site", "at high noon", "dark sky viewing area", "zoo for magical beasts",
     "two souls within the same body", "in a library", "black market on open ocean", "scattered across the world", "on an island",
     "in the middle of a lava lake", "a pitiful excuse for a castle", "at this auction", "tower they are building", "A garden of obelisks",
-    "at a underwater amusement park"
+    "at a underwater amusement park", "inside a forgotten subway tunnel", "on a floating ice berg", "beneath a glass dome in the desert",
+    "in a secret government bunker", "deep inside a haunted mansion", "surrounded by bioluminescent mushrooms",
+    "in a bustling food truck alley", "within a holographic arcade", "at a zero-gravity sports arena", "in a crumbling clock tower",
+    "inside an abandoned spacecraft", "on the rim of an active volcano", "in a subterranean garden", "at a masquerade ball in Venice",
+    "on the deck of a pirate ship", "within an ancient stone circle", "in a virtual reality chamber", "at an asteroid mining facility",
+    "in a remote Himalayan monastery", "at a festival of lanterns", "in a luxury train crossing Siberia", "inside a storm-chasing vehicle",
+    "in the labyrinth beneath the city", "at the gates of a forbidden temple", "on the top floor of a skyscraper",
+    "in a flooded subway station", "at a time traveler’s laboratory", "inside a quantum computing center", "in a forgotten royal crypt",
+    "in a city built atop a waterfall", "on the edge of a floating continent", "among the ruins of a sunken civilization",
+    "at a neon-lit alleyway in Tokyo", "in a dreamlike foggy moor", "inside a sentient forest", "on a bridge between two worlds",
+    "in an interstellar refugee camp", "at the bottom of a wishing fountain", "at a parade of automata", "in a room filled with clocks",
+    "inside a living spaceship", "at a celestial observatory"
 ]
 CHARACTERS = [
 	"An adventurous filmmaker", "A curious local guide", "A mysterious stranger", "The Pharaoh Sneferu", "A time-traveling historian",
@@ -1189,6 +1200,34 @@ PLOT_POINTS = {
     "ai_surrealist_writer": {
         "title": "AI Surrealist Writer",
         "description": "Artificial intelligence is now capable of writing coherent books and movie scripts with a surrealist twist."
+    },
+    "company_data_addictive_show": {
+        "title": "Addictive TV Show from Company Data",
+        "description": "A company synthesizes vast amounts of collected data and uses it to create an irresistibly addictive TV show that captivates audiences worldwide."
+    },
+    "bio_processes_power_cities": {
+        "title": "Biological Processes Power Cities",
+        "description": "Innovators learn to harness biological processes as a clean energy source, revolutionizing how entire cities are powered."
+    },
+    "implant_memories_new_abilities": {
+        "title": "Implant Memories for New Abilities",
+        "description": "Scientists find it possible to implant artificial memories, granting people entirely new skills and abilities they never possessed before."
+    },
+    "rewrite_traumatic_memories": {
+        "title": "Rewrite Traumatic Memories",
+        "description": "A breakthrough allows traumatic memories to be rewritten or softened, dramatically improving mental health and happiness for many people."
+    },
+    "remove_emotions_quick_treatment": {
+        "title": "Quick Removal of Emotions",
+        "description": "A simple, rapid treatment is discovered that can remove difficult emotions such as sadness and rage, offering a new path to emotional well-being."
+    },
+    "move_earth_counteract_warming": {
+        "title": "Move Earth to Counteract Global Warming",
+        "description": "A genius finds a way to move the Earth further from the sun, aiming to counteract global warming and save the planet."
+    },
+    "grow_forests_counteract_warming": {
+        "title": "Grow Forests to Counteract Global Warming",
+        "description": "A solution is developed to rapidly grow vast forests of mature trees, providing an immediate boost to planetary cooling and combating climate change."
     }
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
