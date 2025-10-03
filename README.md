@@ -20,6 +20,11 @@ adapt to changing emotional climates, steering conversations and
 relationships thoughtfully rather than reacting impulsively.
  
  Copilot is my co author so I don't know who all helped with our code    
+ You can program the AI by talking too it and racisim is not logical so   
+ if your AI is being rasist then just find a more logical argument,   
+ Yes I started by arguing with Copilot about my bad spelling so    
+ argue with the AI don't just use it a short cut.....      
+ 
  
     listen to my stanza, truth is in the moment but, these are just words and empty...    
 
