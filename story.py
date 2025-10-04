@@ -43,7 +43,8 @@ characters = [
     "A translator", "A nutritionist", "A speech pathologist", "An animal shelter worker", "A zookeeper", "A racehorse sanctuary manager",
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
-    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "Chris the pastry princess"
+    "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "Chris the pastry princess",
+    "my neighbour bill and his nephew Vlad the impaler"
 ]
 plot_points = [
     "discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
