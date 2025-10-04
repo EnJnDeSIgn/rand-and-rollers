@@ -44,7 +44,7 @@ characters = [
     "A belly dancer", "A robotics engineer", "A NASCAR mechanic", "A tennis instructor", "A rabbi", "A logger", "A web developer",
     "A videogame developer", "An orchestra conductor", "A volcanologist", "A shoe sales associate", "A police officer",
     "A massage therapist", "A goat farmer", "A butler", "A sniper", "A paleontologist", "Chris the pastry princess",
-    "my neighbour bill and his nephew Vlad the impaler"
+    "my neighbour bill and his nephew Vlad the impaler", "Mike the child abusing OPP officer"
 ]
 plot_points = [
     "discover a hidden treasure", "encounter unexpected challenges", "form an unlikely alliance", "uncover ancient secrets",
@@ -55,7 +55,7 @@ plot_points = [
     "kiss there lover", "see a performance", "rescue there freind", "declare that they are in big trouble", "bet on a fight",
     "to find a new place to live", "arrest a perp", "see a courtroom trial", "get a job", "get away from a chaser", "wait for someone",
     "commit a crime", "teach another how to do something", "prepare to eat a meal", "attend a class", "attend a church service",
-    "accept an award", "attend a birthday party", "puts Seroquel in their coffee"
+    "accept an award", "attend a birthday party", "puts Seroquel in their coffee", "running over my toes with his semi marked car"
 ]
 complex_chas = [
     "brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
