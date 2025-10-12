@@ -58,7 +58,8 @@ plot_points = [
     "commit a crime", "teach another how to do something", "prepare to eat a meal", "attend a class", "attend a church service",
     "accept an award", "attend a birthday party", "puts Seroquel in their coffee", "running over my toes with his semi marked car",
     "spawns a criminal empire together", "facilitating non swimmers deaths who usually take a friend",
-    "they stabbed him in the ass 4 or 5 time when he was little so when he grew up he had an asshole for every occasion"
+    "they stabbed him in the ass 4 or 5 time when he was little so when he grew up he had an asshole for every occasion",
+    "his Mom and dad packed there unconscious son in the RV so when he woke up he not only didn't know who, but where he was"
 ]
 complex_chas = [
     "brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
