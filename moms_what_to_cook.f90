@@ -30,7 +30,7 @@ program moms_what_to_cook
                 "Chicken pot pie               ", "Stir fry, vegetable,beef,chick", "Lasagna                       " /)
     ! Initialize group2
     group2 = (/ "Spaghette                     ", "Pizza                         ", "Meatballs                     ", &
-                "Corred beef                   ", "Hamburgers                    ", "Hotdogs                       " /)
+                "Corred beef                   ", "Hamburgers or Hotdogs         ", "Chilly                        " /)
 
 	! ... (Initialize all groups similarly)
 do while (.true.)
