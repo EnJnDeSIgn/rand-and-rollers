@@ -7,8 +7,8 @@ program moms_what_to_cook
     implicit none
 	character(len=1) :: user_input
     integer :: selected_group, selected_card
-    character(len=30), dimension(0:2, 0:5) :: groups
-    character(len=30), dimension(6) :: group0, group1, group2
+    character(len=30), dimension(0:3, 0:5) :: groups
+    character(len=30), dimension(6) :: group0, group1, group2, group3
     real :: rand
 
     ! Seed the random number generator
@@ -31,13 +31,16 @@ program moms_what_to_cook
     ! Initialize group2
     group2 = (/ "Spaghette                     ", "Pizza                         ", "Meatballs                     ", &
                 "Corred beef                   ", "Hamburgers or Hotdogs         ", "Chilly                        " /)
+	! Initialize group3
+	group3 = (/ "Macoroni and meat             ", "Macoroni and cheese           ", "Grilled Cheese and tomato     ", &
+				"Pea soup                      ", "pork chops and mushroom soup  ", "Quiche                        " /)
 
 	! ... (Initialize all groups similarly)
 do while (.true.)
     ! Randomly select a group
     call random_number(rand)
-    selected_group = int(rand * 3)
-    if (selected_group < 0 .or. selected_group > 2) then
+    selected_group = int(rand * 4)
+    if (selected_group < 0 .or. selected_group > 3) then
         print *, "Error: selected_group out of range"
         stop
     end if
@@ -54,6 +57,7 @@ do while (.true.)
     groups(0, :) = group0
     groups(1, :) = group1
     groups(2, :) = group2
+	groups(3, :) = group3
 	! ... (assign all other groups similarly)
 	
     ! Display the selected card
