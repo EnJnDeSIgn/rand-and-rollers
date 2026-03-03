@@ -1,0 +1,126 @@
+Ian's new knots: by Ian J Norris
+
+
+Jack tries not to know.
+Because he tries not to know, he knows too much.
+Because he knows too much, he doesn’t know too much.
+Because he doesn’t know too much, he knows too much.
+We know by not knowing.
+Jack knows that he doesn’t know.
+Some days, that’s enough.
+It’s not usually good to know too much,
+because knowing too much
+doesn’t help us
+know too much.
+
+Someone tries not to know.
+Because they try not to know, they know too much.
+Because they know too much, they don’t know too much.
+Because they don’t know too much, they know too much.
+We know by not knowing.
+They know that they don’t know.
+Some days, that’s enough.
+It’s not usually good to know too much,
+because knowing too much
+doesn’t help us
+know too much.
+
+1. Logical calculus version
+Let’s formalize the core paradox around “knowing too much.”
+1.1. Symbols
+For a person x (Jack, Jill, or “someone”):
+- K(x): x knows too much.
+- \neg K(x): x does not know too much.
+- T(x): x tries not to know.
+- A(x): x knows that they don’t know (the “I know that I don’t know” move).
+We’ll focus on one character j (Jack).
+1.2. Core premises from the knot
+From your lines, we can read off:
+- Trying not to know leads to knowing too much:
+T(j)\rightarrow K(j)- Knowing too much means he doesn’t know too much (overload/undermining):
+K(j)\rightarrow \neg K(j)- Not knowing too much means he knows too much (naïveté is itself “too much”):
+\neg K(j)\rightarrow K(j)- Jack tries not to know:
+T(j)- Jack knows that he doesn’t know:
+A(j)
+(We’ll treat A(j) as a side note—self-awareness—rather than part of the contradiction.)
+1.3. The paradoxical loop
+From these, we can derive the knot:
+- From T(j) and T(j)\rightarrow K(j), we get:
+K(j)- From K(j)\rightarrow \neg K(j), we get:
+\neg K(j)- From \neg K(j)\rightarrow K(j), we get:
+K(j)
+So we are forced into:
+K(j)\wedge \neg K(j)
+
+2. Propositional “too much” knot (recap)
+Let x be our character.
+- M(x): x knows too much.
+- \neg M(x): x does not know too much.
+- T(x): x tries not to know.
+From your knot:
+- Trying not to know → knowing too much
+T(x)\rightarrow M(x)- Knowing too much → not knowing too much
+M(x)\rightarrow \neg M(x)- Not knowing too much → knowing too much
+\neg M(x)\rightarrow M(x)
+From 2 and 3 we get:
+M(x)\leftrightarrow \neg M(x)
+So the state “knows too much” and “doesn’t know too much” collapse into each other—a Laing-style contradiction.
+
+3. Epistemic operator version
+Now let’s treat K as an epistemic operator: K\varphi  means “the agent knows that \varphi .”
+We’ll focus on one agent, so we drop the x and just write K.
+3.1. Core propositions
+Let:
+- p: “I know too much.”
+- q: “I do not know (enough / too much / what I need).”
+We’ll use:
+- Kp: “I know that I know too much.”
+- Kq: “I know that I do not know.”
+Your chorus “we know by not knowing” and “X knows that they don’t know” points straight at Kq.
+3.2. Reading the knot epistemically
+We can encode the spirit of your lines as:
+- Trying not to know generates knowledge-about-ignorance.
+- “If I try not to know, I come to know that I don’t know.”
+T\rightarrow Kq- Knowing too much undermines knowledge.
+- “If I know too much, I no longer (really) know.”
+Kp\rightarrow \neg Kp- (Overload, confusion, or self-undermining.)
+- Not knowing can be known.
+- “We know by not knowing” → if \neg p (I don’t know too much), I can know that I don’t know:
+\neg p\rightarrow Kq- Knowing that I don’t know is a kind of higher-order knowledge.
+- Socratic move:
+Kq\rightarrow K(\neg p)
+- “I know that I don’t know too much.”
+So we get a loop:- From not knowing too much (\neg p), we get knowledge of not knowing (Kq).
+- From knowledge of not knowing (Kq), we get knowledge that I don’t know too much (K(\neg p)).
+- Meanwhile, knowing too much (Kp) collapses itself: Kp\rightarrow \neg Kp.
+3.3. A compact epistemic knotHere’s a very tight modal version that mirrors your text:- \quad Kp\rightarrow \neg Kp
+If I know that I know too much, then I do not know that I know too much.
+- \quad \neg Kp\rightarrow K\neg p
+If I do not know that I know too much, I can know that I do not know too much.
+- \quad K\neg p\rightarrow Kq
+If I know that I do not know too much, I know that I do not know.
+- \quad Kq
+I know that I do not know. (Socratic anchor: “some days that’s enough.”)
+This yields:- A stable epistemic point at Kq: “I know that I don’t know.”
+- An unstable point at Kp: “I know that I know too much,” which immediately destroys itself.
+So “we know by not knowing” becomes:\mathrm{Genuine\  knowledge}=Kq=K(\mathrm{I\  do\  not\  know})while “knowing too much” is modeled as an epistemic state that cannot consistently sustain itself.
+
+   [Kp]
+    |
+    |  (knowing I know too much undermines itself)
+    v
+ [¬Kp]
+    |
+    |  (from not knowing-that-I-know-too-much,
+    |   I can know that I don't know too much)
+    v
+ [K¬p]
+    |
+    |  (knowing I don't know too much
+    |   is knowing that I don't know)
+    v
+  [Kq]  <----+
+    ^        |
+    |        |
+    +--------+
+       (stable: "we know by not knowing")
