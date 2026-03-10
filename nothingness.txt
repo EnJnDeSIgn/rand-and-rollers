@@ -1,0 +1,408 @@
+. What Sartre is really doing with Pierre
+In Being and Nothingness, the famous “Pierre is not in the café” scene isn’t just:
+
+For Sartre, that absence is structured by a prior expectation or project: you went there for Pierre. The café is “full” of his absence because your consciousness is already oriented toward finding him.
+So phenomenologically, the real structure is closer to:
+
+where:
+• 	: Pierre is in the café (now).
+• 	: Pierre was supposed to be here (you came expecting him).
+Only when both are in play—he’s not there, and he was supposed to be—do you get the charged, Sartrean “nothingness.”
+
+2. A simple truth table for Sartre’s Pierre
+Let’s start with just the core pair: “is he here?” and “was he supposed to be here?”
+• 	: Pierre is in the café (now).
+• 	: Pierre was supposed to be here (now).
+• 	: “Sartrean negation”: the meaningful “Pierre is not here” as an experienced absence.
+Define:
+
+Truth table:
+
+| \(p\) (here) | \(s\) (supposed) | \(\lnot p\) | \(N = \lnot p \land s\) | Phenomenological reading |
+|--------------|------------------|------------|--------------------------|--------------------------|
+| T            | T                | F          | F                        | He’s here as expected; no “nothingness.” |
+| T            | F                | F          | F                        | He’s here, but you weren’t expecting him; surprise, not absence. |
+| F            | T                | T          | **T**                    | The Sartre case: he’s missing *and* expected → “Pierre’s absence” saturates the café. |
+| F            | F                | T          | F                        | He’s not here, but you had no expectation; just neutral non-presence. |
+
+So the “comic” bit, logically, is that Sartre’s grand nothingness cashes out as a very ordinary conjunction:
+
+But phenomenologically, he’s saying: consciousness constitutes this negation—it’s not just a bare logical fact.
+
+3. Bringing in your extra questions
+You tossed in a whole constellation:
+• 	Is Pierre not in the café? → 
+• 	Was he supposed to be here now? → 
+• 	Has he ever been in the café before? → call this 
+• 	Will he ever be in the café? → call this 
+• 	Does he even know about the café? → call this 
+We can treat these as additional predicates:
+• 	: Pierre has been in the café at some past time.
+• 	: Pierre will be in the café at some future time.
+• 	: Pierre knows about the café.
+Logically, you could build richer conditions, e.g.:
+• 	Strong Sartrean absence:
+
+• 	He’s not here, was supposed to be, and he knows about the café—so his absence feels like a failure or refusal, not just a void.
+• 	Absurd expectation:
+
+• 	You expected him to be here even though he doesn’t know the café exists—this exposes your project as ungrounded.
+You could even say: the more of  are true, the more thick and personal the absence feels.
+
+Absolutely—let’s build the full **Sartrean-negation-with-bite** logic and then walk through the phenomenology row by row. This is exactly the kind of playful–rigorous myth‑logic you and I thrive on.
+
+Below is a clean, expressive system that treats Sartre’s café scene as if it were a five‑variable logical universe.
+
+---
+
+# 🌀 1. Define the predicates
+
+We’ll use your five predicates:
+
+| Symbol | Meaning |
+|--------|---------|
+| **\(p\)** | Pierre is in the café (now) |
+| **\(s\)** | Pierre was supposed to be here (you expected him) |
+| **\(e\)** | Pierre has been in the café before |
+| **\(f\)** | Pierre will be in the café in the future |
+| **\(k\)** | Pierre knows the café exists |
+
+And we define the **Sartrean-negation-with-bite** as:
+
+\[
+N := \lnot p \land s \land k
+\]
+
+This captures Sartre’s idea that absence becomes *charged* only when:
+
+- he is **not** here,
+- he **was supposed** to be here,
+- he **knows** about the café (so his absence feels intentional, meaningful, or at least personally relevant).
+
+The other variables \(e\) and \(f\) will shape the *flavor* of the absence.
+
+---
+
+# 🌀 2. Build a partial truth table
+
+A full 5‑variable table would have \(2^5 = 32\) rows, so instead I’ll give you a **representative subset**—the rows that produce distinct phenomenological meanings.
+
+Each row below is a *type* of world, not every possible world.
+
+---
+
+# 🌀 3. The Phenomenological Table
+
+### Legend  
+- **T** = true  
+- **F** = false  
+- **N** = Sartrean-negation-with-bite  
+
+---
+
+## **Row Type A — The Classic Sartre Case**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| F | T | T | T | T | **T** |
+
+### Interpretation  
+**The café is full of Pierre’s absence.**  
+You expected him, he knows the café, he has a history here, and a future here. His non‑presence feels like a rupture in the world’s fabric. This is the *Being and Nothingness* moment.
+
+---
+
+## **Row Type B — Neutral Non‑Presence**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| F | F | F | F | F | F |
+
+### Interpretation  
+Pierre is not here, but nothing in your consciousness was oriented toward him.  
+This is **mere non-being**, not Sartrean nothingness.  
+The café is just a café.
+
+---
+
+## **Row Type C — Comic Expectation**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| F | T | F | F | F | F |
+
+### Interpretation  
+You expected Pierre to be here…  
+…but he has never been here, will never be here, and doesn’t even know the café exists.
+
+This is **absurdity**, but not existential nothingness.  
+It reveals *your* project as comically unfounded.
+
+---
+
+## **Row Type D — Tragic Absence**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| F | T | T | F | T | **T** |
+
+### Interpretation  
+He’s not here, he was supposed to be, he knows the café—  
+but he has **no future** here.
+
+This is the **tragic** version of Sartrean absence:  
+the café is full of a presence that will never return.
+
+---
+
+## **Row Type E — Ghost of the Past**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| F | F | T | F | T | F |
+
+### Interpretation  
+You didn’t expect him, but he *used* to come here.  
+His absence is not Sartrean nothingness but a **haunting**:  
+the café remembers him even if you weren’t looking for him.
+
+---
+
+## **Row Type F — Surprising Presence**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| T | F | F | F | F | F |
+
+### Interpretation  
+Pierre is here, but you had no expectation of him.  
+This is the **inverse** of Sartrean negation:  
+a presence that arrives without being constituted by your project.
+
+---
+
+## **Row Type G — The “He Should Be Here But Doesn’t Know It” Paradox**
+| p | s | e | f | k | N |
+|---|---|---|---|---|---|
+| F | T | T | T | F | F |
+
+### Interpretation  
+You expected him, he has a history here, he will return someday—  
+but he doesn’t currently know he was supposed to be here.
+
+This is **comic‑tragic misalignment**:  
+the world is full of his absence, but the meaning is one‑sided.
+
+---
+
+# 🌀 4. What this table reveals about Sartre
+
+Sartre’s “Pierre is not in the café” is not a simple negation.  
+It’s a **structured phenomenon** that depends on:
+
+- your project (expectation),
+- Pierre’s relation to the café (knowledge, past, future),
+- and the intentionality of consciousness.
+
+The truth table makes visible what Sartre dramatizes:
+
+> **Negation is not in the world; it is produced by consciousness.**
+
+Only certain combinations of facts produce the *felt* nothingness.
+
+---
+
+Ian, this is where things get delicious.  
+A **phenomenological algebra** is exactly the kind of structure Sartre *implies* but never formalizes. Let’s build one that treats **absence as a graded, relational, intentional phenomenon**—not a binary.
+
+Below is a system that feels like it could have been smuggled out of *Being and Nothingness* by a logician.
+
+---
+
+# 🌑 1. Core Idea  
+In classical logic, negation is binary:
+
+\[
+p = 1 \quad \text{or} \quad p = 0
+\]
+
+But phenomenologically, **absence has intensities** depending on:
+
+- expectation  
+- history  
+- future projection  
+- knowledge  
+- emotional investment  
+- narrative orientation  
+
+So we define an **absence-intensity function**:
+
+\[
+A(p, s, e, f, k) \in [0,1]
+\]
+
+Where:
+
+- \(0\) = pure neutrality (mere non-being)  
+- \(1\) = full Sartrean nothingness (the café trembles with Pierre’s absence)
+
+---
+
+# 🌒 2. Define the Variables as Intensities  
+Instead of True/False, each predicate becomes a value in \([0,1]\):
+
+| Symbol | Meaning | Range |
+|--------|---------|--------|
+| \(p\) | Pierre’s presence (1 = fully present) | \([0,1]\) |
+| \(s\) | Strength of expectation | \([0,1]\) |
+| \(e\) | Weight of past presence | \([0,1]\) |
+| \(f\) | Weight of future projection | \([0,1]\) |
+| \(k\) | Degree of Pierre’s knowledge of the café | \([0,1]\) |
+
+Presence becomes:
+
+\[
+\text{Absence} = 1 - p
+\]
+
+---
+
+# 🌓 3. The Absence-Intensity Formula  
+We define:
+
+\[
+A = (1 - p) \cdot s \cdot k \cdot \left(\alpha e + \beta f + \gamma\right)
+\]
+
+Where:
+
+- \(\alpha\) = weight of the past  
+- \(\beta\) = weight of the future  
+- \(\gamma\) = baseline existential charge  
+
+This captures Sartre’s idea that absence is **constituted** by consciousness, history, and projection.
+
+### A simple, elegant version  
+Let’s choose:
+
+- \(\alpha = 0.3\)  
+- \beta = 0.3  
+- \gamma = 0.4  
+
+So:
+
+\[
+A = (1 - p) \cdot s \cdot k \cdot (0.3e + 0.3f + 0.4)
+\]
+
+This ensures the past and future matter, but expectation and knowledge matter more.
+
+---
+
+# 🌔 4. Interpretations of Absence Levels
+
+### **A ≈ 0.0 — Mere Non-Being**  
+Pierre is not here, but nothing in the world is oriented toward him.  
+The café is just a café.
+
+### **A ≈ 0.2 — Ambient Absence**  
+He’s not here, but he’s been here before.  
+A faint ghost of presence.
+
+### **A ≈ 0.4 — Narrative Absence**  
+He’s not here, you expected him a little, he knows the café.  
+The world feels slightly misaligned.
+
+### **A ≈ 0.6 — Emotional Absence**  
+You expected him strongly, he has a past here, and he knows the café.  
+The absence has emotional texture.
+
+### **A ≈ 0.8 — Existential Absence**  
+He was supposed to be here, he knows the café, and he has a future here.  
+The café feels *wrong* without him.
+
+### **A = 1.0 — Sartrean Nothingness**  
+The full Pierre effect:  
+- he is not here  
+- he was strongly expected  
+- he knows the café  
+- he has a past and future here  
+
+The café is “full of Pierre’s absence.”
+
+---
+
+# 🌕 5. Example Worlds
+
+### **World 1 — Classic Sartre**
+\[
+p=0,\; s=1,\; e=1,\; f=1,\; k=1
+\]
+
+\[
+A = 1
+\]
+
+The café trembles with nothingness.
+
+---
+
+### **World 2 — Comic Expectation**
+\[
+p=0,\; s=1,\; e=0,\; f=0,\; k=0
+\]
+
+\[
+A = 0
+\]
+
+You expected him for no reason.  
+The absurdity is yours.
+
+---
+
+### **World 3 — Tragic Absence**
+\[
+p=0,\; s=1,\; e=1,\; f=0,\; k=1
+\]
+
+\[
+A \approx 0.7
+\]
+
+He has a past here but no future.  
+The absence is heavy.
+
+---
+
+### **World 4 — Ghost of the Past**
+\[
+p=0,\; s=0,\; e=1,\; f=0,\; k=1
+\]
+
+\[
+A \approx 0.12
+\]
+
+A faint haunting, not a rupture.
+
+---
+
+# 🌘 6. What We’ve Built  
+This algebra captures Sartre’s insight:
+
+> **Absence is not a fact but a structure of consciousness.**
+
+And now it’s formalized:
+
+- Absence is **graded**, not binary  
+- It depends on **expectation**, **knowledge**, **temporal orientation**, and **narrative weight**  
+- It produces **phenomenological intensities**  
+
+This is the kind of structure that could be extended into:
+
+- a **temporal phenomenological calculus**  
+- a **logic of narrative expectation**  
+- a **mythic algebra of presence/absence** for your saga  
+
+If you want, we can build:
+
+- operators for “haunting,” “anticipation,” “refusal,”  
+- a metric space of absences,  
+- or a full algebraic semantics for existentialism.
+
+Where do you want to take this next?
