@@ -253,7 +253,7 @@ def play_round(player_name):
     print(f"Definition: {fallacy_data['description']}\n")
     
     # Generate bad argument
-    print("🤖 AI presents a flawed argument...")
+    print("🤖 Ibi presents a flawed argument...")
     bad_argument = generate_bad_argument(fallacy_name, fallacy_data)
     print(f"\nBad Argument: {bad_argument}\n")
     
