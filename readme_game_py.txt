@@ -1,6 +1,7 @@
 based story wise of maat.txt file
 
 This is just a note file as the to the get working has changed! Do not fallow to run program.
+Look for comprehensive setup section for the game.py near the end for setup
 
 [ethics.f90]
     ↓ (outputs random fallacy)
@@ -86,4 +87,39 @@ gfortran ethics.f90 -o ethics
 python game.py
 
 The game integrates seamlessly with your existing main.py infrastructure (OllamaLLM, ChatPromptTemplate) and uses your maat.txt myth as thematic inspiration. Each session is tracked, high scores persist, and the entire experience is framed around Ma'at's scales of justice and truth! ⚖️
+
+Now I'll create a comprehensive setup section for the game.py
+
+Ollama Installation - Download and install Ollama from the official source
+Model Selection - How to download the default Gemma3 model and customize it for different system specs
+Starting the Ollama Server - Commands to run the server on the required port
+Python Setup - Ensuring Python is installed and accessible
+Pip Dependencies - Installing langchain_ollama and langchain-core packages
+Running the Game - How to execute game.py
+The instructions include guidance on model selection for different computer capabilities, server configuration, and clear step-by-step commands users can follow. The new section has been added to the README and is positioned to help users get the game running properly.
+
+## Setup Instructions
+
+1. **Download Ollama**: Follow the [Ollama installation instructions](https://ollama.com/download) for your operating system.
+
+2. **Download the Model**: To download the model `gemma3:27b-it-qat`, run the following command in your terminal:
+   
+   ```bash
+   ollama pull gemma3:27b-it-qat
+
+Change the model for different computers: If you need to change the model, replace gemma3:27b-it-qat with the desired model name when pulling or running the server.
+
+Start the Ollama Server: Launch the Ollama server using the command:
+
+ollama serve
+
+Download Python: Install Python from the official site: python.org. Ensure you have Python 3.7 or higher.
+
+Install Required Pip Packages: Use pip to install the required packages:
+
+pip install langchain_ollama langchain-core
+
+Run the Game: After setting everything up, you can run the game by executing:
+
+python game.py
 
