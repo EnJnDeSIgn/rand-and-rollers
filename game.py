@@ -156,8 +156,13 @@ def display_leaderboards():
     session = load_leaderboard(SESSION_LEADERBOARD)
     if session:
         for player, scores in sorted(session.items()):
-            avg_score = sum(s["score"] for s in scores) / len(scores)
-            print(f"  {player}: Avg {avg_score:.1f} ({len(scores)} games)")
+            # Handle both list of dicts and int formats
+            if isinstance(scores, list) and len(scores) > 0:
+                avg_score = sum(s["score"] for s in scores) / len(scores)
+                print(f"  {player}: Avg {avg_score:.1f} ({len(scores)} rounds)")
+            elif isinstance(scores, int):
+                # Fallback for integer values (legacy format)
+                print(f"  {player}: {scores}")
     else:
         print("  No session data yet")
     
