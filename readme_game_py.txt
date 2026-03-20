@@ -117,7 +117,7 @@ Download Python: Install Python from the official site: python.org. Ensure you h
 
 Install Required Pip Packages: Use pip to install the required packages:
 
-pip install langchain_ollama langchain-core
+pip install langchain_ollama langchain_core
 
 Run the Game: After setting everything up, you can run the game by executing:
 
