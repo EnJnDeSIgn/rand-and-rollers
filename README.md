@@ -524,7 +524,7 @@ C:\Users\enjn\gcc>
    C:/user/user_folder_name/pip install matplotlib numpy
    C:/user/user_folder_name/binary_gen.py
 ```
-for game.py
+for game.py    
 Ollama Installation - Download and install Ollama from the official source
 Model Selection - How to download the default Gemma3 model and customize it for different system specs
 Starting the Ollama Server - Commands to run the server on the required port
