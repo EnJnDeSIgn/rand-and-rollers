@@ -1,5 +1,7 @@
 based story wise of maat.txt file
 
+This is just a note file as the to the get working has changed! Do not fallow to run program.
+
 [ethics.f90]
     ↓ (outputs random fallacy)
 [main.py - AI Game Controller]
