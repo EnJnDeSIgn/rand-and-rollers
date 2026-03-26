@@ -1265,6 +1265,70 @@ PLOT_POINTS = {
         "title": "Underwater Proteins",
         "description": "Inspired by the myoglobin protein in whales and dolphins, scientists develop new applications enabling extended underwater capabilities."
     },
+    "revive_species_control": {
+        "title": "Revive Species for Control",
+        "description": "A previously extinct species is brought back to life, strategically employed to manage the population of another."
+    },
+    "post_pandemic_inheritance": {
+        "title": "Post-Pandemic Inheritance",
+        "description": "Following a devastating virus that eliminates ninety percent of humanity, claiming the estates of the deceased without heirs becomes commonplace and socially accepted."
+    },
+    "gender_binary_collapse": {
+        "title": "Collapse of Gender Binary",
+        "description": "A surge in intersex births leads to a societal shift, dismantling the traditional binary understanding of gender."
+    },
+    "galactic_conquest_betrayal": {
+        "title": "Galactic Conquest and Betrayal",
+        "description": "Humans easily conquer planets due to the peaceful nature of most galactic species, but one commander defects and aids a resisting alien race."
+    },
+    "tattoo_shadow_government": {
+        "title": "Tattoo and Shadow Government",
+        "description": "A person with a unique, self-designed tattoo is abducted by strangers, revealing the tattoo as a symbol of a clandestine world government."
+    },
+    "life_as_simulation": {
+        "title": "Life as a Simulation",
+        "description": "An individual discovers their life is a manipulated game, orchestrated by an unknown player, and everyone they knew were simulated characters."
+    },
+    "human_rating_system": {
+        "title": "Human Rating System",
+        "description": "People are rated like products or entertainment, resulting in severe social consequences – low-rated individuals struggle with relationships and employment."
+    },
+    "subliminal_message_designer": {
+        "title": "Subliminal Message Designer",
+        "description": "A person crafts hidden messages in media to maintain public order and compliance."
+    },
+    "super_soldier_glitch": {
+        "title": "Super Soldier Glitch",
+        "description": "A genetically enhanced super soldier struggles with unpredictable powers due to system vulnerabilities and potential hacking."
+    },
+    "united_communist_state": {
+        "title": "United Communist State",
+        "description": "In an alternate 1950s, China and the USSR unite into a single, powerful communist nation."
+    },
+    "grove_mystery": {
+        "title": "Grove Mystery",
+        "description": "A scientist uncovers the hidden cause behind the strangely deformed trees in a secluded grove."
+    },
+    "forced_colonization": {
+        "title": "Forced Colonization",
+        "description": "Due to a lack of willing settlers, a planet is colonized by abducting individuals with valuable skills."
+    },
+    "alien_embryo_theft": {
+        "title": "Alien Embryo Theft",
+        "description": "Aliens raid a fertility clinic, stealing human embryos to cultivate a new generation of their own."
+    },
+    "earth_core_study": {
+        "title": "Earth Core Study",
+        "description": "Scientists undertake a dangerous expedition to bore into the Earth’s core, seeking to study its unique minerals."
+    },
+    "mermaid_commission": {
+        "title": "Mermaid Commission",
+        "description": "A wealthy individual commissions surgery and genetic modification to create real mermaids for entertainment purposes."
+    },
+    "ceres_station_siege": {
+        "title": "Ceres Station Siege",
+        "description": "Terrorists seize control of a crucial fueling station on Ceres, disrupting interstellar travel and commerce."
+    },
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
