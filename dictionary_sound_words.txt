@@ -1,0 +1,465 @@
+dictionary of sound-words based from ancient egypt
+
+uses: mythic_lexicon.py — Procedural mythic sound-lexicon generator
+
+evocative "sound-words" using:
+- Phoneme pools (consonant starts, vowels, endings)
+- Category → phonetic mood mapping (wind, water, stone, ritual, magic, memory, etc.)
+- Patterns for syllable construction, including a "mythic form" with suffixes
+- Semantic mapping that produces a mythic, sensory description for each word
+
+Hut: the sound of a stone block being set in place
+Nef: the flutter of a bird’s wings
+Khep: the rustle of papyrus leaves
+Shup: the sound of a wave hitting the shore
+Ankh: the sound of a deep breath, representing life
+Hapi: the gurgle of water from the Nile
+Geb: the grunt of a laborer, symbolizing work
+Sif: the shifting of sand dunes, carried by the wind
+Klik: the clack of stones in games
+Tut: the tap of a foot to music
+Rahp: the sound of a hearty laugh
+Eurp: the sound of a burp
+Chuff: the puff from a baker’s oven
+Pluck: the plucking of a lyre string
+Whesh: the swish of linen garments
+Cronk: the croak of a frog by the Nile’s edge
+Luff: the flap of a sail in the wind
+Zenn: the breeze through reeds
+Sesh: the hiss of a snake
+Mau: the meow of a cat
+Mjw: the sound of a cat’s meow
+Taf: the sound of a drumbeat
+Rrj: the sound of a donkey braying
+Thrum: low, continuous sound of a harp
+Clang: loud, resonant sound of metal being struck
+Skirl: shrill, wailing sound of bagpipes
+Thrash: sound of heavy objects striking
+Scree: high-pitched, scraping sound
+Blat: short, sharp sound of a horn
+Chirr: vibrant, trilling sound of crickets
+Groan: deep, mournful sound of wood creaking
+Whir: soft, rapid sound of wings in flight
+Clatter: loud, rattling sound of objects colliding
+Twang: sharp, vibrating sound of a plucked string
+Rumble: deep, distant sound of thunder
+Sizzle: hissing sound of water on hot oil
+Thud: dull sound of impact
+Jangle: discordant sound of metal objects
+Peal: loud, prolonged sound of bells
+Rustle: soft sound of leaves or paper
+Snap: sharp, cracking sound
+Whistle: clear, high-pitched sound
+Chime: melodious sound of bells
+Glimmer: faint, shimmering sound of light
+Tinkle: delicate, high-pitched sound of small bells
+Creak: slow, groaning sound of a door or floorboard
+Patter: light, rhythmic sound of raindrops on a surface
+Flutter: rapid, gentle sound of wings in flight
+Chatter: lively, animated sound of people talking
+Gurgle: bubbling, liquid sound of water flowing
+Swoosh: swift, rushing sound of air or movement
+Buzz: continuous, humming sound of insects
+Crackle: sharp, popping sound of fire or static electricity
+Babble: gentle, continuous sound of a small stream
+Clink: light, sharp sound of metal or glass touching
+Droning: continuous, low humming sound
+Fizzle: soft, sputtering sound
+Glint: brief, bright sound of light reflecting off metal
+Hiss: prolonged sound of air or steam escaping
+Jingle: tinkling sound of small metal objects shaking
+Knell: solemn sound of a bell rung slowly
+Murmur: low, indistinct sound of people speaking
+Plop: sound of a small object dropping into water
+Quiver: tremulous, musical sound
+Rasp: harsh, grating sound
+Slurp: loud, sucking sound
+Tink: light, metallic tap
+Whiff: faint, brief sound of air or scent passing by
+Yowl: long, mournful cry of a cat or a person
+Chant: rhythmic, melodic sound of repeated words or phrases
+Glide: smooth, flowing sound of movement
+Rust: soft, gritty sound of metal or wood deteriorating
+Swoop: swift, descending sound of a bird or object
+Tremor: low, vibrating sound of earth movement
+Gush: sudden, forceful sound of water or air escaping
+Tread: steady, measured sound of footsteps
+Hoot: deep, resonant sound of an owl
+Ripple: gentle, spreading sound of water disturbance
+Caw: raucous sound of a crow or raven
+Echo: the repetition of a sound caused by the reflection of sound waves
+Hum: a low, steady continuous sound like that of a bee
+Bellow: a deep loud roar, typically in pain or anger
+Ding: a short sound like that made by a small bell
+Howl: a long, doleful cry uttered by an animal such as a dog or wolf
+Purr: a low vibrating sound typical of a contented cat
+Roar: a full, deep, prolonged cry uttered by a lion or other large wild animal
+Shriek: a high-pitched piercing cry or sound; a scream
+Toll: the sound of a bell being struck slowly to announce a death or a funeral or the end of something
+Warble: to sing in a trilling or quavering voice
+Breeze: a gentle, light wind that can be felt or heard
+Chirp: a short, sharp sound made by small birds or insects
+Clap: a sudden, loud sound made by striking the hands together
+Crunch: a noisy, crushing sound made when something hard is chewed or crushed
+Drip: the sound of a liquid falling drop by drop
+Grind: a harsh, scraping sound made when two hard objects are rubbed together
+Knock: a sharp sound made when hitting a surface, typically a door
+Ping: a short, high-pitched ringing sound
+Splash: the sound of a liquid hitting or falling into water
+Squeak: a short, high-pitched sound or cry
+Swish: a soft sound made by something moving fast through the air or water
+Tick: a light, rhythmic sound, like that of a clock
+Vroom: the roaring sound of an engine
+Whack: a sharp or heavy blow or its sound
+Zap: a sudden effect or event making a short, sharp sound or series of sounds
+Nebu: The soft rustling of palm fronds in the desert breeze
+Khepri: The gentle hum of scarab beetles as they scuttle across the sand
+Sekhmet: The fierce roar of a lion echoing through the arid plains
+Tefnut: The rhythmic patter of raindrops during a rare desert shower
+Ptah: The resonant clang of a blacksmith’s hammer shaping metal
+Isis: The melodic chant of priestesses invoking blessings in the temple
+Ra: The brilliant flash of sunlight as it pierces through the pyramid’s entrance
+Horus: The piercing screech of a falcon soaring high above the Nile
+Ma’at: The harmonious blend of voices during a sacred ceremony
+Anubis: The solemn toll of a funeral bell as souls journey to the afterlife
+Amun: The silent whisper of a hidden god, felt but unseen
+Osiris: The low, steady beat of a drum during a ritual of rebirth
+Sobek: The splash and churn of the Nile as a crocodile enters the water
+Thoth: The scratch of a reed pen on papyrus, recording wisdom
+Hathor: The jingle of bracelets and the soft footfalls of a dance
+Nephthys: The rustling of wings in the dark, a protector in the shadows
+Set: The crackle of lightning and the roar of a desert storm
+Bastet: The purr and hiss of a cat, both nurturing and fierce
+Nut: The gentle sigh of the sky as day turns to night
+Khonsu: The hushed tone of moonlight, casting silver over the land
+Wadjet: The sharp gaze of a cobra, a soundless warning
+Serqet: The clink of scales and the silent strike of the scorpion
+Mnevis: The bellow of a sacred bull, echoing through the temple halls
+Heqet: The croak of frogs along the Nile, heralding fertility
+Aten: The hum of the sun disk, a hymn of light and life
+Bennu: The soft whoosh of wings reborn in flame, the phoenix’s ascent
+Duat: The muffled hush of footsteps in the underworld’s sand
+Shai: The whisper of fate being written on the wind
+Ren: The echo of one’s name spoken in reverence across eternity
+Tawy: The gentle lap of water where Upper and Lower Egypt meet
+Kemet: The squelch of fertile black soil under bare feet
+Sekhem: The resonant hum of power vibrating through temple stones
+Aset: The soothing lullaby of a mother’s voice in the moonlight
+Bes: The jingle and stomp of a protective dance warding off evil
+Tjet: The faint clink of amulets brushing against linen wrappings
+Tshk: the brittle snap of dry reeds breaking
+Vesh: the soft sweep of wind over stone
+Drun: the deep, hollow boom of a cavern echo
+Frit: the tiny crackle of cooling pottery
+Ghram: the low rumble of shifting earth
+Slek: the wet slide of mud underfoot
+Pthk: the muted thump of a sandbag landing
+Whin: the thin whistle of distant wind
+Krill: the faint clicking of insects in the dark
+Zhur: the swirling hush of dust devils
+Meret: the shimmering resonance of water under moonlight
+Khery: the soft scrape of sandals on temple floors
+Sutem: the sudden hush before a storm breaks
+Nemet: the muffled thud of ritual drums behind closed doors
+Arket: the crackling glow of sacred fire offerings
+Lunet: the crystalline chime of starlight on still water
+Peru: the fluttering call of birds greeting dawn
+Zahur: the radiant hum of sunlight warming stone
+Tanen: the subterranean groan of the earth’s deep places
+Sahket: the whisper of a priest drawing a curtain in the sanctuary
+Shirr: the gentle brushing of tall grass in a breeze
+Gloop: the thick bubble of mud rising in a marsh
+Tatter: the loose flap of cloth on a windy day
+Rindle: the soft trickle of a narrow stream
+Froth: the fizzing crest of a breaking wave
+Skim: the faint scrape of a boat gliding over shallow water
+Pip: the tiny peep of a hatchling bird
+Rill: the crystalline run of water over smooth stones
+Thrip: the quick flick of a lizard’s tail on sand
+Murm: the low, blended hum of a crowded marketplace
+Vyre: the shimmering tone of magic gathering
+Ethis: the soft pulse of a thought forming
+Ruun: the resonant vibration of a name spoken with intention
+Selen: the quiet glow of moonlit revelation
+Khor: the deep, internal echo of memory awakening
+Aesh: the breathlike sigh of a spell completing
+Tirn: the crystalline ring of truth recognized
+Vant: the hollow silence after something sacred departs
+Orrin: the harmonic tremble of destiny aligning
+Syth: the thin, silver whisper of intuition
+
+
+Whily: the gentle sound of sleeping giant, life's hush (category: breath)
+Wyroth: the shimmering sound of moonlit shore, mirror of lost things (category: water)
+Ghu: the soughing sound of tunnel mouth, hidden ledger (category: shadow)
+Gudru: the muffled sound of archway, hidden ledger (category: shadow)
+Hyn: the whistling sound of narrow canyons, harbinger of change (category: wind)
+Rnynae: the echoing sound of old archive, palimpsest of selves (category: memory)
+Meithe: the fading sound of tomb's hall, echo of names (category: memory)
+Riyn: the low sound of circular altar, binding word (category: chanting)
+Sirn: the otherworldly sound of darkened sanctum, thrum of possibility (category: magic)
+Louvui: the fluttering sound of linen robes, veil's murmur (category: cloth)
+Ngeimae: the orbital sound of distant bells, orbits' hymn (category: celestial)
+Khadro: the slow sound of turning wheel, thread's pull (category: fate)
+Lynei: the lapping sound of moonlit shore, song of tides (category: water)
+Fythu: the trembling sound of high ridges, breath of the gods (category: wind)
+Rae: the resonant sound of circular altar, prayer's curve (category: chanting)
+Reit: the hypnotic sound of chorus of acolytes, prayer's curve (category: chanting)
+Rnengut: the plucked sound of bronze bell, voice of metal (category: instruments)
+Raetei: the fading sound of old archive, palimpsest of selves (category: memory)
+Shenget: the orbital sound of orbiting bodies, orbits' hymn (category: celestial)
+Ptarnau: the granular sound of underground chasm, memory of the earth (category: stone)
+
+Nerret: the echoing sound of tomb's hall, palimpsest of selves (category: memory)
+Sae: the humming sound of sealed sigil, thrum of possibility (category: magic)
+Rudro: the urgent sound of desert falcon, call of the hunt (category: animal)
+Khir: the bright sound of reflected blade, clarifying spark (category: light)
+Yeris: the humming sound of darkened sanctum, latent law (category: magic)
+Ye: the otherworldly sound of darkened sanctum, latent law (category: magic)
+Naeny: the liquid sound of riverbed, mirror of lost things (category: water)
+Laurn: the rustling sound of oleander thicket, sungrowth (category: vegetation)
+Kan: the slow sound of turning wheel, unseen accounting (category: fate)
+Hamo: the rustling sound of oleander thicket, green memory (category: vegetation)
+Yith: the humming sound of sealed sigil, latent law (category: magic)
+Veth: the rising sound of buried seed, cycle renewed (category: rebirth)
+Thinae: the distant sound of orbiting bodies, sphere's slow chime (category: celestial)
+Wym: the lapping sound of still pools, mirror of lost things (category: water)
+Tiko: the scraping sound of dune ridges, record of passing (category: sand)
+Gugren: the struck sound of bronze hammer, work's rhythm (category: tools)
+Ngae: the distant sound of distant bells, orbits' hymn (category: celestial)
+Xu: the gritty sound of dry courtyard, time's teeth (category: sand)
+Thaudau: the granular sound of underground chasm, memory of the earth (category: stone)
+Hemet: the vast sound of distant bells, sphere's slow chime (category: celestial)
+
+Yanau: the soughing sound of palm whispers, green memory (category: vegetation)
+Grau: the hollow sound of ancient monolith, memory of the earth (category: stone)
+Neetae: the gurgling sound of riverbed, mirror of lost things (category: water)
+Pher: the clear sound of moon, clarifying spark (category: light)
+Kugen: the clangorous sound of bronze hammer, work's rhythm (category: tools)
+Pte: the sonorous sound of lyre, woven tone (category: instruments)
+Yasa: the clear sound of dawn beam, silver thread (category: light)
+Droma: the urgent sound of waterfowl, spirit echo (category: animal)
+Ptau: the soughing sound of tunnel mouth, quiet counterpoint (category: shadow)
+Ko: the hushed sound of archway, hidden ledger (category: shadow)
+Lin: the fluttering sound of curtains, veil's murmur (category: cloth)
+Rin: the fading sound of old archive, palimpsest of selves (category: memory)
+Rangis: the slow sound of woven thread, unseen accounting (category: fate)
+Khin: the urgent sound of howling jackals, spirit echo (category: animal)
+Myth: the rising sound of phoenix heart, seed's promise (category: rebirth)
+Shiut: the vast sound of distant bells, orbits' hymn (category: celestial)
+Fu: the labored sound of sleeping giant, life's hush (category: breath)
+Kodrael: the urgent sound of howling jackals, call of the hunt (category: animal)
+Shirou: the gentle sound of priestess exhale, soul's stirring (category: breath)
+La: the bright sound of reflected blade, clarifying spark (category: light)
+
+Shy: the vast sound of orbiting bodies, orbits' hymn (category: celestial)
+Rnimi: the vast sound of orbiting bodies, orbits' hymn (category: celestial)
+Kem: the soft sound of packed earth, pilgrim progress (category: footsteps)
+Thate: the struck sound of chisel on stone, craft's imprint (category: tools)
+Sar: the soft sound of marble hall, pilgrim progress (category: footsteps)
+Nys: the sonorous sound of frame drum, voice of metal (category: instruments)
+Syeti: the hypnotic sound of circular altar, binding word (category: chanting)
+Maun: the soughing sound of oleander thicket, green memory (category: vegetation)
+Niru: the measured sound of packed earth, march of seasons (category: footsteps)
+Vihis: the fluttering sound of linen robes, soft armor (category: cloth)
+Shou: the gentle sound of sleeping giant, life's hush (category: breath)
+Nyrne: the gurgling sound of moonlit shore, song of tides (category: water)
+Mywhei: the orbital sound of orbiting bodies, sphere's slow chime (category: celestial)
+Lal: the soughing sound of oleander thicket, green memory (category: vegetation)
+Kexu: the dry sound of limestone, record of passing (category: sand)
+Thaemae: the orbital sound of orbiting bodies, sphere's slow chime (category: celestial)
+Khyys: the gentle sound of sleeping giant, life's hush (category: breath)
+Naeth: the echoing sound of old archive, echo of names (category: memory)
+Datau: the groaning sound of ancient monolith, root of silence (category: stone)
+Ghaukis: the soughing sound of archway, hidden ledger (category: shadow)
+
+Sir: the pulselike sound of darkened sanctum, latent law (category: magic)
+Sey: the otherworldly sound of darkened sanctum, thrum of possibility (category: magic)
+Laurau: the green sound of palm whispers, green memory (category: vegetation)
+Yern: the otherworldly sound of sealed sigil, thrum of possibility (category: magic)
+Meiloth: the lapping sound of moonlit shore, mirror of lost things (category: water)
+Taxa: the dry sound of dune ridges, record of passing (category: sand)
+Te: the gritty sound of limestone, record of passing (category: sand)
+Thy: the orbital sound of distant bells, sphere's slow chime (category: celestial)
+Xita: the pounding sound of packed earth, march of seasons (category: footsteps)
+Fe: the tinkling sound of moon, silver thread (category: light)
+Pto: the granular sound of underground chasm, root of silence (category: stone)
+Nura: the pounding sound of packed earth, march of seasons (category: footsteps)
+Leve: the tinkling sound of dawn beam, silver thread (category: light)
+So: the dry sound of dry courtyard, time's teeth (category: sand)
+Groke: the clangorous sound of chisel on stone, craft's imprint (category: tools)
+Reuty: the renewing sound of phoenix heart, seed's promise (category: rebirth)
+Tisen: the soft sound of marble hall, march of seasons (category: footsteps)
+Nen: the measured sound of packed earth, pilgrim progress (category: footsteps)
+Rnaudro: the inevitable sound of turning wheel, unseen accounting (category: fate)
+Rein: the fading sound of tomb's hall, palimpsest of selves (category: memory)
+
+Khi: the clear sound of dawn beam, clarifying spark (category: light)
+Khuin: the trembling sound of high ridges, harbinger of change (category: wind)
+Yor: the hush-like sound of curtains, soft armor (category: cloth)
+Limut: the wheezing sound of sleeping giant, soul's stirring (category: breath)
+Whouli: the labored sound of priestess exhale, life's hush (category: breath)
+Leset: the clear sound of reflected blade, silver thread (category: light)
+Vou: the fluttering sound of curtains, veil's murmur (category: cloth)
+Grern: the bowed sound of frame drum, voice of metal (category: instruments)
+Phuiru: the wheezing sound of sleeping giant, soul's stirring (category: breath)
+Nge: the distant sound of orbiting bodies, orbits' hymn (category: celestial)
+Raerni: the gurgling sound of riverbed, mirror of lost things (category: water)
+Fi: the clear sound of moon, clarifying spark (category: light)
+Wyet: the lapping sound of moonlit shore, song of tides (category: water)
+Khau: the faint sound of woven thread, thread's pull (category: fate)
+Nuptoth: the hushed sound of tunnel mouth, quiet counterpoint (category: shadow)
+Lyrut: the hush-like sound of curtains, veil's murmur (category: cloth)
+Reimut: the liquid sound of riverbed, mirror of lost things (category: water)
+Rnini: the fading sound of tomb's hall, echo of names (category: memory)
+Phywhet: the trembling sound of temple stones, harbinger of change (category: wind)
+Why: the spiraling sound of narrow canyons, breath of the gods (category: wind)
+
+Ngen: the pounding sound of marble hall, march of seasons (category: footsteps)
+Rurnu: the hushed sound of archway, quiet counterpoint (category: shadow)
+Roul: the wheezing sound of sleeping giant, soul's stirring (category: breath)
+Huikhou: the whistling sound of narrow canyons, harbinger of change (category: wind)
+Mi: the urgent sound of howling jackals, call of the hunt (category: animal)
+Rrauru: the hushed sound of archway, hidden ledger (category: shadow)
+Yene: the hypnotic sound of chorus of acolytes, prayer's curve (category: chanting)
+Lin: the lapping sound of still pools, mirror of lost things (category: water)
+Thi: the wheezing sound of priestess exhale, life's hush (category: breath)
+Meiti: the plucked sound of bronze bell, woven tone (category: instruments)
+Nol: the green sound of palm whispers, green memory (category: vegetation)
+Whui: the wheezing sound of sleeping giant, soul's stirring (category: breath)
+Ngiptoth: the sonorous sound of lyre, voice of metal (category: instruments)
+Ptixae: the sonorous sound of frame drum, voice of metal (category: instruments)
+Ghini: the echoing sound of tomb's hall, palimpsest of selves (category: memory)
+Saku: the gritty sound of dry courtyard, time's teeth (category: sand)
+Riyth: the otherworldly sound of darkened sanctum, thrum of possibility (category: magic)
+Hyeti: the pulselike sound of darkened sanctum, thrum of possibility (category: magic)
+Drom: the hushed sound of tunnel mouth, quiet counterpoint (category: shadow)
+Me: the vast sound of orbiting bodies, sphere's slow chime (category: celestial)
+
+Marne: the call-like sound of waterfowl, call of the hunt (category: animal)
+Thax: the metallic sound of bronze hammer, work's rhythm (category: tools)
+Naurnu: the muffled sound of archway, quiet counterpoint (category: shadow)
+Ri: the fluttering sound of linen robes, soft armor (category: cloth)
+Nae: the echoing sound of old archive, palimpsest of selves (category: memory)
+Hum: the hush-like sound of linen robes, veil's murmur (category: cloth)
+Ghurrau: the muffled sound of archway, quiet counterpoint (category: shadow)
+Meut: the orbital sound of orbiting bodies, sphere's slow chime (category: celestial)
+Thouti: the spiraling sound of temple stones, breath of the gods (category: wind)
+Re: the sonorous sound of bronze bell, woven tone (category: instruments)
+Weimut: the lapping sound of riverbed, song of tides (category: water)
+Kesu: the struck sound of bronze hammer, craft's imprint (category: tools)
+Mein: the orbital sound of distant bells, orbits' hymn (category: celestial)
+Nirre: the fading sound of tomb's hall, palimpsest of selves (category: memory)
+Thauno: the hushed sound of archway, hidden ledger (category: shadow)
+Xitael: the gritty sound of dry courtyard, time's teeth (category: sand)
+Huimu: the wheezing sound of sleeping giant, soul's stirring (category: breath)
+Ven: the pulselike sound of darkened sanctum, thrum of possibility (category: magic)
+Kirae: the bowed sound of bronze bell, woven tone (category: instruments)
+Fythy: the whistling sound of narrow canyons, harbinger of change (category: wind)
+
+Li: the sharp sound of desert falcon, call of the hunt (category: animal)
+Rnath: the faint sound of turning wheel, unseen accounting (category: fate)
+Go: the slow sound of turning wheel, thread's pull (category: fate)
+Tukoth: the gritty sound of limestone, record of passing (category: sand)
+Wa: the rustling sound of oleander thicket, green memory (category: vegetation)
+Gri: the clangorous sound of bronze hammer, craft's imprint (category: tools)
+Whykhu: the gentle sound of priestess exhale, soul's stirring (category: breath)
+Houmen: the fluttering sound of linen robes, veil's murmur (category: cloth)
+Ngi: the low sound of circular altar, binding word (category: chanting)
+Vezis: the low sound of chorus of acolytes, binding word (category: chanting)
+Graughu: the soughing sound of tunnel mouth, quiet counterpoint (category: shadow)
+Rnymoth: the warm sound of phoenix heart, cycle renewed (category: rebirth)
+Re: the sharp sound of waterfowl, spirit echo (category: animal)
+Kox: the hollow sound of underground chasm, memory of the earth (category: stone)
+Gragut: the clangorous sound of chisel on stone, craft's imprint (category: tools)
+Numu: the hush-like sound of linen robes, soft armor (category: cloth)
+Graga: the heavy sound of underground chasm, root of silence (category: stone)
+Nu: the muffled sound of tunnel mouth, quiet counterpoint (category: shadow)
+Ptot: the heavy sound of ancient monolith, memory of the earth (category: stone)
+Meir: the pulselike sound of sealed sigil, thrum of possibility (category: magic)
+
+Mou: the hush-like sound of linen robes, veil's murmur (category: cloth)
+Laewet: the liquid sound of riverbed, song of tides (category: water)
+Daugris: the groaning sound of ancient monolith, root of silence (category: stone)
+Raen: the echoing sound of tomb's hall, echo of names (category: memory)
+Lutha: the call-like sound of desert falcon, call of the hunt (category: animal)
+Ptogra: the heavy sound of ancient monolith, memory of the earth (category: stone)
+Khiet: the vast sound of distant bells, orbits' hymn (category: celestial)
+Merni: the fading sound of tomb's hall, palimpsest of selves (category: memory)
+Naernei: the renewing sound of phoenix heart, cycle renewed (category: rebirth)
+Drox: the struck sound of chisel on stone, craft's imprint (category: tools)
+Zei: the hypnotic sound of chorus of acolytes, binding word (category: chanting)
+Dot: the clangorous sound of chisel on stone, work's rhythm (category: tools)
+Mynis: the lapping sound of riverbed, mirror of lost things (category: water)
+Khouhou: the spiraling sound of high ridges, harbinger of change (category: wind)
+Sei: the humming sound of darkened sanctum, latent law (category: magic)
+Grise: the clangorous sound of chisel on stone, work's rhythm (category: tools)
+Thomut: the inevitable sound of woven thread, unseen accounting (category: fate)
+Naengi: the hypnotic sound of chorus of acolytes, prayer's curve (category: chanting)
+Moul: the wheezing sound of priestess exhale, soul's stirring (category: breath)
+Nuim: the hush-like sound of linen robes, veil's murmur (category: cloth)
+
+Xom: the measured sound of marble hall, march of seasons (category: footsteps)
+Ri: the measured sound of packed earth, pilgrim progress (category: footsteps)
+Thuirou: the trembling sound of temple stones, breath of the gods (category: wind)
+Yo: the fluttering sound of curtains, soft armor (category: cloth)
+Na: the soughing sound of oleander thicket, green memory (category: vegetation)
+Kornau: the inevitable sound of woven thread, unseen accounting (category: fate)
+Sota: the dry sound of dune ridges, time's teeth (category: sand)
+Laeze: the hypnotic sound of chorus of acolytes, binding word (category: chanting)
+Sei: the otherworldly sound of darkened sanctum, latent law (category: magic)
+Goghael: the muffled sound of tunnel mouth, hidden ledger (category: shadow)
+Zymi: the pulselike sound of darkened sanctum, latent law (category: magic)
+Vyzen: the low sound of circular altar, binding word (category: chanting)
+Gras: the clangorous sound of bronze hammer, work's rhythm (category: tools)
+Phyety: the whistling sound of narrow canyons, breath of the gods (category: wind)
+Gruet: the urgent sound of desert falcon, call of the hunt (category: animal)
+Drotho: the clangorous sound of bronze hammer, craft's imprint (category: tools)
+Naethael: the orbital sound of orbiting bodies, sphere's slow chime (category: celestial)
+Kal: the scraping sound of dry courtyard, time's teeth (category: sand)
+Leiwi: the shimmering sound of still pools, song of tides (category: water)
+Gri: the clangorous sound of chisel on stone, craft's imprint (category: tools)
+
+Shou: the gentle sound of sleeping giant, soul's stirring (category: breath)
+Roeta: the slow sound of woven thread, thread's pull (category: fate)
+Thath: the granular sound of ancient monolith, memory of the earth (category: stone)
+Ngau: the faint sound of turning wheel, thread's pull (category: fate)
+Tora: the measured sound of marble hall, pilgrim progress (category: footsteps)
+Drer: the call-like sound of desert falcon, call of the hunt (category: animal)
+Rneimi: the rising sound of phoenix heart, cycle renewed (category: rebirth)
+Rire: the lapping sound of moonlit shore, song of tides (category: water)
+Whashet: the tinkling sound of dawn beam, clarifying spark (category: light)
+Myrnei: the rising sound of buried seed, seed's promise (category: rebirth)
+Gokau: the granular sound of ancient monolith, root of silence (category: stone)
+Dogra: the groaning sound of underground chasm, memory of the earth (category: stone)
+Gru: the metallic sound of bronze hammer, craft's imprint (category: tools)
+Daugen: the hollow sound of ancient monolith, root of silence (category: stone)
+Ngauth: the slow sound of woven thread, unseen accounting (category: fate)
+Ngyut: the low sound of circular altar, binding word (category: chanting)
+Phuiwhu: the whistling sound of narrow canyons, harbinger of change (category: wind)
+Shiut: the trembling sound of high ridges, breath of the gods (category: wind)
+Wauma: the soughing sound of palm whispers, sungrowth (category: vegetation)
+Runu: the labored sound of priestess exhale, soul's stirring (category: breath)
+
+Grinis: the sonorous sound of bronze bell, woven tone (category: instruments)
+Ptan: the call-like sound of howling jackals, spirit echo (category: animal)
+Mima: the sharp sound of howling jackals, spirit echo (category: animal)
+Ya: the soughing sound of palm whispers, sungrowth (category: vegetation)
+Ghaet: the echoing sound of old archive, palimpsest of selves (category: memory)
+Si: the dry sound of dry courtyard, record of passing (category: sand)
+Ngyrny: the distant sound of distant bells, sphere's slow chime (category: celestial)
+Letha: the call-like sound of howling jackals, spirit echo (category: animal)
+Khauno: the hollow sound of underground chasm, root of silence (category: stone)
+Lodre: the urgent sound of howling jackals, spirit echo (category: animal)
+Me: the pulselike sound of sealed sigil, thrum of possibility (category: magic)
+Moetau: the inevitable sound of turning wheel, unseen accounting (category: fate)
+Ge: the plucked sound of bronze bell, woven tone (category: instruments)
+Thuptis: the struck sound of chisel on stone, craft's imprint (category: tools)
+Wolau: the soughing sound of palm whispers, green memory (category: vegetation)
+Rne: the soft sound of marble hall, pilgrim progress (category: footsteps)
+Pto: the struck sound of chisel on stone, work's rhythm (category: tools)
+Kauso: the hollow sound of ancient monolith, root of silence (category: stone)
+Laethy: the lapping sound of riverbed, mirror of lost things (category: water)
+Gryrny: the bowed sound of bronze bell, woven tone (category: instruments)
+
+
