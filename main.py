@@ -1329,6 +1329,38 @@ PLOT_POINTS = {
         "title": "Ceres Station Siege",
         "description": "Terrorists seize control of a crucial fueling station on Ceres, disrupting interstellar travel and commerce."
     },
+    "dimensional_zoo": {
+        "title": "Dimensional Zoo",
+        "description": "New zoos house genetically engineered creatures from another dimension, including individuals existing as a child's imaginary friend."
+    },
+    "post_hack_barter": {
+        "title": "Post-Hack Barter System",
+        "description": "A technologically advanced planet collapses into a barter system following a massive hack."
+    },
+    "robot_child_preference": {
+        "title": "Robot Child Preference",
+        "description": "Lifelike and convenient robot children replace real children, leading to a decline in natural births."
+    },
+    "temporal_paradox": {
+        "title": "Temporal Paradox",
+        "description": "A hero accepts a mission to kill their past self to save humanity, but unforeseen complications arise."
+    },
+    "human_upgrade_legacy": {
+        "title": "Human Upgrade Legacy",
+        "description": "A person discovers they are a surviving result of a past human race upgrade attempt."
+    },
+    "mammal_extinction_event": {
+        "title": "Sudden Mammal Extinction",
+        "description": "An entire mammal population dies mysteriously overnight."
+    },
+    "cilantro_superpower": {
+        "title": "Cilantro Superpower",
+        "description": "Individuals genetically predisposed to dislike cilantro develop a hidden superpower."
+    },
+    "age_regression_elite": {
+        "title": "Age Regression Elite",
+        "description": "Advanced medicine allows the wealthy to maintain youthful appearances indefinitely, without extending lifespan."
+    },
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
