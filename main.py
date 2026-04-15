@@ -1361,6 +1361,38 @@ PLOT_POINTS = {
         "title": "Age Regression Elite",
         "description": "Advanced medicine allows the wealthy to maintain youthful appearances indefinitely, without extending lifespan."
     },
+	"body_lending": {
+		"title": "Body Lending",
+		"description": "Individuals can temporarily loan their bodies to other consciousnesses, entering an unconscious state during the exchange."
+    },
+	"consciousness_download": {
+		"title": "Consciousness Download",
+		"description": "Consciousness can be transferred to artificial bodies granting effective immortality, but a character questions the integrity of their own transfer."
+    },
+	"adjusted_metabolism": {
+		"title": "Adjusted Metabolism",
+		"description": "Safe metabolic adjustments allow for unlimited caloric intake, eliminating the problem of obesity."
+    },
+	"secret_plastic_surgery": {
+		"title": "Secret Plastic Surgery",
+		"description": "Pervasive government surveillance and facial recognition technology fuel a booming underground market for drastic plastic surgery."
+    },
+	"past_life_recall": {
+		"title": "Past Life Recall",
+		"description": "A growing number of people are experiencing vivid and detailed memories of past lives."
+    },
+	"hidden_vaccine": {
+		"title": "Hidden Vaccine",
+		"description": "A successful vaccine for a deadly flu pandemic was developed but deliberately withheld from the public."
+    },
+	"prepared_but_unprepared": {
+		"title": "Prepared but Unprepared",
+		"description": "The world was ready for either an alien invasion or a pandemic, but not the simultaneous occurrence of both."
+    },
+	"legal_organ_trade": {
+		"title": "Legal Organ Trade",
+		"description": "The sale of organs from living donors is now legal worldwide."
+    },
 }
 COMPLEX_CHAS = ["brilliant, but impractical", "loyal, but resentful", "brokenhearted, but joking around", "slovenly, but expensively dressed",
     "burly, but squeamish", "polite, but aloof", "cheery, but unhelpful", "relaxed, but observant", "ambitious, but awkward",
