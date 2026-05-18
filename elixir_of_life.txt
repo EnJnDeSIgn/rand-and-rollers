@@ -1,0 +1,53 @@
+What This Program Does:
+Core Features:
+Initial Script Generation — Creates a complete 4-stage trance script based on a problem:
+
+Nigredo: Breaking down the pattern, facing what's heavy
+Albedo: Purification, clarity, distinguishing truth
+Citrinitas: Integration, bringing divided parts together
+Rubedo: Completion, stability, the gold state
+Session Persistence — Saves every session so you can:
+
+Track the entire journey
+Return and continue when the problem evolves
+Watch the transformation unfold over time
+Script Evolution — When you return with an update:
+
+Acknowledges growth already made
+Recognizes the evolved problem
+Generates the next phase of the work
+Builds naturally on previous scripts
+Multiple Session Management — Handle different clients/problems simultaneously
+
+What It Incorporates:
+From Your Books:
+
+Milton H. Erickson: Presuppositions, embedded commands, pacing/leading, utilization
+Bandler & Grinder: NLP patterns, reframing, language modeling
+David Gordon: Therapeutic metaphors and analogies
+Overdurf & Silverthorn: Training trances and deepening techniques
+From Your Files:
+
+GRIMOIRE.txt: Alchemical stages, nuclear transformation, illusions, spirits of metals
+hyp.f90: Hypnotic language patterns adapted for therapeutic context
+game.py: Integration of LLM for intelligent generation
+
+1. Create New Trance Script Session
+   - Get client problem
+   - Generate all 4 stages automatically
+   - Save complete initial script
+
+2. Continue Existing Session
+   - Load previous work
+   - Get client update on their evolution
+   - Generate next script section that builds on the previous work
+   - Save evolution to session
+
+3. List All Sessions
+   - See all active transformations
+
+4. View Session Script
+   - Read complete trance script
+   - Export to file for the client to read repeatedly
+
+5. Exit
