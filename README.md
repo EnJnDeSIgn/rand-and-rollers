@@ -1,4 +1,6 @@
 [![RepoRanker](https://reporanker.com/badge/EnJnDeSIgn/rand-and-rollers)](https://reporanker.com/repos/EnJnDeSIgn/rand-and-rollers)   
+
+[![RepoRanker](https://reporanker.com/repos/EnJnDeSIgn/rand-and-rollers/badge)](https://reporanker.com/repos/EnJnDeSIgn/rand-and-rollers    
    
      
  Hi... I'm Turing's Art consultant on brainstorming and concepts,    
