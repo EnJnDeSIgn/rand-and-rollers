@@ -1,0 +1,137 @@
+[
+  {
+    "id": "fence_001",
+    "raw_text": "A householder having inspected his garden fence concluded it needed painting. He obtained grey paint from the local store, prepared a brush for painting, and painted the fence by hand to enhance the visual appearance of the property.",
+    "metadata": { "domain": "home_maintenance", "author": "annotator1", "date": "2026-08-13" },
+    "triples": [
+      { "subject": "householder", "predicate": "inspected", "object": "garden_fence", "qualifiers": {}, "source_span": { "start": 2, "end": 46 } },
+      { "subject": "householder", "predicate": "obtained_from", "object": "paint", "qualifiers": { "color": "grey", "source": "local_store" }, "source_span": { "start": 79, "end": 125 } },
+      { "subject": "householder", "predicate": "prepared", "object": "brush", "qualifiers": { "purpose": "painting" }, "source_span": { "start": 127, "end": 160 } },
+      { "subject": "householder", "predicate": "painted", "object": "fence", "qualifiers": { "method": "by_hand", "goal": "enhance_visual_appearance" }, "source_span": { "start": 166, "end": 245 } }
+    ],
+    "semantic_network": {
+      "nodes": [
+        { "id": "n3", "label": "paint_obtained", "cf_alternatives": [0.64, 0.32], "qualifiers": [ { "text": "probably obtained from store", "a": 64, "b": 0.8 } ], "provenance": "triple 2" },
+        { "id": "n6", "label": "brush_prepared", "cf_alternatives": [0.45, 0.42, 0.22, 0.22], "qualifiers": [ { "text": "may be prepared (hard brush)", "a": 45, "b": 0.45 } ], "provenance": "triple 3" },
+        { "id": "n9", "label": "fence_painted", "cf_alternatives": [0.45, 0.42, 0.22, 0.22], "qualifiers": [ { "text": "painted by hand", "a": 80, "b": 0.9 } ], "provenance": "triple 4" }
+      ],
+      "edges": [
+        { "src": "n3", "dst": "n6", "rule_cf": 0.7, "label": "prepare brush rule", "provenance": "doc_rule_1" },
+        { "src": "n6", "dst": "n9", "rule_cf": 1.0, "label": "paint fence rule", "provenance": "doc_rule_2" }
+      ]
+    },
+    "expectation": {
+      "opi": "fence",
+      "threshold": 0.5,
+      "description": "Enhance visual appearance of property (user expects at least 0.5 CF)"
+    },
+    "outcome": {
+      "predicted_cf_distribution": [0.13, 0.091, 0.077, 0.077, 0.07, 0.049, 0.041, 0.041],
+      "observed_outcome": "fence visually improved",
+      "observed_cf": 0.12
+    },
+    "provenance": "annotator1"
+  },
+
+  {
+    "id": "fence_002",
+    "raw_text": "Householder inspected fence and bought cheap paint. Brush was old and soft. He painted the fence by hand but the finish was rough.",
+    "metadata": { "domain": "home_maintenance", "author": "annotator2", "date": "2026-08-13" },
+    "triples": [
+      { "subject": "householder", "predicate": "inspected", "object": "fence", "qualifiers": {}, "source_span": { "start": 0, "end": 28 } },
+      { "subject": "householder", "predicate": "bought", "object": "paint", "qualifiers": { "quality": "cheap" }, "source_span": { "start": 33, "end": 53 } },
+      { "subject": "brush", "predicate": "is", "object": "old_and_soft", "qualifiers": {}, "source_span": { "start": 54, "end": 74 } },
+      { "subject": "householder", "predicate": "painted", "object": "fence", "qualifiers": { "method": "by_hand", "result": "rough_finish" }, "source_span": { "start": 75, "end": 110 } }
+    ],
+    "semantic_network": {
+      "nodes": [
+        { "id": "n3", "label": "paint_obtained", "cf_alternatives": [0.32], "qualifiers": [ { "text": "cheap paint", "a": 20, "b": 0.4 } ], "provenance": "triple 2" },
+        { "id": "n6", "label": "brush_prepared", "cf_alternatives": [0.22], "qualifiers": [ { "text": "old soft brush", "a": 10, "b": 0.2 } ], "provenance": "triple 3" },
+        { "id": "n9", "label": "fence_painted", "cf_alternatives": [0.22], "qualifiers": [ { "text": "rough finish", "a": 10, "b": 0.2 } ], "provenance": "triple 4" }
+      ],
+      "edges": [
+        { "src": "n3", "dst": "n6", "rule_cf": 0.6, "label": "low-quality prepare rule", "provenance": "annotator2" },
+        { "src": "n6", "dst": "n9", "rule_cf": 0.9, "label": "paint rule", "provenance": "annotator2" }
+      ]
+    },
+    "expectation": {
+      "opi": "fence",
+      "threshold": 0.6,
+      "description": "User expects a good finish (threshold 0.6)"
+    },
+    "outcome": {
+      "predicted_cf_distribution": [0.0396],
+      "observed_outcome": "finish rough, not satisfactory",
+      "observed_cf": 0.04
+    },
+    "provenance": "annotator2"
+  },
+
+  {
+    "id": "fence_003",
+    "raw_text": "After inspecting the fence the householder hired a painter who used high-quality paint and a proper brush; the fence was painted quickly and the owner was satisfied.",
+    "metadata": { "domain": "home_maintenance", "author": "annotator3", "date": "2026-08-13" },
+    "triples": [
+      { "subject": "householder", "predicate": "inspected", "object": "fence", "qualifiers": {}, "source_span": { "start": 6, "end": 34 } },
+      { "subject": "householder", "predicate": "hired", "object": "painter", "qualifiers": {}, "source_span": { "start": 35, "end": 58 } },
+      { "subject": "painter", "predicate": "used", "object": "paint_and_brush", "qualifiers": { "paint_quality": "high", "brush": "proper" }, "source_span": { "start": 63, "end": 110 } },
+      { "subject": "painter", "predicate": "painted", "object": "fence", "qualifiers": { "speed": "quickly", "result": "owner_satisfied" }, "source_span": { "start": 111, "end": 160 } }
+    ],
+    "semantic_network": {
+      "nodes": [
+        { "id": "n3", "label": "paint_obtained", "cf_alternatives": [1.0], "qualifiers": [ { "text": "high-quality paint", "a": 100, "b": 1.0 } ], "provenance": "triple 3" },
+        { "id": "n6", "label": "brush_prepared", "cf_alternatives": [1.0], "qualifiers": [ { "text": "proper brush", "a": 90, "b": 0.95 } ], "provenance": "triple 3" },
+        { "id": "n9", "label": "fence_painted", "cf_alternatives": [1.0], "qualifiers": [ { "text": "owner satisfied", "a": 100, "b": 1.0 } ], "provenance": "triple 4" }
+      ],
+      "edges": [
+        { "src": "n3", "dst": "n6", "rule_cf": 1.0, "label": "professional prepare rule", "provenance": "annotator3" },
+        { "src": "n6", "dst": "n9", "rule_cf": 1.0, "label": "professional paint rule", "provenance": "annotator3" }
+      ]
+    },
+    "expectation": {
+      "opi": "fence",
+      "threshold": 0.9,
+      "description": "Owner expects high-quality finish"
+    },
+    "outcome": {
+      "predicted_cf_distribution": [1.0],
+      "observed_outcome": "owner satisfied",
+      "observed_cf": 1.0
+    },
+    "provenance": "annotator3"
+  },
+
+  {
+    "id": "fence_004",
+    "raw_text": "Householder decided to paint to match the house. He obtained paint but ran out mid-job; brush was fine. The fence was half-painted and the owner was not satisfied.",
+    "metadata": { "domain": "home_maintenance", "author": "annotator4", "date": "2026-08-13" },
+    "triples": [
+      { "subject": "householder", "predicate": "decided_to", "object": "paint", "qualifiers": { "goal": "match_house" }, "source_span": { "start": 0, "end": 36 } },
+      { "subject": "householder", "predicate": "obtained", "object": "paint", "qualifiers": {}, "source_span": { "start": 37, "end": 55 } },
+      { "subject": "paint", "predicate": "ran_out", "object": "mid_job", "qualifiers": {}, "source_span": { "start": 56, "end": 76 } },
+      { "subject": "householder", "predicate": "painted", "object": "fence", "qualifiers": { "extent": "half_painted" }, "source_span": { "start": 77, "end": 110 } }
+    ],
+    "semantic_network": {
+      "nodes": [
+        { "id": "n3", "label": "paint_obtained", "cf_alternatives": [0.64], "qualifiers": [ { "text": "obtained but insufficient", "a": 40, "b": 0.6 } ], "provenance": "triple 2 & 3" },
+        { "id": "n6", "label": "brush_prepared", "cf_alternatives": [0.9], "qualifiers": [ { "text": "brush fine", "a": 80, "b": 0.9 } ], "provenance": "triple 4" },
+        { "id": "n9", "label": "fence_painted", "cf_alternatives": [0.32], "qualifiers": [ { "text": "half painted", "a": 30, "b": 0.5 } ], "provenance": "triple 4" }
+      ],
+      "edges": [
+        { "src": "n3", "dst": "n6", "rule_cf": 0.8, "label": "supply affects prep", "provenance": "annotator4" },
+        { "src": "n6", "dst": "n9", "rule_cf": 0.9, "label": "paint progress rule", "provenance": "annotator4" }
+      ]
+    },
+    "expectation": {
+      "opi": "fence",
+      "threshold": 0.7,
+      "description": "Owner expects full match to house (threshold 0.7)"
+    },
+    "outcome": {
+      "predicted_cf_distribution": [0.18432],
+      "observed_outcome": "half-painted, owner not satisfied",
+      "observed_cf": 0.18
+    },
+    "provenance": "annotator4"
+  }
+]

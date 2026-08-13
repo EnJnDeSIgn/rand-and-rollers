@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Linguistic Systems Annotation Schema",
+  "type": "object",
+  "required": ["id", "raw_text", "triples", "semantic_network", "expectation"],
+  "properties": {
+    "id": { "type": "string" },
+    "raw_text": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "domain": { "type": "string" },
+        "author": { "type": "string" },
+        "date": { "type": "string", "format": "date" }
+      },
+      "additionalProperties": true
+    },
+    "triples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["subject", "predicate", "object"],
+        "properties": {
+          "subject": { "type": "string" },
+          "predicate": { "type": "string" },
+          "object": { "type": "string" },
+          "qualifiers": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          },
+          "source_span": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "integer" },
+              "end": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "semantic_network": {
+      "type": "object",
+      "required": ["nodes", "edges"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "cf_alternatives"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "cf_alternatives": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "qualifiers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["text", "a", "b"],
+                  "properties": {
+                    "text": { "type": "string" },
+                    "a": { "type": "number" },
+                    "b": { "type": "number" }
+                  }
+                }
+              },
+              "provenance": { "type": "string" }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["src", "dst", "rule_cf"],
+            "properties": {
+              "src": { "type": "string" },
+              "dst": { "type": "string" },
+              "rule_cf": { "type": "number" },
+              "label": { "type": "string" },
+              "provenance": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "expectation": {
+      "type": "object",
+      "required": ["opi", "threshold", "description"],
+      "properties": {
+        "opi": { "type": "string" },
+        "threshold": { "type": "number" },
+        "description": { "type": "string" }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "predicted_cf_distribution": {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        "observed_outcome": { "type": "string" },
+        "observed_cf": { "type": "number" }
+      }
+    },
+    "provenance": { "type": "string" }
+  },
+  "additionalProperties": false
+}
